@@ -1,0 +1,90 @@
+#footer {
+  background: linear-gradient(90deg, #263572 0%, #182046 100%);
+  width: 100%;
+  position: relative;
+  padding: 3rem 0;
+}
+@media (max-width: 834px) {
+  #footer {
+    padding: 3rem 1rem;
+  }
+}
+@media (max-width: 991px) {
+  #footer .mobGapGrid {
+    row-gap: 3rem;
+  }
+}
+#footer::before {
+  content: "";
+  background-image: url(../../assets/images/foo-left.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+#footer::after {
+  content: "";
+  background-image: url(../../assets/images/foo-right.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+#footer .fooSecTitle h6 {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 2rem;
+}
+#footer .fooSecTitle ul li {
+  margin-bottom: 1.25rem;
+}
+#footer .fooSecTitle ul li:last-child {
+  margin-bottom: 0;
+}
+#footer .fooSecTitle ul li a {
+  color: #929191;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.18px;
+}
+#footer .fooSecTitle ul li ul {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.copyWriteSection {
+  background: #19191a;
+  padding: 1.5rem 0;
+}
+@media (max-width: 834px) {
+  .copyWriteSection {
+    padding: 1.5rem 1rem;
+  }
+}
+.copyWriteSection .fooSpace {
+  justify-content: space-between;
+}
+.copyWriteSection .fooSpace .Box.right {
+  text-align: right;
+}
+.copyWriteSection .fooSpace .Box p {
+  color: #ebf0ff;
+  font-family: "Exo 2";
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.18px;
+}/*# sourceMappingURL=footer.css.map */

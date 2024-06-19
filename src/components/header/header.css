@@ -1,0 +1,53 @@
+#mainTop {
+  position: relative;
+}
+
+.topBarSection {
+  background: #182046;
+  padding: 2rem 6rem 2rem 18rem;
+}
+.topBarSection .topRow {
+  display: flex;
+  justify-content: space-between;
+}
+.topBarSection .topRow .topLeftBox ul {
+  display: flex;
+  gap: 1rem;
+}
+.topBarSection .topRow .topLeftBox ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.topBarSection .topRow .topLeftBox ul li:first-child {
+  border-right: 0.1rem solid rgba(255, 255, 255, 0.5803921569);
+  padding-right: 1rem;
+}
+.topBarSection .topRow .topLeftBox ul li a {
+  color: #d9d9d9;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.topBarSection .topRow .topRightBox ul {
+  display: flex;
+  gap: 1rem;
+}
+.topBarSection .topRow .topRightBox ul li.sbTitle {
+  color: #caf75a;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-right: 0.1rem solid rgba(255, 255, 255, 0.5803921569);
+  padding-right: 1rem;
+}
+
+#header {
+  padding: 1rem 0 1rem 18rem;
+  background-color: #263574;
+}
+#header .navbar .navbar-brand {
+  position: absolute;
+  top: -25%;
+  left: -5%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}/*# sourceMappingURL=header.css.map */

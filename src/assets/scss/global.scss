@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import "../scss/media";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-family: "Exo 2";
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+ul {
+  padding: 0;
+  margin-bottom: 0;
+  li {
+    list-style: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  padding: 0;
+  margin-bottom: 0;
+}
+button {
+  border: 0;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+p,
+span,
+strong,
+b,
+a,
+li,
+input {
+  padding: 0;
+  margin-bottom: 0;
+}
+// Container Width
+@media (min-width: 576px) {
+  .container {
+    max-width: 670px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 882px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 1095px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1260px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
