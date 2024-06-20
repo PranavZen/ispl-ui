@@ -1,0 +1,91 @@
+.matchResultCard {
+  position: relative;
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding-top: 6rem;
+  .matchTagWrap {
+    position: absolute;
+    background: #caf75a;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    padding: 0.5rem 1.5rem;
+    border-bottom-right-radius: 0.8rem;
+    span {
+      color: #263574;
+      font-size: 2rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+  .matchDetailWrap {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    h6 {
+      color: #263574;
+      font-size: 2.2rem;
+      font-weight: 500;
+    }
+    p {
+      color: #6c6c6c;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+  .teamsWraps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    .boxx {
+      height: 9.3rem;
+      width: 9.3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.2rem solid #4764da;
+      border-radius: 50%;
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6.6rem;
+        height: 6.6rem;
+      }
+    }
+  }
+  .matchScoringWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin-top: 1.5rem;
+    .scoreBox {
+      width: 9.3rem;
+      text-align: center;
+      h4 {
+        color: #263574;
+        font-size: 2.6rem;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+      }
+      p {
+        color: #6c6c6c;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .matchFinalResultBox {
+    padding: 1rem 0;
+    background-color: #f5faff;
+    text-align: center;
+    h3 {
+      color: #263574;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 2.6rem;
+    }
+  }
+}

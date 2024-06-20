@@ -1,0 +1,61 @@
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide {
+  position: relative;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeImg {
+  position: relative;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent {
+  width: 70%;
+  position: absolute;
+  top: 60%;
+  left: 4.3%;
+  transform: translateY(-50%);
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent span {
+  color: #caf75a;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent h4 {
+  color: #fff;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 2.5rem;
+}
+#bannerSection .slick-slider .slick-dots {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0rem;
+  gap: 0.2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  bottom: 23%;
+  right: 4%;
+}
+#bannerSection .slick-slider .slick-dots li {
+  width: 3.5rem;
+  height: 0.5rem;
+  background-color: #9e9999;
+  border-radius: 1rem;
+}
+#bannerSection .slick-slider .slick-dots li.slick-active {
+  background-color: #fff;
+}
+#bannerSection .slick-slider .slick-dots li button {
+  width: 3.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 1rem;
+}
+#bannerSection .slick-slider .slick-dots li button::before {
+  content: none;
+}/*# sourceMappingURL=banner.css.map */

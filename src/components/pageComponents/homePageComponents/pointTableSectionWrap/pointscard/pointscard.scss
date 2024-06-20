@@ -1,0 +1,104 @@
+.pointCardWrap {
+  background-color: #f0f9ff;
+  border-radius: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  .qualifyTagWrap {
+    position: absolute;
+    top: -0.5rem;
+  }
+  .cardNumberWrap {
+    position: absolute;
+    right: 4%;
+    top: 2%;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.8rem;
+      height: 3.8rem;
+      background: #ddd;
+      border-radius: 5rem;
+      color: #16234a;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+  }
+  .teamLogoWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11.5rem;
+    margin-bottom: 3rem;
+    img{
+        object-fit: cover;
+    }
+  }
+  .teamNameWrap {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    span {
+      color: #172046;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+  }
+  .ptDetailsWrap {
+    padding: 2rem 0;
+    background: #fff;
+    border-bottom: 0.2rem solid #ddd;
+    ul {
+      display: flex;
+      justify-content: space-around;
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        .num {
+          color: #172046;
+          font-size: 1.4rem;
+          font-weight: 600;
+          &.heilightText {
+            color: #529900;
+          }
+        }
+        .lable {
+          color: #6c6c6c;
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .matchSummeryWrap {
+    padding: 2rem 0;
+    background: #fff;
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        font-size: 2rem;
+        font-weight: 600;
+        width: 3.8rem;
+        height: 3.8rem;
+        border: 0.2rem solid;
+        border-radius: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        &.losstext {
+          border-color: #16234a;
+          color: #16234a;
+        }
+        &.wintext {
+          border-color: #529900;
+          color: #529900;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+#pointsTableSection {
+  padding: 10rem 0 0;
+  background-image: url(../../../../assets/images/pointstablebg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#pointsTableSection::before {
+  content: "";
+  background-image: url(../../../../assets/images/deviderLine.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -6%;
+  top: 14%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+#pointsTableSection .mianTabsWrap .sectionWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .sectionTitle {
+  color: #fff;
+  margin-top: -3rem;
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  gap: 0.6rem;
+  height: 4.7rem;
+  border: 0.2rem solid #fff;
+  padding: 0 2rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 0.6rem;
+  transform: skew(-30deg, 0deg);
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab span {
+  transform: skew(30deg, 0deg);
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab.active {
+  border-color: #caf75a;
+  background-color: #caf75a;
+  color: #263574;
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab.active span path {
+  fill: #263574;
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab:hover {
+  border-color: #caf75a;
+  background-color: #caf75a;
+  color: #263574;
+}
+#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab:hover span path {
+  fill: #263574;
+}
+#pointsTableSection .mianTabsWrap .tab-content {
+  padding: 6rem 0;
+  height: 70rem;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider {
+  position: relative;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-list .slick-track .slick-slide {
+  padding: 0 1rem;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-dots {
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 0.2rem;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-dots li {
+  width: 3.5rem;
+  height: 0.5rem;
+  background-color: #9e9999;
+  border-radius: 1rem;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-dots li.slick-active {
+  background-color: #fff;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-dots li button {
+  width: 3.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 1rem;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-dots li button::before {
+  content: none;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tabBtnWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}/*# sourceMappingURL=pointtablesection.css.map */

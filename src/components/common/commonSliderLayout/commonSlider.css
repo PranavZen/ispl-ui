@@ -1,0 +1,29 @@
+.sliderContainer .slick-slider .slick-list .slick-track .slick-slide {
+  padding: 0 10px;
+}
+.sliderContainer .slick-slider .slick-dots {
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0rem;
+  gap: 0.2rem;
+}
+.sliderContainer .slick-slider .slick-dots li {
+  width: 3.5rem;
+  height: 0.5rem;
+  background-color: #9e9999;
+  border-radius: 1rem;
+}
+.sliderContainer .slick-slider .slick-dots li.slick-active {
+  background-color: #172046;
+}
+.sliderContainer .slick-slider .slick-dots li button {
+  width: 3.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 1rem;
+}
+.sliderContainer .slick-slider .slick-dots li button::before {
+  content: none;
+}/*# sourceMappingURL=commonSlider.css.map */

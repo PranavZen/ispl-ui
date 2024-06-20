@@ -1,0 +1,92 @@
+.matchResultCard {
+  position: relative;
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding-top: 6rem;
+}
+.matchResultCard .matchTagWrap {
+  position: absolute;
+  background: #caf75a;
+  top: 0;
+  left: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  border-bottom-right-radius: 0.8rem;
+}
+.matchResultCard .matchTagWrap span {
+  color: #263574;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.matchResultCard .matchDetailWrap {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.matchResultCard .matchDetailWrap h6 {
+  color: #263574;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+.matchResultCard .matchDetailWrap p {
+  color: #6c6c6c;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.matchResultCard .teamsWraps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.matchResultCard .teamsWraps .boxx {
+  height: 9.3rem;
+  width: 9.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.2rem solid #4764da;
+  border-radius: 50%;
+}
+.matchResultCard .teamsWraps .boxx span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6.6rem;
+  height: 6.6rem;
+}
+.matchResultCard .matchScoringWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-top: 1.5rem;
+}
+.matchResultCard .matchScoringWrap .scoreBox {
+  width: 9.3rem;
+  text-align: center;
+}
+.matchResultCard .matchScoringWrap .scoreBox h4 {
+  color: #263574;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+.matchResultCard .matchScoringWrap .scoreBox p {
+  color: #6c6c6c;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.matchResultCard .matchFinalResultBox {
+  padding: 1rem 0;
+  background-color: #f5faff;
+  text-align: center;
+}
+.matchResultCard .matchFinalResultBox h3 {
+  color: #263574;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+}/*# sourceMappingURL=matchresultcardstyle.css.map */

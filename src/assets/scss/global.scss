@@ -37,6 +37,7 @@ button {
 }
 button {
   border: 0;
+  background-color: transparent;
   &:focus {
     outline: none;
     box-shadow: none;
@@ -76,5 +77,13 @@ input {
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
+  }
+}
+.sectionTitle {
+  color: #172046;
+  font-size: 3rem;
+  font-weight: 700;
+  @include x-767-tablet{
+    font-size: 2.4rem;
   }
 }

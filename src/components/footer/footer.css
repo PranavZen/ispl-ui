@@ -47,6 +47,11 @@
   line-height: normal;
   margin-bottom: 2rem;
 }
+@media (max-width: 767px) {
+  #footer .fooSecTitle h6 {
+    font-size: 1.8rem;
+  }
+}
 #footer .fooSecTitle ul li {
   margin-bottom: 1.25rem;
 }
@@ -59,6 +64,11 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.18px;
+}
+@media (max-width: 767px) {
+  #footer .fooSecTitle ul li a {
+    font-size: 1.6rem;
+  }
 }
 #footer .fooSecTitle ul li ul {
   display: flex;
@@ -83,8 +93,13 @@
 }
 .copyWriteSection .fooSpace .Box p {
   color: #ebf0ff;
-  font-family: "Exo 2";
   font-size: 1.8rem;
   font-weight: 400;
-  letter-spacing: 0.18px;
+  letter-spacing: 0.1rem;
+}
+@media (max-width: 767px) {
+  .copyWriteSection .fooSpace .Box p {
+    text-align: center;
+    font-size: 1.4rem;
+  }
 }/*# sourceMappingURL=footer.css.map */

@@ -42,6 +42,7 @@ button {
 
 button {
   border: 0;
+  background-color: transparent;
 }
 button:focus {
   outline: none;
@@ -82,5 +83,15 @@ input {
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
+  }
+}
+.sectionTitle {
+  color: #172046;
+  font-size: 3rem;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .sectionTitle {
+    font-size: 2.4rem;
   }
 }/*# sourceMappingURL=global.css.map */

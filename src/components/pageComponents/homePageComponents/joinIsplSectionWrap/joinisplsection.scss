@@ -1,0 +1,61 @@
+#joinIsplSection {
+  padding: 8rem 0;
+  .joinIsplWrap {
+    position: relative;
+    background-image: url(../../../../assets/images/joinisplbg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 47rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    .overlayTextBox {
+      position: absolute;
+      left: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      h1 {
+        color: #fff;
+        font-size: 6.4rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: fit-content;
+        span {
+          display: block;
+          margin-top: -1rem;
+        }
+      }
+      p {
+        color: #ebf0ff;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 50%;
+        margin-bottom: 1.5rem;
+      }
+      .hashTagWrap {
+        width: 50%;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          li {
+            color: #bbb;
+            font-size: 1.8rem;
+            font-style: normal;
+            font-weight: 400;
+          }
+        }
+      }
+      .sqrBtn {
+        position: absolute;
+        margin-top: 3rem;
+      }
+    }
+  }
+}
