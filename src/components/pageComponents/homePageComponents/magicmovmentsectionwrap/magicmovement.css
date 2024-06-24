@@ -1,6 +1,11 @@
 #magicMoveMentSection {
-  padding: 10rem 0;
+  padding: 10rem 1rem;
   position: relative;
+}
+@media (max-width: 767px) {
+  #magicMoveMentSection {
+    padding: 4rem 1rem 7rem;
+  }
 }
 #magicMoveMentSection::before {
   content: "";
@@ -13,6 +18,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  pointer-events: none;
 }
 #magicMoveMentSection::after {
   content: "";
@@ -25,6 +31,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
+  pointer-events: none;
 }
 #magicMoveMentSection .imgWrap .playBtn {
   display: none;

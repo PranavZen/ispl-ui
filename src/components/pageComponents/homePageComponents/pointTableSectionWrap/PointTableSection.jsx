@@ -48,6 +48,7 @@ function PointTableSection() {
               >
                 <TableSlider>
                   <PointsTableCard
+                    addClassName="card1"
                     cardNum="1"
                     teamLogo={team1}
                     teamName="Chennai Singhams"
@@ -61,6 +62,7 @@ function PointTableSection() {
                     fullPtsLink="/"
                   />
                   <PointsTableCard
+                    addClassName="card2"
                     cardNum="2"
                     teamLogo={team2}
                     teamName="Bangalore Strikers"
@@ -74,6 +76,7 @@ function PointTableSection() {
                     fullPtsLink="/"
                   />
                   <PointsTableCard
+                    addClassName="card3"
                     cardNum="3"
                     teamLogo={team3}
                     teamName="Tiigers Of Kolkata"
@@ -87,6 +90,7 @@ function PointTableSection() {
                     fullPtsLink="/"
                   />
                   <PointsTableCard
+                    addClassName="card4"
                     cardNum="4"
                     teamLogo={team4}
                     teamName="Majhi Mumbai"
@@ -100,6 +104,7 @@ function PointTableSection() {
                     fullPtsLink="/"
                   />
                   <PointsTableCard
+                    addClassName="card5"
                     cardNum="5"
                     teamLogo={team5}
                     teamName="Majhi Mumbai"
@@ -130,13 +135,62 @@ function PointTableSection() {
 </svg>'
               >
                 <ResultSlider>
-                  <MatchResultCard />
-                  <MatchResultCard />
-                  <MatchResultCard />
-                  <MatchResultCard />
-                  <MatchResultCard />
-                  <MatchResultCard />
-                  <MatchResultCard />
+                  <MatchResultCard
+                    matchStatus="Final"
+                    location="Dadoji Kondadev Stadium"
+                    dateTime="14 Mar, 2024 | 07:45 PM"
+                    team1Logo={team1}
+                    team2Logo={team4}
+                    team1finalScore="128"
+                    team2finalScore="126"
+                    team1Out="9"
+                    team2Out="10"
+                    team1Over="10.0"
+                    team2Over="10.0"
+                    finalresult="MAJHI MUMBAI WON BY 59 RUNS"
+                  />
+                  <MatchResultCard
+                    matchStatus="Qualifier 2"
+                    location="Dadoji Kondadev Stadium"
+                    dateTime="14 Mar, 2024 | 07:45 PM"
+                    team1Logo={team2}
+                    team2Logo={team3}
+                    team1finalScore="128"
+                    team2finalScore="126"
+                    team1Out="9"
+                    team2Out="10"
+                    team1Over="10.0"
+                    team2Over="10.0"
+                    finalresult="MAJHI MUMBAI WON BY 59 RUNS"
+                  />
+                  <MatchResultCard
+                    matchStatus="Qualifier 1"
+                    location="Dadoji Kondadev Stadium"
+                    dateTime="14 Mar, 2024 | 07:45 PM"
+                    team1Logo={team1}
+                    team2Logo={team5}
+                    team1finalScore="128"
+                    team2finalScore="126"
+                    team1Out="9"
+                    team2Out="10"
+                    team1Over="10.0"
+                    team2Over="10.0"
+                    finalresult="TIIGERS OF KOLKATA WON BY 2 RUNS"
+                  />
+                  <MatchResultCard
+                    matchStatus="Qualifier 3"
+                    location="Dadoji Kondadev Stadium"
+                    dateTime="14 Mar, 2024 | 07:45 PM"
+                    team1Logo={team3}
+                    team2Logo={team2}
+                    team1finalScore="128"
+                    team2finalScore="126"
+                    team1Out="9"
+                    team2Out="10"
+                    team1Over="10.0"
+                    team2Over="10.0"
+                    finalresult="TIIGERS OF KOLKATA WON BY 4 RUNS"
+                  />
                 </ResultSlider>
                 <div className="tabBtnWrap">
                   <SqareButton

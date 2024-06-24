@@ -1,6 +1,21 @@
 #joinIsplSection {
   padding: 8rem 0;
 }
+@media (max-width: 1024px) {
+  #joinIsplSection {
+    padding: 0rem 0 5rem;
+  }
+}
+@media (max-width: 834px) {
+  #joinIsplSection {
+    padding: 0rem 0 5rem;
+  }
+}
+@media (max-width: 767px) {
+  #joinIsplSection {
+    display: none;
+  }
+}
 #joinIsplSection .joinIsplWrap {
   position: relative;
   background-image: url(../../../../assets/images/joinisplbg.png);
@@ -11,6 +26,16 @@
   height: 47rem;
   border-radius: 0.6rem;
   overflow: hidden;
+}
+@media (max-width: 1024px) {
+  #joinIsplSection .joinIsplWrap {
+    height: 40rem;
+  }
+}
+@media (max-width: 834px) {
+  #joinIsplSection .joinIsplWrap {
+    height: 30rem;
+  }
 }
 #joinIsplSection .joinIsplWrap .overlayTextBox {
   position: absolute;
@@ -29,9 +54,30 @@
   width: -moz-fit-content;
   width: fit-content;
 }
+@media (max-width: 1024px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox h1 {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 834px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox h1 {
+    font-size: 2.4rem;
+  }
+}
 #joinIsplSection .joinIsplWrap .overlayTextBox h1 span {
   display: block;
   margin-top: -1rem;
+}
+@media (max-width: 1024px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox h1 span img {
+    height: 3rem;
+  }
+}
+@media (max-width: 834px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox h1 span img {
+    height: 2rem;
+    margin-top: 1rem;
+  }
 }
 #joinIsplSection .joinIsplWrap .overlayTextBox p {
   color: #ebf0ff;
@@ -41,6 +87,16 @@
   line-height: normal;
   width: 50%;
   margin-bottom: 1.5rem;
+}
+@media (max-width: 1024px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox p {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 834px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox p {
+    font-size: 1.4rem;
+  }
 }
 #joinIsplSection .joinIsplWrap .overlayTextBox .hashTagWrap {
   width: 50%;
@@ -56,7 +112,22 @@
   font-style: normal;
   font-weight: 400;
 }
+@media (max-width: 1024px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox .hashTagWrap ul li {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 834px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox .hashTagWrap ul li {
+    font-size: 1.2rem;
+  }
+}
 #joinIsplSection .joinIsplWrap .overlayTextBox .sqrBtn {
   position: absolute;
   margin-top: 3rem;
+}
+@media (max-width: 834px) {
+  #joinIsplSection .joinIsplWrap .overlayTextBox .sqrBtn {
+    margin-top: 1rem;
+  }
 }/*# sourceMappingURL=joinisplsection.css.map */

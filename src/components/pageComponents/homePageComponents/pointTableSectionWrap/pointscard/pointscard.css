@@ -1,9 +1,24 @@
 .pointCardWrap {
-  background-color: #f0f9ff;
   border-radius: 1.2rem;
   position: relative;
   overflow: hidden;
   padding-top: 8rem;
+  background-color: #f0f9ff;
+}
+.pointCardWrap.card1 {
+  background-color: #f0f9ff;
+}
+.pointCardWrap.card2 {
+  background-color: #fff2f3;
+}
+.pointCardWrap.card3 {
+  background-color: #f6f6f6;
+}
+.pointCardWrap.card4 {
+  background-color: #fffbee;
+}
+.pointCardWrap.card5 {
+  background-color: #fff4e8;
 }
 .pointCardWrap .qualifyTagWrap {
   position: absolute;

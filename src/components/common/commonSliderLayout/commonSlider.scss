@@ -1,9 +1,14 @@
+@import "../../../assets/scss/media";
+
 .sliderContainer {
   .slick-slider {
     .slick-list {
       .slick-track {
         .slick-slide {
           padding: 0 10px;
+          @include x-767-tablet{
+            padding: 0;
+          }
         }
       }
     }

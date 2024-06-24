@@ -83,6 +83,9 @@ input {
   color: #172046;
   font-size: 3rem;
   font-weight: 700;
+  @include md-tablet{
+    font-size: 2.6rem;
+  }
   @include x-767-tablet{
     font-size: 2.4rem;
   }

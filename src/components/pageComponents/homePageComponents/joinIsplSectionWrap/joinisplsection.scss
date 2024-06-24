@@ -1,5 +1,16 @@
+@import "../../../../assets/scss/media";
+
 #joinIsplSection {
   padding: 8rem 0;
+  @include d-desktop{
+    padding: 0rem 0 5rem;
+  }
+  @include md-tablet{
+    padding: 0rem 0 5rem;
+  }
+  @include x-767-tablet {
+    display: none;
+  }
   .joinIsplWrap {
     position: relative;
     background-image: url(../../../../assets/images/joinisplbg.png);
@@ -10,6 +21,12 @@
     height: 47rem;
     border-radius: 0.6rem;
     overflow: hidden;
+    @include d-desktop{
+      height: 40rem;
+    }
+    @include md-tablet {
+      height: 30rem;
+    }
     .overlayTextBox {
       position: absolute;
       left: 3%;
@@ -24,9 +41,24 @@
         justify-content: flex-start;
         align-items: center;
         width: fit-content;
+        @include d-desktop{
+          font-size: 4rem;
+        }
+        @include md-tablet {
+          font-size: 2.4rem;
+        }
         span {
           display: block;
           margin-top: -1rem;
+          img {
+            @include d-desktop{
+              height: 3rem;
+            }
+            @include md-tablet {
+              height: 2rem;
+              margin-top: 1rem;
+            }
+          }
         }
       }
       p {
@@ -37,6 +69,12 @@
         line-height: normal;
         width: 50%;
         margin-bottom: 1.5rem;
+        @include d-desktop{
+          font-size: 1.6rem;
+        }
+        @include md-tablet {
+          font-size: 1.4rem;
+        }
       }
       .hashTagWrap {
         width: 50%;
@@ -49,12 +87,21 @@
             font-size: 1.8rem;
             font-style: normal;
             font-weight: 400;
+            @include d-desktop{
+              font-size: 1.4rem;
+            }
+            @include md-tablet {
+              font-size: 1.2rem;
+            }
           }
         }
       }
       .sqrBtn {
         position: absolute;
         margin-top: 3rem;
+        @include md-tablet{
+          margin-top: 1rem;
+        }
       }
     }
   }

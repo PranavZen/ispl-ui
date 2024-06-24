@@ -1,6 +1,23 @@
 #heighhlightsSection {
-  padding: 0 0 13rem;
-  margin-top: -10rem;
+  padding: 8rem 0 13rem;
+}
+@media (max-width: 767px) {
+  #heighhlightsSection {
+    margin-top: 0;
+    padding: 5rem 1rem 7rem;
+  }
+}
+#heighhlightsSection .topSecWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 0 0.5rem;
+}
+@media (max-width: 767px) {
+  #heighhlightsSection .topSecWrap {
+    padding: 0 1rem;
+  }
 }
 #heighhlightsSection .shareBox .timeText {
   display: none;

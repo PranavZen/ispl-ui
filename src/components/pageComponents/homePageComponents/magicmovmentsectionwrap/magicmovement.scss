@@ -1,8 +1,11 @@
 @import "../../../../assets/scss/media";
 #magicMoveMentSection {
-  padding: 10rem 0;
+  padding: 10rem 1rem;
   position: relative;
-  &::before{
+  @include x-767-tablet {
+    padding: 4rem 1rem 7rem;
+  }
+  &::before {
     content: "";
     background-image: url(../../../../assets/images/lampLeft.png);
     background-position: bottom left;
@@ -13,8 +16,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    pointer-events: none;
   }
-  &::after{
+  &::after {
     content: "";
     background-image: url(../../../../assets/images/lampRight.png);
     background-position: bottom right;
@@ -25,6 +29,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    pointer-events: none;
   }
   .imgWrap {
     .playBtn {

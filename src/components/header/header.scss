@@ -5,6 +5,12 @@
 .topBarSection {
   background: #182046;
   padding: 1rem 6rem 1rem 18rem;
+  @include d-desktop {
+    padding: 1rem 2rem 1rem 10rem;
+  }
+  @include md-tablet {
+    padding: 1rem 2rem 1rem 4rem;
+  }
   @include x-767-tablet {
     display: none;
   }
@@ -53,6 +59,12 @@
   padding: 1rem 0 1rem 18rem;
   background-color: #263574;
   position: relative;
+  @include d-desktop {
+    padding: 1rem 1rem 1rem 10rem;
+  }
+  @include md-tablet {
+    padding: 1rem 2rem 1rem 8rem;
+  }
   @include x-767-tablet {
     padding: 0rem 1rem 0rem 2rem;
   }
@@ -63,7 +75,7 @@
       left: -5%;
       transform: translate(-50%, -50%);
       margin: 0;
-      @include x-767-tablet {
+      @include md-tablet {
         position: relative;
         transform: none;
         img {
@@ -132,13 +144,19 @@
             &.dropdown {
               .dropdown-menu {
                 background: linear-gradient(90deg, #263572 0%, #182046 100%);
-                padding:1rem 1.5rem;
-                &[data-bs-popper]{
+                padding: 1rem 1.5rem;
+                &[data-bs-popper] {
                   left: -50px;
+                  @include d-desktop{
+                    left: -100px;
+                  }
+                  @include md-tablet {
+                    left: -50px;
+                  }
                 }
                 li {
-                  margin-bottom: .5rem;
-                  &:last-child{
+                  margin-bottom: 0.5rem;
+                  &:last-child {
                     margin-bottom: 0;
                   }
                   .dropdown-item {
@@ -169,6 +187,14 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    @include d-1280-desktop {
+      right: 17.8%;
+      top: -22px;
+    }
+    @include md-tablet{
+      right: -2.2%;
+      top: 50%;
+    }
     @include x-767-tablet {
       display: none;
     }
@@ -194,6 +220,9 @@
       font-size: 1.8rem;
       font-weight: 600;
       line-height: 0;
+      @include md-tablet {
+        font-size: 1.4rem;
+      }
     }
   }
 }

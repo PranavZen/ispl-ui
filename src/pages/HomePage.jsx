@@ -5,16 +5,20 @@ import JoinIsplSection from "../components/pageComponents/homePageComponents/joi
 import Banner from "../components/pageComponents/homePageComponents/hompageBannerSection/Banner";
 import PointTableSection from "../components/pageComponents/homePageComponents/pointTableSectionWrap/PointTableSection";
 import LatestVideoSection from "../components/pageComponents/homePageComponents/latestvideossectionWrap/LatestVideoSection";
+import NewsEventsSection from "../components/pageComponents/homePageComponents/newseventsSectionWrap/NewsEventsSection";
+import GlimpseSection from "../components/pageComponents/homePageComponents/glimpseSectionWrap/GlimpseSection";
 
 function HomePage() {
   return (
     <>
       <Banner />
       <HeighlightsSection />
-      <PointTableSection/>
+      <PointTableSection />
       <MagicMovementSection />
-      <LatestVideoSection/>
+      <LatestVideoSection />
       <JoinIsplSection />
+      <NewsEventsSection />
+      <GlimpseSection />
     </>
   );
 }

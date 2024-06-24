@@ -1,9 +1,24 @@
 .pointCardWrap {
-  background-color: #f0f9ff;
   border-radius: 1.2rem;
   position: relative;
   overflow: hidden;
   padding-top: 8rem;
+  background-color: #f0f9ff;
+  &.card1 {
+    background-color: #f0f9ff;
+  }
+  &.card2 {
+    background-color: #fff2f3;
+  }
+  &.card3 {
+    background-color: #f6f6f6;
+  }
+  &.card4 {
+    background-color: #fffbee;
+  }
+  &.card5 {
+    background-color: #fff4e8;
+  }
   .qualifyTagWrap {
     position: absolute;
     top: -0.5rem;
@@ -31,8 +46,8 @@
     align-items: center;
     height: 11.5rem;
     margin-bottom: 3rem;
-    img{
-        object-fit: cover;
+    img {
+      object-fit: cover;
     }
   }
   .teamNameWrap {

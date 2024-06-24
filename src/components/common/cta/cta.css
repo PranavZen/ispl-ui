@@ -13,6 +13,11 @@
   gap: 2rem;
   padding: 0 2rem;
 }
+@media (max-width: 1024px) {
+  .sqrBtn {
+    font-size: 1.8rem;
+  }
+}
 @media (max-width: 767px) {
   .sqrBtn {
     height: 4rem;

@@ -1,0 +1,75 @@
+.eventCardWrap {
+  position: relative;
+  border-radius: 1.4rem;
+  overflow: hidden;
+}
+.eventCardWrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(360deg, rgb(23, 32, 70) 0%, rgba(23, 32, 70, 0.2862394958) 100%);
+}
+.eventCardWrap .eImgWrap {
+  width: 100%;
+  height: 36.5rem;
+  position: relative;
+}
+.eventCardWrap .eImgWrap img {
+  width: 100%;
+}
+.eventCardWrap .overLayBox {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 95%;
+  z-index: 2;
+}
+@supports (-webkit-line-clamp: 2) {
+  .eventCardWrap .overLayBox .TextWraps {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+.eventCardWrap .overLayBox .TextWraps .newsCategory {
+  color: #caf75a;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.eventCardWrap .overLayBox .TextWraps h3 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@supports (-webkit-line-clamp: 2) {
+  .eventCardWrap .overLayBox .TextWraps h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+.eventCardWrap .overLayBox .readMoreBtnWrap {
+  border-top: 0.2rem solid #ddd;
+  padding: 1rem 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  color: #caf75a;
+  font-size: 1.8rem;
+  font-weight: 600;
+}/*# sourceMappingURL=eventnewscard.css.map */

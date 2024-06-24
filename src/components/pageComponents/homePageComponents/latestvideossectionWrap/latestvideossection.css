@@ -2,13 +2,30 @@
   background-image: url(../../../../assets/images/latestBg.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   width: 100%;
-  height: 71.4rem;
-  padding: 6rem 0;
+  height: 100%;
   margin-top: -1rem;
+  padding: 0 1rem;
 }
 #latestVideoSection .sectionTitle {
   color: #fff;
   text-align: center;
+  padding-top: 8rem;
+}
+@media (max-width: 767px) {
+  #latestVideoSection .sectionTitle {
+    padding-top: 4rem;
+  }
+}
+#latestVideoSection .centerBtnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0 10rem;
+}
+@media (max-width: 767px) {
+  #latestVideoSection .centerBtnWrap {
+    padding: 4rem 0 4rem;
+  }
 }/*# sourceMappingURL=latestvideossection.css.map */

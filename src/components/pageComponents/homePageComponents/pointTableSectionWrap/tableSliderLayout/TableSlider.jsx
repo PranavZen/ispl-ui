@@ -9,7 +9,6 @@ function TableSlider({ children }) {
     infinite: true,
     loop: true,
     slidesToShow: 4,
-    // centerMode: true,
     slidesToScroll: 3,
     arrows: false,
     autoplay: true,

@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../hompageBannerSection/banner.css";
 import BannerSlideItem from "./BannerSlideItem";
-import { banner1 } from "../../../../assets/imagePath";
+import { banner1, banner2, banner3, banner4 } from "../../../../assets/imagePath";
 
 function Banner() {
   const settings = {
@@ -15,7 +15,7 @@ function Banner() {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
     responsive: [
       {
         breakpoint: 1100,
@@ -40,27 +40,27 @@ function Banner() {
         <BannerSlideItem
           tagline="“AB CHALTE HAI STREET TO STADIUM”"
           bannerImg={banner1}
-          title="1 ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
+          title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
           buttonName="Register Now"
         />
         <BannerSlideItem
           tagline="“AB CHALTE HAI STREET TO STADIUM”"
-          bannerImg={banner1}
-          title="2 ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
+          bannerImg={banner2}
+          title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
           buttonName="Register Now"
         />
         <BannerSlideItem
           tagline="“AB CHALTE HAI STREET TO STADIUM”"
-          bannerImg={banner1}
-          title="3 ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
+          bannerImg={banner3}
+          title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
           buttonName="Register Now"
         />
-        <BannerSlideItem
+        {/* <BannerSlideItem
           tagline="“AB CHALTE HAI STREET TO STADIUM”"
-          bannerImg={banner1}
-          title="4 ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
+          bannerImg={banner4}
+          title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
           buttonName="Register Now"
-        />
+        /> */}
       </Slider>
     </section>
   );

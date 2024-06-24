@@ -1,15 +1,33 @@
 import React from "react";
 import HeighlightsCard from "../../../common/sliderCard/heighlights/HeighlightsCard";
 import CommonSlider from "../../../common/commonSliderLayout/CommonSlider";
-import { img1, img2, img3, img4, img5, img6 } from "../../../../assets/imagePath";
+import {
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+} from "../../../../assets/imagePath";
 import "../heighlightsSectionWrap/heighlightsPage.css";
+import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
+import SqareButton from "../../../common/cta/SqareButton";
 function HeighlightsSection() {
   return (
     <section id="heighhlightsSection">
       <div className="container">
         <div className="row">
           <div className="col-lg-10 col-md-12 col-12 mx-auto px-0">
-            {/* <SectionTitle titleText="Recent" /> */}
+            <div className="topSecWrap">
+              <SectionTitle titleText="Magic Movements" />
+              <SqareButton
+                classNameText="sqrBtn"
+                btnName="View More"
+                svgFill="#263574"
+                textColor="#263574"
+                bordercolor="#263574"
+              />
+            </div>
             <CommonSlider>
               <HeighlightsCard
                 title="Match Highlights"

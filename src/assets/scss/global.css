@@ -90,6 +90,11 @@ input {
   font-size: 3rem;
   font-weight: 700;
 }
+@media (max-width: 834px) {
+  .sectionTitle {
+    font-size: 2.6rem;
+  }
+}
 @media (max-width: 767px) {
   .sectionTitle {
     font-size: 2.4rem;

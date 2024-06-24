@@ -1,0 +1,87 @@
+#animeGallery {
+  padding-top: 10rem;
+}
+@media (max-width: 767px) {
+  #animeGallery {
+    padding-top: 4rem;
+  }
+}
+#animeGallery .sectionTitle {
+  text-align: center;
+  padding-bottom: 6rem;
+}
+
+#glimpseSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  height: 50rem;
+  overflow: hidden;
+  position: relative;
+}
+#glimpseSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(360deg, rgb(23, 32, 70) 0%, rgba(23, 32, 70, 0) 100%);
+  pointer-events: all;
+}
+
+#image-container {
+  flex-shrink: 0;
+  width: 200px;
+  height: 150%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+  overflow: hidden;
+}
+
+.image {
+  flex-shrink: 0;
+  height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: move 45s linear infinite alternate;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.picture {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+@keyframes move {
+  0% {
+    transform: translatey(0);
+  }
+  100% {
+    transform: translatey(500%);
+  }
+}
+#image-container:nth-child(even) .image {
+  animation-direction: alternate-reverse;
+}
+
+#image-container:nth-child(odd) {
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+}
+
+#image-container:hover .image {
+  animation-play-state: paused;
+}/*# sourceMappingURL=glimpsesection.css.map */

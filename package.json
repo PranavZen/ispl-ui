@@ -1,5 +1,6 @@
 {
-  "name": "ispl-website",
+  "name": "ispl.popopower.com",
+  "homepage": "https://ispl.popopower.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -23,8 +23,18 @@ function ResultSlider({children}) {
         },
       },
       {
+        breakpoint: 768,
+        settings: {
+          // centerMode: false,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
+          centerMode: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,

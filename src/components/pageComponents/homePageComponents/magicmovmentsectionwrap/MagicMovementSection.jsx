@@ -24,7 +24,7 @@ function MagicMovementSection() {
                 btnName="View More"
                 svgFill="#263574"
                 textColor="#263574"
-                bordercolor="#263574"
+                bordercolor="#263574" 
               />
             </div>
             <CommonSlider>

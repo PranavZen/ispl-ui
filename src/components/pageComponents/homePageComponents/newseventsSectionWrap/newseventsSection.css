@@ -1,0 +1,55 @@
+#eventNewsSection {
+  background-color: #f1f4ff;
+  padding: 10rem 1rem 13rem;
+}
+@media (max-width: 767px) {
+  #eventNewsSection {
+    padding: 4rem 1rem 7rem;
+  }
+}
+#eventNewsSection .topSecWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 0 0.5rem;
+}
+@media (max-width: 767px) {
+  #eventNewsSection .topSecWrap {
+    padding: 0 1rem;
+  }
+}
+#eventNewsSection .eventSliderContainer .slick-slider .slick-list .slick-track .slick-slide {
+  padding: 0 10px;
+}
+@media (max-width: 767px) {
+  #eventNewsSection .eventSliderContainer .slick-slider .slick-list .slick-track .slick-slide {
+    padding: 0;
+  }
+}
+#eventNewsSection .eventSliderContainer .slick-slider .slick-dots {
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0rem;
+  gap: 0.2rem;
+}
+#eventNewsSection .eventSliderContainer .slick-slider .slick-dots li {
+  width: 3.5rem;
+  height: 0.5rem;
+  background-color: #9e9999;
+  border-radius: 1rem;
+}
+#eventNewsSection .eventSliderContainer .slick-slider .slick-dots li.slick-active {
+  background-color: #172046;
+}
+#eventNewsSection .eventSliderContainer .slick-slider .slick-dots li button {
+  width: 3.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 1rem;
+}
+#eventNewsSection .eventSliderContainer .slick-slider .slick-dots li button::before {
+  content: none;
+}/*# sourceMappingURL=newseventsSection.css.map */

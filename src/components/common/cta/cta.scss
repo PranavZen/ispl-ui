@@ -12,10 +12,14 @@
   font-weight: 600;
   gap: 2rem;
   padding: 0 2rem;
+  @include d-desktop{
+    font-size: 1.8rem;
+  }
   @include x-767-tablet {
     height: 4rem;
     font-size: 1.4rem;
     padding: 0 1rem;
     gap: 1rem;
   }
+
 }

@@ -8,6 +8,11 @@
   height: 100%;
   position: relative;
 }
+@media (max-width: 767px) {
+  #pointsTableSection {
+    padding: 7rem 1rem 0;
+  }
+}
 #pointsTableSection::before {
   content: "";
   background-image: url(../../../../assets/images/deviderLine.svg);
@@ -26,6 +31,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 767px) {
+  #pointsTableSection .mianTabsWrap .sectionWrap {
+    flex-direction: column;
+    gap: 3rem;
+  }
 }
 #pointsTableSection .mianTabsWrap .sectionWrap .sectionTitle {
   color: #fff;
@@ -53,6 +64,18 @@
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 0.6rem;
   transform: skew(-30deg, 0deg);
+}
+@media (max-width: 834px) {
+  #pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab {
+    font-size: 1.6rem;
+    margin-right: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  #pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab {
+    font-size: 1.4rem;
+    margin-right: 0rem;
+  }
 }
 #pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab span {
   transform: skew(30deg, 0deg);
@@ -82,6 +105,11 @@
 }
 #pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-list .slick-track .slick-slide {
   padding: 0 1rem;
+}
+@media (max-width: 767px) {
+  #pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-list .slick-track .slick-slide {
+    padding: 0;
+  }
 }
 #pointsTableSection .mianTabsWrap .tab-content .tableSliderWrap .slick-slider .slick-dots {
   position: relative;
@@ -113,4 +141,11 @@
   display: flex;
   justify-content: center;
   margin-top: 8rem;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tabBtnWrap .sqrBtn:hover {
+  background-color: #caf75a;
+  color: #263574 !important;
+}
+#pointsTableSection .mianTabsWrap .tab-content .tabBtnWrap .sqrBtn:hover span svg path {
+  fill: #263574;
 }/*# sourceMappingURL=pointtablesection.css.map */

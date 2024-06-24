@@ -2,20 +2,33 @@ import React from "react";
 import "../matchresultcard/matchresultcardstyle.css";
 import { team1, team3, vs } from "../../../../../assets/imagePath";
 
-function MatchResultCard() {
+function MatchResultCard({
+  matchStatus,
+  location,
+  dateTime,
+  team1Logo,
+  team2Logo,
+  team1finalScore,
+  team2finalScore,
+  team1Out,
+  team2Out,
+  team1Over,
+  team2Over,
+  finalresult,
+}) {
   return (
     <div className="matchResultCard">
       <div className="matchTagWrap">
-        <span>final</span>
+        <span>{matchStatus}</span>
       </div>
       <div className="matchDetailWrap">
-        <h6>Dadoji Kondadev Stadium</h6>
-        <p>15 Mar, 2024 | 06:00 PM</p>
+        <h6>{location}</h6>
+        <p>{dateTime}</p>
       </div>
       <div className="teamsWraps">
         <div className="leftTeamWrap boxx">
           <span>
-            <img src={team1} alt="" className="img-fluid" />
+            <img src={team1Logo} alt="" className="img-fluid" />
           </span>
         </div>
         <div className="midBoxx">
@@ -25,22 +38,22 @@ function MatchResultCard() {
         </div>
         <div className="rightTeamWrap boxx">
           <span>
-            <img src={team3} alt="" className="img-fluid" />
+            <img src={team2Logo} alt="" className="img-fluid" />
           </span>
         </div>
       </div>
       <div className="matchScoringWrap">
         <div className="leftTeamScore scoreBox">
-          <h4>58/9</h4>
-          <p>10.0 OV</p>
+          <h4>{team1finalScore}/{team1Out}</h4>
+          <p>{team1Over} OV</p>
         </div>
         <div className="rightTeamScore scoreBox">
-          <h4>58/9</h4>
-          <p>10.0 OV</p>
+          <h4>{team2finalScore}/{team2Out}</h4>
+          <p>{team2Over} OV</p>
         </div>
       </div>
       <div className="matchFinalResultBox">
-        <h3>TIIGERS OF KOLKATA WON BY 4 RUNS</h3>
+        <h3>{finalresult}</h3>
       </div>
     </div>
   );

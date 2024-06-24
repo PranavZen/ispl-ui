@@ -1,6 +1,11 @@
 .sliderContainer .slick-slider .slick-list .slick-track .slick-slide {
   padding: 0 10px;
 }
+@media (max-width: 767px) {
+  .sliderContainer .slick-slider .slick-list .slick-track .slick-slide {
+    padding: 0;
+  }
+}
 .sliderContainer .slick-slider .slick-dots {
   position: relative;
   display: flex !important;

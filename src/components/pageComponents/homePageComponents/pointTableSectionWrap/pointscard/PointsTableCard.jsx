@@ -3,6 +3,7 @@ import "../pointscard/pointscard.css";
 import { Link } from "react-router-dom";
 
 function PointsTableCard({
+  addClassName,
   cardNum,
   teamLogo,
   teamName,
@@ -16,7 +17,7 @@ function PointsTableCard({
   fullPtsLink,
 }) {
   return (
-    <div className="pointCardWrap">
+    <div className={`pointCardWrap ${addClassName}`}>
       <Link to={fullPtsLink}>
         <div className="qualifyTagWrap">
           <img src={tag} alt={teamName} className="img-fluid" />

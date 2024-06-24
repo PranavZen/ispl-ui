@@ -1,0 +1,59 @@
+@import "../../../../assets/scss/media";
+
+#eventNewsSection {
+  background-color: #f1f4ff;
+  padding: 10rem 1rem 13rem;
+  @include x-767-tablet{
+    padding: 4rem 1rem 7rem;
+  }
+  .topSecWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 0 0.5rem;
+    @include x-767-tablet {
+      padding: 0 1rem;
+    }
+  }
+  .eventSliderContainer {
+    .slick-slider {
+      .slick-list {
+        .slick-track {
+          .slick-slide {
+            padding: 0 10px;
+            @include x-767-tablet{
+              padding: 0;
+            }
+          }
+        }
+      }
+      .slick-dots {
+        position: relative;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0rem;
+        gap: 0.2rem;
+        li {
+          width: 3.5rem;
+          height: 0.5rem;
+          background-color: #9e9999;
+          border-radius: 1rem;
+          &.slick-active {
+            background-color: #172046;
+          }
+          button {
+            width: 3.5rem;
+            height: 0.5rem;
+            padding: 0;
+            border-radius: 1rem;
+            &::before {
+              content: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
