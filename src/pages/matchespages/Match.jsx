@@ -4,7 +4,7 @@ import "../matchespages/matchesstyle.css";
 function Match() {
   return (
     <>
-      <section className="w-100 body-part pt-0 subpage-head-common rugby-special">
+      <section className="w-100 body-part pt-0 subpahe-head-cmon rugby-spacla">
         <div className="d-inline-block w-100">
           <span className="bgi-text light-text01">Matches</span>
           <div className="col-lg-12 mx-auto">

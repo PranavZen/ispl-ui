@@ -154,6 +154,9 @@ input {
     rgb(0 56 123) 51%,
     rgb(0 0 50) 101%
   );
+  @include md-tablet{
+    padding: 0rem 0 4rem;
+  }
   .mianTabsWrap {
     .sectionWrap {
       border-bottom: .1rem solid #ddd;
@@ -178,6 +181,9 @@ input {
 
 .playerspage{
   padding: 4rem 0 10rem;
+  @include x-767-tablet{
+    padding: 0rem 0 6rem;
+  }
   .sectionTitle{
     margin: 4rem 0;
     text-transform: capitalize;

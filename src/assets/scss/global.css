@@ -160,6 +160,11 @@ input {
   padding: 8rem 0;
   background: linear-gradient(90deg, rgb(2, 10, 54) 0%, rgb(0, 56, 123) 51%, rgb(0, 0, 50) 101%);
 }
+@media (max-width: 834px) {
+  .teamListSection {
+    padding: 0rem 0 4rem;
+  }
+}
 .teamListSection .mianTabsWrap .sectionWrap {
   border-bottom: 0.1rem solid #ddd;
 }
@@ -181,6 +186,11 @@ input {
 
 .playerspage {
   padding: 4rem 0 10rem;
+}
+@media (max-width: 767px) {
+  .playerspage {
+    padding: 0rem 0 6rem;
+  }
 }
 .playerspage .sectionTitle {
   margin: 4rem 0;
