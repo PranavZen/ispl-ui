@@ -1,9 +1,9 @@
 import React from "react";
 import "../cta/cta.css";
 
-function SqareButton({ classNameText, btnName, svgFill, textColor, bordercolor }) {
+function SqareButton({ classNameText, btnName, svgFill, textColor, bordercolor, onClick }) {
   return (
-    <button className={classNameText} style={{color: textColor, borderColor: bordercolor}}>
+    <button className={classNameText} style={{color: textColor, borderColor: bordercolor}} onClick={onClick}>
       {btnName}
       <span>
         <svg

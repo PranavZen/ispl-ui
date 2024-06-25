@@ -1,0 +1,54 @@
+.leag-name {
+  display: inline-block;
+  width: 100%;
+  padding: 40px 0;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.leag-name h2 {
+  font-family: "Kanit", sans-serif;
+  text-transform: uppercase;
+  /* font-style: italic; */
+  font-weight: 700;
+  background: #212529;
+  position: relative;
+  z-index: 2;
+  padding: 15px 0;
+}
+
+.leag-name h4 {
+  padding: 10px 0 0 0;
+  left: 0;
+  right: 0;
+  font-family: "Kanit", sans-serif;
+  text-transform: uppercase;
+  /* font-style: italic */
+}
+
+.rugby-spacla .comon-results-div {
+    background: #010123;
+    display: grid;
+    /* padding: 0 20px; */
+    width: 100%;
+    margin-bottom: 30px;
+    /* border-radius: 8px; */
+    position: relative;
+    overflow: hidden;
+    min-height: 370px;
+    align-content: center;
+}
+
+.comon-results-div {
+	display: grid;
+	padding: 0 20px;
+	width: 100%;
+	margin-bottom: 30px;
+	border-radius: 8px;
+	position: relative;
+	overflow: hidden;
+	/* min-height: 470px; */
+	align-content: end
+}

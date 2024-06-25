@@ -16,9 +16,9 @@ function ResultSlider({children}) {
     autoplaySpeed: 2500,
     responsive: [
       {
-        breakpoint: 1100,
+        breakpoint: 1025,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },

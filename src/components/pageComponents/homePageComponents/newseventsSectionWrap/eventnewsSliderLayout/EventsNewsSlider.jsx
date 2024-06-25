@@ -10,7 +10,7 @@ function EventsNewsSlider({ children }) {
     slidesToShow: 3,
     slidesToScroll: 2,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 1500,
     responsive: [
       {

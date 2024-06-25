@@ -14,7 +14,7 @@
   }
 }
 #pointsTableSection::before {
-  content: "";
+  content: none;
   background-image: url(../../../../assets/images/deviderLine.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -40,61 +40,6 @@
 }
 #pointsTableSection .mianTabsWrap .sectionWrap .sectionTitle {
   color: #fff;
-  margin-top: -3rem;
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-  gap: 0.6rem;
-  height: 4.7rem;
-  border: 0.2rem solid #fff;
-  padding: 0 2rem;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 600;
-  border-bottom-left-radius: 2rem;
-  border-top-left-radius: 0.6rem;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 0.6rem;
-  transform: skew(-30deg, 0deg);
-}
-@media (max-width: 834px) {
-  #pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab {
-    font-size: 1.6rem;
-    margin-right: 1rem;
-  }
-}
-@media (max-width: 767px) {
-  #pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab {
-    font-size: 1.4rem;
-    margin-right: 0rem;
-  }
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab span {
-  transform: skew(30deg, 0deg);
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab.active {
-  border-color: #caf75a;
-  background-color: #caf75a;
-  color: #263574;
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab.active span path {
-  fill: #263574;
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab:hover {
-  border-color: #caf75a;
-  background-color: #caf75a;
-  color: #263574;
-}
-#pointsTableSection .mianTabsWrap .sectionWrap .tabs .tab:hover span path {
-  fill: #263574;
 }
 #pointsTableSection .mianTabsWrap .tab-content {
   padding: 6rem 0;

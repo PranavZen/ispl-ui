@@ -83,10 +83,103 @@ input {
   color: #172046;
   font-size: 3rem;
   font-weight: 700;
-  @include md-tablet{
+  @include md-tablet {
     font-size: 2.6rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     font-size: 2.4rem;
+  }
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    gap: 0.6rem;
+    height: 4.7rem;
+    border: 0.2rem solid #fff;
+    padding: 0 2rem;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    border-bottom-left-radius: 2rem;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 0.6rem;
+    transform: skew(-30deg, 0deg);
+    @include md-tablet {
+      font-size: 1.6rem;
+      margin-right: 1rem;
+    }
+    @include x-767-tablet {
+      font-size: 1.4rem;
+      margin-right: 0rem;
+    }
+    span {
+      transform: skew(30deg, 0deg);
+    }
+    &.active {
+      border-color: #caf75a;
+      background-color: #caf75a;
+      color: #263574;
+      span {
+        path {
+          fill: #263574;
+        }
+      }
+    }
+    &:hover {
+      border-color: #caf75a;
+      background-color: #caf75a;
+      color: #263574;
+      span {
+        path {
+          fill: #263574;
+        }
+      }
+    }
+  }
+}
+
+.teamListSection {
+  padding: 8rem 0;
+  background: linear-gradient(
+    90deg,
+    rgb(2 10 54) 0%,
+    rgb(0 56 123) 51%,
+    rgb(0 0 50) 101%
+  );
+  .mianTabsWrap {
+    .sectionWrap {
+      border-bottom: .1rem solid #ddd;
+      .sectionTitle {
+        display: none;
+      }
+    }
+    .tabs {
+      margin-bottom: 3rem;
+      justify-content: center;
+    }
+    .tab-content {
+      padding-top: 3rem;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.playerspage{
+  padding: 4rem 0 10rem;
+  .sectionTitle{
+    margin: 4rem 0;
+    text-transform: capitalize;
   }
 }

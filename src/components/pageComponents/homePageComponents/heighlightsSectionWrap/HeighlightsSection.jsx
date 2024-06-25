@@ -19,7 +19,7 @@ function HeighlightsSection() {
         <div className="row">
           <div className="col-lg-10 col-md-12 col-12 mx-auto px-0">
             <div className="topSecWrap">
-              <SectionTitle titleText="Magic Movements" />
+              <SectionTitle titleText="Match Highlights" />
               <SqareButton
                 classNameText="sqrBtn"
                 btnName="View More"

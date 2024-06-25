@@ -14,22 +14,32 @@ function Footer() {
                     <h6>Teams</h6>
                     <ul>
                       <li>
-                        <Link to="">Majhi Mumbai</Link>
+                        <Link to="/team-list/majhi-mumbai">Majhi Mumbai</Link>
                       </li>
                       <li>
-                        <Link to="">Chennai Singams</Link>
+                        <Link to="/team-list/chennai-singams">
+                          Chennai Singams
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">Tiigers of Kolkata</Link>
+                        <Link to="/team-list/tiigers-of-kolkata">
+                          Tiigers of Kolkata
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">Srinagar Ke Veer</Link>
+                        <Link to="/team-list/srinagar-ke-veer">
+                          Srinagar Ke Veer
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">KVN Bangalore Strikers</Link>
+                        <Link to="/team-list/kvn-bangalore-strikers">
+                          KVN Bangalore Strikers
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">Falcon Risers Hyderabad</Link>
+                        <Link to="/team-list/falcon-risers-hyderabad">
+                          Falcon Risers Hyderabad
+                        </Link>
                       </li>
                     </ul>
                   </div>

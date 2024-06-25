@@ -1,6 +1,6 @@
 import React from "react";
 import "../matchresultcard/matchresultcardstyle.css";
-import { team1, team3, vs } from "../../../../../assets/imagePath";
+import { vs } from "../../../../../assets/imagePath";
 
 function MatchResultCard({
   matchStatus,
