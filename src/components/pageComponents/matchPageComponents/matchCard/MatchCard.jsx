@@ -1,5 +1,6 @@
 import React from 'react';
 import "../matchCard/matchCardStyles.css";
+import { Link } from 'react-router-dom';
 
 function MatchCard() {
   return (
@@ -9,7 +10,7 @@ function MatchCard() {
           <div className="col-lg-12 mx-auto">
             <div className="common-results-div">
               <div className="leag-name text-center">
-                <h2>ISPLrrr T-10 Latest Winner</h2>
+                <h2>ISPL T-10 Latest Winner</h2>
                 <div className="common-results-div">
                   <div className="row align-items-center justify-content-center">
                     <div className="col-3">
@@ -30,13 +31,13 @@ function MatchCard() {
                       <div className="d-none d-md-block">
                         <div className="vds-result text-center">
                           <div className="watch-div">
-                            <a href="" className="btn ">
+                            <Link href="" className="btn ">
                               <img
                                 src="https://www.ispl-t10.com/assets/image/versus.png"
                                 style={{ width: "50px" }}
                                 alt="versus"
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
