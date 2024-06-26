@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
+import { bat, redball } from "../../assets/imagePath";
 
 function FalconRisersHyderabad() {
   return (
@@ -124,7 +125,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -140,7 +141,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -156,7 +157,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -172,7 +173,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -191,8 +192,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/KDQRTIX89KrTISHZ1bn0zSIBGOtEqtgNfhf0mlkb.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -207,8 +209,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/256VAA14IXjFBl5IuAH3AVHwCM9V1SoPXRzYq5jV.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -223,8 +226,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/VkDqnJmG6bjRy0LJy7Rl1SM87NUUWonK4nuUYp7z.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -239,8 +243,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/yBcheThShlEvimEIcck4D1PotHzKpoemtzSILLZT.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -255,8 +260,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/10H6Pci9IlzzDsLf8ICUFcIhdmPnaRNoIQfHVBPk.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -271,8 +277,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/nu25kJAnW2xvI39suVxWLGopOB6b8JzvT3i8bFi6.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -287,8 +294,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/7o9DjhUR8RkZl0BJIaFbtStijYELGjyE2Y2XxuAA.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -303,8 +311,9 @@ function FalconRisersHyderabad() {
                       src="https://www.ispl-t10.com/images/team-master/players/7XuFQjFyF5iajNkUSsomcElvYpD4mNqtVHR2Zv5G.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -323,7 +332,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -339,7 +348,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -355,7 +364,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -371,7 +380,7 @@ function FalconRisersHyderabad() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">

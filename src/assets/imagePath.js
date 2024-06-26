@@ -34,3 +34,5 @@ export { default as playIcon } from "../assets/images/playIcon.svg";
 export { default as newsImg1 } from "../assets/images/news1.png";
 export { default as newsImg2 } from "../assets/images/news2.png";
 export { default as newsImg3 } from "../assets/images/news3.png";
+export { default as redball } from "../assets/images/redball.svg";
+export { default as bat } from "../assets/images/bat.svg";

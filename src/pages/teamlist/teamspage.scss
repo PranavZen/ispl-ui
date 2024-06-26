@@ -19,7 +19,7 @@
   overflow: hidden;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
   margin: 30px;
-  @include x-767-tablet{
+  @include x-767-tablet {
     min-width: 90% !important;
   }
 }
@@ -72,14 +72,14 @@
   left: 119px;
   bottom: 25%;
   font-size: 20px;
-  @include md-tablet{
+  @include md-tablet {
     font-size: 16px !important;
     left: 0px !important;
     bottom: 15% !important;
     text-align: center;
     width: 100%;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     font-size: 18px !important;
   }
 }
@@ -100,278 +100,276 @@
 }
 
 .card-image {
-    display: block !important;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0vw !important;
-    padding: 1vw !important;
-    border-radius: solid 2px !important;
- }
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0vw !important;
+  padding: 1vw !important;
+  border-radius: solid 2px !important;
+}
 
- .background_image {
-    background-color: #ffffff;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
- }
+.background_image {
+  background-color: #ffffff;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
 
- .about-sec-home {
-    min-height: 377px !important;
- }
+.about-sec-home {
+  min-height: 377px !important;
+}
 
- .img-team {
-    display: flex;
-    justify-content: center;
- }
+.img-team {
+  display: flex;
+  justify-content: center;
+}
 
- .mindle-heading h2 {
-    font-family: "Kanit", sans-serif;
-    text-transform: uppercase;
-    color: #212529;
-    font-size: 40px;
-    margin-top: 10px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    /* font-style: italic; */
- }
+.mindle-heading h2 {
+  font-family: "Kanit", sans-serif;
+  text-transform: uppercase;
+  color: #212529;
+  font-size: 40px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  /* font-style: italic; */
+}
 
- .mindle-heading {
-    padding-top: 5px !important;
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    z-index: 1;
- }
+.mindle-heading {
+  padding-top: 5px !important;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
 
- .hero {
-    display: inline-block;
-    position: relative;
-    width: 328px;
-    min-width: 263px;
-    height: 331px;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
-    margin: 30px;
- }
+.hero {
+  display: inline-block;
+  position: relative;
+  width: 328px;
+  min-width: 263px;
+  height: 331px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+}
 
+.hero-description-bk {
+  /* background-image: linear-gradient(0deg, #3f5efb, #fc466b); */
+  border-radius: 30px;
+  position: absolute;
+  top: 55%;
+  left: -5px;
+  height: 65%;
+  width: 108%;
+  transform: skew(19deg, -9deg);
+}
 
-
- .hero-description-bk {
-    /* background-image: linear-gradient(0deg, #3f5efb, #fc466b); */
-    border-radius: 30px;
-    position: absolute;
-    top: 55%;
-    left: -5px;
-    height: 65%;
-    width: 108%;
-    transform: skew(19deg, -9deg);
- }
-
- /* .second .hero-description-bk {
+/* .second .hero-description-bk {
       background-image: linear-gradient(-20deg, #293699, #000000);
   } */
 
- .hero-logo {
-    height: 80px;
-    width: 80px;
-    border-radius: 20px;
-    background-color: #fff0;
-    position: absolute;
-    bottom: 30%;
-    left: 30px;
-    overflow: hidden;
-    /* box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7); */
- }
-
- .hero-logo img {
-    height: 100%;
- }
-
- .hero-description {
-    position: absolute;
-    color: #fff;
-    font-weight: 900;
-    text-transform: uppercase;
-    left: 119px;
-    bottom: 25%;
-    font-size: 20px;
- }
-
-
- .hero-btn a {
-    color: #fff;
- }
-
- .hero-date {
-    position: absolute;
-    color: #fff;
-    left: 30px;
-    bottom: 10%;
- }
-
- .team-detail-text {
-    width: 90%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    background: #112a5c;
-    border-radius: 10px;
-    overflow: hidden;
- }
-
- @media screen and (max-width: 786px) {
-    .team-detail-text {
-       width: 100%;
-    }
-
-    .team-logo img {
-       width: 100px !important;
-
-    }
- }
-
-
- .team-detail-text p {
-    width: 100%;
-    margin: 0;
-    padding: 11px 15px 8px;
-    display: flex;
-    font-size: 18px;
-    border-bottom: 2px solid #031945;
-    color: #fff;
-    letter-spacing: 1px;
- }
-
- .team-detail-text p span:first-child {
-    color: #ffc52f;
- }
-
- .team-detail-text p span {
-    text-align: start;
-    color: #fff;
-    display: block;
-    width: 64px;
- }
-
- .team-detail-text p b {
-    margin-right: 20px;
-    margin-left: 20px;
- }
-
- .team-owner-img {
-    width: 50%;
- }
-
- .team-name {
-    padding-left: 20px;
-    border-left: 1px solid #fff;
-    ;
-    color: #fff;
- }
-
- .team-logo img {
-    width: 150px;
-    margin-right: 16px;
- }
-
- .custom-about {
-    margin-bottom: 20px;
- }
-
- .team-logos img {
-    width: 70%;
-    background: #2b467c;
-    border: 1px solid white;
-    margin: 5px;
-    border-radius: 30px;
-
- }
-
- .bat-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 5px;
-    border-radius: 0 0 0 5px;
- }
-
- .about-club-top {
-    margin-top: 30px !important;
- }
-.team-name {
-    h2{
-        font-size: 3.4rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
+.hero-logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+  background-color: #fff0;
+  position: absolute;
+  bottom: 30%;
+  left: 30px;
+  overflow: hidden;
+  /* box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7); */
 }
- .palyerspage {
-    background-color: #f0f2f8;
- }
 
- .vn-teamOverviewWrap .vn-teamNav ul li .right-tick {
-    position: absolute;
-    right: 0;
-    top: -10px;
-    color: #fff;
- }
- .crm-teams01 {
- 
+.hero-logo img {
+  height: 100%;
+}
+
+.hero-description {
+  position: absolute;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  left: 119px;
+  bottom: 25%;
+  font-size: 20px;
+}
+
+.hero-btn a {
+  color: #fff;
+}
+
+.hero-date {
+  position: absolute;
+  color: #fff;
+  left: 30px;
+  bottom: 10%;
+}
+
+.team-detail-text {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background: #112a5c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 786px) {
+  .team-detail-text {
+    width: 100%;
+  }
+
+  .team-logo img {
+    width: 100px !important;
+  }
+}
+
+.team-detail-text p {
+  width: 100%;
+  margin: 0;
+  padding: 11px 15px 8px;
+  display: flex;
+  font-size: 18px;
+  border-bottom: 2px solid #031945;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.team-detail-text p span:first-child {
+  color: #ffc52f;
+}
+
+.team-detail-text p span {
+  text-align: start;
+  color: #fff;
+  display: block;
+  width: 64px;
+}
+
+.team-detail-text p b {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.team-owner-img {
+  width: 50%;
+}
+
+.team-name {
+  padding-left: 20px;
+  border-left: 1px solid #fff;
+  color: #fff;
+}
+
+.team-logo img {
+  width: 150px;
+  margin-right: 16px;
+}
+
+.custom-about {
+  margin-bottom: 20px;
+}
+
+.team-logos img {
+  width: 70%;
+  background: #2b467c;
+  border: 1px solid white;
+  margin: 5px;
+  border-radius: 30px;
+}
+
+.bat-icon {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  padding: 5px;
+  transform: rotate(170deg);
+  &.allRoundBox{
+   width: 10%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   right: 15px;
+  }
+}
+
+.about-club-top {
+  margin-top: 30px !important;
+}
+.team-name {
+  h2 {
+    font-size: 3.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+.palyerspage {
+  background-color: #f0f2f8;
+}
+
+.vn-teamOverviewWrap .vn-teamNav ul li .right-tick {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  color: #fff;
+}
+.crm-teams01 {
   justify-content: center !important;
   display: flex !important;
-  
 }
 
 .crm-teams01 {
-	position: relative;
-	height: auto;
-	width: 100%;
-	border-radius: 8px;
-	background: white;
-	border: 1px solid #848484;
-	display: inline-block;
-	overflow: hidden
+  position: relative;
+  height: 30rem;
+  width: 100%;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #848484;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .crm-teams01 .design {
-	position: absolute;
-	bottom: 10px;
+  position: absolute;
+  bottom: 10px;
 }
 
 .crm-teams01 .design h5 {
-	padding: 8px 15px;
-	border-radius: 8px;
-	background: rgba(0, 0, 0, .5);
-	color: #fff;
-	font-size: 15px
+  padding: 8px 15px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 15px;
 }
 
 .crm-teams01 .design p {
-    background: #0047c0;
-    color: #fff;
-    border-radius: 5px;
-    padding: 5px 15px;
-    font-size: 16px;
-    font-weight: 600;
+  background: #0047c0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .crm-teams01 figure {
-	height: auto;
-	width: 100%;
-	display: inline-block
+  height: auto;
+  width: 100%;
+  display: inline-block;
 }
 
 .crm-teams01 figure img {
-	transform: scale(1);
-	object-position: top;
-	transition: all .5s;
-	object-fit: cover;
-	width: 100%;
-	height: 100%
+  transform: scale(1);
+  object-position: top;
+  transition: all 0.5s;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
-.crm-teams01:hover figure img {
-	transform: scale(1.1)
-}
+// .crm-teams01:hover figure img {
+//   transform: scale(1.1);
+// }

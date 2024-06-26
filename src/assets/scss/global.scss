@@ -154,12 +154,12 @@ input {
     rgb(0 56 123) 51%,
     rgb(0 0 50) 101%
   );
-  @include md-tablet{
+  @include md-tablet {
     padding: 0rem 0 4rem;
   }
   .mianTabsWrap {
     .sectionWrap {
-      border-bottom: .1rem solid #ddd;
+      border-bottom: 0.1rem solid #ddd;
       .sectionTitle {
         display: none;
       }
@@ -179,13 +179,96 @@ input {
   }
 }
 
-.playerspage{
+.playerspage {
   padding: 4rem 0 10rem;
-  @include x-767-tablet{
+  @include x-767-tablet {
     padding: 0rem 0 6rem;
   }
-  .sectionTitle{
+  .sectionTitle {
     margin: 4rem 0;
     text-transform: capitalize;
+  }
+}
+
+#videoSection {
+  padding: 8rem 0 10rem;
+  background: #10172b;
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 6rem;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .cardInner {
+    .cardAllWrap {
+      .imgWrap {
+        height: 26rem;
+      }
+      .midBox {
+        h5 {
+          color: #fff;
+        }
+      }
+      .footBox {
+        .dateBox {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .shareBox {
+    svg {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+  &.pgNotFoundSection {
+    .pgNotFoundNotBox {
+      height: 30vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 0.3rem;
+      h3 {
+        color: #000;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 3.6rem;
+      }
+    }
+  }
+}
+
+#newsSection {
+  padding: 8rem 0 10rem;
+  background: #10172b;
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 6rem;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .eventCardWrap {
+    border: 0.2rem solid #fff;
+  }
+  &.pgNotFoundSection {
+    .pgNotFoundNotBox {
+      height: 30vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 0.3rem;
+      h3 {
+        color: #000;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 3.6rem;
+      }
+    }
   }
 }

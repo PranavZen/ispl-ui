@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
+import { bat, redball } from "../../assets/imagePath";
 
 function SrinagarKeVeer() {
   return (
@@ -124,7 +125,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -140,7 +141,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -156,7 +157,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -172,7 +173,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -191,8 +192,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/UqwI3uNqgVvrdgGQfYyR0OwfgRkTxzrmxZPOHXVq.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -207,8 +209,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/8rC8UOOjzPfFYJJGKj76DtHPjDQFb5bXiuO8j2LU.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -223,8 +226,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/7xt2iaoskbv3Ti5MSeCXrsK6l5e7EgoVL3rU9rxh.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -239,8 +243,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/rS79KXPc1UqjAaQ0Xd4yjExNcAOWQ0gojjHUHnNf.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -255,8 +260,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/YCXadIWYCsvCGSoH6ExoOacBbmxMTf7wdEe0B7vb.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -271,8 +277,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/vLJzFYtyXPQmxqAlg2IbMwWvO1SqaTL2ecgua3WV.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -287,8 +294,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/FjvN2g2mGzGAysXgJQ4AxV9z0ehwmHQ41nH6sGZV.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -303,8 +311,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/bcl7sPAG43r7bostQRbMCVrsVu0qiDvxpqHpBOTu.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -319,8 +328,9 @@ function SrinagarKeVeer() {
                       src="https://www.ispl-t10.com/images/team-master/players/c5Z3G5EAqF4O9uDIIOiCZjNe3Ojf9IaPWd8CZPyS.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -340,7 +350,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -356,7 +366,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -372,7 +382,7 @@ function SrinagarKeVeer() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">

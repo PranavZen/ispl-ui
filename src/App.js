@@ -12,6 +12,14 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import BangaloreStrikers from "./pages/teamlist/BangaloreStrikers";
 import FalconRisersHyderabad from "./pages/teamlist/FalconRisersHyderabad";
 import Match from "./pages/matchespages/Match";
+import AllVideos from "./pages/videos/AllVideos";
+import LatestVideos from "./pages/videos/LatestVideos";
+import HighlightsVideos from "./pages/videos/HighlightsVideos";
+import AuctionVideos from "./pages/videos/AuctionVideos";
+import MagicMoments from "./pages/videos/MagicMoments";
+import Interviews from "./pages/videos/Interviews";
+import NewsPages from "./pages/newspage/NewsPages";
+import Announcement from "./pages/newspage/Announcement";
 
 function App() {
   return (
@@ -29,6 +37,14 @@ function App() {
           <Route path="/team-list/kvn-bangalore-strikers" element={<BangaloreStrikers />} />
           <Route path="/team-list/falcon-risers-hyderabad" element={<FalconRisersHyderabad />} />
           <Route path="/matches" element={<Match />} />
+          <Route path="/video/All" element={<AllVideos />} />
+          <Route path="/video/latest" element={<LatestVideos />} />
+          <Route path="/video/highlights" element={<HighlightsVideos />} />
+          <Route path="/video/auction" element={<AuctionVideos />} />
+          <Route path="/video/magic-moments" element={<MagicMoments />} />
+          <Route path="/video/interviews" element={<Interviews />} />
+          <Route path="/news/all-news" element={<NewsPages />} />
+          <Route path="/news/announcement" element={<Announcement />} />
         </Routes>
         <Footer />
       </BrowserRouter>

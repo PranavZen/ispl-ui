@@ -195,4 +195,71 @@ input {
 .playerspage .sectionTitle {
   margin: 4rem 0;
   text-transform: capitalize;
+}
+
+#videoSection {
+  padding: 8rem 0 10rem;
+  background: #10172b;
+}
+#videoSection .sectionTitle {
+  text-align: center;
+  margin-bottom: 6rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+#videoSection .cardInner .cardAllWrap .imgWrap {
+  height: 26rem;
+}
+#videoSection .cardInner .cardAllWrap .midBox h5 {
+  color: #fff;
+}
+#videoSection .cardInner .cardAllWrap .footBox .dateBox {
+  color: #fff;
+}
+#videoSection .shareBox svg path {
+  fill: #fff;
+}
+#videoSection.pgNotFoundSection .pgNotFoundNotBox {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.3rem;
+}
+#videoSection.pgNotFoundSection .pgNotFoundNotBox h3 {
+  color: #000;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.6rem;
+}
+
+#newsSection {
+  padding: 8rem 0 10rem;
+  background: #10172b;
+}
+#newsSection .sectionTitle {
+  text-align: center;
+  margin-bottom: 6rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+#newsSection .eventCardWrap {
+  border: 0.2rem solid #fff;
+}
+#newsSection.pgNotFoundSection .pgNotFoundNotBox {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.3rem;
+}
+#newsSection.pgNotFoundSection .pgNotFoundNotBox h3 {
+  color: #000;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.6rem;
 }/*# sourceMappingURL=global.css.map */

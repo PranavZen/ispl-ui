@@ -2,23 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { newsImg1 } from "../../../../../assets/imagePath";
 import "../eventnewscard/eventnewscard.css";
-function EventsnNewsCard() {
+function EventsnNewsCard({
+  newsLink, 
+  newsType,
+  thumbnailUrl,
+  newsTitle
+}) {
   return (
-    <Link to="/aaa" className="eventCardWrap">
+    <Link to={newsLink} className="eventCardWrap">
       <div className="eImgWrap">
-        <img src={newsImg1} alt="" className="img-fluid" />
+        <img src={thumbnailUrl} alt="" className="img-fluid" />
       </div>
       <div className="overLayBox">
         <div className="TextWraps">
-          <span className="newsCategory">News</span>
+          <span className="newsCategory">{newsType}</span>
           <h3>
-            Here's what cricket legend Sachin Tendulkar said at the occasion of
-            the first-ever auction Lorem ipsum dolor sit amet.
+            {newsTitle}
           </h3>
         </div>
 
         <div className="readMoreBtnWrap">
-          read more{" "}
+          read more
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

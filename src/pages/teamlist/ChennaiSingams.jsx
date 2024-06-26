@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
+import { bat, redball } from "../../assets/imagePath";
 
 function ChennaiSingams() {
   return (
@@ -123,8 +124,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/Cwu5FqRx8TV8MO5pF0aV3yTfPGkMIkOwcSyIK962.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -139,8 +141,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/V9Lod9QZzsaPPDY4VPJmsExRk0uznwSFWsZwyj0a.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -155,8 +158,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/6aWIfGxN37iPZf1f59XMLzNORDxe4Q9R7V1cHuJd.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -171,8 +175,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/NJYMT7y12mCBvBkXiCwlJLoKGDeVwsraNKkxGZMS.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -187,8 +192,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/jHgMCRLGhlTdHSnTvudS3Divhz5VXdbP9SUyIyOx.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -203,8 +209,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/S0vQOr35Vz3jHi4huGzinuQRGZLa4pSwotUNMvqh.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -219,8 +226,9 @@ function ChennaiSingams() {
                     src="https://www.ispl-t10.com/images/team-master/players/IfR5Wn2CcNHLSvOH4zNyF3EhyMpRDpHflZn2MbNT.png"
                     alt="teams01"
                   />
-                  <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                  <div className="bat-icon allRoundBox">
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
+                    <img src={bat} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -239,7 +247,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -255,7 +263,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -271,7 +279,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -287,7 +295,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -303,7 +311,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={redball} alt="BOWLERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -322,7 +330,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={bat} alt="BATTERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -338,7 +346,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={bat} alt="BATTERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -354,7 +362,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={bat} alt="BATTERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">
@@ -370,7 +378,7 @@ function ChennaiSingams() {
                     alt="teams01"
                   />
                   <div className="bat-icon">
-                    <i className="fas fa-baseball"></i>
+                    <img src={bat} alt="BATTERS" className="img-fluid" />
                   </div>
                 </figure>
                 <div className="design">

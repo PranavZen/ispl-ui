@@ -9,12 +9,12 @@ function HeighlightsCard({
   date,
   matchLink,
   shareLink,
-  timeText
+  timeText,
 }) {
   return (
     <div className="position-relative">
       <div className="cardInner">
-        <Link to={matchLink} className="cardAllWrap">
+        <Link to={matchLink} className="cardAllWrap" data-fancybox>
           <div className="imgWrap">
             <img src={backgroundImg} alt={mainTitle} className="img-fluid" />
             <div className="playBtn">

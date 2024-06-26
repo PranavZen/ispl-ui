@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
+import { bat, redball } from "../../assets/imagePath";
 
 function TigersOfKolkata() {
   return (
     <section className="teamPage">
       <div
         className="about-page-main comon-sub-page-main  d-inline-block w-100"
-        style={{ backgroundImage: 'url(https://www.ispl-t10.com/assets/image/ispl-bg.jpg)' }}
+        style={{
+          backgroundImage:
+            "url(https://www.ispl-t10.com/assets/image/ispl-bg.jpg)",
+        }}
       >
         <div className="about-club-top">
           <div className="container">
@@ -112,7 +116,6 @@ function TigersOfKolkata() {
       <div className="playerspage d-inline-block w-100">
         <div className="container">
           <div className="container">
-           
             <SectionTitle titleText="Bowlers" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
               <div className="col-6 col-sm-3">
@@ -123,7 +126,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -139,7 +142,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -155,7 +158,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -171,7 +174,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={redball} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -180,7 +183,7 @@ function TigersOfKolkata() {
                 </div>
               </div>
             </div>
-            
+
             <SectionTitle titleText="Batters" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
               <div className="col-6 col-sm-3">
@@ -191,7 +194,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -207,7 +210,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -223,7 +226,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -239,7 +242,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -255,7 +258,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -271,7 +274,7 @@ function TigersOfKolkata() {
                       alt="teams01"
                     />
                     <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                      <img src={bat} alt="BATTERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -280,7 +283,7 @@ function TigersOfKolkata() {
                 </div>
               </div>
             </div>
-            
+
             <SectionTitle titleText="All Rounders" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
               <div className="col-6 col-sm-3">
@@ -290,8 +293,9 @@ function TigersOfKolkata() {
                       src="https://www.ispl-t10.com/images/team-master/players/Ew5qWMgfzmWpCHTAiInZlRqAZyl1gXOxT7hnExPY.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -306,8 +310,9 @@ function TigersOfKolkata() {
                       src="https://www.ispl-t10.com/images/team-master/players/PFIcatoj2LpTOi6KshOXeYrJqXXCj2r4jdZH3VLt.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -322,8 +327,9 @@ function TigersOfKolkata() {
                       src="https://www.ispl-t10.com/images/team-master/players/B6ucXOVZ8akamiSYKSCokoWbMpLZz6CskTKc9tV5.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -338,8 +344,9 @@ function TigersOfKolkata() {
                       src="https://www.ispl-t10.com/images/team-master/players/ZCWzhjj3X4WW5ri6OEQDt92KfN6zSU1pOW76HZs9.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -354,8 +361,9 @@ function TigersOfKolkata() {
                       src="https://www.ispl-t10.com/images/team-master/players/jCqGGAbQxsdDASMrEJMWJuJrpfzI6O3e2xsK1l7B.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
@@ -370,8 +378,9 @@ function TigersOfKolkata() {
                       src="https://www.ispl-t10.com/images/team-master/players/9EgmCjZDLVNngqBFru34OcdYdhe4ES5hJhUoY8b8.png"
                       alt="teams01"
                     />
-                    <div className="bat-icon">
-                      <i className="fas fa-baseball"></i>
+                    <div className="bat-icon allRoundBox">
+                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img src={bat} alt="BOWLERS" className="img-fluid" />
                     </div>
                   </figure>
                   <div className="design">
