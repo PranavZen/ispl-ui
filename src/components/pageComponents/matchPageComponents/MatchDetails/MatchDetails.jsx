@@ -81,7 +81,7 @@ function MatchDetails() {
 
                 <div className="col-1 col-md-2 shedTeam d-flex justify-content-end align-items-center">
                   <Link
-                    href="https://www.ispl-t10.com/matche-center/22"
+                    to="/matches/matchNumber"
                     className="btn continue-bn btn-match-center"
                   >
                     <SqareButton

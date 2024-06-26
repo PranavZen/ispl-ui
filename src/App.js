@@ -21,6 +21,9 @@ import Interviews from "./pages/videos/Interviews";
 import NewsPages from "./pages/newspage/NewsPages";
 import Announcement from "./pages/newspage/Announcement";
 import RegistrationPage from "./pages/registration/RegistrationPage";
+import TeamDetails from "./pages/matchTeamDetails/TeamDetails";
+import Contact from "./pages/contactpage/Contact";
+import About from "./pages/aboutpage/About";
 
 function App() {
   return (
@@ -38,6 +41,7 @@ function App() {
           <Route path="/team-list/kvn-bangalore-strikers" element={<BangaloreStrikers />} />
           <Route path="/team-list/falcon-risers-hyderabad" element={<FalconRisersHyderabad />} />
           <Route path="/matches" element={<Match />} />
+          <Route path="/matches/matchNumber" element={<TeamDetails />} />
           <Route path="/video/All" element={<AllVideos />} />
           <Route path="/video/latest" element={<LatestVideos />} />
           <Route path="/video/highlights" element={<HighlightsVideos />} />
@@ -46,6 +50,8 @@ function App() {
           <Route path="/video/interviews" element={<Interviews />} />
           <Route path="/news/all-news" element={<NewsPages />} />
           <Route path="/news/announcement" element={<Announcement />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/registration" element={<RegistrationPage />} />
         </Routes>
         <Footer />

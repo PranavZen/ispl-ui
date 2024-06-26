@@ -44,9 +44,6 @@
     width: 33%;
     padding: initial;
   }
-  .row > * {
-    padding-right: 1px !important;
-  }
   .w-md-75 {
     width: 57% !important;
   }
@@ -492,9 +489,6 @@
   .result-tab img {
     width: 33%;
     padding: initial;
-  }
-  .row > * {
-    padding-right: 1px !important;
   }
   .w-md-75 {
     width: 57% !important;

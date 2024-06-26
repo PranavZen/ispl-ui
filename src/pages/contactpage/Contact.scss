@@ -1,0 +1,132 @@
+.contact-page {
+  padding: 70px 0;
+  background-color: #10172b;
+
+  .row {
+    @media (max-width: 576px) {
+      margin: 0 auto !important;
+    }
+  }
+
+  .container {
+    margin: 0 auto !important;
+    @media (min-width: 576px) {
+      width: 540px;
+    }
+    @media (min-width: 768px) {
+      width: 720px;
+    }
+    @media (min-width: 992px) {
+      width: 960px;
+    }
+    @media (min-width: 1200px) {
+      width: 1140px;
+    }
+  }
+
+  .faq-section1 {
+    .sectionTitle {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-style: normal;
+      color: #ffffff;
+    }
+    p {
+      text-transform: capitalize;
+      font-size: 14px !important;
+    }
+    h2 {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-style: normal;
+      color: #ffffff;
+      font-size: 32px !important;
+      @media (min-width: 576px) {
+        font-size: 25px !important;
+      }
+      @media (min-width: 768px) {
+        font-size: 28px !important;
+      }
+      @media (min-width: 1024px) {
+        font-size: 30px !important;
+      }
+
+      button {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+      }
+    }
+    .accordion-button {
+      padding: 16px 20px !important;
+    }
+  }
+  .contact-use-div {
+    .sectionTitle {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-style: normal;
+      color: #ffffff;
+    }
+    ul {
+      margin-bottom: 48px;
+      li {
+        margin-bottom: 18px;
+
+        span {
+          font-size: 14px;
+          &:first-child {
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-style: normal;
+            color: #0047c0;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    form {
+      border: 0;
+      margin: 0;
+      outline: none !important;
+      padding: 0;
+      vertical-align: baseline;
+
+      .row {
+        @media (max-width: 576px) {
+          margin-top: 1.5rem !important;
+        }
+      }
+      .from-group {
+        margin-bottom: 15px;
+        textarea.form-control {
+          height: 100px;
+          resize: none;
+        }
+        .form-control {
+          background-color: #ffffff;
+          border: none !important;
+          height: 45px;
+          font-size: 14px;
+        }
+      }
+      .continue-bn {
+        font-size: 16px !important;
+        background: #000c61;
+        color: #fff !important;
+        font-weight: 700;
+        width: 100%;
+        display: inline-block;
+        font-family: "Kanit", sans-serif;
+        text-transform: uppercase;
+        font-style: normal;
+        letter-spacing: 1px;
+        height: 45px;
+        line-height: 31px;
+        &:hover {
+          background: #212529;
+        }
+      }
+    }
+  }
+}

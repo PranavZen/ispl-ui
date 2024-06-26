@@ -382,12 +382,12 @@ function Header() {
                         </Link>
                         <ul className="dropdown-menu">
                           <li>
-                            <Link className="dropdown-item" to="#">
+                            <Link className="dropdown-item" to="/contact-us">
                             Contact Us
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" to="#">
+                            <Link className="dropdown-item" to="/about">
                               About Us
                             </Link>
                           </li>
