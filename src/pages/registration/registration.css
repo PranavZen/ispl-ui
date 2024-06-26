@@ -1,0 +1,49 @@
+#registrationFormSection {
+  padding: 6rem 0 10rem;
+  background: #010123;
+  background-image: url(../../assets/images/latestBg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#registrationFormSection .sectionTitle {
+  text-align: center;
+  margin-bottom: 6rem;
+  color: #fff;
+}
+#registrationFormSection .form-label {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+#registrationFormSection .form-control {
+  font-size: 1.6rem;
+  color: #010123;
+  height: 4.5rem;
+  border: 0.2rem solid #fff;
+}
+#registrationFormSection .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+#registrationFormSection .form-select {
+  font-size: 1.6rem;
+  color: #010123;
+  height: 4.5rem;
+  border: 0.2rem solid #fff;
+  cursor: pointer;
+}
+#registrationFormSection .btmText {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-top: 3rem;
+}
+#registrationFormSection .btmText .regster-bn {
+  color: #caf75a;
+}/*# sourceMappingURL=registration.css.map */

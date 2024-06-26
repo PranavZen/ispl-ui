@@ -6,7 +6,7 @@ function MatchCard() {
   return (
     <section className="w-100 body-part pt-0 subpahe-head-cmon rugby-spacla">
         <div className="d-inline-block w-100">
-          <span className="bgi-text light-text01">Matches</span>
+          
           <div className="col-lg-12 mx-auto">
             <div className="common-results-div">
               <div className="leag-name text-center">

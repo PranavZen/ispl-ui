@@ -5,19 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "../hompageBannerSection/banner.css";
 import BannerSlideItem from "./BannerSlideItem";
 import { banner1, banner2, banner3 } from "../../../../assets/imagePath";
-import Modal from "../../../modal/Modal";
-import RegistrationForm from "../../../forms/RegistrationForm";
 
 function Banner() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleButtonClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
   const settings = {
     dots: true,
     infinite: true,
@@ -54,30 +43,21 @@ function Banner() {
             bannerImg={banner1}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
-            handleButtonClick={handleButtonClick}
-            handleCloseModal={handleCloseModal}
           />
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner2}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
-            handleButtonClick={handleButtonClick}
-            handleCloseModal={handleCloseModal}
           />
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner3}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
-            handleButtonClick={handleButtonClick}
-            handleCloseModal={handleCloseModal}
           />
         </Slider>
       </section>
-      <Modal show={isModalOpen} onClose={handleCloseModal}>
-        <RegistrationForm/>
-      </Modal>
     </>
   );
 }

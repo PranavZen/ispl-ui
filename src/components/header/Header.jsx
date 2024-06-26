@@ -2,18 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../header/header.css";
 import { logo } from "../../assets/imagePath";
-import Modal from "../modal/Modal";
-import RegistrationForm from "../forms/RegistrationForm";
 function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleButtonClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
   return (
     <>
       <section id="mainTop">
@@ -374,7 +364,7 @@ function Header() {
                           data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
-                          About
+                          More
                           <span>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -393,17 +383,17 @@ function Header() {
                         <ul className="dropdown-menu">
                           <li>
                             <Link className="dropdown-item" to="#">
-                              Action
+                            Contact Us
                             </Link>
                           </li>
                           <li>
                             <Link className="dropdown-item" to="#">
-                              Another action
+                              About Us
                             </Link>
                           </li>
                           <li>
                             <Link className="dropdown-item" to="#">
-                              Something else here
+                              ISPL
                             </Link>
                           </li>
                         </ul>
@@ -427,7 +417,7 @@ function Header() {
                     />
                   </svg>
                 </button>
-                <button className="regBtn" onClick={handleButtonClick}>
+                <Link to="/registration" className="regBtn">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -447,15 +437,13 @@ function Header() {
                     </svg>
                   </span>
                   Register
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </header>
       </section>
-      <Modal show={isModalOpen} onClose={handleCloseModal}>
-        <RegistrationForm />
-      </Modal>
+      
     </>
   );
 }
