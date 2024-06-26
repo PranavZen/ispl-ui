@@ -9,7 +9,7 @@ function MatchCard() {
           <div className="col-lg-12 mx-auto">
             <div className="common-results-div">
               <div className="leag-name text-center">
-                <h2>ISPL T-10 Latest Winner</h2>
+                <h2>ISPLrrr T-10 Latest Winner</h2>
                 <div className="common-results-div">
                   <div className="row align-items-center justify-content-center">
                     <div className="col-3">
