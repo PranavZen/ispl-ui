@@ -20,6 +20,7 @@ import MagicMoments from "./pages/videos/MagicMoments";
 import Interviews from "./pages/videos/Interviews";
 import NewsPages from "./pages/newspage/NewsPages";
 import Announcement from "./pages/newspage/Announcement";
+import RegistrationPage from "./pages/registration/RegistrationPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/video/interviews" element={<Interviews />} />
           <Route path="/news/all-news" element={<NewsPages />} />
           <Route path="/news/announcement" element={<Announcement />} />
+          <Route path="/registration" element={<RegistrationPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
