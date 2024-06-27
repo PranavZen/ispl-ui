@@ -141,7 +141,7 @@ function RegistrationPage() {
               className="form p-t-20"
               id="register_user_form_data"
               onSubmit={handleSubmit}
-            >
+            > 
               <div className="com-div-md">
                 <SectionTitle titleText="Player Registration 111" />
                 <div className="login-modal-pn">
