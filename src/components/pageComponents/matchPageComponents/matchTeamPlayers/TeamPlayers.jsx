@@ -14,12 +14,12 @@ const TeamPlayers = () => {
                 <div className="innerTabsSectionTitle">
                   <SectionTitle titleText="Batters" />
                 </div>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
                   <div className="col-6 col-sm-3">
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/FNKlagt87spg6q5iM2qdkZGC6U8gnTMt0sfNu7UI.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/rUWanPey6VY1VdJhjIiBOhiT7jf1KEI2erhZb5AW.png"
                           alt="teams01"
                         />
                         <div className="bat-icon">
@@ -27,7 +27,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Parv Lamba</p>
+                        <p>Raviraj Ahire</p>
                       </div>
                     </div>
                   </div>
@@ -35,7 +35,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/J3CAxAXUfwrFhXcwjPwxae9Xs7hRaJ09KlFkCen5.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/2CBZvqOnETEQJD2MpNE5DsHFUNtrzamlpmKu4Idy.png"
                           alt="teams01"
                         />
                         <div className="bat-icon">
@@ -43,7 +43,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Ajit Mohite</p>
+                        <p>Ajaz Qureshi</p>
                       </div>
                     </div>
                   </div>
@@ -51,7 +51,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/LNeMkn35WGp1AdK23kX7QiTKIqvLJKcSMZpqkW4k.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/HUuLR3fbyOcuradQSclaAN4SKoFrBLFB0QHWjwlS.png"
                           alt="teams01"
                         />
                         <div className="bat-icon">
@@ -59,7 +59,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Sunil Chawri</p>
+                        <p>Ashraf Khan</p>
                       </div>
                     </div>
                   </div>
@@ -67,7 +67,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/N0h8xxOQ6EVY3jAXG1DZhVwZix4zXAGliwYRCP7w.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/Pz6LQX9402G817XwPHmxnMMuT6XlB3X9zumuhLHi.png"
                           alt="teams01"
                         />
                         <div className="bat-icon">
@@ -75,7 +75,23 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Thomas Dias</p>
+                        <p>Shreyas Indulkar</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-6 col-sm-3">
+                    <div className="crm-teams01">
+                      <figure>
+                        <img
+                          src="https://www.ispl-t10.com/images/team-master/players/Qt6E43NKWQpVGJvL0tKv9A8YtAtWC3YEe4X0xIVE.png"
+                          alt="teams01"
+                        />
+                        <div className="bat-icon">
+                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                        </div>
+                      </figure>
+                      <div className="design">
+                        <p>Yogesh Penkar</p>
                       </div>
                     </div>
                   </div>
@@ -83,12 +99,12 @@ const TeamPlayers = () => {
                 <div className="innerTabsSectionTitle">
                   <SectionTitle titleText="All Rounders" />
                 </div>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
                   <div className="col-6 col-sm-3">
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/vD2gXfEoebgBvkXFg00AquimulTUhL7GIYa94XR0.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/qkLNjnJwcdtbN8MMLc7iKLYqYdABqNiQQE7Jumx1.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -101,7 +117,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Rahul Baghel</p>
+                        <p>Akshay Patil</p>
                       </div>
                     </div>
                   </div>
@@ -109,7 +125,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/ZBA0pPr9y6NbOeYYTpyDzkC4LCNT4bFW7r57BDi8.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/IKCBLoUYO8qkfZGDBMrRPc7pcoVuZpYpwl98KvAm.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -122,7 +138,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Saroj Paramanik</p>
+                        <p>Abhishek Kumar Dalhor</p>
                       </div>
                     </div>
                   </div>
@@ -130,7 +146,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/SmL8ttEtgYsCJBIvILAtLfShj6Z2ToMVpaUy5uc7.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/YFWy4RnUBpx4F7ZIEOVnDmdPPYLJhnORWqQR64pB.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -143,7 +159,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Prajjwal Somvanshi</p>
+                        <p>Ahmad Fayaz Rather</p>
                       </div>
                     </div>
                   </div>
@@ -151,7 +167,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/PlNkya93jMYKVc3rxjqSdOT2rDgcZa697yrueYa4.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/2FBL8sCYSISmoIRrWVn8Z2xe4j3ZFnPVGaCWmdDP.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -164,7 +180,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Sharik Yasir</p>
+                        <p>Basharat Hussain Wani</p>
                       </div>
                     </div>
                   </div>
@@ -172,7 +188,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/FtYeaqVA8Udbweon4J3EbHzdqJqITHskIO0EoJgW.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/sZF3eB9m2HcTIL5FbTesQRUVRX6fOz2Q5WHLNFtA.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -185,7 +201,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Harishkumar Kk</p>
+                        <p>Murali A Murali</p>
                       </div>
                     </div>
                   </div>
@@ -193,7 +209,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/stEPJ0xKwf91AucXy18EKWQL2b2JWOsuh3twWun9.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/tE8v7T55rNC4r5aWi5VYNFXUBqrtl6gTX6TedCl2.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -206,7 +222,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Mansoor Kl</p>
+                        <p>Syed Salman Syed</p>
                       </div>
                     </div>
                   </div>
@@ -214,7 +230,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/UkltcA5eISctLm3AC6g8fUS5Ag4oCyYPT5lMcQlJ.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/eAKNSkVrgPhTklMY2j9SH2MgNpbURCCsoEcDnsN3.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -227,7 +243,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Ankur Singh</p>
+                        <p>Krushna Pawar</p>
                       </div>
                     </div>
                   </div>
@@ -235,7 +251,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/yiFLHe5Ol9W8EJECFWl9gv29qF51AApMPFVl9Eig.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/1dA2EX9gc0EpWel2dBCPaCyl30kmPm7Atef2Rm9p.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -248,7 +264,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Bilal Rajput</p>
+                        <p>Ravi Gupta</p>
                       </div>
                     </div>
                   </div>
@@ -256,7 +272,7 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/be03aBEBbNPxvkza2efmn9CPglnne0yeb3tlbPaG.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/HYn4LA5zqcDKCeW7YKKdvUeSfCnE6U8QWtpf7ddH.png"
                           alt="teams01"
                         />
                         <div className="bat-icon allRoundBox">
@@ -269,7 +285,7 @@ const TeamPlayers = () => {
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Bunty Patel</p>
+                        <p>Vijay Jaysing</p>
                       </div>
                     </div>
                   </div>
@@ -277,24 +293,24 @@ const TeamPlayers = () => {
                 <div className="innerTabsSectionTitle">
                   <SectionTitle titleText="Bowlers" />
                 </div>
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
                   <div className="col-6 col-sm-3">
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/5P3UZkoLr5CjbJlRpyN5MREl6ybRGAO7Pgn6Q2AI.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/UP4aYyeO8b4DWpzRUenxUTGf6842c2NwhVkaGFaL.png"
                           alt="teams01"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
-                            alt="BOWLERS"
+                            alt="BATTERS"
                             className="img-fluid"
                           />
                         </div>
                       </figure>
                       <div className="design">
-                        <p>ASHIQ ALI SHAMSU</p>
+                        <p>Deepak Kumar Limboo</p>
                       </div>
                     </div>
                   </div>
@@ -302,39 +318,19 @@ const TeamPlayers = () => {
                     <div className="crm-teams01">
                       <figure>
                         <img
-                          src="https://www.ispl-t10.com/images/team-master/players/E87yV36Y22mBx6AUlWZ4FOfUuG3PE17Tow9vo1ly.png"
+                          src="https://www.ispl-t10.com/images/team-master/players/qpjb45pXXhwY9a9jNm9Ynaz0wWNwJRJcnc7APAuK.png"
                           alt="teams01"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
-                            alt="BOWLERS"
+                            alt="BATTERS"
                             className="img-fluid"
                           />
                         </div>
                       </figure>
                       <div className="design">
-                        <p>Akash Gautam</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6 col-sm-3">
-                    <div className="crm-teams01">
-                      <figure>
-                        <img
-                          src="https://www.ispl-t10.com/images/team-master/players/77hc8oALwdKk9b3w8B6B2s3KMDdYLYU53ufmVrDB.png"
-                          alt="teams01"
-                        />
-                        <div className="bat-icon">
-                          <img
-                            src={redball}
-                            alt="BOWLERS"
-                            className="img-fluid"
-                          />
-                        </div>
-                      </figure>
-                      <div className="design">
-                        <p>Kulwinder Singh</p>
+                        <p>Devid Gogoi</p>
                       </div>
                     </div>
                   </div>
