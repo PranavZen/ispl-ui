@@ -1,114 +1,120 @@
 .playerspage {
-    background-color: #f0f2f8;
- }
+  background-color: #f0f2f8;
+}
 
- 
 .playerspage {
-	padding: 70px 0;
-	position: relative;
+  padding: 70px 0;
+  position: relative;
 }
 
 .playerspage .mindle-heading h1 {
-	color: #212529
+  color: #212529;
 }
 
 .playerspage .light-tsext01 {
-	color: #fff !important;
-	top: 20px
+  color: #fff !important;
+  top: 20px;
 }
 
-.customTeamPlayersDetails{
-	.sectionTitle {
-		display: none !important;
-	  }
-	
-	  .fa {
-		color: #263574 !important;
-		font: normal normal normal 14px / 1 FontAwesome;
-		font-size: inherit;
-		-webkit-font-smoothing: antialiased;
-		display: inline-block;
-		font-style: normal;
-		font-variant: normal;
-		text-rendering: auto;
-		line-height: 1;
-	  }
-	  .fa,
-	  .far,
-	  .fas {
-		font-family: "Font Awesome 5 Free";
-	  }
-	
-	  .fa,
-	  .fas {
-		font-weight: 900;
-	  }
-	
-	 
-	
-	  .tabs {
-		width: 100%;
-		padding: 0 15px;
-		padding-bottom: 20px;
-		margin: 0 auto;
-		@media (max-width: 576px) {
-		  justify-content: center;
-		}
-		@media (min-width: 576px) {
-		  width: 540px;
-		  padding: 0 20px;
-		  padding-bottom: 20px;
-		}
-		@media (min-width: 768px) {
-		  width: 720px;
-		  padding: 0 25px;
-		  padding-bottom: 20px;
-		}
-		@media (min-width: 992px) {
-		  width: 960px;
-		  padding: 0 30px;
-		  padding-bottom: 20px;
-		}
-		@media (min-width: 1200px) {
-		  width: 1140px;
-		  padding: 0 35px;
-		  padding-bottom: 20px;
-		}
-		.tab {
-		  color: #263574 !important;
-		  border-color: #263574 !important;
-		  &:hover {
-			border-color: transparent !important;
-		  }
-		  &.active {
-			border-color: transparent !important;
-		  }
-		  @media (max-width: 767px) {
-			font-size: 1.2rem !important;
-			height: fit-content !important;
-			line-height: unset !important;
-		}
-		}
-	  }
-	
-	  .container {
-		margin: 0 auto !important;
-		gap: 0 !important;
-		@media (min-width: 576px) {
-		  width: 540px;
-		  padding: 0 20px;
-		}
-		@media (min-width: 768px) {
-		  width: 720px;
-		  padding: 0 25px;
-		}
-		@media (min-width: 992px) {
-		  width: 960px;
-		  padding: 0 30px;
-		}
-		@media (min-width: 1200px) {
-		  width: 1140px;
-		  padding: 0 35px;
-		}
-	  }
+.customTeamPlayersDetails {
+  padding: 8rem 0;
+  .sectionTitle {
+    display: none;
+  }
+  .innerTabsSectionTitle {
+    .sectionTitle {
+      display: block;
+    }
+  }
+  .playerspage {
+    padding: 0 0 8rem;
+  }
+
+  .fa {
+    color: #263574 !important;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+  .fa,
+  .far,
+  .fas {
+    font-family: "Font Awesome 5 Free";
+  }
+
+  .fa,
+  .fas {
+    font-weight: 900;
+  }
+
+  .tabs {
+    width: 100%;
+    padding: 0 15px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    @media (max-width: 576px) {
+      justify-content: center;
+    }
+    @media (min-width: 576px) {
+      width: 540px;
+      //   padding: 0 20px;
+      padding-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+      width: 720px;
+      //   padding: 0 25px;
+      padding-bottom: 20px;
+    }
+    @media (min-width: 992px) {
+      width: 960px;
+      //   padding: 0 30px;
+      padding-bottom: 20px;
+    }
+    @media (min-width: 1200px) {
+      width: 1140px;
+      //   padding: 0 35px;
+      padding-bottom: 20px;
+    }
+    .tab {
+      color: #263574 !important;
+      border-color: #263574 !important;
+      &:hover {
+        border-color: transparent !important;
+      }
+      &.active {
+        border-color: transparent !important;
+      }
+      @media (max-width: 767px) {
+        font-size: 1.2rem !important;
+        height: fit-content !important;
+        line-height: unset !important;
+      }
+    }
+  }
+
+  .container {
+    margin: 0 auto !important;
+    gap: 0 !important;
+    @media (min-width: 576px) {
+      width: 540px;
+      //   padding: 0 20px;
+    }
+    @media (min-width: 768px) {
+      width: 720px;
+      //   padding: 0 25px;
+    }
+    @media (min-width: 992px) {
+      width: 960px;
+      //   padding: 0 30px;
+    }
+    @media (min-width: 1200px) {
+      width: 1140px;
+      //   padding: 0 35px;
+    }
+  }
 }

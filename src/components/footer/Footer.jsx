@@ -49,16 +49,16 @@ function Footer() {
                     <h6>ISPL - T10</h6>
                     <ul>
                       <li>
-                        <Link to="">About Us</Link>
+                        <Link to="/about">About Us</Link>
                       </li>
                       <li>
-                        <Link to="">Match Center</Link>
+                        <Link to="/matches">Match Center</Link>
                       </li>
                       <li>
-                        <Link to="">Videos</Link>
+                        <Link to="/video/All">Videos</Link>
                       </li>
                       <li>
-                        <Link to="">News & Events</Link>
+                        <Link to="/news/all-news">News & Events</Link>
                       </li>
                       <li>
                         <Link to="">Media</Link>
@@ -240,7 +240,7 @@ function Footer() {
                 </div>
                 <div className="col-lg-5 col-md-6 col-12">
                   <div className="Box right">
-                    <p>Crafted by : Version-Next</p>
+                    <p>All Rights Reserved -  CCS Sports LLP</p>
                   </div>
                 </div>
               </div>

@@ -1,3 +1,6 @@
+.matchDetailsCustom {
+  padding: 8rem 0;
+}
 .matchDetailsCustom .sectionTitle {
   display: none !important;
 }
@@ -35,28 +38,24 @@
 @media (min-width: 576px) {
   .matchDetailsCustom .tabs {
     width: 540px;
-    padding: 0 20px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 768px) {
   .matchDetailsCustom .tabs {
     width: 720px;
-    padding: 0 25px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 992px) {
   .matchDetailsCustom .tabs {
     width: 960px;
-    padding: 0 30px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 1200px) {
   .matchDetailsCustom .tabs {
     width: 1140px;
-    padding: 0 35px;
     padding-bottom: 20px;
   }
 }
@@ -81,25 +80,21 @@
 @media (min-width: 576px) {
   .matchDetailsCustom .container {
     width: 540px;
-    padding: 0 20px;
   }
 }
 @media (min-width: 768px) {
   .matchDetailsCustom .container {
     width: 720px;
-    padding: 0 25px;
   }
 }
 @media (min-width: 992px) {
   .matchDetailsCustom .container {
     width: 960px;
-    padding: 0 30px;
   }
 }
 @media (min-width: 1200px) {
   .matchDetailsCustom .container {
     width: 1140px;
-    padding: 0 35px;
   }
 }
 .matchDetailsCustom .bg-primary {
@@ -143,16 +138,17 @@
 }
 .matchDetailsCustom .team-name {
   padding: 0 !important;
-  font-size: 14px;
+  font-size: 16px;
   border: none !important;
   color: black !important;
 }
 .matchDetailsCustom .team-score {
   font-size: 22px;
+  font-weight: 600;
 }
 .matchDetailsCustom .over {
   color: #7a7a7a;
-  font-family: monospace;
+  font-size: 14px;
 }
 .matchDetailsCustom .continue-bn {
   color: #fff !important;
@@ -164,6 +160,18 @@
   letter-spacing: 1px;
   line-height: 36px;
   font-size: 16px;
+}
+.matchDetailsCustom .continue-bn.txt16 .sqrBtn {
+  font-size: 16px;
+  padding: 0 1rem;
+}
+.matchDetailsCustom .continue-bn.txt16 .sqrBtn:hover {
+  color: #263574 !important;
+  background-color: #caf75a;
+  border-color: #caf75a !important;
+}
+.matchDetailsCustom .continue-bn.txt16 .sqrBtn:hover svg path {
+  fill: #263574 !important;
 }
 .matchDetailsCustom .continue-bn .sqrBtn {
   line-height: 1;
@@ -207,7 +215,6 @@
     font-size: 8px !important;
   }
   .matchDetailsCustom .result-tab span {
-    font-family: fantasy;
     font-size: medium;
     padding-right: 33px;
   }

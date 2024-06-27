@@ -32,7 +32,6 @@
   background: #010123;
   display: grid;
   width: 100%;
-  margin-bottom: 30px;
   position: relative;
   overflow: hidden;
   min-height: 370px;
@@ -63,8 +62,8 @@
     padding-right: 33px;
   }
   /* .shedTeam {
-        width: 33.3% !important;
-    } */
+          width: 33.3% !important;
+      } */
   .btn-match-center {
     display: none;
   }
@@ -320,15 +319,23 @@
   opacity: 0.7;
 }
 
-.fa, .fas {
+.fa,
+.fas {
   font-weight: 900;
 }
 
-.fa, .far, .fas {
+.fa,
+.far,
+.fas {
   font-family: "Font Awesome 5 Free";
 }
 
-.fa, .fab, .fad, .fal, .far, .fas {
+.fa,
+.fab,
+.fad,
+.fal,
+.far,
+.fas {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -392,7 +399,6 @@
   display: grid;
   padding: 0 20px;
   width: 100%;
-  margin-bottom: 30px;
   position: relative;
   overflow: hidden;
   /* min-height: 470px; */
@@ -419,7 +425,6 @@
 
 .common-results-div .club-items h5 {
   color: #fff;
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
   margin-top: 20px;
   position: relative;
@@ -451,7 +456,6 @@
 
 .common-results-div .vds-resut .btn-wtch1 {
   background: #fff;
-  font-family: "Roboto", sans-serif;
   font-size: 9px;
   text-transform: uppercase;
   font-weight: 700;
@@ -472,7 +476,6 @@
 
 .common-results-div .golas-divb h3 {
   color: #fff;
-  font-family: "Anton", sans-serif;
   letter-spacing: 1.2px;
 }
 
@@ -505,7 +508,6 @@
     font-size: 8px !important;
   }
   .result-tab span {
-    font-family: fantasy;
     font-size: medium;
     padding-right: 33px;
   }

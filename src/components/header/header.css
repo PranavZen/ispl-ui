@@ -181,7 +181,7 @@
 }
 #header .headerBtnsWrap {
   position: absolute;
-  right: -2.2%;
+  right: -6.5%;
   width: -moz-fit-content;
   width: fit-content;
   top: 50%;
@@ -192,13 +192,13 @@
 }
 @media (max-width: 1280px) {
   #header .headerBtnsWrap {
-    right: 17.8%;
+    right: 10.8%;
     top: -22px;
   }
 }
 @media (max-width: 834px) {
   #header .headerBtnsWrap {
-    right: -2.2%;
+    right: -10.2%;
     top: 50%;
   }
 }

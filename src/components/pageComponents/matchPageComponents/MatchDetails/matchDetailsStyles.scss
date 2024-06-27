@@ -1,4 +1,5 @@
 .matchDetailsCustom {
+  padding: 8rem 0;
   .sectionTitle {
     display: none !important;
   }
@@ -35,22 +36,22 @@
     }
     @media (min-width: 576px) {
       width: 540px;
-      padding: 0 20px;
+      // padding: 0 20px;
       padding-bottom: 20px;
     }
     @media (min-width: 768px) {
       width: 720px;
-      padding: 0 25px;
+      // padding: 0 25px;
       padding-bottom: 20px;
     }
     @media (min-width: 992px) {
       width: 960px;
-      padding: 0 30px;
+      // padding: 0 30px;
       padding-bottom: 20px;
     }
     @media (min-width: 1200px) {
       width: 1140px;
-      padding: 0 35px;
+      // padding: 0 35px;
       padding-bottom: 20px;
     }
     .tab {
@@ -58,11 +59,9 @@
       border-color: #263574 !important;
       &:hover {
         border-color: transparent !important;
-        
       }
       &.active {
         border-color: transparent !important;
-
       }
       span {
         svg {
@@ -78,19 +77,19 @@
     gap: 0 !important;
     @media (min-width: 576px) {
       width: 540px;
-      padding: 0 20px;
+      // padding: 0 20px;
     }
     @media (min-width: 768px) {
       width: 720px;
-      padding: 0 25px;
+      // padding: 0 25px;
     }
     @media (min-width: 992px) {
       width: 960px;
-      padding: 0 30px;
+      // padding: 0 30px;
     }
     @media (min-width: 1200px) {
       width: 1140px;
-      padding: 0 35px;
+      // padding: 0 35px;
     }
   }
   .bg-primary {
@@ -140,17 +139,18 @@
 
   .team-name {
     padding: 0 !important;
-    font-size: 14px;
+    font-size: 16px;
     border: none !important;
     color: black !important;
   }
 
   .team-score {
     font-size: 22px;
+    font-weight: 600;
   }
   .over {
     color: #7a7a7a;
-    font-family: monospace;
+    font-size: 14px;
   }
 
   .continue-bn {
@@ -163,6 +163,22 @@
     letter-spacing: 1px;
     line-height: 36px;
     font-size: 16px;
+    &.txt16 {
+      .sqrBtn {
+        font-size: 16px;
+        padding: 0 1rem;
+        &:hover {
+          color: #263574 !important;
+          background-color: #caf75a;
+          border-color: #caf75a !important;
+          svg {
+            path {
+              fill: #263574 !important;
+            }
+          }
+        }
+      }
+    }
     .sqrBtn {
       line-height: 1;
       height: 5.9rem;
@@ -211,7 +227,6 @@
     }
 
     .result-tab span {
-      font-family: fantasy;
       font-size: medium;
       padding-right: 33px;
     }
