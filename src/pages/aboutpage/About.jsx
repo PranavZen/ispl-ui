@@ -1,6 +1,7 @@
 import React from "react";
 import "../aboutpage/About.css";
 import Tabs from "../../components/pageComponents/homePageComponents/pointTableSectionWrap/Tabs";
+<<<<<<< HEAD
 import { Helmet } from "react-helmet-async";
 const About = () => {
   return (
@@ -37,6 +38,11 @@ const About = () => {
         />
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
+=======
+const About = () => {
+  return (
+    <>
+>>>>>>> a7092454f9749bf26d4781675563b93d9b6d85dd
       <section className="w-100 body-part pt-5 customAboutSectionOne">
         <div className="about-page-main comon-sub-page-main d-inline-block w-100">
           <div className="about-club-top">

@@ -59,9 +59,17 @@
       border-color: #263574 !important;
       &:hover {
         border-color: transparent !important;
+        
       }
       &.active {
         border-color: transparent !important;
+
+      }
+      span {
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
       }
       span {
         svg {

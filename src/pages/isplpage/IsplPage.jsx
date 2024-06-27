@@ -2,11 +2,15 @@ import React from "react";
 import "../isplpage/isplpageStyles.css";
 import TeamOwners from "../../components/pageComponents/isplPageComponents/teamOwnersSection/TeamOwners";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { Helmet } from "react-helmet-async";
+=======
+>>>>>>> a7092454f9749bf26d4781675563b93d9b6d85dd
 
 function IsplPage() {
   return (
     <section className=" w-100 body-part pt-0 customIsplPage">
+<<<<<<< HEAD
       <Helmet>
         <title>ISPL T10 | ISPL</title>
         <meta
@@ -39,11 +43,17 @@ function IsplPage() {
         />
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
+=======
+>>>>>>> a7092454f9749bf26d4781675563b93d9b6d85dd
       <div className="news-sectiondiv d-inline-block w-100">
         <div className="container">
           <div className="mindle-heading text-center">
             <h1>
+<<<<<<< HEAD
               {" "} 
+=======
+              {" "}
+>>>>>>> a7092454f9749bf26d4781675563b93d9b6d85dd
               Core <span> Commitee </span>{" "}
             </h1>
           </div>
@@ -180,7 +190,10 @@ function IsplPage() {
       <div
         className="news-sectiondiv d-inline-block w-100"
         style={{ padding: "40px 0 20px 0" }}
+<<<<<<< HEAD
         id="media"
+=======
+>>>>>>> a7092454f9749bf26d4781675563b93d9b6d85dd
       >
         <div className="container">
           <div className="mindle-heading text-center">
