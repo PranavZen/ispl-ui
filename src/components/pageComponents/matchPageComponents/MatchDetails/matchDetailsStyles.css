@@ -35,28 +35,24 @@
 @media (min-width: 576px) {
   .matchDetailsCustom .tabs {
     width: 540px;
-    padding: 0 20px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 768px) {
   .matchDetailsCustom .tabs {
     width: 720px;
-    padding: 0 25px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 992px) {
   .matchDetailsCustom .tabs {
     width: 960px;
-    padding: 0 30px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 1200px) {
   .matchDetailsCustom .tabs {
     width: 1140px;
-    padding: 0 35px;
     padding-bottom: 20px;
   }
 }
@@ -77,25 +73,21 @@
 @media (min-width: 576px) {
   .matchDetailsCustom .container {
     width: 540px;
-    padding: 0 20px;
   }
 }
 @media (min-width: 768px) {
   .matchDetailsCustom .container {
     width: 720px;
-    padding: 0 25px;
   }
 }
 @media (min-width: 992px) {
   .matchDetailsCustom .container {
     width: 960px;
-    padding: 0 30px;
   }
 }
 @media (min-width: 1200px) {
   .matchDetailsCustom .container {
     width: 1140px;
-    padding: 0 35px;
   }
 }
 .matchDetailsCustom .bg-primary {
@@ -139,16 +131,18 @@
 }
 .matchDetailsCustom .team-name {
   padding: 0 !important;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   border: none !important;
   color: black !important;
 }
 .matchDetailsCustom .team-score {
   font-size: 22px;
+  font-weight: 600;
 }
 .matchDetailsCustom .over {
   color: #7a7a7a;
-  font-family: monospace;
+  font-size: 14px;
 }
 .matchDetailsCustom .continue-bn {
   color: #fff !important;
@@ -167,7 +161,7 @@
 }
 .matchDetailsCustom .continue-bn .sqrBtn:hover {
   color: white !important;
-  background-color: #CAF75A;
+  background-color: #caf75a;
 }
 .matchDetailsCustom .continue-bn .sqrBtn:hover svg path {
   fill: white !important;

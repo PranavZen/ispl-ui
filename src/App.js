@@ -24,22 +24,39 @@ import RegistrationPage from "./pages/registration/RegistrationPage";
 import TeamDetails from "./pages/matchTeamDetails/TeamDetails";
 import Contact from "./pages/contactpage/Contact";
 import About from "./pages/aboutpage/About";
+import Login from "./pages/loginpage/Login";
+import ForgetPassword from "./pages/forgetpasswordpage/ForgetPassword";
 
 function App() {
   return (
     <HelmetProvider>
       <BrowserRouter forceRefresh={true}>
-      <ScrollToTop />
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/team-list" element={<TeamListPage />} />
-          <Route path="/team-list/chennai-singams" element={<ChennaiSingams />} />
+          <Route
+            path="/team-list/chennai-singams"
+            element={<ChennaiSingams />}
+          />
           <Route path="/team-list/majhi-mumbai" element={<MajhiMumbai />} />
-          <Route path="/team-list/tiigers-of-kolkata" element={<TigersOfKolkata />} />
-          <Route path="/team-list/srinagar-ke-veer" element={<SrinagarKeVeer />} />
-          <Route path="/team-list/kvn-bangalore-strikers" element={<BangaloreStrikers />} />
-          <Route path="/team-list/falcon-risers-hyderabad" element={<FalconRisersHyderabad />} />
+          <Route
+            path="/team-list/tiigers-of-kolkata"
+            element={<TigersOfKolkata />}
+          />
+          <Route
+            path="/team-list/srinagar-ke-veer"
+            element={<SrinagarKeVeer />}
+          />
+          <Route
+            path="/team-list/kvn-bangalore-strikers"
+            element={<BangaloreStrikers />}
+          />
+          <Route
+            path="/team-list/falcon-risers-hyderabad"
+            element={<FalconRisersHyderabad />}
+          />
           <Route path="/matches" element={<Match />} />
           <Route path="/matches/matchNumber" element={<TeamDetails />} />
           <Route path="/video/All" element={<AllVideos />} />
@@ -52,7 +69,9 @@ function App() {
           <Route path="/news/announcement" element={<Announcement />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/password/reset" element={<ForgetPassword />} />
         </Routes>
         <Footer />
       </BrowserRouter>
