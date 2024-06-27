@@ -26,6 +26,7 @@ import Contact from "./pages/contactpage/Contact";
 import About from "./pages/aboutpage/About";
 import Login from "./pages/loginpage/Login";
 import ForgetPassword from "./pages/forgetpasswordpage/ForgetPassword";
+import IsplPage from "./pages/isplpage/IsplPage";
 
 function App() {
   return (
@@ -68,8 +69,10 @@ function App() {
           <Route path="/news/all-news" element={<NewsPages />} />
           <Route path="/news/announcement" element={<Announcement />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/ispl-page" element={<IsplPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/password/reset" element={<ForgetPassword />} />
         </Routes>

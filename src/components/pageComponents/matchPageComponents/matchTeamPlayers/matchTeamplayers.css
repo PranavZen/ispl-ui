@@ -17,10 +17,7 @@
 }
 
 .customTeamPlayersDetails .sectionTitle {
-  display: none;
-}
-.customTeamPlayersDetails .innerTitle .sectionTitle {
-  display: block;
+  display: none !important;
 }
 .customTeamPlayersDetails .fa {
   color: #263574 !important;
@@ -56,24 +53,28 @@
 @media (min-width: 576px) {
   .customTeamPlayersDetails .tabs {
     width: 540px;
+    padding: 0 20px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 768px) {
   .customTeamPlayersDetails .tabs {
     width: 720px;
+    padding: 0 25px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 992px) {
   .customTeamPlayersDetails .tabs {
     width: 960px;
+    padding: 0 30px;
     padding-bottom: 20px;
   }
 }
 @media (min-width: 1200px) {
   .customTeamPlayersDetails .tabs {
     width: 1140px;
+    padding: 0 35px;
     padding-bottom: 20px;
   }
 }
@@ -102,20 +103,24 @@
 @media (min-width: 576px) {
   .customTeamPlayersDetails .container {
     width: 540px;
+    padding: 0 20px;
   }
 }
 @media (min-width: 768px) {
   .customTeamPlayersDetails .container {
     width: 720px;
+    padding: 0 25px;
   }
 }
 @media (min-width: 992px) {
   .customTeamPlayersDetails .container {
     width: 960px;
+    padding: 0 30px;
   }
 }
 @media (min-width: 1200px) {
   .customTeamPlayersDetails .container {
     width: 1140px;
+    padding: 0 35px;
   }
 }/*# sourceMappingURL=matchTeamplayers.css.map */

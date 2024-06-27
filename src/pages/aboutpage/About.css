@@ -1,0 +1,310 @@
+.customAboutSectionOne {
+  background-color: #10172b;
+}
+.customAboutSectionOne .container {
+  margin: 0 auto !important;
+}
+@media (min-width: 576px) {
+  .customAboutSectionOne .container {
+    width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .customAboutSectionOne .container {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .customAboutSectionOne .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .customAboutSectionOne .container {
+    width: 1140px;
+  }
+}
+
+.about-club-top {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+.about-club-top .big-img {
+  width: 100%;
+  height: 320px;
+  border-radius: 15px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+
+.about-club-top .big-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.about-club-top .small-img {
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  margin-left: auto;
+  left: 15px;
+  margin-top: -130px;
+  margin-bottom: 50px;
+}
+
+.small-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.about-club-top .samll-sub {
+  color: #0047c0;
+  font-size: 25px;
+}
+
+.about-club-top h2 {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.about-club-top p {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.customHistorySection {
+  padding: 50px 0;
+  margin: 0 auto !important;
+}
+@media (min-width: 576px) {
+  .customHistorySection {
+    width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .customHistorySection {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .customHistorySection {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .customHistorySection {
+    width: 1140px;
+  }
+}
+.customHistorySection .sectionTitle {
+  display: none;
+}
+.customHistorySection .tabs {
+  width: 100%;
+  padding: 0 15px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+@media (max-width: 576px) {
+  .customHistorySection .tabs {
+    justify-content: center;
+  }
+}
+@media (min-width: 576px) {
+  .customHistorySection .tabs {
+    width: 540px;
+    padding: 0 20px;
+    padding-bottom: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .customHistorySection .tabs {
+    width: 720px;
+    padding: 0 25px;
+    padding-bottom: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .customHistorySection .tabs {
+    width: 960px;
+    padding: 0 30px;
+    padding-bottom: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .customHistorySection .tabs {
+    width: 1140px;
+    padding: 0 35px;
+    padding-bottom: 20px;
+  }
+}
+.customHistorySection .tabs .tab {
+  color: #263574 !important;
+  border-color: #263574 !important;
+}
+.customHistorySection .tabs .tab:hover {
+  border-color: transparent !important;
+}
+.customHistorySection .tabs .tab.active {
+  border-color: transparent !important;
+}
+@media (max-width: 767px) {
+  .customHistorySection .tabs .tab {
+    font-size: 1.2rem !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    line-height: unset !important;
+  }
+}
+.customHistorySection .fa {
+  color: #263574 !important;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+.customHistorySection .fa,
+.customHistorySection .far,
+.customHistorySection .fas {
+  font-family: "Font Awesome 5 Free";
+}
+.customHistorySection .fa,
+.customHistorySection .fas {
+  font-weight: 900;
+}
+.customHistorySection .comon-fild-ads1 figure {
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0;
+}
+@media (max-width: 576px) {
+  .customHistorySection .comon-fild-ads1 figure {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.customHistorySection .comon-fild-ads1 figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.customHistorySection .left-history {
+  width: 60%;
+  padding-left: 30px;
+}
+@media (max-width: 991px) {
+  .customHistorySection .left-history {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media (max-width: 991px) {
+  .customHistorySection .left-history {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.customHistorySection .left-history h2 {
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 24px;
+}
+.customHistorySection .left-history p {
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 30px;
+}
+
+.customCoreCommmitteeSection {
+  background-color: #10172b;
+}
+.customCoreCommmitteeSection .container {
+  margin: 0 auto !important;
+}
+@media (min-width: 576px) {
+  .customCoreCommmitteeSection .container {
+    width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .customCoreCommmitteeSection .container {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .customCoreCommmitteeSection .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .customCoreCommmitteeSection .container {
+    width: 1140px;
+  }
+}
+.customCoreCommmitteeSection .about-club-top h2 {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+}
+.customCoreCommmitteeSection .about-club-top p {
+  font-size: 16px;
+  line-height: 30px;
+}
+.customCoreCommmitteeSection .about-club-top {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  /* margin-top: 80px;
+  margin-bottom: 80px */
+}
+.customCoreCommmitteeSection .about-club-top .big-img {
+  width: 100%;
+  height: 320px;
+  border-radius: 15px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+.customCoreCommmitteeSection .about-club-top .big-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.customCoreCommmitteeSection .about-club-top .small-img {
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  margin-left: auto;
+  left: 15px;
+  margin-top: -130px;
+  margin-bottom: 50px;
+}
+.customCoreCommmitteeSection .about-club-top .samll-sub {
+  color: #0047c0;
+  font-size: 25px;
+}/*# sourceMappingURL=About.css.map */

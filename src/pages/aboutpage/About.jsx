@@ -1,9 +1,10 @@
 import React from "react";
 import "../aboutpage/About.css";
+import Tabs from "../../components/pageComponents/homePageComponents/pointTableSectionWrap/Tabs";
 const About = () => {
   return (
     <>
-      <section className=" w-100 body-part pt-5 ">
+      <section className="w-100 body-part pt-5 customAboutSectionOne">
         <div className="about-page-main comon-sub-page-main d-inline-block w-100">
           <div className="about-club-top">
             <div className="container">
@@ -23,7 +24,10 @@ const About = () => {
                   </figure>
                 </div>
                 <div className="col">
-                  <p className="mt-3  text-light" style={{ textAlign: "justify" }}>
+                  <p
+                    className="mt-3  text-light"
+                    style={{ textAlign: "justify" }}
+                  >
                     The ISPL - T10 league stands as a transformative initiative,
                     strategically designed to unite and showcase the finest
                     cricket talent. With a threefold mission of identification,
@@ -36,7 +40,10 @@ const About = () => {
                     players but also elevates the overall standard of cricket in
                     the region.
                   </p>
-                  <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                  <p
+                    className="my-3 text-light"
+                    style={{ textAlign: "justify" }}
+                  >
                     The league's forward-thinking approach is underscored by its
                     commitment to building a platform for future cricket
                     superstars. By investing in grassroots development, ISPL -
@@ -56,23 +63,84 @@ const About = () => {
           </div>
         </div>
       </section>
+      <div className="customHistorySection">
+        <Tabs>
+          <div
+            label="Our Mission"
+            spanImg='<i className="fas fa-flag-checkered"></i>'
+          >
+            <div className="comon-fild-ads1 d-lg-flex align-items-center">
+              <figure>
+                <img
+                  src="https://www.ispl-t10.com/assets/img/stadium1.jpg"
+                  alt="bg"
+                />
+              </figure>
+              <div className="left-history mt-3 mt-lg-0">
+                <h2>Empowering grassroots talent</h2>
+                <p>
+                  At the Indian Street Premier League (ISPL), our mission is to
+                  redefine grassroots cricket by providing a robust platform for
+                  emerging talents. We aim to unearth raw potential across the
+                  nation, fostering a culture of inclusivity, fair play, and
+                  skill development. Through the ISPL, we aspire to be the
+                  catalyst for nurturing the future stars of Indian cricket.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div label="Our Vision" spanImg='<i className="far fa-eye"></i>'>
+            <div className="comon-fild-ads1 d-lg-flex align-items-center">
+              <figure>
+                <img
+                  src="https://www.ispl-t10.com/assets/img/gully cricket.jpg"
+                  alt="bg"
+                />
+              </figure>
 
-      <section className="w-100 body-part  background_image">
+              <div className="left-history mt-3 mt-lg-0">
+                <h2>Transformative force</h2>
+                <p>
+                  Our vision is to create a dynamic and transformative
+                  cricketing ecosystem. The ISPL envisions a landscape where
+                  every aspiring cricketer, regardless of background or
+                  location, has the opportunity to showcase their talents on a
+                  national stage. We strive to be the driving force behind the
+                  evolution of cricket at the grassroots level, producing not
+                  just exceptional players but ambassadors of the sport who
+                  embody the spirit of dedication and sportsmanship. Revolution
+                  in Indian cricket with the Indian Street Premier League. 🏏⚡
+                  #ZindagiBadlLo
+                </p>
+              </div>
+            </div>
+          </div>
+        </Tabs>
+      </div>
+      <section className="w-100 body-part background_image customCoreCommmitteeSection">
         <div className="about-page-main comon-sub-page-main d-inline-block w-100">
           <div className="about-club-top">
             <div
               className="about-page-container"
-              //   style="margin-left: 0vw; margin-right: 0vw;"
+              style={{ marginLeft: "0vw", marginRight: "0vw" }}
             >
               <div
                 className="container"
-                // style="border-bottom: 1px solid rgb(255, 255, 255); padding-bottom: 1.5vw;"
+                style={{
+                  borderBottom: "1px solid rgb(255, 255, 255)",
+                  paddingBottom: "1.5vw",
+                }}
               >
-                <div className="row  mb-3">
+                <div className="row mb-3">
                   <div className="col-md-3 mt-5 mb-2"></div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    // style="font-size: 3vw; margin-top: 2vw; color: rgb(0 108 255); font-weight: bold;"
+                      style={{
+                        fontSize: "3vw",
+                        marginTop: "2vw",
+                        color: "rgb(0 108 255)",
+                        fontWeight: "bold",
+                      }}
                     >
                       OUR CORE COMMITTEE
                     </h1>
@@ -84,17 +152,24 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/Aashish_mentor.jpg"
                         alt="Mentor-img"
-                        className="card-img-top rounded-circle card-image "
+                        className="card-img-top rounded-circle card-image"
                       />
                     </div>
                   </div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    //  style="font-size: 2vw; color:#fff; font-weight: bold;"
+                      style={{
+                        fontSize: "2vw",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
                     >
                       ADV. ASHISH SHELAR
                     </h1>
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       A prominent Indian politician and cricket administrator
                       affiliated with the Bharatiya Janata Party (BJP),
                       currently serves as the Treasurer of the Board of Control
@@ -108,7 +183,7 @@ const About = () => {
                       (B.Sc.) degree in 1992. He furthered his education by
                       completing a three-year law degree at G. J. Advani Law
                       College, University of Mumbai. With a multifaceted
-                      background, Ashish Shelar stands as a dynamicand
+                      background, Ashish Shelar stands as a dynamic and
                       influential personality in Indian politics and cricket.
                     </p>
                   </div>
@@ -119,17 +194,25 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/Amol_mentor.jpg"
                         alt="Mentor-img"
-                        className="card-img-top rounded-circle card-image "
+                        className="card-img-top rounded-circle card-image"
                       />
                     </div>
                   </div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    //  style="font-size: 2vw; margin-top: 2vw; color:#fff; font-weight: bold;"
+                      style={{
+                        fontSize: "2vw",
+                        marginTop: "2vw",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
                     >
                       MR. AMOL KALE
                     </h1>
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       The current President of the Mumbai Cricket Association
                       for the term 2022-2025, holds a concurrent role as a
                       full-time member of the Board of Control for Cricket in
@@ -155,11 +238,16 @@ const About = () => {
               </div>
 
               <div className="container">
-                <div className="row  mb-3">
+                <div className="row mb-3 mt-4">
                   <div className="col-md-3 mt-5 mb-2"></div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    //  style="font-size: 3vw; color: rgb(0 108 255); font-weight: bold;"
+                      style={{
+                        fontSize: "3vw",
+                        color: "rgb(0 108 255)",
+                        fontWeight: "bold",
+                        paddingBottom: "20px",
+                      }}
                     >
                       OUR CHIEF MENTOR
                     </h1>
@@ -169,41 +257,51 @@ const About = () => {
                   <div className="col-md-3 mt-3 mb-3">
                     <div
                       className="outer-layer rounded-circle"
-                      style={{ marginTop: -"50px" }}
+                      style={{ marginTop: "-50px" }}
                     >
                       <img
                         src="https://www.ispl-t10.com/assets/img/Ravi_mentor.jpg"
                         alt="Mentor-img"
-                        className="card-img-top rounded-circle card-image "
+                        className="card-img-top rounded-circle card-image"
                       />
                     </div>
                   </div>
-
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    // style="font-size: 2vw; color: #fff; font-weight: bold;"
+                      style={{
+                        fontSize: "2vw",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
                     >
                       MR. RAVI SHASTRI
                     </h1>
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       Onboarded legendary Mr. Ravi Shastri to our team marks a
                       significant milestone in our journey. As we embark on this
                       exciting collaboration, his vast experience, unparalleled
                       expertise, and charismatic persona will undoubtedly enrich
                       our endeavors. Together, we look forward to achieving new
                       heights, leveraging Mr. Shastri's invaluable contributions
-                      for an impactful and successful journey ahead."
+                      for an impactful and successful journey ahead.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="container">
-                <div className="row  mb-3">
+                <div className="row mb-3">
                   <div className="col-md-3 mt-5 mb-2"></div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    //  style="font-size: 3vw; color: rgb(0 108 255); font-weight: bold;"
+                      style={{
+                        fontSize: "3vw",
+                        color: "rgb(0 108 255)",
+                        fontWeight: "bold",
+                      }}
                     >
                       OUR LEAGUE COMMISSIONER
                     </h1>
@@ -218,18 +316,24 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/suraj sawant.jpeg"
                         alt="Mentor-img"
-                        className="card-img-top rounded-circle card-image "
+                        className="card-img-top rounded-circle card-image"
                       />
                     </div>
                   </div>
-
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    //  style="font-size: 2vw; color: #fff; font-weight: bold;"
+                      style={{
+                        fontSize: "2vw",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
                     >
                       MR. SURAJ SAMAT
                     </h1>
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       A respected business leader, Suraj Samat has extensive
                       experience in sports management and administration. He has
                       been a Trustee of the Mumbai Cricket Association for over
@@ -262,13 +366,22 @@ const About = () => {
 
               <div
                 className="container"
-                // style="border-bottom: 1px solid rgb(255, 255, 255); padding-bottom: 1.5vw;"
+                style={{
+                  borderBottom: "1px solid rgb(255, 255, 255)",
+                  paddingBottom: "1.5vw",
+                }}
               >
-                <div className="row  mb-3">
+                <div className="row mb-3">
                   <div className="col-md-3 mt-5 mb-2"></div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    //  style="font-size: 3vw; margin-top: 2vw; color: rgb(0 108 255); font-weight: bold;"
+                      style={{
+                        fontSize: "3vw",
+                        marginTop: "2vw",
+                        color: "rgb(0 108 255)",
+                        fontWeight: "bold",
+                        paddingBottom: "20px",
+                      }}
                     >
                       HEAD OF SELECTION COMMITTEE
                     </h1>
@@ -278,7 +391,7 @@ const About = () => {
                   <div className="col-md-3 mt-5 mb-2">
                     <div
                       className="outer-layer rounded-circle"
-                      style={{ marginTop: -50 }}
+                      style={{ marginTop: "-50px" }}
                     >
                       <img
                         src="https://www.ispl-t10.com/assets/img/pravin_amre.png"
@@ -287,13 +400,20 @@ const About = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    // style="font-size: 2vw; color:#fff; font-weight: bold;"
+                      style={{
+                        fontSize: "2vw",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
                     >
                       MR. PRAVIN AMRE
                     </h1>
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       Pravin Kalyan Amre is a former Indian cricketer who left
                       an indelible mark on the cricketing world during his
                       playing years from 1991 to 1999. In his international
@@ -309,7 +429,7 @@ const About = () => {
                   <div className="col-md-3 mt-5 mb-2">
                     <div
                       className="outer-layer rounded-circle"
-                      style={{ marginTop: -50 }}
+                      style={{ marginTop: "-50px" }}
                     >
                       <img
                         src="https://www.ispl-t10.com/assets/img/jatin_paranjape.png"
@@ -318,13 +438,21 @@ const About = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-md-9 ">
+                  <div className="col-md-9">
                     <h1
-                    // style="font-size: 2vw; margin-top: 2vw; color:#fff; font-weight: bold;"
+                      style={{
+                        fontSize: "2vw",
+                        marginTop: "2vw",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
                     >
                       MR. JATIN PARANJAPE
                     </h1>
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       Jatin Paranjpe, Known for his attractive middle-order
                       batting, Paranjpe briefly showcased his cricketing prowess
                       during his playing days. In his current role, Jatin
@@ -340,17 +468,25 @@ const About = () => {
               </div>
 
               <div
-                className="container text-center "
-                // style="padding-bottom: 1.5vw;"
+                className="container text-center"
+                style={{ paddingBottom: "1.5vw" }}
               >
                 <h1
-                //  style="font-size: 3vw; margin-top: 2vw; color: rgb(0 108 255); font-weight: bold;"
+                  style={{
+                    fontSize: "3vw",
+                    marginTop: "2vw",
+                    color: "rgb(0 108 255)",
+                    fontWeight: "bold",
+                  }}
                 >
                   ABOUT CCS SPORTS LLP
                 </h1>
                 <div className="row">
                   <div className="col-md-9">
-                    <p className="my-3 text-light" style={{ textAlign: "justify" }}>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
                       CCS Sports LLP is a pioneering sports management company
                       committed to bringing innovative and inclusive sporting
                       experiences to enthusiasts across the nation. The Indian
@@ -359,12 +495,13 @@ const About = () => {
                       platform for aspiring cricketers to shine.
                     </p>
                   </div>
-                  <div className="col-md-3 ">
-                    <div className="outer-layer ">
+                  <div className="col-md-3">
+                    <div className="outer-layer">
                       <img
                         src="https://www.ispl-t10.com/assets/img/ccs_logo.png"
                         alt="ccsLogo"
-                        className="card-img-top  card-image float-right"
+                        className="card-img-top card-image float-right"
+                        style={{ marginTop: "-3vw", width: "19vw" }}
                       />
                     </div>
                   </div>

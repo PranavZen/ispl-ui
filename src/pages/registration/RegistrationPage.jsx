@@ -143,7 +143,7 @@ function RegistrationPage() {
               onSubmit={handleSubmit}
             >
               <div className="com-div-md">
-                <SectionTitle titleText="Player Registration 111" />
+                <SectionTitle titleText="Player Registration" />
                 <div className="login-modal-pn">
                   <div className="row mb-4">
                     <div className="col-md-6">
