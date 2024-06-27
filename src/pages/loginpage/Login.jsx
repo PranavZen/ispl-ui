@@ -1,5 +1,5 @@
 import React from "react";
-import "../registration/registration.css";
+import "../registration/registration.css"; 
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import { Link } from "react-router-dom";
 import SqareButton from "../../components/common/cta/SqareButton";

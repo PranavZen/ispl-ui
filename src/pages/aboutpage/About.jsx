@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 const About = () => {
   return (
     <>
-    <Helmet>
+    <Helmet> 
         <title>ISPL T10 | About Us</title>
         <meta
           name="description"

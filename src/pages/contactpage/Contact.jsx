@@ -4,7 +4,7 @@ import SectionTitle from "../../components/common/sectiontitletext/SectionTitle"
 import { Helmet } from "react-helmet-async";
 const Contact = () => {
   return (
-    <section className="w-100 body-part pt-0">
+    <section className="w-100 body-part pt-0"> 
       <Helmet>
         <title>ISPL T10 | Contact Us</title>
         <meta
