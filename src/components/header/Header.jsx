@@ -392,7 +392,7 @@ function Header() {
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" to="#">
+                            <Link className="dropdown-item" to="/ispl-page">
                               ISPL
                             </Link>
                           </li>

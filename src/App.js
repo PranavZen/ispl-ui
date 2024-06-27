@@ -24,6 +24,7 @@ import RegistrationPage from "./pages/registration/RegistrationPage";
 import TeamDetails from "./pages/matchTeamDetails/TeamDetails";
 import Contact from "./pages/contactpage/Contact";
 import About from "./pages/aboutpage/About";
+import IsplPage from "./pages/isplpage/IsplPage";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="/news/announcement" element={<Announcement />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/ispl-page" element={<IsplPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
         </Routes>
         <Footer />
