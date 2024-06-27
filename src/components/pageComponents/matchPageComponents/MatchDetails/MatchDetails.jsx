@@ -99,7 +99,7 @@ function MatchDetails() {
                   </Link>
 
                   <span className="mobile-toggle">
-                    <Link href="https://www.ispl-t10.com/matche-center/22">
+                    <Link to="/matches/matchNumber">
                       <i className="fa fa-angle-right"></i>
                     </Link>
                   </span>

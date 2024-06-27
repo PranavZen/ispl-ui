@@ -31,7 +31,7 @@ function MatchCard() {
                       <div className="d-none d-md-block">
                         <div className="vds-result text-center">
                           <div className="watch-div">
-                            <Link href="" className="btn ">
+                            <Link to="" className="btn ">
                               <img
                                 src="https://www.ispl-t10.com/assets/image/versus.png"
                                 style={{ width: "50px" }}
