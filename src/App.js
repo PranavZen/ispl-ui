@@ -30,17 +30,32 @@ function App() {
   return (
     <HelmetProvider>
       <BrowserRouter forceRefresh={true}>
-      <ScrollToTop />
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/team-list" element={<TeamListPage />} />
-          <Route path="/team-list/chennai-singams" element={<ChennaiSingams />} />
+          <Route
+            path="/team-list/chennai-singams"
+            element={<ChennaiSingams />}
+          />
           <Route path="/team-list/majhi-mumbai" element={<MajhiMumbai />} />
-          <Route path="/team-list/tiigers-of-kolkata" element={<TigersOfKolkata />} />
-          <Route path="/team-list/srinagar-ke-veer" element={<SrinagarKeVeer />} />
-          <Route path="/team-list/kvn-bangalore-strikers" element={<BangaloreStrikers />} />
-          <Route path="/team-list/falcon-risers-hyderabad" element={<FalconRisersHyderabad />} />
+          <Route
+            path="/team-list/tiigers-of-kolkata"
+            element={<TigersOfKolkata />}
+          />
+          <Route
+            path="/team-list/srinagar-ke-veer"
+            element={<SrinagarKeVeer />}
+          />
+          <Route
+            path="/team-list/kvn-bangalore-strikers"
+            element={<BangaloreStrikers />}
+          />
+          <Route
+            path="/team-list/falcon-risers-hyderabad"
+            element={<FalconRisersHyderabad />}
+          />
           <Route path="/matches" element={<Match />} />
           <Route path="/matches/matchNumber" element={<TeamDetails />} />
           <Route path="/video/All" element={<AllVideos />} />
@@ -55,6 +70,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/ispl-page" element={<IsplPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/password/reset" element={<ForgetPassword />} />
         </Routes>
         <Footer />
       </BrowserRouter>

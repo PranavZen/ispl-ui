@@ -19,9 +19,13 @@
 
 .customTeamPlayersDetails{
 	.sectionTitle {
-		display: none !important;
+		display: none;
 	  }
-	
+	  .innerTitle{
+		.sectionTitle {
+			display: block;
+		  }
+	  }
 	  .fa {
 		color: #263574 !important;
 		font: normal normal normal 14px / 1 FontAwesome;
@@ -56,22 +60,22 @@
 		}
 		@media (min-width: 576px) {
 		  width: 540px;
-		  padding: 0 20px;
+		//   padding: 0 20px;
 		  padding-bottom: 20px;
 		}
 		@media (min-width: 768px) {
 		  width: 720px;
-		  padding: 0 25px;
+		//   padding: 0 25px;
 		  padding-bottom: 20px;
 		}
 		@media (min-width: 992px) {
 		  width: 960px;
-		  padding: 0 30px;
+		//   padding: 0 30px;
 		  padding-bottom: 20px;
 		}
 		@media (min-width: 1200px) {
 		  width: 1140px;
-		  padding: 0 35px;
+		//   padding: 0 35px;
 		  padding-bottom: 20px;
 		}
 		.tab {
@@ -96,19 +100,19 @@
 		gap: 0 !important;
 		@media (min-width: 576px) {
 		  width: 540px;
-		  padding: 0 20px;
+		//   padding: 0 20px;
 		}
 		@media (min-width: 768px) {
 		  width: 720px;
-		  padding: 0 25px;
+		//   padding: 0 25px;
 		}
 		@media (min-width: 992px) {
 		  width: 960px;
-		  padding: 0 30px;
+		//   padding: 0 30px;
 		}
 		@media (min-width: 1200px) {
 		  width: 1140px;
-		  padding: 0 35px;
+		//   padding: 0 35px;
 		}
 	  }
 }
