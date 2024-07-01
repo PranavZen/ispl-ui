@@ -73,6 +73,10 @@
   width: 2rem;
   height: 2rem;
 }
+.matchDetailsCustom .tabs .tab span svg {
+  width: 2rem;
+  height: 2rem;
+}
 .matchDetailsCustom .container {
   margin: 0 auto !important;
   gap: 0 !important;
