@@ -24,8 +24,11 @@ import RegistrationPage from "./pages/registration/RegistrationPage";
 import TeamDetails from "./pages/matchTeamDetails/TeamDetails";
 import Contact from "./pages/contactpage/Contact";
 import About from "./pages/aboutpage/About";
+<<<<<<< HEAD
 import Login from "./pages/loginpage/Login";
 import ForgetPassword from "./pages/forgetpasswordpage/ForgetPassword";
+=======
+>>>>>>> a7092454f9749bf26d4781675563b93d9b6d85dd
 import IsplPage from "./pages/isplpage/IsplPage";
 import DashboardForm from "./pages/dashboardsessiontwo/DashboardForm";
 
@@ -73,7 +76,7 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/ispl-page" element={<IsplPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/ispl-page" element={<IsplPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/dashboard-session-2" element={<DashboardForm />} />
           <Route path="/password/reset" element={<ForgetPassword />} />

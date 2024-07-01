@@ -180,7 +180,6 @@ function IsplPage() {
       <div
         className="news-sectiondiv d-inline-block w-100"
         style={{ padding: "40px 0 20px 0" }}
-        id="media"
       >
         <div className="container">
           <div className="mindle-heading text-center">
