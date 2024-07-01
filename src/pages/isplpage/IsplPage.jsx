@@ -43,7 +43,7 @@ function IsplPage() {
         <div className="container">
           <div className="mindle-heading text-center">
             <h1>
-              {" "} 
+              {" "}
               Core <span> Commitee </span>{" "}
             </h1>
           </div>
@@ -201,6 +201,7 @@ function IsplPage() {
                     className="img-fluid"
                     src="https://www.ispl-t10.com/assets/img/media/m9.jpeg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -215,6 +216,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m10.jpg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -229,6 +231,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m11.jpeg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -243,6 +246,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m4.jpg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -257,6 +261,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m5.jpg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -271,6 +276,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m6.jpg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -285,6 +291,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m7.jpg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>
@@ -299,6 +306,7 @@ function IsplPage() {
                   <img
                     src="https://www.ispl-t10.com/assets/img/media/m8.jpg"
                     alt="pbnm"
+                    loading="lazy"
                   />
                 </figure>
               </Link>

@@ -18,6 +18,7 @@ function JoinIsplSection() {
                       src={ball}
                       alt="JOIN ISPL T-10"
                       className="img-fluid ballImg"
+                      loading="lazy"
                     />
                   </span>
                 </h1>

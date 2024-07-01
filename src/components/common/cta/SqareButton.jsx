@@ -1,9 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../cta/cta.css";
 
-function SqareButton({ classNameText, btnName, svgFill, textColor, bordercolor, onClick, type }) {
+function SqareButton({
+  classNameText,
+  btnName,
+  svgFill,
+  textColor,
+  bordercolor,
+  onClick,
+  type,
+  btnLinkUrl,
+}) {
+  const ButtonOrLink = btnLinkUrl ? Link : "button";
+
   return (
-    <button className={classNameText} style={{color: textColor, borderColor: bordercolor}} onClick={onClick} type={type}>
+    <ButtonOrLink
+      to={btnLinkUrl}
+      className={classNameText}
+      style={{ color: textColor, borderColor: bordercolor }}
+      onClick={onClick}
+      type={type}
+    >
       {btnName}
       <span>
         <svg
@@ -19,7 +37,7 @@ function SqareButton({ classNameText, btnName, svgFill, textColor, bordercolor, 
           />
         </svg>
       </span>
-    </button>
+    </ButtonOrLink>
   );
 }
 

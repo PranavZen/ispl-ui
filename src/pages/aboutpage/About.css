@@ -307,4 +307,60 @@
 .customCoreCommmitteeSection .about-club-top .samll-sub {
   color: #0047c0;
   font-size: 25px;
+}
+
+.about-page-main {
+  padding: 8rem 0;
+}
+@media (max-width: 834px) {
+  .about-page-main {
+    padding: 0rem 1.5rem;
+  }
+}
+
+.lateBoxWr {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 3rem 5rem;
+  margin-bottom: 5rem;
+}
+@media (max-width: 767px) {
+  .lateBoxWr {
+    padding: 3rem 1rem;
+  }
+}
+.lateBoxWr h5 {
+  color: #172046;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+@media (max-width: 767px) {
+  .lateBoxWr h5 {
+    font-size: 2rem;
+  }
+}
+.lateBoxWr .profileImgWrap {
+  height: 28rem;
+  width: 28rem;
+  margin: 0 auto;
+}
+.lateBoxWr .lateContentWrap p {
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
+  color: #333;
+  margin-bottom: 1rem;
+  width: 90%;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .lateBoxWr .lateContentWrap p {
+    width: 100%;
+    font-size: 1.4rem;
+  }
+}
+.lateBoxWr .lateContentWrap p:last-child {
+  margin-bottom: 0;
 }/*# sourceMappingURL=About.css.map */

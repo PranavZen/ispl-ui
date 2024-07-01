@@ -20,13 +20,13 @@ function PointsTableCard({
     <div className={`pointCardWrap ${addClassName}`}>
       <Link to={fullPtsLink}>
         <div className="qualifyTagWrap">
-          <img src={tag} alt={teamName} className="img-fluid" />
+          <img src={tag} alt={teamName} className="img-fluid" loading="lazy"/>
         </div>
         <div className="cardNumberWrap">
           <span>{cardNum}</span>
         </div>
         <div className="teamLogoWrap">
-          <img src={teamLogo} alt={teamName} className="img-fluid" />
+          <img src={teamLogo} alt={teamName} className="img-fluid" loading="lazy"/>
         </div>
         <div className="teamNameWrap">
           <span>{teamName}</span>

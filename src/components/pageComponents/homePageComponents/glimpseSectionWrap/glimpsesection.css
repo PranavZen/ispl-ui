@@ -29,7 +29,7 @@
   height: 100%;
   z-index: 1;
   background: linear-gradient(360deg, rgb(23, 32, 70) 0%, rgba(23, 32, 70, 0) 100%);
-  pointer-events: all;
+  pointer-events: none;
 }
 
 #image-container {

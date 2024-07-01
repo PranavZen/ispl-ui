@@ -1,38 +1,19 @@
 .image-alignment {
   display: flex !important;
   justify-content: center;
+  align-items: center;
 }
 
 .hero-profile-img {
-  height: 170px;
-  width: 170px;
+  height: 20rem;
+  width: 20rem;
+  z-index: 1;
+  margin-top: 0rem;
+  background: #ddd;
+  border-radius: 2rem;
+  transition: all 0.3s linear;
 }
 
-.hero {
-  display: inline-block;
-  position: relative;
-  width: 328px;
-  min-width: 263px;
-  height: 331px;
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
-  margin: 30px;
-}
-@media (max-width: 767px) {
-  .hero {
-    min-width: 90% !important;
-  }
-}
-
-@media (max-width: 700px) {
-  .hero {
-    width: auto !important;
-    min-width: 267px;
-    height: 301px;
-    margin: 6px !important;
-  }
-}
 .hero-description-bk {
   /* background-image: linear-gradient(0deg, #3f5efb, #fc466b); */
   border-radius: 30px;
@@ -56,6 +37,7 @@
   bottom: 30%;
   left: 30px;
   overflow: hidden;
+  display: none;
   /* box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7); */
 }
 
@@ -68,17 +50,17 @@
   color: #fff;
   font-weight: 900;
   text-transform: uppercase;
-  left: 119px;
-  bottom: 25%;
-  font-size: 20px;
+  left: 50%;
+  bottom: -10%;
+  font-size: 24px;
+  width: 100%;
+  transform: translateX(-50%);
+  text-align: center;
+  transition: bottom 0.3s linear;
 }
 @media (max-width: 834px) {
   .hero-description {
-    font-size: 16px !important;
-    left: 0px !important;
-    bottom: 15% !important;
-    text-align: center;
-    width: 100%;
+    font-size: 20px !important;
   }
 }
 @media (max-width: 767px) {
@@ -150,7 +132,7 @@
 .hero {
   display: inline-block;
   position: relative;
-  width: 328px;
+  width: 100%;
   min-width: 263px;
   height: 331px;
   border-radius: 30px;
@@ -187,16 +169,6 @@
 
 .hero-logo img {
   height: 100%;
-}
-
-.hero-description {
-  position: absolute;
-  color: #fff;
-  font-weight: 900;
-  text-transform: uppercase;
-  left: 119px;
-  bottom: 25%;
-  font-size: 20px;
 }
 
 .hero-btn a {
@@ -287,7 +259,6 @@
   top: 10px;
   right: 5px;
   padding: 5px;
-  transform: rotate(170deg);
 }
 .bat-icon.allRoundBox {
   width: 10%;
@@ -295,6 +266,10 @@
   align-items: center;
   justify-content: center;
   right: 15px;
+}
+.bat-icon.allRoundBox img:nth-child(2) {
+  height: 3rem;
+  width: 3rem;
 }
 
 .about-club-top {
@@ -371,4 +346,12 @@
      object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.teamCard:hover .hero-profile-img {
+  margin-top: -5rem;
+}
+.teamCard:hover .hero-description {
+  bottom: 10%;
+  transition: bottom 0.3s linear;
 }/*# sourceMappingURL=teamspage.css.map */

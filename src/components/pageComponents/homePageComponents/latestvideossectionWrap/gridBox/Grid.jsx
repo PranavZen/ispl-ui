@@ -17,9 +17,9 @@ function Grid() {
         <div className="div1 gridBox">
           <Link to="">
             <div className="imgWrapper">
-              <img src={grid1} alt="" className="img-fluid" />
+              <img src={grid1} alt="" className="img-fluid" loading="lazy"/>
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" />
+                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
               </span>
             </div>
             <div className="contentWrap">
@@ -40,9 +40,9 @@ function Grid() {
         <div className="div2 gridBox">
           <Link to="">
             <div className="imgWrapper">
-              <img src={grid4} alt="" className="img-fluid" />
+              <img src={grid4} alt="" className="img-fluid" loading="lazy"/>
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" />
+                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
               </span>
             </div>
             <div className="contentWrap">
@@ -53,9 +53,9 @@ function Grid() {
         <div className="div3 gridBox">
           <Link to="">
             <div className="imgWrapper">
-              <img src={grid3} alt="" className="img-fluid" />
+              <img src={grid3} alt="" className="img-fluid" loading="lazy"/>
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" />
+                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
               </span>
             </div>
             <div className="contentWrap">
@@ -66,9 +66,9 @@ function Grid() {
         <div className="div4 gridBox">
           <Link to="">
             <div className="imgWrapper">
-              <img src={grid2} alt="" className="img-fluid" />
+              <img src={grid2} alt="" className="img-fluid" loading="lazy"/>
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" />
+                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
               </span>
             </div>
             <div className="contentWrap">
@@ -79,9 +79,9 @@ function Grid() {
         <div className="div5 gridBox">
           <Link to="">
             <div className="imgWrapper">
-              <img src={grid5} alt="" className="img-fluid" />
+              <img src={grid5} alt="" className="img-fluid" loading="lazy"/>
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" />
+                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
               </span>
             </div>
             <div className="contentWrap">

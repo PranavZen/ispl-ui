@@ -1,3 +1,4 @@
+@import "../../assets/scss/media";
 .customAboutSectionOne {
   background-color: #10172b;
 
@@ -166,9 +167,9 @@
     border-radius: 8px;
     margin: 0;
     @media (max-width: 576px) {
-        width: 90%;
-        margin: 0 auto;
-      }
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 
   .comon-fild-ads1 figure img {
@@ -181,13 +182,13 @@
     width: 60%;
     padding-left: 30px;
     @media (max-width: 991px) {
-        width: 100%;
-        padding: 0;
-      }
-      @media (max-width: 991px) {
-        width: 90%;
-        margin: 0 auto;
-      }
+      width: 100%;
+      padding: 0;
+    }
+    @media (max-width: 991px) {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 
   .left-history h2 {
@@ -275,5 +276,54 @@
   .about-club-top .samll-sub {
     color: #0047c0;
     font-size: 25px;
+  }
+}
+.about-page-main{
+  padding: 8rem 0;
+  @include md-tablet{
+    padding: 0rem 1.5rem;
+  }
+}
+.lateBoxWr {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 3rem 5rem;
+  margin-bottom: 5rem;
+  @include x-767-tablet{
+    padding: 3rem 1rem;
+  }
+  h5 {
+    color: #172046;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    @include x-767-tablet{
+      font-size: 2rem;
+    }
+  }
+  .profileImgWrap {
+    height: 28rem;
+    width: 28rem;
+    margin: 0 auto;
+  }
+
+  .lateContentWrap {
+    p {
+      text-align: center;
+      font-size: 16px;
+      line-height: 30px;
+      color: #333;
+      margin-bottom: 1rem;
+      width: 90%;
+      margin: 0 auto;
+      @include x-767-tablet{
+        width: 100%;
+        font-size: 1.4rem;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

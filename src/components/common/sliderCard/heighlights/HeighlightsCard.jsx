@@ -16,7 +16,7 @@ function HeighlightsCard({
       <div className="cardInner">
         <Link to={matchLink} className="cardAllWrap" data-fancybox>
           <div className="imgWrap">
-            <img src={backgroundImg} alt={mainTitle} className="img-fluid" />
+            <img src={backgroundImg} alt={mainTitle} className="img-fluid" loading="lazy"/>
             <div className="playBtn">
               <span>
                 <svg

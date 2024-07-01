@@ -55,6 +55,7 @@ function SrinagarKeVeer() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -64,6 +65,7 @@ function SrinagarKeVeer() {
                     src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -73,6 +75,7 @@ function SrinagarKeVeer() {
                     src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -82,6 +85,7 @@ function SrinagarKeVeer() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                     alt=""
                     className="bg-info img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -91,6 +95,7 @@ function SrinagarKeVeer() {
                     src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -100,6 +105,7 @@ function SrinagarKeVeer() {
                     src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -156,9 +162,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/OHFgNRNVSmCaVDlQUtAxjQ7yEnGOu7mf6rOPtDYp.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -172,9 +184,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/bBMy7OdKcRQ2F4JPjwVOJgtVyWGrlq7oN7SGaEJX.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -188,9 +206,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/2rEznNgENV5e0gQ8XKzGnr2Q7Its3dd4fGbxsO9H.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -204,9 +228,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/lP6B7FIlZVD9xY3YrNmbnI4LjESlwqSrxAAswNgE.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -224,10 +254,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/UqwI3uNqgVvrdgGQfYyR0OwfgRkTxzrmxZPOHXVq.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -241,10 +282,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/8rC8UOOjzPfFYJJGKj76DtHPjDQFb5bXiuO8j2LU.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -258,10 +310,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/7xt2iaoskbv3Ti5MSeCXrsK6l5e7EgoVL3rU9rxh.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -275,10 +338,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/rS79KXPc1UqjAaQ0Xd4yjExNcAOWQ0gojjHUHnNf.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -292,10 +366,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/YCXadIWYCsvCGSoH6ExoOacBbmxMTf7wdEe0B7vb.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -309,10 +394,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/vLJzFYtyXPQmxqAlg2IbMwWvO1SqaTL2ecgua3WV.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -326,10 +422,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/FjvN2g2mGzGAysXgJQ4AxV9z0ehwmHQ41nH6sGZV.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -343,10 +450,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/bcl7sPAG43r7bostQRbMCVrsVu0qiDvxpqHpBOTu.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -360,10 +478,21 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/c5Z3G5EAqF4O9uDIIOiCZjNe3Ojf9IaPWd8CZPyS.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -381,9 +510,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/uGZXATQdAaSSXz13FFXIFCR4rHRcxvgmwG9gNyvH.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -397,9 +532,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/MUYrFrZB4plpFyOGuiFAREm25N1kOKRQU8MAtbaR.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -413,9 +554,15 @@ function SrinagarKeVeer() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/e3zAQXxwu7liKILJBlDc9YCCGrZeT8evGZvpZmHE.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">

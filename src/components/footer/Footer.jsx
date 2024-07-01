@@ -74,16 +74,36 @@ function Footer() {
                     <h6>ISPL Guidelines</h6>
                     <ul>
                       <li>
-                        <Link to="">Code of Conduct in Team Dougouts</Link>
+                        <Link
+                          to="https://www.ispl-t10.com/assets/pdf/Dugout%20Rules%20ISPL.pdf"
+                          target="_blank"
+                        >
+                          Code of Conduct in Team Dougouts
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">Ispl Commercial Guidelines</Link>
+                        <Link
+                          to="https://www.ispl-t10.com/assets/pdf/ISPL%20Commercial%20Guidelines.pdf"
+                          target="_blank"
+                        >
+                          Ispl Commercial Guidelines
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">Cricket Rulebook</Link>
+                        <Link
+                          to="https://www.ispl-t10.com/assets/pdf/ISPL%20CRICKETING%20RULEBOOK%202024.pdf"
+                          target="_blank"
+                        >
+                          Cricket Rulebook
+                        </Link>
                       </li>
                       <li>
-                        <Link to="">Cricket PMOA Guideline</Link>
+                        <Link
+                          to="https://www.ispl-t10.com/assets/pdf/ISPL%20PMOA%20Guidelines.pdf"
+                          target="_blank"
+                        >
+                          Cricket PMOA Guideline
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -93,7 +113,7 @@ function Footer() {
                     <h6>Contact</h6>
                     <ul>
                       <li>
-                        <Link to="">Contact Us</Link>
+                        <Link to="/contact-us">Contact Us</Link>
                       </li>
                       <li>
                         <Link to="">Sponsorship</Link>
@@ -107,7 +127,10 @@ function Footer() {
                       <li>
                         <ul>
                           <li>
-                            <Link to="">
+                            <Link
+                              to="https://www.facebook.com/profile.php?id=61553035197650&amp;is_tour_completed=true"
+                              target="_blank"
+                            >
                               <span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +153,7 @@ function Footer() {
                               </span>
                             </Link>
                           </li>
-                          <li>
+                          {/* <li>
                             <Link to="">
                               <span>
                                 <svg
@@ -151,9 +174,12 @@ function Footer() {
                                 </svg>
                               </span>
                             </Link>
-                          </li>
+                          </li> */}
                           <li>
-                            <Link to="">
+                            <Link
+                              to="https://www.linkedin.com/in/ispl-indian-street-premier-league-737115299/"
+                              target="_blank"
+                            >
                               <span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +201,10 @@ function Footer() {
                             </Link>
                           </li>
                           <li>
-                            <Link to="">
+                            <Link
+                              to="https://youtube.com/@indianstreetpremierleague_t10?si=WT5kwHmRjQ_MQpO5"
+                              target="_blank"
+                            >
                               <span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +226,10 @@ function Footer() {
                             </Link>
                           </li>
                           <li>
-                            <Link to="">
+                            <Link
+                              to="https://instagram.com/ispl_t10?igshid=OGQ5ZDc2ODk2ZA=="
+                              target="_blank"
+                            >
                               <span>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -240,7 +272,7 @@ function Footer() {
                 </div>
                 <div className="col-lg-5 col-md-6 col-12">
                   <div className="Box right">
-                    <p>All Rights Reserved -  CCS Sports LLP</p>
+                    <p>All Rights Reserved - CCS Sports LLP</p>
                   </div>
                 </div>
               </div>

@@ -48,6 +48,9 @@
   color: #010123;
   height: 4.5rem;
   border: 0.2rem solid #fff;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
 }
 #registrationFormSection .form-control:focus {
   outline: none;

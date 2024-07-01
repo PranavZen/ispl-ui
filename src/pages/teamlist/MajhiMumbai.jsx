@@ -55,6 +55,7 @@ function MajhiMumbai() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -64,6 +65,7 @@ function MajhiMumbai() {
                     src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                     alt=""
                     className="bg-info img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -73,6 +75,7 @@ function MajhiMumbai() {
                     src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -82,6 +85,7 @@ function MajhiMumbai() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -91,6 +95,7 @@ function MajhiMumbai() {
                     src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -100,6 +105,7 @@ function MajhiMumbai() {
                     src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -156,10 +162,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/qkLNjnJwcdtbN8MMLc7iKLYqYdABqNiQQE7Jumx1.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -173,10 +190,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/IKCBLoUYO8qkfZGDBMrRPc7pcoVuZpYpwl98KvAm.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -190,10 +218,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/YFWy4RnUBpx4F7ZIEOVnDmdPPYLJhnORWqQR64pB.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -207,10 +246,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/2FBL8sCYSISmoIRrWVn8Z2xe4j3ZFnPVGaCWmdDP.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -224,10 +274,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/sZF3eB9m2HcTIL5FbTesQRUVRX6fOz2Q5WHLNFtA.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -241,10 +302,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/tE8v7T55rNC4r5aWi5VYNFXUBqrtl6gTX6TedCl2.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -258,10 +330,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/eAKNSkVrgPhTklMY2j9SH2MgNpbURCCsoEcDnsN3.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -275,10 +358,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/1dA2EX9gc0EpWel2dBCPaCyl30kmPm7Atef2Rm9p.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -292,10 +386,21 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/HYn4LA5zqcDKCeW7YKKdvUeSfCnE6U8QWtpf7ddH.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -312,9 +417,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/rUWanPey6VY1VdJhjIiBOhiT7jf1KEI2erhZb5AW.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -328,9 +439,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/2CBZvqOnETEQJD2MpNE5DsHFUNtrzamlpmKu4Idy.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -344,9 +461,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/HUuLR3fbyOcuradQSclaAN4SKoFrBLFB0QHWjwlS.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -360,9 +483,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/Pz6LQX9402G817XwPHmxnMMuT6XlB3X9zumuhLHi.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -376,9 +505,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/Qt6E43NKWQpVGJvL0tKv9A8YtAtWC3YEe4X0xIVE.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -395,9 +530,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/UP4aYyeO8b4DWpzRUenxUTGf6842c2NwhVkaGFaL.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -411,9 +552,15 @@ function MajhiMumbai() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/qpjb45pXXhwY9a9jNm9Ynaz0wWNwJRJcnc7APAuK.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">

@@ -27,6 +27,8 @@ import About from "./pages/aboutpage/About";
 import Login from "./pages/loginpage/Login";
 import ForgetPassword from "./pages/forgetpasswordpage/ForgetPassword";
 import IsplPage from "./pages/isplpage/IsplPage";
+import DashboardForm from "./pages/dashboardsessiontwo/DashboardForm";
+
 
 function App() {
   return (
@@ -73,7 +75,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<RegistrationPage />} />
-          <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/dashboard-session-2" element={<DashboardForm />} />
           <Route path="/password/reset" element={<ForgetPassword />} />
         </Routes>
         <Footer />

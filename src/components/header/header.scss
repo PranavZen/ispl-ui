@@ -4,12 +4,12 @@
 }
 .topBarSection {
   background: #182046;
-  padding: 1rem 6rem 1rem 18rem;
+  padding: 1rem 6rem 1rem 6rem;
   @include d-desktop {
-    padding: 1rem 2rem 1rem 10rem;
+    padding: 1rem 2rem 1rem 2rem;
   }
   @include md-tablet {
-    padding: 1rem 2rem 1rem 4rem;
+    padding: 1rem 2rem 1rem 2rem;
   }
   @include x-767-tablet {
     display: none;
@@ -56,25 +56,37 @@
 }
 
 #header {
-  padding: 1rem 0 1rem 18rem;
+  padding: 0rem 6rem 0rem 6rem;
   background-color: #263574;
   position: relative;
   @include d-desktop {
-    padding: 1rem 1rem 1rem 10rem;
+    padding: 0rem 2rem 0rem 2rem;
   }
-  @include md-tablet {
-    padding: 1rem 2rem 1rem 8rem;
-  }
-  @include x-767-tablet {
-    padding: 0rem 1rem 0rem 2rem;
+  // @include md-tablet {
+  //   padding: 1rem 2rem 1rem 8rem;
+  // }
+  // @include x-767-tablet {
+  //   padding: 0rem 1rem 0rem 2rem;
+  // }
+  .myDis {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .navbar {
+    width: fit-content;
+    @include md-tablet {
+      width: 100%;
+    }
     .navbar-brand {
-      position: absolute;
-      top: 5%;
-      left: -5%;
-      transform: translate(-50%, -50%);
-      margin: 0;
+      // position: absolute;
+      // top: 5%;
+      // left: -5%;
+      // transform: translate(-50%, -50%);
+      margin-right: 3rem;
+      @include d-desktop {
+        margin-right: 1rem;
+      }
       @include md-tablet {
         position: relative;
         transform: none;
@@ -114,6 +126,9 @@
       .offcanvas-body {
         .navbar-nav {
           gap: 2.5rem;
+          @include d-desktop {
+            gap: 1.5rem;
+          }
           .nav-item {
             .nav-link {
               color: #bbb;
@@ -147,7 +162,7 @@
                 padding: 1rem 1.5rem;
                 &[data-bs-popper] {
                   left: -50px;
-                  @include d-desktop{
+                  @include d-desktop {
                     left: -100px;
                   }
                   @include md-tablet {
@@ -179,25 +194,44 @@
     }
   }
   .headerBtnsWrap {
-    position: absolute;
-    right: -6.5%;
+    // position: absolute;
+    // right: -6.5%;
     width: fit-content;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    @include d-1280-desktop {
-      right: 10.8%;
-      top: -22px;
+    // @include d-1280-desktop {
+    //   right: 10.8%;
+    //   top: -22px;
+    // }
+    @include md-tablet {
+      position: absolute;
+      right: 10%;
     }
-    @include md-tablet{
-      right: -10.2%;
-      top: 50%;
-    }
-    @include x-767-tablet {
+    &.deskMob{
       display: none;
+      @include x-767-tablet{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transform: none;
+        right: unset;
+        width: 100%;
+        margin-top: 2rem;
+        .regBtn{
+          width: 60%;
+        }
+      }
     }
+    &.mobDisp {
+      display: flex;
+      @include x-767-tablet {
+        display: none;
+      }
+    }
+
     .searchbtn {
       width: 3.4rem;
       height: 3.4rem;

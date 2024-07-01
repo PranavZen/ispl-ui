@@ -11,7 +11,7 @@ function EventsnNewsCard({
   return (
     <Link to={newsLink} className="eventCardWrap">
       <div className="eImgWrap">
-        <img src={thumbnailUrl} alt="" className="img-fluid" />
+        <img src={thumbnailUrl} alt="" className="img-fluid" loading="lazy"/>
       </div>
       <div className="overLayBox">
         <div className="TextWraps">

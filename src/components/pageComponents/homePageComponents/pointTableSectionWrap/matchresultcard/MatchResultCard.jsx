@@ -28,17 +28,17 @@ function MatchResultCard({
       <div className="teamsWraps">
         <div className="leftTeamWrap boxx">
           <span>
-            <img src={team1Logo} alt="" className="img-fluid" />
+            <img src={team1Logo} alt="" className="img-fluid" loading="lazy"/>
           </span>
         </div>
         <div className="midBoxx">
           <span>
-            <img src={vs} alt="" className="img-fluid" />
+            <img src={vs} alt="" className="img-fluid" loading="lazy"/>
           </span>
         </div>
         <div className="rightTeamWrap boxx">
           <span>
-            <img src={team2Logo} alt="" className="img-fluid" />
+            <img src={team2Logo} alt="" className="img-fluid" loading="lazy"/>
           </span>
         </div>
       </div>

@@ -55,6 +55,7 @@ function TigersOfKolkata() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -64,6 +65,7 @@ function TigersOfKolkata() {
                     src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -73,6 +75,7 @@ function TigersOfKolkata() {
                     src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                     alt=""
                     className="bg-info img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -82,6 +85,7 @@ function TigersOfKolkata() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -91,6 +95,7 @@ function TigersOfKolkata() {
                     src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -100,6 +105,7 @@ function TigersOfKolkata() {
                     src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                     alt=""
                     className=" img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -157,9 +163,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/fdtBm9Yr2yrQspeLX7vSDqJspbCoPLfTBd5IQKpF.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -173,9 +185,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/UN281IrE7RwwUuHvefrKtQAynxsuhwFeGdz7V2Bd.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -189,9 +207,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/0FvCeUjrWL4lkB35t7AAv90R8yrGqHr2WpgZvtVr.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -205,9 +229,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/BljMowUrOkZV2hifsUoyEvpnZPSrLQkSO1CC55H9.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -225,9 +255,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/Y2OxVTgSxhwj6QorOipSnuHVkAiMLjxMAsb8HDjG.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -241,9 +277,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/9d5FIW9KEY2BSTsPxaIGC8ep5qLhUE447XkxbrSg.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -257,9 +299,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/QC4wXTHREM7clpnVaLUeSy7wJvMBFJqhM9ZsrUCh.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -273,9 +321,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/kbjV3BU2ai0Thqf5ua5QSwGU2Eg77H4aekJI9YND.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -289,9 +343,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/ruUBmBQgYRb5TiDp4XwvDsOU59xTucUamajafMLw.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -305,9 +365,15 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/vQh37ZlHCkZcBhHmarxqpweSvPSCe2dSeF8BacBs.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -325,10 +391,21 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/Ew5qWMgfzmWpCHTAiInZlRqAZyl1gXOxT7hnExPY.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -342,10 +419,21 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/PFIcatoj2LpTOi6KshOXeYrJqXXCj2r4jdZH3VLt.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -359,10 +447,21 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/B6ucXOVZ8akamiSYKSCokoWbMpLZz6CskTKc9tV5.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -376,10 +475,21 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/ZCWzhjj3X4WW5ri6OEQDt92KfN6zSU1pOW76HZs9.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -393,10 +503,21 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/jCqGGAbQxsdDASMrEJMWJuJrpfzI6O3e2xsK1l7B.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -410,10 +531,21 @@ function TigersOfKolkata() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/9EgmCjZDLVNngqBFru34OcdYdhe4ES5hJhUoY8b8.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">

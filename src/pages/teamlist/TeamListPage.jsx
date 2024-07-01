@@ -46,7 +46,7 @@ function TeamListPage() {
               <div className="container">
                 <div className="row">
                   <div className="col-lg-4 col-md-6 col-sm-12">
-                    <Link to="/team-list/chennai-singams">
+                    <Link to="/team-list/chennai-singams" className="teamCard">
                       <div
                         className="second hero image-alignment"
                         style={{ background: "#003899" }}
@@ -76,7 +76,7 @@ function TeamListPage() {
                     </Link>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-12">
-                    <Link to="/team-list/majhi-mumbai">
+                    <Link to="/team-list/majhi-mumbai" className="teamCard">
                       <div
                         className="second hero image-alignment"
                         style={{ background: "#118100" }}
@@ -106,7 +106,7 @@ function TeamListPage() {
                     </Link>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-12">
-                    <Link to="/team-list/tiigers-of-kolkata">
+                    <Link to="/team-list/tiigers-of-kolkata" className="teamCard">
                       <div
                         className="second hero image-alignment"
                         style={{ background: "#941a12" }}
@@ -136,7 +136,7 @@ function TeamListPage() {
                     </Link>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-12">
-                    <Link to="/team-list/srinagar-ke-veer">
+                    <Link to="/team-list/srinagar-ke-veer" className="teamCard">
                       <div
                         className="second hero image-alignment"
                         style={{ background: "#e8ff00" }}
@@ -166,7 +166,7 @@ function TeamListPage() {
                     </Link>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-12">
-                    <Link to="/team-list/kvn-bangalore-strikers">
+                    <Link to="/team-list/kvn-bangalore-strikers" className="teamCard">
                       <div
                         className="second hero image-alignment"
                         style={{ background: "#ff6300c7" }}
@@ -196,7 +196,7 @@ function TeamListPage() {
                     </Link>
                   </div>
                   <div className="col-lg-4 col-md-6 col-sm-12">
-                    <Link to="/team-list/falcon-risers-hyderabad">
+                    <Link to="/team-list/falcon-risers-hyderabad" className="teamCard">
                       <div
                         className="second hero image-alignment"
                         style={{ background: "#4f3b96" }}

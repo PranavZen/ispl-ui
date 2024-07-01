@@ -21,9 +21,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/rUWanPey6VY1VdJhjIiBOhiT7jf1KEI2erhZb5AW.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -37,9 +43,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/2CBZvqOnETEQJD2MpNE5DsHFUNtrzamlpmKu4Idy.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -53,9 +65,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/HUuLR3fbyOcuradQSclaAN4SKoFrBLFB0QHWjwlS.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -69,9 +87,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/Pz6LQX9402G817XwPHmxnMMuT6XlB3X9zumuhLHi.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -85,9 +109,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/Qt6E43NKWQpVGJvL0tKv9A8YtAtWC3YEe4X0xIVE.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -106,14 +136,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/qkLNjnJwcdtbN8MMLc7iKLYqYdABqNiQQE7Jumx1.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -127,14 +164,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/IKCBLoUYO8qkfZGDBMrRPc7pcoVuZpYpwl98KvAm.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -148,14 +192,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/YFWy4RnUBpx4F7ZIEOVnDmdPPYLJhnORWqQR64pB.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -175,8 +226,14 @@ const TeamPlayers = () => {
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -196,8 +253,14 @@ const TeamPlayers = () => {
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -211,14 +274,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/tE8v7T55rNC4r5aWi5VYNFXUBqrtl6gTX6TedCl2.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -232,14 +302,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/eAKNSkVrgPhTklMY2j9SH2MgNpbURCCsoEcDnsN3.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -259,8 +336,14 @@ const TeamPlayers = () => {
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -274,14 +357,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/HYn4LA5zqcDKCeW7YKKdvUeSfCnE6U8QWtpf7ddH.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -300,12 +390,14 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/UP4aYyeO8b4DWpzRUenxUTGf6842c2NwhVkaGFaL.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
                             alt="BATTERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                       </figure>
@@ -320,12 +412,14 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/qpjb45pXXhwY9a9jNm9Ynaz0wWNwJRJcnc7APAuK.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
                             alt="BATTERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                       </figure>
@@ -351,14 +445,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/Ew5qWMgfzmWpCHTAiInZlRqAZyl1gXOxT7hnExPY.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -372,14 +473,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/PFIcatoj2LpTOi6KshOXeYrJqXXCj2r4jdZH3VLt.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -393,14 +501,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/B6ucXOVZ8akamiSYKSCokoWbMpLZz6CskTKc9tV5.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -414,14 +529,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/ZCWzhjj3X4WW5ri6OEQDt92KfN6zSU1pOW76HZs9.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -435,14 +557,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/jCqGGAbQxsdDASMrEJMWJuJrpfzI6O3e2xsK1l7B.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -456,14 +585,21 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/9EgmCjZDLVNngqBFru34OcdYdhe4ES5hJhUoY8b8.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon allRoundBox">
                           <img
                             src={redball}
                             alt="BOWLERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
-                          <img src={bat} alt="BOWLERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BOWLERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -482,12 +618,14 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/fdtBm9Yr2yrQspeLX7vSDqJspbCoPLfTBd5IQKpF.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
                             alt="BATTERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                       </figure>
@@ -502,12 +640,14 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/UN281IrE7RwwUuHvefrKtQAynxsuhwFeGdz7V2Bd.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
                             alt="BATTERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                       </figure>
@@ -528,6 +668,7 @@ const TeamPlayers = () => {
                             src={redball}
                             alt="BATTERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                       </figure>
@@ -542,12 +683,14 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/BljMowUrOkZV2hifsUoyEvpnZPSrLQkSO1CC55H9.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
                           <img
                             src={redball}
                             alt="BATTERS"
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                       </figure>
@@ -567,9 +710,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/Y2OxVTgSxhwj6QorOipSnuHVkAiMLjxMAsb8HDjG.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -583,9 +732,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/9d5FIW9KEY2BSTsPxaIGC8ep5qLhUE447XkxbrSg.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -599,9 +754,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/QC4wXTHREM7clpnVaLUeSy7wJvMBFJqhM9ZsrUCh.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -615,9 +776,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/kbjV3BU2ai0Thqf5ua5QSwGU2Eg77H4aekJI9YND.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -631,9 +798,15 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/ruUBmBQgYRb5TiDp4XwvDsOU59xTucUamajafMLw.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                          />
                         </div>
                       </figure>
                       <div className="design">
@@ -647,9 +820,16 @@ const TeamPlayers = () => {
                         <img
                           src="https://www.ispl-t10.com/images/team-master/players/vQh37ZlHCkZcBhHmarxqpweSvPSCe2dSeF8BacBs.png"
                           alt="teams01"
+                          loading="lazy"
                         />
                         <div className="bat-icon">
-                          <img src={bat} alt="BATTERS" className="img-fluid" />
+                          <img
+                            src={bat}
+                            alt="BATTERS"
+                            className="img-fluid"
+                            loading="lazy"
+                            F
+                          />
                         </div>
                       </figure>
                       <div className="design">

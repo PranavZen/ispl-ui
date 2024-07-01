@@ -4,16 +4,16 @@
 
 .topBarSection {
   background: #182046;
-  padding: 1rem 6rem 1rem 18rem;
+  padding: 1rem 6rem 1rem 6rem;
 }
 @media (max-width: 1024px) {
   .topBarSection {
-    padding: 1rem 2rem 1rem 10rem;
+    padding: 1rem 2rem 1rem 2rem;
   }
 }
 @media (max-width: 834px) {
   .topBarSection {
-    padding: 1rem 2rem 1rem 4rem;
+    padding: 1rem 2rem 1rem 2rem;
   }
 }
 @media (max-width: 767px) {
@@ -56,31 +56,36 @@
 }
 
 #header {
-  padding: 1rem 0 1rem 18rem;
+  padding: 0rem 6rem 0rem 6rem;
   background-color: #263574;
   position: relative;
 }
 @media (max-width: 1024px) {
   #header {
-    padding: 1rem 1rem 1rem 10rem;
+    padding: 0rem 2rem 0rem 2rem;
   }
+}
+#header .myDis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .navbar {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 @media (max-width: 834px) {
-  #header {
-    padding: 1rem 2rem 1rem 8rem;
-  }
-}
-@media (max-width: 767px) {
-  #header {
-    padding: 0rem 1rem 0rem 2rem;
+  #header .navbar {
+    width: 100%;
   }
 }
 #header .navbar .navbar-brand {
-  position: absolute;
-  top: 5%;
-  left: -5%;
-  transform: translate(-50%, -50%);
-  margin: 0;
+  margin-right: 3rem;
+}
+@media (max-width: 1024px) {
+  #header .navbar .navbar-brand {
+    margin-right: 1rem;
+  }
 }
 @media (max-width: 834px) {
   #header .navbar .navbar-brand {
@@ -122,6 +127,11 @@
 }
 #header .navbar .offcanvas .offcanvas-body .navbar-nav {
   gap: 2.5rem;
+}
+@media (max-width: 1024px) {
+  #header .navbar .offcanvas .offcanvas-body .navbar-nav {
+    gap: 1.5rem;
+  }
 }
 #header .navbar .offcanvas .offcanvas-body .navbar-nav .nav-item .nav-link {
   color: #bbb;
@@ -180,30 +190,40 @@
   color: #c8c8c8;
 }
 #header .headerBtnsWrap {
-  position: absolute;
-  right: -6.5%;
   width: -moz-fit-content;
   width: fit-content;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-@media (max-width: 1280px) {
-  #header .headerBtnsWrap {
-    right: 10.8%;
-    top: -22px;
-  }
-}
 @media (max-width: 834px) {
   #header .headerBtnsWrap {
-    right: -10.2%;
-    top: 50%;
+    position: absolute;
+    right: 10%;
   }
 }
+#header .headerBtnsWrap.deskMob {
+  display: none;
+}
 @media (max-width: 767px) {
-  #header .headerBtnsWrap {
+  #header .headerBtnsWrap.deskMob {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: none;
+    right: unset;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  #header .headerBtnsWrap.deskMob .regBtn {
+    width: 60%;
+  }
+}
+#header .headerBtnsWrap.mobDisp {
+  display: flex;
+}
+@media (max-width: 767px) {
+  #header .headerBtnsWrap.mobDisp {
     display: none;
   }
 }

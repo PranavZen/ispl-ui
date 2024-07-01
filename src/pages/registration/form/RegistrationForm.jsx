@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../components/common/cta/SqareButton";
+
 function RegistrationForm() {
   const [formData, setFormData] = useState({
     first_name: "",
@@ -19,6 +20,72 @@ function RegistrationForm() {
   });
 
   const [errors, setErrors] = useState({});
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [zones, setZones] = useState([]);
+
+  useEffect(() => {
+    fetchStates();
+  }, []);
+
+  const fetchStates = async () => {
+    try {
+      const response = await axios.get("https://ispl-t10.com/api/state");
+      let states = response.data.data.states || [];
+
+      // Filter out duplicate state names
+      const uniqueStates = Array.from(
+        new Set(states.map((state) => state.state_name))
+      ).map((state_name) => {
+        return states.find((state) => state.state_name === state_name);
+      });
+
+      setStates(uniqueStates);
+    } catch (error) {
+      console.error("Error fetching states:", error);
+      toast.error("Failed to fetch states. Please try again later.");
+    }
+  };
+
+  const fetchCitiesByState = async (stateName) => {
+    try {
+      const response = await axios.get(
+        `https://ispl-t10.com/api/get_city_base_on_state?state_name=${stateName}`
+      );
+      setCities(response.data.cities || []);
+    } catch (error) {
+      console.error(`Error fetching cities for ${stateName}:`, error);
+      toast.error(
+        `Failed to fetch cities for ${stateName}. Please try again later.`
+      );
+    }
+  };
+
+  const fetchZonesByCity = async (cityId) => {
+    try {
+      const response = await axios.get(
+        `https://ispl-t10.com/api/get_zone_base_on_city?cities_states_id=${cityId}`
+      );
+      const zones = response.data.zone || [];
+      setZones(zones);
+      if (zones.length > 0) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          zone_name: zones[0].zone_name,
+        }));
+      } else {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          zone_name: "",
+        }));
+      }
+    } catch (error) {
+      console.error(`Error fetching zones for city ID ${cityId}:`, error);
+      toast.error(
+        `Failed to fetch zones for city ID ${cityId}. Please try again later.`
+      );
+    }
+  };
 
   const validateField = (name, value) => {
     let error = "";
@@ -31,13 +98,18 @@ function RegistrationForm() {
         }
         break;
       case "mobile_number":
-        if (!/^\d{10}$/.test(value)) {
-          error = "Please enter a valid 10-digit mobile number.";
+        if (!/^\d+$/.test(value)) {
+          error = "Please enter only numeric characters.";
         }
         break;
       case "email":
         if (!/\S+@\S+\.\S+/.test(value)) {
           error = "Please enter a valid email address.";
+        } else {
+          const domainPattern = /\.[a-zA-Z]{2,}$/;
+          if (!domainPattern.test(value)) {
+            error = "Please enter a valid email address with a domain.";
+          }
         }
         break;
       case "password":
@@ -53,44 +125,85 @@ function RegistrationForm() {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
   };
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    validateField(name, value);
+
+    // Sanitize input based on field name
+    let sanitizedValue = value;
+    if (name === "first_name" || name === "surname") {
+      sanitizedValue = value.replace(/[^A-Za-z]/gi, "");
+    } else if (name === "mobile_number") {
+      sanitizedValue = value.replace(/[^0-9]/g, "");
+    }
+
+    // Update formData using functional update to ensure correctness
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: sanitizedValue,
+    }));
+
+    validateField(name, sanitizedValue);
+
+    if (name === "state_name") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        cities_states_id: "",
+        zone_name: "", // Reset zone_name when state changes
+      }));
+      await fetchCitiesByState(value);
+    } else if (name === "cities_states_id") {
+      // Fetch zones and update zones state
+      await fetchZonesByCity(value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Check for any remaining client-side errors
     let formValid = true;
     const newErrors = {};
-  
+
+    // Check all fields except 'zone_name' for empty values
     Object.keys(formData).forEach((key) => {
-      if (!formData[key]) {
+      if (key !== "zone_name" && !formData[key]) {
         newErrors[key] = "This field is required.";
         formValid = false;
       }
     });
-  
+
+    // Validate mobile_number length
+    if (formData.mobile_number.length !== 10) {
+      newErrors.mobile_number = "Mobile number should be exactly 10 digits.";
+      formValid = false;
+    }
+
     if (formData.password !== formData.password_confirmation) {
       newErrors.password_confirmation = "Passwords do not match.";
       formValid = false;
     }
-  
+
+    if (
+      !/\S+@\S+\.\S+/.test(formData.email) ||
+      !/\.[a-zA-Z]{2,}$/.test(formData.email)
+    ) {
+      newErrors.email = "Please enter a valid email address with a domain.";
+      formValid = false;
+    }
+
     setErrors(newErrors);
-  
+
     if (!formValid) {
       toast.error("Please correct the errors in the form.");
-      return;
+      return; // Exit early if there are validation errors
     }
-  
+
     try {
       const response = await axios.post(
         "https://ispl-t10.com/api/register",
         formData
       );
-  
+
       // Check for server-side validation errors
       if (response.data.remark === "validation_error") {
         const serverErrors = response.data.message.error;
@@ -104,7 +217,10 @@ function RegistrationForm() {
         // Prevent form submission on server-side validation errors
         return;
       }
-  
+
+      // Extract pay_request_id from response
+      const payRequestId = response.data.data.pay_request_id;
+
       // Clear form fields after successful submission
       setFormData({
         first_name: "",
@@ -118,12 +234,28 @@ function RegistrationForm() {
         password: "",
         password_confirmation: "",
       });
-  
+
       // Reset errors
       setErrors({});
-  
+
       // Display success message
       toast.success("Registration successful!");
+
+      // Make payment request using pay_request_id
+      window.location.href = `https://ispl-t10.com/api/payment-request/${payRequestId}`;
+
+      // Now handle payment response after successful payment
+      const paymentResponse = await axios.get(
+        `https://ispl-t10.com/api/payment-response`
+      );
+
+      // Assuming paymentResponse.data.status === "Successful" indicates successful payment
+      if (paymentResponse.data.status === "Successful") {
+        // Redirect to login page after successful payment
+        window.location.href = `/login`;
+      } else {
+        toast.error("Payment was unsuccessful. Please try again.");
+      }
     } catch (error) {
       if (
         error.response &&
@@ -143,6 +275,7 @@ function RegistrationForm() {
       }
     }
   };
+
   return (
     <form
       className="form p-t-20"
@@ -150,8 +283,8 @@ function RegistrationForm() {
       onSubmit={handleSubmit}
     >
       <div className="com-div-md">
-        <SectionTitle titleText="Player Registration" />
-        <div className="login-modal-pn">
+        <SectionTitle title="Registeration Form" />
+        <div className="Register-form">
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="first_name" className="form-label">
@@ -193,12 +326,11 @@ function RegistrationForm() {
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="mobile_number" className="form-label">
-                Mobile number
+                Mobile Number
               </label>
               <input
                 required
                 id="mobile_number"
-                maxLength="10"
                 type="text"
                 className="form-control"
                 name="mobile_number"
@@ -213,7 +345,7 @@ function RegistrationForm() {
             </div>
             <div className="col-md-6">
               <label htmlFor="date_of_birth" className="form-label">
-                Date of birth
+                Date of Birth
               </label>
               <input
                 required
@@ -221,7 +353,8 @@ function RegistrationForm() {
                 type="date"
                 className="form-control"
                 name="date_of_birth"
-                autoComplete="email"
+                autoComplete="date_of_birth"
+                autoFocus
                 value={formData.date_of_birth}
                 onChange={handleChange}
               />
@@ -231,9 +364,9 @@ function RegistrationForm() {
             </div>
           </div>
           <div className="row mb-4">
-            <div className="col-md-6 mb-4">
+            <div className="col-md-6">
               <label htmlFor="email" className="form-label">
-                Email Address
+                Email
               </label>
               <input
                 required
@@ -242,65 +375,59 @@ function RegistrationForm() {
                 className="form-control"
                 name="email"
                 autoComplete="email"
+                autoFocus
                 value={formData.email}
                 onChange={handleChange}
               />
               {errors.email && <div className="error">{errors.email}</div>}
             </div>
             <div className="col-md-6">
-              <label htmlFor="sel_state" className="form-label">
-                Select State
+              <label htmlFor="state_name" className="form-label">
+                State
               </label>
               <select
-                className="form-select"
-                name="state_name"
                 required
-                id="sel_state"
-                aria-label="Default select example"
+                id="state_name"
+                className="form-control"
+                name="state_name"
+                autoComplete="state_name"
+                autoFocus
                 value={formData.state_name}
                 onChange={handleChange}
               >
-                <option value="">Select state</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="West Bengal">West Bengal</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="Assam">Assam</option>
-                <option value="Goa">Goa</option>
+                <option value="">Select a state</option>
+                {states.map((state, index) => (
+                  <option key={index} value={state.state_name}>
+                    {state.state_name}
+                  </option>
+                ))}
               </select>
               {errors.state_name && (
                 <div className="error">{errors.state_name}</div>
               )}
             </div>
+          </div>
+          <div className="row mb-4">
             <div className="col-md-6">
-              <label htmlFor="sel_city" className="form-label">
-                Select City
+              <label htmlFor="cities_states_id" className="form-label">
+                City
               </label>
               <select
-                className="form-select"
-                id="sel_city"
                 required
+                id="cities_states_id"
+                className="form-control"
                 name="cities_states_id"
-                aria-label="Default select example"
+                autoComplete="cities_states_id"
+                autoFocus
                 value={formData.cities_states_id}
                 onChange={handleChange}
               >
-                <option value="">Select city</option>
-                <option value="mumbai">mumbai</option>
+                <option value="">Select a city</option>
+                {cities.map((city, index) => (
+                  <option key={index} value={city.city_id}>
+                    {city.city_name}
+                  </option>
+                ))}
               </select>
               {errors.cities_states_id && (
                 <div className="error">{errors.cities_states_id}</div>
@@ -311,12 +438,12 @@ function RegistrationForm() {
                 Zone
               </label>
               <input
-                type="text"
-                name="zone_name"
                 id="zone_name"
+                type="text"
                 className="form-control"
+                name="zone_name"
                 value={formData.zone_name}
-                onChange={handleChange}
+                disabled
               />
               {errors.zone_name && (
                 <div className="error">{errors.zone_name}</div>
@@ -334,7 +461,8 @@ function RegistrationForm() {
                 type="password"
                 className="form-control"
                 name="password"
-                autoComplete="new-password"
+                autoComplete="password"
+                autoFocus
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -343,16 +471,17 @@ function RegistrationForm() {
               )}
             </div>
             <div className="col-md-6">
-              <label htmlFor="password-confirm" className="form-label">
+              <label htmlFor="password_confirmation" className="form-label">
                 Confirm Password
               </label>
               <input
                 required
-                id="password-confirm"
+                id="password_confirmation"
                 type="password"
                 className="form-control"
                 name="password_confirmation"
-                autoComplete="new-password"
+                autoComplete="password_confirmation"
+                autoFocus
                 value={formData.password_confirmation}
                 onChange={handleChange}
               />
@@ -364,7 +493,7 @@ function RegistrationForm() {
           <div className="col-md-12 d-flex align-items-center justify-content-center my-5">
             <SqareButton
               classNameText="sqrBtn"
-              btnName="Register Now"
+              btnName="Register & Pay Now"
               svgFill="#caf75a"
               textColor="#caf75a"
               bordercolor="#caf75a"

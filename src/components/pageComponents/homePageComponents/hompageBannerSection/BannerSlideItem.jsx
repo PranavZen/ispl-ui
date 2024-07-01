@@ -6,13 +6,12 @@ function BannerSlideItem({
   bannerImg,
   title,
   buttonName,
-  handleButtonClick,
 }) {
   return (
     <>
       <div className="sliderItme">
         <div className="sliderItmeImg">
-          <img src={bannerImg} alt={title} className="img-fluid" />
+          <img src={bannerImg} alt={title} className="img-fluid" loading="lazy"/>
         </div>
         <div className="sliderItmeContent">
           <span>{tagline}</span>
@@ -23,7 +22,7 @@ function BannerSlideItem({
             svgFill="#CAF75A"
             textColor="#CAF75A"
             bordercolor="#CAF75A"
-            onClick={handleButtonClick}
+            btnLinkUrl="/registration"
           />
         </div>
       </div>

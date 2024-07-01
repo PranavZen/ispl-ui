@@ -164,13 +164,78 @@ const About = () => {
                   paddingBottom: "1.5vw",
                 }}
               >
+                <div className="row">
+                  <div className="col-lg-11 col-md-10 mx-auto">
+                    <div className="lateBoxWr">
+                      <h5
+                        style={{
+                          fontSize: "3.4rem",
+                          marginTop: "2.4rem",
+                          color: "rgb(0 108 255)",
+                          fontWeight: "bold",
+                          textAlign: "center",
+                          marginBottom: "3rem",
+                        }}
+                      >
+                        In Loving Memory of the Late Mr. Amol Kale{" "}
+                      </h5>
+                      <div className="profileImgWrap">
+                        <img
+                          src="https://www.ispl-t10.com/assets/img/Amol_mentor.jpg"
+                          alt="Mentor-img"
+                          className="card-img-top rounded-circle card-image img-fluid"
+                        />
+                      </div>
+                      <div className="lateContentWrap">
+                        <p>
+                          Late Mr. Amol Kale, a revered figure in the cricketing
+                          and business communities, served as a core committee
+                          member of the Indian Street Premier League (ISPL) and
+                          held the prestigious position of President of the
+                          Mumbai Cricket Association (MCA) Concurrently, he
+                          contributed significantly as a full-time member of the
+                          Board of Control for Cricket in India (BCCI).
+                        </p>
+                        <p>
+                          A first-generation entrepreneur, industrialist, and
+                          angel investor, Mr. Kale brought over 15 years of
+                          invaluable experience to drive growth across various
+                          industries. His visionary leadership was pivotal in
+                          creating new opportunities and spearheading
+                          initiatives in service sectors both domestically and
+                          internationally.
+                        </p>
+                        <p>
+                          With a strong focus on people development, emerging
+                          technologies, innovative business processes, and
+                          strategic initiatives, Mr. Kale was instrumental in
+                          advancing overseas business ventures and facilitating
+                          India entry services.
+                        </p>
+                        <p>
+                          Mr. Kale was a qualified engineer, graduating with a
+                          Bachelor of Engineering (BE) degree in Electrical
+                          Engineering from Nagpur University in 1997. His
+                          dynamic leadership and diverse expertise solidified
+                          him as a forward-thinking and influential figure in
+                          the realms of cricket administration and business.
+                        </p>
+                        <p>
+                          We all miss him deeply & his dedication, vision &
+                          leadership will be missed by all who had the privilege
+                          to know and work with him.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div className="row mb-3">
                   <div className="col-md-3 mt-5 mb-2"></div>
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "3vw",
-                        marginTop: "2vw",
+                        fontSize: "3.4rem",
+                        marginTop: "2.4rem",
                         color: "rgb(0 108 255)",
                         fontWeight: "bold",
                       }}
@@ -192,7 +257,7 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "2vw",
+                        fontSize: "2.4rem",
                         color: "#fff",
                         fontWeight: "bold",
                       }}
@@ -221,53 +286,7 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-md-3 mt-5 mb-2">
-                    <div className="outer-layer rounded-circle">
-                      <img
-                        src="https://www.ispl-t10.com/assets/img/Amol_mentor.jpg"
-                        alt="Mentor-img"
-                        className="card-img-top rounded-circle card-image"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-9">
-                    <h1
-                      style={{
-                        fontSize: "2vw",
-                        marginTop: "2vw",
-                        color: "#fff",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      MR. AMOL KALE
-                    </h1>
-                    <p
-                      className="my-3 text-light"
-                      style={{ textAlign: "justify" }}
-                    >
-                      The current President of the Mumbai Cricket Association
-                      for the term 2022-2025, holds a concurrent role as a
-                      full-time member of the Board of Control for Cricket in
-                      India (BCCI). As a successful first-generation business
-                      owner, entrepreneur, industrialist, and angel investor,
-                      Amol Kale boasts over 15 years of experience in driving
-                      growth across diverse industries. His vision is rooted in
-                      creating new opportunities, leading initiatives in the
-                      service business sectors domestically and internationally.
-                      With a keen focus on people development, emerging
-                      technologies, innovative business processes, and strategic
-                      approaches, Kale has been instrumental in advancing
-                      overseas business ventures and India entry services. Amol
-                      Kale is a qualified engineer, having earned his Bachelor
-                      of Engineering (BE) degree in Electrical Engineering in
-                      1997 from Nagpur University. His dynamic leadership and
-                      diverse expertise position him as a forward-thinking and
-                      influential figure in both the cricketing and business
-                      realms.
-                    </p>
-                  </div>
-                </div>
+                
               </div>
 
               <div className="container">
@@ -276,7 +295,7 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "3vw",
+                        fontSize: "3.4rem",
                         color: "rgb(0 108 255)",
                         fontWeight: "bold",
                         paddingBottom: "20px",
@@ -302,7 +321,7 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "2vw",
+                        fontSize: "2.4rem",
                         color: "#fff",
                         fontWeight: "bold",
                       }}
@@ -331,9 +350,10 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "3vw",
+                        fontSize: "3.4rem",
                         color: "rgb(0 108 255)",
                         fontWeight: "bold",
+                        paddingBottom: "20px",
                       }}
                     >
                       OUR LEAGUE COMMISSIONER
@@ -356,7 +376,7 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "2vw",
+                        fontSize: "2.4rem",
                         color: "#fff",
                         fontWeight: "bold",
                       }}
@@ -409,8 +429,8 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "3vw",
-                        marginTop: "2vw",
+                        fontSize: "3.4rem",
+                        marginTop: "2.4rem",
                         color: "rgb(0 108 255)",
                         fontWeight: "bold",
                         paddingBottom: "20px",
@@ -436,7 +456,7 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "2vw",
+                        fontSize: "2.4rem",
                         color: "#fff",
                         fontWeight: "bold",
                       }}
@@ -474,8 +494,8 @@ const About = () => {
                   <div className="col-md-9">
                     <h1
                       style={{
-                        fontSize: "2vw",
-                        marginTop: "2vw",
+                        fontSize: "2.4rem",
+                        marginTop: "2.4rem",
                         color: "#fff",
                         fontWeight: "bold",
                       }}
@@ -502,14 +522,15 @@ const About = () => {
 
               <div
                 className="container text-center"
-                style={{ paddingBottom: "1.5vw" }}
+                style={{ paddingBottom: "20px", }}
               >
                 <h1
                   style={{
-                    fontSize: "3vw",
-                    marginTop: "2vw",
+                    fontSize: "3.4rem",
+                    marginTop: "2.4rem",
                     color: "rgb(0 108 255)",
                     fontWeight: "bold",
+                    paddingBottom: "20px",
                   }}
                 >
                   ABOUT CCS SPORTS LLP
@@ -534,7 +555,7 @@ const About = () => {
                         src="https://www.ispl-t10.com/assets/img/ccs_logo.png"
                         alt="ccsLogo"
                         className="card-img-top card-image float-right"
-                        style={{ marginTop: "-3vw", width: "19vw" }}
+                        style={{ marginTop: "-3.4rem", width: "19vw" }}
                       />
                     </div>
                   </div>

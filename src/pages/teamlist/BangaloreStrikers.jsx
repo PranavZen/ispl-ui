@@ -54,7 +54,8 @@ function BangaloreStrikers() {
                   <img
                     src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                     alt=""
-                    className=" img-fluid"
+                    className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -64,6 +65,7 @@ function BangaloreStrikers() {
                     src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -73,6 +75,7 @@ function BangaloreStrikers() {
                     src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -82,6 +85,7 @@ function BangaloreStrikers() {
                     src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -100,6 +104,7 @@ function BangaloreStrikers() {
                     src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                     alt=""
                     className="img-fluid"
+                    loading="lazy"
                   />
                 </Link>
               </div>
@@ -113,12 +118,12 @@ function BangaloreStrikers() {
               <div className="row g-3 d-flex justify-content-center">
                 <div className="col-lg-6 col-md-12 d-flex justify-content-center align-items-center">
                   <div className="team-logo">
-                    <a href="">
+                    <Link to="">
                       <img
                         src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                         alt=""
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="team-name align-text-center">
                     <h2>KVN BANGALORE STRIKERS</h2>
@@ -158,9 +163,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/FNKlagt87spg6q5iM2qdkZGC6U8gnTMt0sfNu7UI.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -174,9 +185,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/J3CAxAXUfwrFhXcwjPwxae9Xs7hRaJ09KlFkCen5.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -190,9 +207,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/LNeMkn35WGp1AdK23kX7QiTKIqvLJKcSMZpqkW4k.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -206,9 +229,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/N0h8xxOQ6EVY3jAXG1DZhVwZix4zXAGliwYRCP7w.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={bat} alt="BATTERS" className="img-fluid" />
+                      <img
+                        src={bat}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -226,10 +255,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/vD2gXfEoebgBvkXFg00AquimulTUhL7GIYa94XR0.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -243,10 +283,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/ZBA0pPr9y6NbOeYYTpyDzkC4LCNT4bFW7r57BDi8.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -260,10 +311,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/SmL8ttEtgYsCJBIvILAtLfShj6Z2ToMVpaUy5uc7.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -277,10 +339,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/PlNkya93jMYKVc3rxjqSdOT2rDgcZa697yrueYa4.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -294,10 +367,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/FtYeaqVA8Udbweon4J3EbHzdqJqITHskIO0EoJgW.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -311,10 +395,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/stEPJ0xKwf91AucXy18EKWQL2b2JWOsuh3twWun9.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -328,10 +423,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/UkltcA5eISctLm3AC6g8fUS5Ag4oCyYPT5lMcQlJ.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -345,10 +451,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/yiFLHe5Ol9W8EJECFWl9gv29qF51AApMPFVl9Eig.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -362,10 +479,21 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/be03aBEBbNPxvkza2efmn9CPglnne0yeb3tlbPaG.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon allRoundBox">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
-                      <img src={bat} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -383,9 +511,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/5P3UZkoLr5CjbJlRpyN5MREl6ybRGAO7Pgn6Q2AI.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -399,9 +533,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/E87yV36Y22mBx6AUlWZ4FOfUuG3PE17Tow9vo1ly.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
@@ -415,9 +555,15 @@ function BangaloreStrikers() {
                     <img
                       src="https://www.ispl-t10.com/images/team-master/players/77hc8oALwdKk9b3w8B6B2s3KMDdYLYU53ufmVrDB.png"
                       alt="teams01"
+                      loading="lazy"
                     />
                     <div className="bat-icon">
-                      <img src={redball} alt="BOWLERS" className="img-fluid" />
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
                     </div>
                   </figure>
                   <div className="design">
