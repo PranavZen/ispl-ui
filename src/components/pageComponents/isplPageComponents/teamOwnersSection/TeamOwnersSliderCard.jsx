@@ -5,7 +5,7 @@ function TeamOwnersSliderCard({ imageSrc }) {
       className="comon-matchbn"
       style={{ display: "inline-block", width: "100%", borderRadius: "5px" }}
     >
-      <img src={imageSrc} alt="pnhm" />
+      <img src={imageSrc} alt="pnhm" loading="lazy"/>
     </div>
   );
 }

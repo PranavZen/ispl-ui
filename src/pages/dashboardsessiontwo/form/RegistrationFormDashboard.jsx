@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../components/common/cta/SqareButton";
@@ -17,6 +16,10 @@ function RegistrationFormDashboard() {
     zone_name: "",
     password: "",
     password_confirmation: "",
+    playing_roles: "",
+    batting_andedness: "",
+    bowling_andedness: "",
+    preferred_batting_order: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -26,19 +29,61 @@ function RegistrationFormDashboard() {
 
   useEffect(() => {
     fetchStates();
+    fetchUserData();
   }, []);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get(
+        "https://ispl-t10.com/api/user-dashboard-api",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
+          },
+        }
+      );
+
+      const { user_data, user_payment, all_cities_states } = response.data;
+
+      const selectedCity = all_cities_states.find(
+        (city) => city.city_name === user_payment.cities_states_id[0]
+      );
+
+      // Populate form fields with the fetched user data
+      setFormData({
+        first_name: user_data.first_name || "",
+        surname: user_data.surname || "",
+        mobile_number: user_data.mobile_number || "",
+        date_of_birth: user_data.date_of_birth || "",
+        email: user_data.email || "",
+        state_name: selectedCity ? selectedCity.state_name : "",
+        cities_states_id: selectedCity ? selectedCity.id : "",
+        zone_name: selectedCity ? selectedCity.zone_name : "",
+        password: "",
+        password_confirmation: "",
+      });
+
+      if (selectedCity) {
+        fetchCitiesByState(selectedCity.state_name);
+        fetchZonesByCity(selectedCity.id);
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      toast.error("Failed to fetch user data. Please try again later.");
+    }
+  };
 
   const fetchStates = async () => {
     try {
       const response = await axios.get("https://ispl-t10.com/api/state");
       let states = response.data.data.states || [];
-  
-      // Filter out duplicate state names
-      const uniqueStates = Array.from(new Set(states.map(state => state.state_name)))
-        .map(state_name => {
-          return states.find(state => state.state_name === state_name);
-        });
-  
+
+      const uniqueStates = Array.from(
+        new Set(states.map((state) => state.state_name))
+      ).map((state_name) => {
+        return states.find((state) => state.state_name === state_name);
+      });
+
       setStates(uniqueStates);
     } catch (error) {
       console.error("Error fetching states:", error);
@@ -127,7 +172,6 @@ function RegistrationFormDashboard() {
   const handleChange = async (e) => {
     const { name, value } = e.target;
 
-    // Sanitize input based on field name
     let sanitizedValue = value;
     if (name === "first_name" || name === "surname") {
       sanitizedValue = value.replace(/[^A-Za-z]/gi, "");
@@ -135,7 +179,6 @@ function RegistrationFormDashboard() {
       sanitizedValue = value.replace(/[^0-9]/g, "");
     }
 
-    // Update formData using functional update to ensure correctness
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: sanitizedValue,
@@ -147,11 +190,10 @@ function RegistrationFormDashboard() {
       setFormData((prevFormData) => ({
         ...prevFormData,
         cities_states_id: "",
-        zone_name: "", // Reset zone_name when state changes
+        zone_name: "",
       }));
       await fetchCitiesByState(value);
     } else if (name === "cities_states_id") {
-      // Fetch zones and update zones state
       await fetchZonesByCity(value);
     }
   };
@@ -159,11 +201,9 @@ function RegistrationFormDashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check for any remaining client-side errors
     let formValid = true;
     const newErrors = {};
 
-    // Check all fields except 'zone_name' for empty values
     Object.keys(formData).forEach((key) => {
       if (key !== "zone_name" && !formData[key]) {
         newErrors[key] = "This field is required.";
@@ -171,7 +211,6 @@ function RegistrationFormDashboard() {
       }
     });
 
-    // Validate mobile_number length
     if (formData.mobile_number.length !== 10) {
       newErrors.mobile_number = "Mobile number should be exactly 10 digits.";
       formValid = false;
@@ -194,7 +233,7 @@ function RegistrationFormDashboard() {
 
     if (!formValid) {
       toast.error("Please correct the errors in the form.");
-      return; // Exit early if there are validation errors
+      return;
     }
 
     try {
@@ -203,7 +242,6 @@ function RegistrationFormDashboard() {
         formData
       );
 
-      // Check for server-side validation errors
       if (response.data.remark === "validation_error") {
         const serverErrors = response.data.message.error;
         if (Array.isArray(serverErrors)) {
@@ -213,11 +251,9 @@ function RegistrationFormDashboard() {
         } else {
           toast.error("An unexpected error occurred.");
         }
-        // Prevent form submission on server-side validation errors
         return;
       }
 
-      // Clear form fields after successful submission
       setFormData({
         first_name: "",
         surname: "",
@@ -231,10 +267,7 @@ function RegistrationFormDashboard() {
         password_confirmation: "",
       });
 
-      // Reset errors
       setErrors({});
-
-      // Display success message
       toast.success("Registration successful!");
     } catch (error) {
       if (
@@ -258,283 +291,351 @@ function RegistrationFormDashboard() {
 
   return (
     <form
-    className="form p-t-20"
-    id="register_user_form_data"
-    onSubmit={handleSubmit}
-  >
-    <div className="com-div-md">
-      <SectionTitle titleText="Dashboard Registration" />
-      <div className="login-modal-pn">
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label htmlFor="first_name" className="form-label">
-              First Name
-            </label>
-            <input
-              required
-              id="first_name"
-              type="text"
-              className="form-control"
-              name="first_name"
-              autoComplete="first_name"
-              autoFocus
-              value={formData.first_name}
-              disabled
-            />
-            {errors.first_name && (
-              <div className="error">{errors.first_name}</div>
-            )}
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="surname" className="form-label">
-              Surname
-            </label>
-            <input
-              required
-              id="surname"
-              type="text"
-              className="form-control"
-              name="surname"
-              autoComplete="surname"
-              autoFocus
-              value={formData.surname}
-              disabled
-            />
-            {errors.surname && <div className="error">{errors.surname}</div>}
-          </div>
+      className="form p-t-20 payments-qrl"
+      id="user_data_form"
+      method="POST"
+      onSubmit={handleSubmit}
+    >
+      <div className="row mt-3 mb-3 noPad">
+        <SectionTitle titleText="PERSONAL INFORMATION" />
+      </div>
+      <div className="row">
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="first_name" className="form-label text-light">
+            First Name *
+          </label>
+          <input
+            id="first_name"
+            type="text"
+            className={`form-control form-input ${
+              errors.first_name ? "is-invalid" : ""
+            }`}
+            name="first_name"
+            placeholder="First Name"
+            value={formData.first_name}
+            onChange={handleChange}
+          />
+          {errors.first_name && (
+            <div className="error">{errors.first_name}</div>
+          )}
         </div>
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label htmlFor="mobile_number" className="form-label">
-              Mobile Number
-            </label>
-            <input
-              required
-              id="mobile_number"
-              type="text"
-              className="form-control"
-              name="mobile_number"
-              autoComplete="mobile_number"
-              autoFocus
-              value={formData.mobile_number}
-              disabled
-            />
-            {errors.mobile_number && (
-              <div className="error">{errors.mobile_number}</div>
-            )}
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="date_of_birth" className="form-label">
-              Date of Birth
-            </label>
-            <input
-              required
-              id="date_of_birth"
-              type="date"
-              className="form-control"
-              name="date_of_birth"
-              autoComplete="date_of_birth"
-              autoFocus
-              value={formData.date_of_birth}
-              disabled
-            />
-            {errors.date_of_birth && (
-              <div className="error">{errors.date_of_birth}</div>
-            )}
-          </div>
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="middle_name" className="form-label text-light">
+            Middle Name
+          </label>
+          <input
+            id="middle_name"
+            type="text"
+            className={`form-control form-input ${
+              errors.middle_name ? "is-invalid" : ""
+            }`}
+            name="middle_name"
+            placeholder="First Name"
+            value={formData.middle_name}
+            onChange={handleChange}
+          />
+          {errors.middle_name && (
+            <div className="error">{errors.middle_name}</div>
+          )}
         </div>
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input
-              required
-              id="email"
-              type="email"
-              className="form-control"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={formData.email}
-              disabled
-            />
-            {errors.email && <div className="error">{errors.email}</div>}
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="state_name" className="form-label">
-              State
-            </label>
-            <select
-              required
-              id="state_name"
-              className="form-control"
-              name="state_name"
-              autoComplete="state_name"
-              autoFocus
-              value={formData.state_name}
-              disabled
-            >
-              <option value="">Select a state</option>
-              {states.map((state,index) => (
-                <option key={index} value={state.state_name}>
-                  {state.state_name}
-                </option>
-              ))}
-            </select>
-            {errors.state_name && (
-              <div className="error">{errors.state_name}</div>
-            )}
-          </div>
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="surname" className="form-label text-light">
+            Surname *
+          </label>
+          <input
+            id="surname"
+            type="text"
+            className={`form-control form-input ${
+              errors.surname ? "is-invalid" : ""
+            }`}
+            name="surname"
+            placeholder="Surname"
+            value={formData.surname}
+            onChange={handleChange}
+          />
+          {errors.surname && <div className="error">{errors.surname}</div>}
         </div>
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label htmlFor="cities_states_id" className="form-label">
-              City
-            </label>
-            <select
-              required
-              id="cities_states_id"
-              className="form-control"
-              name="cities_states_id"
-              autoComplete="cities_states_id"
-              autoFocus
-              value={formData.cities_states_id}
-              disabled
-            >
-              <option value="">Select a city</option>
-              {cities.map((city, index) => (
-                <option key={index} value={city.city_id}>
-                  {city.city_name}
-                </option>
-              ))}
-            </select>
-            {errors.cities_states_id && (
-              <div className="error">{errors.cities_states_id}</div>
-            )}
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="zone_name" className="form-label">
-              Zone
-            </label>
-            <input
-              id="zone_name"
-              type="text"
-              className="form-control"
-              name="zone_name"
-              value={formData.zone_name}
-              disabled
-            />
-            {errors.zone_name && (
-              <div className="error">{errors.zone_name}</div>
-            )}
-          </div>
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="date_of_birth" className="form-label text-light">
+            Date of Birth *
+          </label>
+          <input
+            id="date_of_birth"
+            type="date"
+            className={`form-control form-input ${
+              errors.date_of_birth ? "is-invalid" : ""
+            }`}
+            name="date_of_birth"
+            value={formData.date_of_birth}
+            onChange={handleChange}
+          />
+          {errors.date_of_birth && (
+            <div className="error">{errors.date_of_birth}</div>
+          )}
         </div>
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label htmlFor="cities_states_id" className="form-label">
-              City
-            </label>
-            <select
-              required
-              id="cities_states_id"
-              className="form-control"
-              name="cities_states_id"
-              autoComplete="cities_states_id"
-              autoFocus
-              value={formData.cities_states_id}
-              onChange={handleChange}
-            >
-              <option value="">Select a city</option>
-              {cities.map((city, index) => (
-                <option key={index} value={city.city_id}>
-                  {city.city_name}
-                </option>
-              ))}
-            </select>
-            {errors.cities_states_id && (
-              <div className="error">{errors.cities_states_id}</div>
-            )}
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="zone_name" className="form-label">
-              Zone
-            </label>
-            <input
-              id="zone_name"
-              type="text"
-              className="form-control"
-              name="zone_name"
-              value={formData.zone_name}
-              disabled
-            />
-            {errors.zone_name && (
-              <div className="error">{errors.zone_name}</div>
-            )}
-          </div>
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="permanent_address" className="form-label text-light">
+            Permanent Address *
+          </label>
+          <textarea
+            id="permanent_address"
+            type="text"
+            className={`form-control form-input ${
+              errors.permanent_address ? "is-invalid" : ""
+            }`}
+            name="permanent_address"
+            placeholder=""
+            value={formData.permanent_address}
+            onChange={handleChange}
+          />
+          {errors.permanent_address && (
+            <div className="error">{errors.permanent_address}</div>
+          )}
         </div>
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label htmlFor="cities_states_id" className="form-label">
-              City
-            </label>
-            <select
-              required
-              id="cities_states_id"
-              className="form-control"
-              name="cities_states_id"
-              autoComplete="cities_states_id"
-              autoFocus
-              value={formData.cities_states_id}
-              onChange={handleChange}
-            >
-              <option value="">Select a city</option>
-              {cities.map((city, index) => (
-                <option key={index} value={city.city_id}>
-                  {city.city_name}
-                </option>
-              ))}
-            </select>
-            {errors.cities_states_id && (
-              <div className="error">{errors.cities_states_id}</div>
-            )}
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="zone_name" className="form-label">
-              Zone
-            </label>
-            <input
-              id="zone_name"
-              type="text"
-              className="form-control"
-              name="zone_name"
-              value={formData.zone_name}
-              disabled
-            />
-            {errors.zone_name && (
-              <div className="error">{errors.zone_name}</div>
-            )}
-          </div>
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="current_address" className="form-label text-light">
+            Current Address *
+          </label>
+          <textarea
+            id="current_address"
+            type="text"
+            className={`form-control form-input ${
+              errors.current_address ? "is-invalid" : ""
+            }`}
+            name="current_address"
+            placeholder=""
+            value={formData.current_address}
+            onChange={handleChange}
+          />
+          {errors.current_address && (
+            <div className="error">{errors.current_address}</div>
+          )}
         </div>
-        <div className="col-md-12 d-flex align-items-center justify-content-center my-5">
-          <SqareButton
-            classNameText="sqrBtn"
-            btnName="Register Now"
-            svgFill="#caf75a"
-            textColor="#caf75a"
-            bordercolor="#caf75a"
-            type="submit"
+      </div>
+      <div className="row mt-3 mb-3">
+        <SectionTitle titleText="CONTACT INFORMATION" />
+      </div>
+      <div className="row">
+        <div className="col-md-6 mb-4">
+          <label htmlFor="adhar_card_no" className="form-label text-light">
+            Aadhar Card Number *
+          </label>
+          <input
+            autoFocus
+            id="adhar_card_no"
+            required
+            type="text"
+            className="form-control"
+            name="adhar_card_no"
+            maxLength="12"
           />
         </div>
-        <p className="btmText">
-          Already have an account? &nbsp;
-          <Link to="/login" className="regster-bn">
-            Login Here
-          </Link>
-        </p>
+
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="mobile_number" className="form-label text-light">
+            Mobile Number *
+          </label>
+          <input
+            id="mobile_number"
+            type="text"
+            className={`form-control form-input ${
+              errors.mobile_number ? "is-invalid" : ""
+            }`}
+            name="mobile_number"
+            placeholder="Mobile Number"
+            value={formData.mobile_number}
+            onChange={handleChange}
+          />
+          {errors.mobile_number && (
+            <div className="error">{errors.mobile_number}</div>
+          )}
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label
+            htmlFor="emergency_contact_no"
+            className="form-label text-light"
+          >
+            Alternate mobile number
+          </label>
+          <input
+            autoFocus
+            required
+            type="text"
+            className="form-control"
+            name="emergency_contact_no"
+            maxLength="10"
+          />
+        </div>
+        <div className="form-group col-md-6 mb-4">
+          <label htmlFor="email" className="form-label text-light">
+            Email *
+          </label>
+          <input
+            id="email"
+            type="email"
+            className={`form-control form-input ${
+              errors.email ? "is-invalid" : ""
+            }`}
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          {errors.email && <div className="error">{errors.email}</div>}
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label htmlFor="instagram_id" className="form-label text-light">
+            Instagram Id
+          </label>
+          <input
+            autoFocus
+            id="instagram_id"
+            type="text"
+            className="form-control"
+            name="instagram_id"
+          />
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label htmlFor="facebook_id" className="form-label text-light">
+            Facebook Id
+          </label>
+          <input
+            autoFocus
+            id="facebook_id"
+            type="text"
+            className="form-control"
+            name="facebook_id"
+          />
+        </div>
       </div>
-    </div>
-  </form>
+      <div className="row mt-3 mb-3">
+        <SectionTitle titleText="PLAYING DETAILS" />
+      </div>
+      <div className="row mb-3">
+        <div className="col-md-6 mb-4">
+          <label htmlFor="playing_roles" className="form-label text-light">
+            Playing Roles *
+          </label>
+          <select
+            required
+            name="playing_roles"
+            className="form-select"
+            aria-label="Default select example"
+          >
+            <option>Select Playing Roles</option>
+            <option value="Batsman">Batsman</option>
+            <option value="Bowler">Bowler</option>
+            <option value="Wicketkeeper">Wicketkeeper</option>
+            <option value="All Rounder">All Rounder</option>
+          </select>
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label htmlFor="batting_andedness" className="form-label text-light">
+            Batting Handedness *
+          </label>
+          <select
+            required
+            className="form-select"
+            name="batting_andedness"
+            aria-label="Default select example"
+          >
+            <option>Select Batting Handedness</option>
+            <option value="Right Handed">Right Handed</option>
+            <option value="Left Handed">Left Handed</option>
+          </select>
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label htmlFor="bowling_andedness" className="form-label text-light">
+            Preferred Bowling Style *
+          </label>
+          <select
+            required
+            className="form-select"
+            name="bowling_andedness"
+            aria-label="Default select example"
+          >
+            <option>Select Preferred Bowling Style</option>
+            <option value="Right Arm Fast">Right Arm Fast</option>
+            <option value="Right Arm Medium">Right Arm Medium</option>
+            <option value="Left Arm Fast">Left Arm Fast</option>
+            <option value="Left Arm Medium">Left Arm Medium</option>
+            <option value="Right Arm Spinner">Right Arm Spinner</option>
+            <option value="Left Arm Spinner">Left Arm Spinner</option>
+          </select>
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label htmlFor="bowling_type" className="form-label text-light">
+            Preferred Batting Order *
+          </label>
+          <select
+            required
+            className="form-select"
+            name="bowling_type"
+            aria-label="Default select example"
+          >
+            <option>Select Preferred Batting Order</option>
+            <option value="Middle Order">Middle Order</option>
+            <option value="Top Order">Top Order</option>
+          </select>
+        </div>
+      </div>
+      <div className="row mt-3 mb-3">
+        <SectionTitle titleText="Upload documents" />
+      </div>
+      <div className="row mb-3">
+        <div className="col-md-6 mb-4">
+          <label htmlFor="playing_roles" className="form-label text-light">
+            Upload photo
+          </label>
+          <input
+            autoFocus=""
+            className="form-control"
+            required=""
+            name="doc_upload_photo"
+            accept="image/*"
+            type="file"
+          />
+        </div>
+
+        <div className="col-md-6 mb-4">
+          <label htmlFor="playing_roles" className="form-label text-light">
+            Upload Adhar
+          </label>
+          <input
+            autoFocus=""
+            className="form-control"
+            required=""
+            name="doc_upload_adhar"
+            accept="image/*"
+            type="file"
+          />
+        </div>
+      </div>
+      <div className="col-md-12 d-flex align-items-center justify-content-around mt-5">
+        <SqareButton
+          classNameText="sqrBtn mt-3"
+          btnName="Complete registration Later"
+          svgFill="#caf75a"
+          textColor="#caf75a"
+          bordercolor="#caf75a"
+          type="submit"
+        />
+        <SqareButton
+          classNameText="sqrBtn mt-3"
+          btnName="Complete registration"
+          svgFill="#caf75a"
+          textColor="#caf75a"
+          bordercolor="#caf75a"
+          type="submit"
+        />
+      </div>
+    </form>
   );
 }
 

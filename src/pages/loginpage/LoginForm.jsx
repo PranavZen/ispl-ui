@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../components/common/cta/SqareButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +11,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ email: "", password: "", general: "" });
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -55,11 +56,12 @@ function LoginForm() {
         );
 
         // Redirect to user dashboard
-        window.location.href = "https://www.ispl-t10.com/user-dashboard";
+        navigate("/dashboard-session-2");
       }
     } catch (err) {
       const errorMessage =
-        err.response?.data?.error_message || "Incorrect Details Please Try Again !!!";
+        err.response?.data?.error_message ||
+        "Incorrect Details Please Try Again !!!";
       setError((prevError) => ({
         ...prevError,
         general: errorMessage,
@@ -104,9 +106,7 @@ function LoginForm() {
                   }
                 }}
               />
-              {error.email && (
-                <div className="text-danger">{error.email}</div>
-              )}
+              {error.email && <div className="error">{error.email}</div>}
             </div>
           </div>
           <div className="row mb-4">

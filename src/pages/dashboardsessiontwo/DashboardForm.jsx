@@ -2,6 +2,7 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import RegistrationFormDashboard from "./form/RegistrationFormDashboard";
+import "../dashboardsessiontwo/dashboardregistration.css";
 
 function DashboardForm() {
   return (
@@ -38,10 +39,16 @@ function DashboardForm() {
         />
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 col-md-12 mx-auto">
-            <RegistrationFormDashboard />
+      <div className="slider-banner">
+        <div className="row justify-content-center">
+          <div className="col-md-12">
+            <div className="row mt-3 justify-content-center">
+              <div className="col-md-10">
+                <div className="card-body login-modal-pn">
+                 <RegistrationFormDashboard/>
+                </div>
+              </div>
+            </div>
             <ToastContainer />
           </div>
         </div>

@@ -76,34 +76,7 @@ function IsplPage() {
                 </h5>
               </div>
             </div>
-            <div className="col-md-3 ">
-              <div className="card-body text-center"></div>
-              <div className="outer-layer rounded-circle text-center">
-                <img
-                  src="https://www.ispl-t10.com/assets/img/Amol_mentor.jpg"
-                  alt="Mentor-img"
-                  className="card-img-top rounded-circle-7 card-image  "
-                />
-              </div>
-              <div className="card-body text-center">
-                <h5
-                  className="card-title"
-                  style={{
-                    marginBottom: "0.2vw",
-                    color: "#fff",
-                    fontWeight: "bold",
-                  }}
-                >
-                  MR. AMOL KALE
-                </h5>
-                <h5
-                  id="mentor-ID"
-                  style={{ color: "#fff", fontWeight: "bold" }}
-                >
-                  PRESIDENT MCA
-                </h5>
-              </div>
-            </div>
+            
             <div className="col-md-3 ">
               <div className="card-body text-center"></div>
               <div className="outer-layer rounded-circle text-center">

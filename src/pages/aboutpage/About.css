@@ -162,9 +162,7 @@
 }
 @media (max-width: 767px) {
   .customHistorySection .tabs .tab {
-    font-size: 1.2rem !important;
-    height: -moz-fit-content !important;
-    height: fit-content !important;
+    font-size: 1.4rem !important;
     line-height: unset !important;
   }
 }
@@ -228,6 +226,12 @@
   text-transform: uppercase;
   font-style: normal;
   font-size: 24px;
+}
+@media (max-width: 767px) {
+  .customHistorySection .left-history h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
 }
 .customHistorySection .left-history p {
   font-size: 16px;
@@ -338,7 +342,7 @@
 }
 @media (max-width: 767px) {
   .lateBoxWr h5 {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 }
 .lateBoxWr .profileImgWrap {
@@ -358,9 +362,16 @@
 @media (max-width: 767px) {
   .lateBoxWr .lateContentWrap p {
     width: 100%;
-    font-size: 1.4rem;
+    text-align: justify;
   }
 }
 .lateBoxWr .lateContentWrap p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2.2rem !important;
+    text-align: center;
+  }
 }/*# sourceMappingURL=About.css.map */

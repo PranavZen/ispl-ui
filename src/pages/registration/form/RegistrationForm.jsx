@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../components/common/cta/SqareButton";
@@ -24,8 +24,11 @@ function RegistrationForm() {
   const [cities, setCities] = useState([]);
   const [zones, setZones] = useState([]);
 
+  const location = useLocation();
+
   useEffect(() => {
     fetchStates();
+    checkQueryParams();
   }, []);
 
   const fetchStates = async () => {
@@ -33,7 +36,6 @@ function RegistrationForm() {
       const response = await axios.get("https://ispl-t10.com/api/state");
       let states = response.data.data.states || [];
 
-      // Filter out duplicate state names
       const uniqueStates = Array.from(
         new Set(states.map((state) => state.state_name))
       ).map((state_name) => {
@@ -128,7 +130,6 @@ function RegistrationForm() {
   const handleChange = async (e) => {
     const { name, value } = e.target;
 
-    // Sanitize input based on field name
     let sanitizedValue = value;
     if (name === "first_name" || name === "surname") {
       sanitizedValue = value.replace(/[^A-Za-z]/gi, "");
@@ -136,7 +137,6 @@ function RegistrationForm() {
       sanitizedValue = value.replace(/[^0-9]/g, "");
     }
 
-    // Update formData using functional update to ensure correctness
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: sanitizedValue,
@@ -148,11 +148,10 @@ function RegistrationForm() {
       setFormData((prevFormData) => ({
         ...prevFormData,
         cities_states_id: "",
-        zone_name: "", // Reset zone_name when state changes
+        zone_name: "",
       }));
       await fetchCitiesByState(value);
     } else if (name === "cities_states_id") {
-      // Fetch zones and update zones state
       await fetchZonesByCity(value);
     }
   };
@@ -160,11 +159,9 @@ function RegistrationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check for any remaining client-side errors
     let formValid = true;
     const newErrors = {};
 
-    // Check all fields except 'zone_name' for empty values
     Object.keys(formData).forEach((key) => {
       if (key !== "zone_name" && !formData[key]) {
         newErrors[key] = "This field is required.";
@@ -172,7 +169,6 @@ function RegistrationForm() {
       }
     });
 
-    // Validate mobile_number length
     if (formData.mobile_number.length !== 10) {
       newErrors.mobile_number = "Mobile number should be exactly 10 digits.";
       formValid = false;
@@ -195,7 +191,7 @@ function RegistrationForm() {
 
     if (!formValid) {
       toast.error("Please correct the errors in the form.");
-      return; // Exit early if there are validation errors
+      return;
     }
 
     try {
@@ -204,7 +200,6 @@ function RegistrationForm() {
         formData
       );
 
-      // Check for server-side validation errors
       if (response.data.remark === "validation_error") {
         const serverErrors = response.data.message.error;
         if (Array.isArray(serverErrors)) {
@@ -214,14 +209,11 @@ function RegistrationForm() {
         } else {
           toast.error("An unexpected error occurred.");
         }
-        // Prevent form submission on server-side validation errors
         return;
       }
 
-      // Extract pay_request_id from response
       const payRequestId = response.data.data.pay_request_id;
 
-      // Clear form fields after successful submission
       setFormData({
         first_name: "",
         surname: "",
@@ -235,24 +227,48 @@ function RegistrationForm() {
         password_confirmation: "",
       });
 
-      // Reset errors
       setErrors({});
 
-      // Display success message
       toast.success("Registration successful!");
 
-      // Make payment request using pay_request_id
-      window.location.href = `https://ispl-t10.com/api/payment-request/${payRequestId}`;
-
-      // Now handle payment response after successful payment
-      const paymentResponse = await axios.get(
-        `https://ispl-t10.com/api/payment-response`
+      const paymentRequestResponse = await axios.post(
+        `https://ispl-t10.com/api/payment-request/${payRequestId}`
       );
 
-      // Assuming paymentResponse.data.status === "Successful" indicates successful payment
-      if (paymentResponse.data.status === "Successful") {
-        // Redirect to login page after successful payment
-        window.location.href = `/login`;
+      if (paymentRequestResponse.data.status === "Successful") {
+        const { encrypted_data, access_code } = paymentRequestResponse.data;
+
+        const ccAvenueForm = document.createElement("form");
+        ccAvenueForm.method = "POST";
+        ccAvenueForm.action =
+          "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+
+        const inputEncRequest = document.createElement("input");
+        inputEncRequest.type = "hidden";
+        inputEncRequest.name = "encRequest";
+        inputEncRequest.value = encrypted_data;
+        ccAvenueForm.appendChild(inputEncRequest);
+
+        const inputAccessCode = document.createElement("input");
+        inputAccessCode.type = "hidden";
+        inputAccessCode.name = "access_code";
+        inputAccessCode.value = access_code;
+        ccAvenueForm.appendChild(inputAccessCode);
+
+        document.body.appendChild(ccAvenueForm);
+        ccAvenueForm.submit();
+
+        // Monitor for payment response
+        window.addEventListener("message", async (event) => {
+          if (event.origin !== "https://secure.ccavenue.com") return;
+          const paymentStatus = event.data.status;
+
+          if (paymentStatus === "Successful") {
+            window.location.href = "/login";
+          } else {
+            toast.error("Payment was unsuccessful. Please try again.");
+          }
+        });
       } else {
         toast.error("Payment was unsuccessful. Please try again.");
       }
@@ -276,6 +292,27 @@ function RegistrationForm() {
     }
   };
 
+  const checkQueryParams = () => {
+    const searchParams = new URLSearchParams(location.search);
+    const status = searchParams.get("status");
+    if (
+      status === "SomethingWrong" ||
+      status === "PaymentFailed" ||
+      status === "NoUserData"
+    ) {
+      toast.error("Payment was unsuccessful. Please try again.");
+      setTimeout(() => {
+        window.location.href = "/registration";
+      }, 2000);
+    }
+    if (status === "PaymentSuccessful") {
+      toast.success("Payment was successful.");
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 2000);
+    }
+  };
+
   return (
     <form
       className="form p-t-20"
@@ -283,7 +320,7 @@ function RegistrationForm() {
       onSubmit={handleSubmit}
     >
       <div className="com-div-md">
-        <SectionTitle title="Registeration Form" />
+        <SectionTitle titleText="Player Registration" />
         <div className="Register-form">
           <div className="row mb-4">
             <div className="col-md-6">

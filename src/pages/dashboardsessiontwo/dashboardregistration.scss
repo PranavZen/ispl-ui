@@ -1,0 +1,16 @@
+.slider-banner {
+  .card-body {
+    .form {
+      .row {
+        &.noPad {
+          .sectionTitle {
+            margin-top: 0rem;
+          }
+        }
+        .sectionTitle {
+          margin-top: 5rem;
+        }
+      }
+    }
+  }
+}

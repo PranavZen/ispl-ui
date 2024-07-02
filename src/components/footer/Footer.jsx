@@ -115,7 +115,7 @@ function Footer() {
                       <li>
                         <Link to="/contact-us">Contact Us</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link to="">Sponsorship</Link>
                       </li>
                       <li>
@@ -123,7 +123,7 @@ function Footer() {
                       </li>
                       <li>
                         <Link to="">FAQ</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <ul>
                           <li>
@@ -177,7 +177,7 @@ function Footer() {
                           </li> */}
                           <li>
                             <Link
-                              to="https://www.linkedin.com/in/ispl-indian-street-premier-league-737115299/"
+                              to="https://www.linkedin.com/company/indian-stree-premier-league/"
                               target="_blank"
                             >
                               <span>

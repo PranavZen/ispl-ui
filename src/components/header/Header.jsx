@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "../header/header.css";
 import { logo } from "../../assets/imagePath";
 function Header() {
+  const [offcanvasOpen, setOffcanvasOpen] = useState(false);
+  const closeOffcanvas = () => {
+    setOffcanvasOpen(false);
+  };
   return (
     <>
       <section id="mainTop">
@@ -111,7 +115,7 @@ function Header() {
                           </li> */}
                       <li>
                         <Link
-                          to="https://www.linkedin.com/in/ispl-indian-street-premier-league-737115299/"
+                          to="https://www.linkedin.com/company/indian-stree-premier-league/"
                           target="_blank"
                         >
                           <span>
@@ -201,8 +205,7 @@ function Header() {
                 <button
                   className="navbar-toggler"
                   type="button"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasDarkNavbar"
+                  onClick={() => setOffcanvasOpen(!offcanvasOpen)}
                   aria-controls="offcanvasDarkNavbar"
                 >
                   <span className="navbar-toggler-icon">
@@ -218,7 +221,9 @@ function Header() {
                   </span>
                 </button>
                 <div
-                  className="offcanvas offcanvas-start"
+                  className={`offcanvas offcanvas-start ${
+                    offcanvasOpen ? "show" : ""
+                  }`}
                   tabIndex="-1"
                   id="offcanvasDarkNavbar"
                   aria-labelledby="offcanvasDarkNavbarLabel"
@@ -227,7 +232,7 @@ function Header() {
                     <button
                       type="button"
                       className="btn-close btn-close-black"
-                      data-bs-dismiss="offcanvas"
+                      onClick={closeOffcanvas}
                       aria-label="Close"
                     >
                       <svg
@@ -246,18 +251,27 @@ function Header() {
                           className="nav-link active"
                           aria-current="page"
                           to="/"
+                          onClick={closeOffcanvas}
                         >
                           Home
                         </Link>
                       </li>
 
                       <li className="nav-item">
-                        <Link className="nav-link" to="/team-list">
+                        <Link
+                          className="nav-link"
+                          to="/team-list"
+                          onClick={closeOffcanvas}
+                        >
                           Teams
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to="/matches">
+                        <Link
+                          className="nav-link"
+                          to="/matches"
+                          onClick={closeOffcanvas}
+                        >
                           Match Center
                         </Link>
                       </li>
@@ -287,12 +301,20 @@ function Header() {
                         </Link>
                         <ul className="dropdown-menu">
                           <li>
-                            <Link className="dropdown-item" to="/video/All">
+                            <Link
+                              className="dropdown-item"
+                              to="/video/All"
+                              onClick={closeOffcanvas}
+                            >
                               All
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" to="/video/latest">
+                            <Link
+                              className="dropdown-item"
+                              to="/video/latest"
+                              onClick={closeOffcanvas}
+                            >
                               Latest
                             </Link>
                           </li>
@@ -300,12 +322,17 @@ function Header() {
                             <Link
                               className="dropdown-item"
                               to="/video/highlights"
+                              onClick={closeOffcanvas}
                             >
                               Highlights
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" to="/video/auction">
+                            <Link
+                              className="dropdown-item"
+                              to="/video/auction"
+                              onClick={closeOffcanvas}
+                            >
                               Auction
                             </Link>
                           </li>
@@ -313,6 +340,7 @@ function Header() {
                             <Link
                               className="dropdown-item"
                               to="/video/magic-moments"
+                              onClick={closeOffcanvas}
                             >
                               Magic Moments
                             </Link>
@@ -321,6 +349,7 @@ function Header() {
                             <Link
                               className="dropdown-item"
                               to="/video/interviews"
+                              onClick={closeOffcanvas}
                             >
                               Interviews
                             </Link>
@@ -353,7 +382,11 @@ function Header() {
                         </Link>
                         <ul className="dropdown-menu">
                           <li>
-                            <Link className="dropdown-item" to="/news/all-news">
+                            <Link
+                              className="dropdown-item"
+                              to="/news/all-news"
+                              onClick={closeOffcanvas}
+                            >
                               All News
                             </Link>
                           </li>
@@ -361,6 +394,7 @@ function Header() {
                             <Link
                               className="dropdown-item"
                               to="/news/announcement"
+                              onClick={closeOffcanvas}
                             >
                               Announcement
                             </Link>
@@ -393,17 +427,29 @@ function Header() {
                         </Link>
                         <ul className="dropdown-menu">
                           <li>
-                            <Link className="dropdown-item" to="/contact-us">
+                            <Link
+                              className="dropdown-item"
+                              to="/contact-us"
+                              onClick={closeOffcanvas}
+                            >
                               Contact Us
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" to="/about">
+                            <Link
+                              className="dropdown-item"
+                              to="/about"
+                              onClick={closeOffcanvas}
+                            >
                               About Us
                             </Link>
                           </li>
                           <li>
-                            <Link className="dropdown-item" to="/ispl-page">
+                            <Link
+                              className="dropdown-item"
+                              to="/ispl-page"
+                              onClick={closeOffcanvas}
+                            >
                               ISPL
                             </Link>
                           </li>
@@ -425,7 +471,11 @@ function Header() {
                     />
                   </svg>
                 </button> */}
-                      <Link to="/registration" className="regBtn">
+                      <Link
+                        to="/registration"
+                        className="regBtn"
+                        onClick={closeOffcanvas}
+                      >
                         <span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -446,7 +496,11 @@ function Header() {
                         </span>
                         Register
                       </Link>
-                      <Link to="/login" className="regBtn">
+                      <Link
+                        to="/login"
+                        className="regBtn"
+                        onClick={closeOffcanvas}
+                      >
                         <span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -486,7 +540,11 @@ function Header() {
                     />
                   </svg>
                 </button> */}
-                <Link to="/registration" className="regBtn">
+                <Link
+                  to="/registration"
+                  className="regBtn"
+                  onClick={closeOffcanvas}
+                >
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -507,7 +565,7 @@ function Header() {
                   </span>
                   Register
                 </Link>
-                <Link to="/login" className="regBtn">
+                <Link to="/login" className="regBtn" onClick={closeOffcanvas}>
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

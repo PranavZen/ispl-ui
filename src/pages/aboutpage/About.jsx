@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 const About = () => {
   return (
     <>
-    <Helmet> 
+      <Helmet>
         <title>ISPL T10 | About Us</title>
         <meta
           name="description"
@@ -47,12 +47,14 @@ const About = () => {
                     <img
                       src="https://www.ispl-t10.com/assets/img/stadium1.jpg"
                       alt="pic"
+                      loading="lazy"
                     />
                   </figure>
                   <figure className="small-img">
                     <img
                       src="https://www.ispl-t10.com/assets/img/gully2.webp"
                       alt="pic"
+                      loading="lazy"
                     />
                   </figure>
                 </div>
@@ -107,6 +109,7 @@ const About = () => {
                 <img
                   src="https://www.ispl-t10.com/assets/img/stadium1.jpg"
                   alt="bg"
+                  loading="lazy"
                 />
               </figure>
               <div className="left-history mt-3 mt-lg-0">
@@ -128,6 +131,7 @@ const About = () => {
                 <img
                   src="https://www.ispl-t10.com/assets/img/gully cricket.jpg"
                   alt="bg"
+                  loading="lazy"
                 />
               </figure>
 
@@ -160,8 +164,7 @@ const About = () => {
               <div
                 className="container"
                 style={{
-                  borderBottom: "1px solid rgb(255, 255, 255)",
-                  paddingBottom: "1.5vw",
+                  paddingBottom: "4rem",
                 }}
               >
                 <div className="row">
@@ -177,12 +180,14 @@ const About = () => {
                           marginBottom: "3rem",
                         }}
                       >
-                        In Loving Memory of the Late Mr. Amol Kale{" "}
+                        In Loving Memory of the <br />
+                        Late Mr. Amol Kale{" "}
                       </h5>
                       <div className="profileImgWrap">
                         <img
                           src="https://www.ispl-t10.com/assets/img/Amol_mentor.jpg"
                           alt="Mentor-img"
+                          loading="lazy"
                           className="card-img-top rounded-circle card-image img-fluid"
                         />
                       </div>
@@ -238,6 +243,7 @@ const About = () => {
                         marginTop: "2.4rem",
                         color: "rgb(0 108 255)",
                         fontWeight: "bold",
+                        paddingBottom: "20px",
                       }}
                     >
                       OUR CORE COMMITTEE
@@ -250,6 +256,7 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/Aashish_mentor.jpg"
                         alt="Mentor-img"
+                        loading="lazy"
                         className="card-img-top rounded-circle card-image"
                       />
                     </div>
@@ -286,7 +293,6 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                
               </div>
 
               <div className="container">
@@ -314,6 +320,7 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/Ravi_mentor.jpg"
                         alt="Mentor-img"
+                        loading="lazy"
                         className="card-img-top rounded-circle card-image"
                       />
                     </div>
@@ -369,6 +376,7 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/suraj sawant.jpeg"
                         alt="Mentor-img"
+                        loading="lazy"
                         className="card-img-top rounded-circle card-image"
                       />
                     </div>
@@ -449,6 +457,7 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/pravin_amre.png"
                         alt="Mentor-img"
+                        loading="lazy"
                         className="card-img-top rounded-circle card-image"
                       />
                     </div>
@@ -487,6 +496,7 @@ const About = () => {
                       <img
                         src="https://www.ispl-t10.com/assets/img/jatin_paranjape.png"
                         alt="Mentor-img"
+                        loading="lazy"
                         className="card-img-top rounded-circle card-image"
                       />
                     </div>
@@ -522,7 +532,7 @@ const About = () => {
 
               <div
                 className="container text-center"
-                style={{ paddingBottom: "20px", }}
+                style={{ paddingBottom: "20px" }}
               >
                 <h1
                   style={{
