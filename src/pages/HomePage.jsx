@@ -27,10 +27,10 @@ function HomePage() {
           content="This is the home page of our website."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.example.com/" />
+        <meta property="og:url" content="https://ispl-t10.com" />
         <meta
           property="og:image"
-          content="https://www.example.com/home-image.jpg"
+          content="https://ispl-t10.com"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Home Page" />
@@ -40,9 +40,9 @@ function HomePage() {
         />
         <meta
           name="twitter:image"
-          content="https://www.example.com/home-image.jpg"
+          content="https://ispl-t10.com"
         />
-        <link rel="canonical" href="https://www.example.com/" />
+        <link rel="canonical" href="https://ispl-t10.com" />
       </Helmet>
       <Banner />
       <HeighlightsSection />

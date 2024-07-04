@@ -65,8 +65,9 @@
   }
 }
 #joinIsplSection .joinIsplWrap .overlayTextBox h1 span {
-  display: block;
-  margin-top: -1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 1024px) {
   #joinIsplSection .joinIsplWrap .overlayTextBox h1 span img {
@@ -76,7 +77,6 @@
 @media (max-width: 834px) {
   #joinIsplSection .joinIsplWrap .overlayTextBox h1 span img {
     height: 2rem;
-    margin-top: 1rem;
   }
 }
 #joinIsplSection .joinIsplWrap .overlayTextBox p {

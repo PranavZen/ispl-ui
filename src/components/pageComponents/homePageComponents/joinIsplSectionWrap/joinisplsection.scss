@@ -2,10 +2,10 @@
 
 #joinIsplSection {
   padding: 8rem 0;
-  @include d-desktop{
+  @include d-desktop {
     padding: 0rem 0 5rem;
   }
-  @include md-tablet{
+  @include md-tablet {
     padding: 0rem 0 5rem;
   }
   @include x-767-tablet {
@@ -21,7 +21,7 @@
     height: 47rem;
     border-radius: 0.6rem;
     overflow: hidden;
-    @include d-desktop{
+    @include d-desktop {
       height: 40rem;
     }
     @include md-tablet {
@@ -41,22 +41,24 @@
         justify-content: flex-start;
         align-items: center;
         width: fit-content;
-        @include d-desktop{
+        @include d-desktop {
           font-size: 4rem;
         }
         @include md-tablet {
           font-size: 2.4rem;
         }
         span {
-          display: block;
-          margin-top: -1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
           img {
-            @include d-desktop{
+            @include d-desktop {
               height: 3rem;
             }
             @include md-tablet {
               height: 2rem;
-              margin-top: 1rem;
+              // margin-top: 1rem;
             }
           }
         }
@@ -69,7 +71,7 @@
         line-height: normal;
         width: 50%;
         margin-bottom: 1.5rem;
-        @include d-desktop{
+        @include d-desktop {
           font-size: 1.6rem;
         }
         @include md-tablet {
@@ -87,7 +89,7 @@
             font-size: 1.8rem;
             font-style: normal;
             font-weight: 400;
-            @include d-desktop{
+            @include d-desktop {
               font-size: 1.4rem;
             }
             @include md-tablet {
@@ -99,7 +101,7 @@
       .sqrBtn {
         position: absolute;
         margin-top: 3rem;
-        @include md-tablet{
+        @include md-tablet {
           margin-top: 1rem;
         }
       }

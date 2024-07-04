@@ -15,7 +15,8 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
 }
-ul {
+ul,
+ol {
   padding: 0;
   margin-bottom: 0;
   li {
@@ -207,7 +208,7 @@ input {
       .midBox {
         h5 {
           color: #fff;
-          @supports (-webkit-line-clamp: 1){
+          @supports (-webkit-line-clamp: 1) {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: initial;
@@ -285,6 +286,122 @@ input {
   padding-top: 3rem;
 }
 
-.Toastify__toast-body{
+.Toastify__toast-body {
   font-size: 1.6rem;
+}
+
+#pageWrapSection {
+  padding: 10rem 1rem;
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .contentWraps {
+    p {
+      font-size: 1.6rem;
+      color: #2d2d2d;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.03rem;
+    }
+    ol {
+      list-style-type: none;
+      counter-reset: list;
+      li {
+        p {
+          padding-top: 1.5rem;
+          font-weight: 400;
+        }
+        &::before {
+          counter-increment: list;
+          content: counters(list, ".") ". ";
+        }
+        font-size: 2rem;
+        color: #2d2d2d;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        letter-spacing: 0.03rem;
+        font-weight: 600;
+        ul {
+          li {
+            list-style: lower-alpha;
+
+            font-size: 1.6rem;
+            color: #2d2d2d;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.03rem;
+            font-weight: 400;
+            &::before {
+              content: unset;
+            }
+          }
+        }
+        ol {
+          padding-left: 2rem;
+          padding-top: 1.5rem;
+
+          li {
+            font-size: 1.6rem;
+            color: #2d2d2d;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.03rem;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+.golden-ticket-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.golden-ticket-text {
+  font-weight: bold;
+  font-size: 4.2rem;
+  margin-bottom: 1px;
+}
+
+.ticket-text {
+  font-weight: bold;
+  font-size: 3rem;
+  margin: 0;
+}
+.ticket-info {
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 2rem;
+}
+.playerName {
+  text-transform: uppercase;
+}
+.email-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #010c13;
+  padding: 24px;
+}
+.city-name-title {
+  font-size: 1.6rem;
+}
+.email-body {
+  margin-bottom: 3rem;
+  p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+  }
 }

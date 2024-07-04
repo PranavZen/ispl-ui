@@ -3,292 +3,177 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../components/common/cta/SqareButton";
+import { useNavigate } from "react-router-dom";
 
 function RegistrationFormDashboard() {
   const [formData, setFormData] = useState({
     first_name: "",
-    surname: "",
-    mobile_number: "",
+    middle_name: "",
+    last_name: "",
     date_of_birth: "",
-    email: "",
-    state_name: "",
-    cities_states_id: "",
-    zone_name: "",
-    password: "",
-    password_confirmation: "",
+    permanent_address: "",
+    current_address: "",
+    adhar_card_no: "",
+    phone_number: "",
+    emergency_contact_no: "",
+    email_id: "",
+    instagram_id: "",
+    facebook_id: "",
     playing_roles: "",
     batting_andedness: "",
-    bowling_andedness: "",
+    preferred_bowling_style: "",
     preferred_batting_order: "",
   });
 
   const [errors, setErrors] = useState({});
-  const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [zones, setZones] = useState([]);
+  const navigate = useNavigate()
+  const [playingRolesOptions, setPlayingRolesOptions] = useState([]);
+  const [battingHandednessOptions, setBattingHandednessOptions] = useState([]);
+  const [bowlingStyleOptions, setBowlingStyleOptions] = useState([]);
+  const [battingOrderOptions, setBattingOrderOptions] = useState([]);
 
   useEffect(() => {
-    fetchStates();
-    fetchUserData();
+    axios
+      .get("https://ispl-t10.com/api/playing_roles")
+      .then((response) => {
+        if (Array.isArray(response.data.playing_roles)) {
+          setPlayingRolesOptions(response.data.playing_roles);
+        } else {
+          toast.error("Invalid response format for playing roles");
+        }
+      })
+      .catch((error) => toast.error("Error fetching playing roles"));
+
+    axios
+      .get("https://ispl-t10.com/api/batting_andedness")
+      .then((response) => {
+        if (Array.isArray(response.data.batting_andedness)) {
+          setBattingHandednessOptions(response.data.batting_andedness);
+        } else {
+          toast.error("Invalid response format for batting handedness");
+        }
+      })
+      .catch((error) => toast.error("Error fetching batting handedness"));
+
+    axios
+      .get("https://ispl-t10.com/api/preferred_bowling_style")
+      .then((response) => {
+        if (Array.isArray(response.data.preferred_bowling_style)) {
+          setBowlingStyleOptions(response.data.preferred_bowling_style);
+        } else {
+          toast.error("Invalid response format for bowling styles");
+        }
+      })
+      .catch((error) => toast.error("Error fetching bowling styles"));
+
+    axios
+      .get("https://ispl-t10.com/api/preferred_batting_order")
+      .then((response) => {
+        if (Array.isArray(response.data.preferred_batting_order)) {
+          setBattingOrderOptions(response.data.preferred_batting_order);
+        } else {
+          toast.error("Invalid response format for batting orders");
+        }
+      })
+      .catch((error) => toast.error("Error fetching batting orders"));
   }, []);
 
-  const fetchUserData = async () => {
-    try {
-      const response = await axios.get(
-        "https://ispl-t10.com/api/user-dashboard-api",
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
-          },
-        }
-      );
-
-      const { user_data, user_payment, all_cities_states } = response.data;
-
-      const selectedCity = all_cities_states.find(
-        (city) => city.city_name === user_payment.cities_states_id[0]
-      );
-
-      // Populate form fields with the fetched user data
-      setFormData({
-        first_name: user_data.first_name || "",
-        surname: user_data.surname || "",
-        mobile_number: user_data.mobile_number || "",
-        date_of_birth: user_data.date_of_birth || "",
-        email: user_data.email || "",
-        state_name: selectedCity ? selectedCity.state_name : "",
-        cities_states_id: selectedCity ? selectedCity.id : "",
-        zone_name: selectedCity ? selectedCity.zone_name : "",
-        password: "",
-        password_confirmation: "",
-      });
-
-      if (selectedCity) {
-        fetchCitiesByState(selectedCity.state_name);
-        fetchZonesByCity(selectedCity.id);
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      toast.error("Failed to fetch user data. Please try again later.");
-    }
-  };
-
-  const fetchStates = async () => {
-    try {
-      const response = await axios.get("https://ispl-t10.com/api/state");
-      let states = response.data.data.states || [];
-
-      const uniqueStates = Array.from(
-        new Set(states.map((state) => state.state_name))
-      ).map((state_name) => {
-        return states.find((state) => state.state_name === state_name);
-      });
-
-      setStates(uniqueStates);
-    } catch (error) {
-      console.error("Error fetching states:", error);
-      toast.error("Failed to fetch states. Please try again later.");
-    }
-  };
-
-  const fetchCitiesByState = async (stateName) => {
-    try {
-      const response = await axios.get(
-        `https://ispl-t10.com/api/get_city_base_on_state?state_name=${stateName}`
-      );
-      setCities(response.data.cities || []);
-    } catch (error) {
-      console.error(`Error fetching cities for ${stateName}:`, error);
-      toast.error(
-        `Failed to fetch cities for ${stateName}. Please try again later.`
-      );
-    }
-  };
-
-  const fetchZonesByCity = async (cityId) => {
-    try {
-      const response = await axios.get(
-        `https://ispl-t10.com/api/get_zone_base_on_city?cities_states_id=${cityId}`
-      );
-      const zones = response.data.zone || [];
-      setZones(zones);
-      if (zones.length > 0) {
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          zone_name: zones[0].zone_name,
-        }));
-      } else {
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          zone_name: "",
-        }));
-      }
-    } catch (error) {
-      console.error(`Error fetching zones for city ID ${cityId}:`, error);
-      toast.error(
-        `Failed to fetch zones for city ID ${cityId}. Please try again later.`
-      );
-    }
-  };
-
-  const validateField = (name, value) => {
-    let error = "";
-
-    switch (name) {
-      case "first_name":
-      case "surname":
-        if (!/^[A-Za-z]+$/.test(value)) {
-          error = "This field should contain only alphabetic characters.";
-        }
-        break;
-      case "mobile_number":
-        if (!/^\d+$/.test(value)) {
-          error = "Please enter only numeric characters.";
-        }
-        break;
-      case "email":
-        if (!/\S+@\S+\.\S+/.test(value)) {
-          error = "Please enter a valid email address.";
-        } else {
-          const domainPattern = /\.[a-zA-Z]{2,}$/;
-          if (!domainPattern.test(value)) {
-            error = "Please enter a valid email address with a domain.";
-          }
-        }
-        break;
-      case "password":
-      case "password_confirmation":
-        if (value.length < 4) {
-          error = "Password should be at least 4 characters long.";
-        }
-        break;
-      default:
-        break;
-    }
-
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
-  };
-
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-
-    let sanitizedValue = value;
-    if (name === "first_name" || name === "surname") {
-      sanitizedValue = value.replace(/[^A-Za-z]/gi, "");
-    } else if (name === "mobile_number") {
-      sanitizedValue = value.replace(/[^0-9]/g, "");
-    }
-
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: sanitizedValue,
-    }));
-
-    validateField(name, sanitizedValue);
-
-    if (name === "state_name") {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        cities_states_id: "",
-        zone_name: "",
-      }));
-      await fetchCitiesByState(value);
-    } else if (name === "cities_states_id") {
-      await fetchZonesByCity(value);
-    }
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e, completed_status) => {
     e.preventDefault();
-
-    let formValid = true;
-    const newErrors = {};
-
-    Object.keys(formData).forEach((key) => {
-      if (key !== "zone_name" && !formData[key]) {
-        newErrors[key] = "This field is required.";
-        formValid = false;
-      }
-    });
-
-    if (formData.mobile_number.length !== 10) {
-      newErrors.mobile_number = "Mobile number should be exactly 10 digits.";
-      formValid = false;
-    }
-
-    if (formData.password !== formData.password_confirmation) {
-      newErrors.password_confirmation = "Passwords do not match.";
-      formValid = false;
-    }
-
+  
+    // Check if all necessary options are fetched
     if (
-      !/\S+@\S+\.\S+/.test(formData.email) ||
-      !/\.[a-zA-Z]{2,}$/.test(formData.email)
+      playingRolesOptions.length === 0 ||
+      battingHandednessOptions.length === 0 ||
+      bowlingStyleOptions.length === 0 ||
+      battingOrderOptions.length === 0
     ) {
-      newErrors.email = "Please enter a valid email address with a domain.";
-      formValid = false;
-    }
-
-    setErrors(newErrors);
-
-    if (!formValid) {
-      toast.error("Please correct the errors in the form.");
+      toast.error("Options are not yet loaded. Please wait.");
       return;
     }
-
-    try {
-      const response = await axios.post(
-        "https://ispl-t10.com/api/register",
-        formData
-      );
-
-      if (response.data.remark === "validation_error") {
-        const serverErrors = response.data.message.error;
-        if (Array.isArray(serverErrors)) {
-          serverErrors.forEach((errMsg) => {
-            toast.error(errMsg);
-          });
-        } else {
-          toast.error("An unexpected error occurred.");
-        }
-        return;
-      }
-
-      setFormData({
-        first_name: "",
-        surname: "",
-        mobile_number: "",
-        date_of_birth: "",
-        email: "",
-        state_name: "",
-        cities_states_id: "",
-        zone_name: "",
-        password: "",
-        password_confirmation: "",
-      });
-
-      setErrors({});
-      toast.success("Registration successful!");
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.remark === "validation_error"
-      ) {
-        const serverErrors = error.response.data.message.error;
-        if (Array.isArray(serverErrors)) {
-          serverErrors.forEach((errMsg) => {
-            toast.error(errMsg);
-          });
-        } else {
-          toast.error("An unexpected error occurred.");
-        }
-      } else {
-        toast.error("Registration failed. Please try again.");
-      }
+  
+    // Validate form data before submission (example validation)
+    const validationErrors = {};
+    if (!formData.first_name.trim()) {
+      validationErrors.first_name = "First Name is required";
     }
+    // Add validations for other fields as per your requirements
+  
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+  
+    const token = localStorage.getItem("apiToken"); // Replace with your token retrieval logic
+    console.log(token);
+  
+    // Update formData with the status
+    const updatedFormData = {
+      ...formData,
+      completed_status: completed_status // Assign the status passed as an argument
+    };
+  
+    setFormData(updatedFormData); // Save status in formData state
+  
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json", // Adjust content type if sending JSON data
+    };
+  
+    // Submit form data to form_submit API
+    axios
+      .post("https://ispl-t10.com/api/form_submit", updatedFormData, { headers })
+      .then((response) => {
+        // Handle success response
+        toast.success("Form submitted successfully!");
+        // Optionally, reset form data
+        setFormData({
+          first_name: "",
+          middle_name: "",
+          last_name: "",
+          date_of_birth: "",
+          permanent_address: "",
+          current_address: "",
+          adhar_card_no: "",
+          phone_number: "",
+          emergency_contact_no: "",
+          email_id: "",
+          instagram_id: "",
+          facebook_id: "",
+          playing_roles: "",
+          batting_andedness: "",
+          preferred_bowling_style: "",
+          preferred_batting_order: "",
+        });
+        // Reset errors
+        setErrors({});
+        if (completed_status === 1) {
+          navigate("/dashboard-golden-page");
+        }
+      })
+      .catch((error) => {
+        // Handle error response
+        toast.error("Error submitting form. Please try again later.");
+        console.error("Form submission error:", error);
+      });
   };
 
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files[0],
+    });
+  };
   return (
     <form
       className="form p-t-20 payments-qrl"
@@ -330,7 +215,7 @@ function RegistrationFormDashboard() {
               errors.middle_name ? "is-invalid" : ""
             }`}
             name="middle_name"
-            placeholder="First Name"
+            placeholder="Middle Name"
             value={formData.middle_name}
             onChange={handleChange}
           />
@@ -339,21 +224,21 @@ function RegistrationFormDashboard() {
           )}
         </div>
         <div className="form-group col-md-6 mb-4">
-          <label htmlFor="surname" className="form-label text-light">
-            Surname *
+          <label htmlFor="last_name" className="form-label text-light">
+            Last Name *
           </label>
           <input
-            id="surname"
+            id="last_name"
             type="text"
             className={`form-control form-input ${
-              errors.surname ? "is-invalid" : ""
+              errors.last_name ? "is-invalid" : ""
             }`}
-            name="surname"
-            placeholder="Surname"
-            value={formData.surname}
+            name="last_name"
+            placeholder="Last Name"
+            value={formData.last_name}
             onChange={handleChange}
           />
-          {errors.surname && <div className="error">{errors.surname}</div>}
+          {errors.last_name && <div className="error">{errors.last_name}</div>}
         </div>
         <div className="form-group col-md-6 mb-4">
           <label htmlFor="date_of_birth" className="form-label text-light">
@@ -379,12 +264,10 @@ function RegistrationFormDashboard() {
           </label>
           <textarea
             id="permanent_address"
-            type="text"
             className={`form-control form-input ${
               errors.permanent_address ? "is-invalid" : ""
             }`}
             name="permanent_address"
-            placeholder=""
             value={formData.permanent_address}
             onChange={handleChange}
           />
@@ -398,12 +281,10 @@ function RegistrationFormDashboard() {
           </label>
           <textarea
             id="current_address"
-            type="text"
             className={`form-control form-input ${
               errors.current_address ? "is-invalid" : ""
             }`}
             name="current_address"
-            placeholder=""
             value={formData.current_address}
             onChange={handleChange}
           />
@@ -421,33 +302,38 @@ function RegistrationFormDashboard() {
             Aadhar Card Number *
           </label>
           <input
-            autoFocus
             id="adhar_card_no"
             required
             type="text"
-            className="form-control"
+            className={`form-control form-input ${
+              errors.adhar_card_no ? "is-invalid" : ""
+            }`}
             name="adhar_card_no"
-            maxLength="12"
+            value={formData.adhar_card_no}
+            onChange={handleChange}
           />
+          {errors.adhar_card_no && (
+            <div className="error">{errors.adhar_card_no}</div>
+          )}
         </div>
 
         <div className="form-group col-md-6 mb-4">
-          <label htmlFor="mobile_number" className="form-label text-light">
+          <label htmlFor="phone_number" className="form-label text-light">
             Mobile Number *
           </label>
           <input
-            id="mobile_number"
+            id="phone_number"
             type="text"
             className={`form-control form-input ${
-              errors.mobile_number ? "is-invalid" : ""
+              errors.phone_number ? "is-invalid" : ""
             }`}
-            name="mobile_number"
+            name="phone_number"
             placeholder="Mobile Number"
-            value={formData.mobile_number}
+            value={formData.phone_number}
             onChange={handleChange}
           />
-          {errors.mobile_number && (
-            <div className="error">{errors.mobile_number}</div>
+          {errors.phone_number && (
+            <div className="error">{errors.phone_number}</div>
           )}
         </div>
 
@@ -456,59 +342,76 @@ function RegistrationFormDashboard() {
             htmlFor="emergency_contact_no"
             className="form-label text-light"
           >
-            Alternate mobile number
+            Emergency Contact Number
           </label>
           <input
-            autoFocus
-            required
+            id="emergency_contact_no"
             type="text"
-            className="form-control"
+            className={`form-control form-input ${
+              errors.emergency_contact_no ? "is-invalid" : ""
+            }`}
             name="emergency_contact_no"
-            maxLength="10"
+            value={formData.emergency_contact_no}
+            onChange={handleChange}
           />
+          {errors.emergency_contact_no && (
+            <div className="error">{errors.emergency_contact_no}</div>
+          )}
         </div>
         <div className="form-group col-md-6 mb-4">
-          <label htmlFor="email" className="form-label text-light">
+          <label htmlFor="email_id" className="form-label text-light">
             Email *
           </label>
           <input
-            id="email"
+            id="email_id"
             type="email"
             className={`form-control form-input ${
-              errors.email ? "is-invalid" : ""
+              errors.email_id ? "is-invalid" : ""
             }`}
-            name="email"
+            name="email_id"
             placeholder="Email"
-            value={formData.email}
+            value={formData.email_id}
             onChange={handleChange}
           />
-          {errors.email && <div className="error">{errors.email}</div>}
+          {errors.email_id && <div className="error">{errors.email_id}</div>}
         </div>
 
         <div className="col-md-6 mb-4">
           <label htmlFor="instagram_id" className="form-label text-light">
-            Instagram Id
+            Instagram ID
           </label>
           <input
-            autoFocus
             id="instagram_id"
             type="text"
-            className="form-control"
+            className={`form-control form-input ${
+              errors.instagram_id ? "is-invalid" : ""
+            }`}
             name="instagram_id"
+            value={formData.instagram_id}
+            onChange={handleChange}
           />
+          {errors.instagram_id && (
+            <div className="error">{errors.instagram_id}</div>
+          )}
         </div>
 
         <div className="col-md-6 mb-4">
           <label htmlFor="facebook_id" className="form-label text-light">
-            Facebook Id
+            Facebook ID
           </label>
           <input
-            autoFocus
             id="facebook_id"
             type="text"
-            className="form-control"
+            className={`form-control form-input ${
+              errors.facebook_id ? "is-invalid" : ""
+            }`}
             name="facebook_id"
+            value={formData.facebook_id}
+            onChange={handleChange}
           />
+          {errors.facebook_id && (
+            <div className="error">{errors.facebook_id}</div>
+          )}
         </div>
       </div>
       <div className="row mt-3 mb-3">
@@ -522,67 +425,101 @@ function RegistrationFormDashboard() {
           <select
             required
             name="playing_roles"
-            className="form-select"
-            aria-label="Default select example"
+            className={`form-select form-input ${
+              errors.playing_roles ? "is-invalid" : ""
+            }`}
+            value={formData.playing_roles}
+            onChange={handleChange}
           >
             <option>Select Playing Roles</option>
-            <option value="Batsman">Batsman</option>
-            <option value="Bowler">Bowler</option>
-            <option value="Wicketkeeper">Wicketkeeper</option>
-            <option value="All Rounder">All Rounder</option>
+            {playingRolesOptions.map((role, index) => (
+              <option key={index} value={role}>
+                {role}
+              </option>
+            ))}
           </select>
+          {errors.playing_roles && (
+            <div className="error">{errors.playing_roles}</div>
+          )}
         </div>
-
         <div className="col-md-6 mb-4">
           <label htmlFor="batting_andedness" className="form-label text-light">
             Batting Handedness *
           </label>
           <select
             required
-            className="form-select"
+            className={`form-select form-input ${
+              errors.batting_andedness ? "is-invalid" : ""
+            }`}
             name="batting_andedness"
-            aria-label="Default select example"
+            value={formData.batting_andedness}
+            onChange={handleChange}
           >
             <option>Select Batting Handedness</option>
-            <option value="Right Handed">Right Handed</option>
-            <option value="Left Handed">Left Handed</option>
+            {battingHandednessOptions.map((handedness, index) => (
+              <option key={index} value={handedness}>
+                {handedness}
+              </option>
+            ))}
           </select>
+          {errors.batting_andedness && (
+            <div className="error">{errors.batting_andedness}</div>
+          )}
         </div>
-
         <div className="col-md-6 mb-4">
-          <label htmlFor="bowling_andedness" className="form-label text-light">
+          <label
+            htmlFor="preferred_bowling_style"
+            className="form-label text-light"
+          >
             Preferred Bowling Style *
           </label>
           <select
             required
-            className="form-select"
-            name="bowling_andedness"
-            aria-label="Default select example"
+            className={`form-select form-input ${
+              errors.preferred_bowling_style ? "is-invalid" : ""
+            }`}
+            name="preferred_bowling_style"
+            value={formData.preferred_bowling_style}
+            onChange={handleChange}
           >
             <option>Select Preferred Bowling Style</option>
-            <option value="Right Arm Fast">Right Arm Fast</option>
-            <option value="Right Arm Medium">Right Arm Medium</option>
-            <option value="Left Arm Fast">Left Arm Fast</option>
-            <option value="Left Arm Medium">Left Arm Medium</option>
-            <option value="Right Arm Spinner">Right Arm Spinner</option>
-            <option value="Left Arm Spinner">Left Arm Spinner</option>
+            {bowlingStyleOptions.map((style, index) => (
+              <option key={index} value={style}>
+                {style}
+              </option>
+            ))}
           </select>
+          {errors.preferred_bowling_style && (
+            <div className="error">{errors.preferred_bowling_style}</div>
+          )}
         </div>
 
         <div className="col-md-6 mb-4">
-          <label htmlFor="bowling_type" className="form-label text-light">
+          <label
+            htmlFor="preferred_batting_order"
+            className="form-label text-light"
+          >
             Preferred Batting Order *
           </label>
           <select
             required
-            className="form-select"
-            name="bowling_type"
-            aria-label="Default select example"
+            className={`form-select form-input ${
+              errors.preferred_batting_order ? "is-invalid" : ""
+            }`}
+            name="preferred_batting_order"
+            value={formData.preferred_batting_order}
+            onChange={handleChange}
           >
             <option>Select Preferred Batting Order</option>
-            <option value="Middle Order">Middle Order</option>
-            <option value="Top Order">Top Order</option>
+            {battingOrderOptions.map((order, index) => (
+              <option key={index} value={order}>
+                {order}
+              </option>
+            ))}
           </select>
+          {errors.preferred_batting_order && (
+            <div className="error">{errors.preferred_batting_order}</div>
+          )}
         </div>
       </div>
       <div className="row mt-3 mb-3">
@@ -590,30 +527,30 @@ function RegistrationFormDashboard() {
       </div>
       <div className="row mb-3">
         <div className="col-md-6 mb-4">
-          <label htmlFor="playing_roles" className="form-label text-light">
-            Upload photo
+          <label htmlFor="doc_upload_photo" className="form-label text-light">
+            Upload Photo
           </label>
           <input
-            autoFocus=""
             className="form-control"
             required=""
             name="doc_upload_photo"
             accept="image/*"
             type="file"
+            onChange={handleFileChange}
           />
         </div>
 
         <div className="col-md-6 mb-4">
-          <label htmlFor="playing_roles" className="form-label text-light">
-            Upload Adhar
+          <label htmlFor="doc_upload_adhar" className="form-label text-light">
+            Upload Aadhar
           </label>
           <input
-            autoFocus=""
             className="form-control"
             required=""
             name="doc_upload_adhar"
             accept="image/*"
             type="file"
+            onChange={handleFileChange}
           />
         </div>
       </div>
@@ -625,6 +562,7 @@ function RegistrationFormDashboard() {
           textColor="#caf75a"
           bordercolor="#caf75a"
           type="submit"
+          onClick={(e) => handleSubmit(e, 0)}
         />
         <SqareButton
           classNameText="sqrBtn mt-3"
@@ -633,6 +571,7 @@ function RegistrationFormDashboard() {
           textColor="#caf75a"
           bordercolor="#caf75a"
           type="submit"
+          onClick={(e) => handleSubmit(e, 1)}
         />
       </div>
     </form>

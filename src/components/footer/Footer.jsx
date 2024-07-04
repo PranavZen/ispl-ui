@@ -115,15 +115,12 @@ function Footer() {
                       <li>
                         <Link to="/contact-us">Contact Us</Link>
                       </li>
-                      {/* <li>
-                        <Link to="">Sponsorship</Link>
+                      <li>
+                        <Link to="/privacy-policy">Privacy & Policy</Link>
                       </li>
                       <li>
-                        <Link to="">Privacy & Policy</Link>
+                        <Link to="/terms-condition">Terms & Condition</Link>
                       </li>
-                      <li>
-                        <Link to="">FAQ</Link>
-                      </li> */}
                       <li>
                         <ul>
                           <li>

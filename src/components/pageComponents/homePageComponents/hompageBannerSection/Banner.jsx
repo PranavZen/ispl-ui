@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,18 +43,21 @@ function Banner() {
             bannerImg={banner1}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
+            altTitle="ISPL=T10"
           />
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner2}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
+            altTitle="ISPL=T10"
           />
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner3}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
+            altTitle="ISPL=T10"
           />
         </Slider>
       </section>

@@ -1,8 +1,5 @@
 import React from "react";
-import "../registration/registration.css"; 
-import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
-import { Link } from "react-router-dom";
-import SqareButton from "../../components/common/cta/SqareButton";
+import "../registration/registration.css";
 import { Helmet } from "react-helmet-async";
 import LoginForm from "./LoginForm";
 function Login() {

@@ -28,6 +28,9 @@ import Login from "./pages/loginpage/Login";
 import ForgetPassword from "./pages/forgetpasswordpage/ForgetPassword";
 import IsplPage from "./pages/isplpage/IsplPage";
 import DashboardForm from "./pages/dashboardsessiontwo/DashboardForm";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import GlodenPage from "./pages/GlodenPage";
 
 
 function App() {
@@ -77,6 +80,9 @@ function App() {
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/dashboard-session-2" element={<DashboardForm />} />
           <Route path="/password/reset" element={<ForgetPassword />} />
+          <Route path="/terms-condition" element={<TermsConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/dashboard-golden-page" element={<GlodenPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

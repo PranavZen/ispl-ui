@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { newsImg1 } from "../../../../../assets/imagePath";
 import "../eventnewscard/eventnewscard.css";
 function EventsnNewsCard({
   newsLink, 

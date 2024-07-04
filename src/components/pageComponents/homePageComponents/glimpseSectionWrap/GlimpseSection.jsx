@@ -422,7 +422,7 @@ function GlimpseSection() {
           </div>
           <div className="image">
             <img
-              src="https://ispl-t10.com/images/galleries/2G9A9576.JPG"
+              src="https://ispl-t10.com/images/galleries/2G9A9576.jpg"
               alt=""
               className="picture img-fluid"
               loading="lazy"
@@ -430,7 +430,7 @@ function GlimpseSection() {
           </div>
           <div className="image">
             <img
-              src="https://ispl-t10.com/images/galleries/2G9A9684.JPG"
+              src="https://ispl-t10.com/images/galleries/2G9A9684.jpg"
               alt=""
               className="picture img-fluid"
               loading="lazy"
@@ -438,7 +438,7 @@ function GlimpseSection() {
           </div>
           <div className="image">
             <img
-              src="https://ispl-t10.com/images/galleries/2G9A9705.JPG"
+              src="https://ispl-t10.com/images/galleries/2G9A9705.jpg"
               alt=""
               className="picture img-fluid"
               loading="lazy"
@@ -446,7 +446,7 @@ function GlimpseSection() {
           </div>
           <div className="image">
             <img
-              src="https://ispl-t10.com/images/galleries/2G9A9792.JPG"
+              src="https://ispl-t10.com/images/galleries/2G9A9792.jpg"
               alt=""
               className="picture img-fluid"
               loading="lazy"
@@ -472,7 +472,7 @@ function GlimpseSection() {
           </div>
           <div className="image">
             <img
-              src="https://ispl-t10.com/images/galleries/ADGP0286.JPG"
+              src="https://ispl-t10.com/images/galleries/ADGP0286.jpg"
               alt=""
               className="picture img-fluid"
               loading="lazy"
@@ -546,7 +546,7 @@ function GlimpseSection() {
           </div>
           <div className="image">
             <img
-              src="https://ispl-t10.com/images/galleries/ADGP3870.JPG"
+              src="https://ispl-t10.com/images/galleries/ADGP3870.jpg"
               alt=""
               className="picture img-fluid"
               loading="lazy"
