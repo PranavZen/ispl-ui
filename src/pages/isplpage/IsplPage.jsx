@@ -52,7 +52,7 @@ function IsplPage() {
               <div className="card-body text-center"></div>
               <div className="outer-layer rounded-circle text-center">
                 <img
-                  src="https://www.ispl-t10.com/assets/img/Aashish_mentor.jpg"
+                  src="https://my.ispl-t10.com/assets/img/Aashish_mentor.jpg"
                   alt="Mentor-img"
                   className="card-img-top rounded-circle-7 card-image "
                 />
@@ -81,7 +81,7 @@ function IsplPage() {
               <div className="card-body text-center"></div>
               <div className="outer-layer rounded-circle text-center">
                 <img
-                  src="https://www.ispl-t10.com/assets/img/Ravi_mentor.jpg"
+                  src="https://my.ispl-t10.com/assets/img/Ravi_mentor.jpg"
                   alt="Mentor-img"
                   className="card-img-top rounded-circle-7 card-image "
                 />
@@ -109,7 +109,7 @@ function IsplPage() {
               <div className="card-body text-center"></div>/
               <div className="outer-layer rounded-circle text-center">
                 <img
-                  src="https://www.ispl-t10.com/assets/img/suraj sawant.jpeg"
+                  src="https://my.ispl-t10.com/assets/img/suraj sawant.jpeg"
                   alt="Mentor-img"
                   className="card-img-top rounded-circle-7 card-image "
                 />
@@ -165,13 +165,13 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m9.jpeg"
+                to="https://my.ispl-t10.com/assets/img/media/m9.jpeg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
                     className="img-fluid"
-                    src="https://www.ispl-t10.com/assets/img/media/m9.jpeg"
+                    src="https://my.ispl-t10.com/assets/img/media/m9.jpeg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -181,12 +181,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m10.jpg"
+                to="https://my.ispl-t10.com/assets/img/media/m10.jpg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m10.jpg"
+                    src="https://my.ispl-t10.com/assets/img/media/m10.jpg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -196,12 +196,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m11.jpeg"
+                to="https://my.ispl-t10.com/assets/img/media/m11.jpeg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m11.jpeg"
+                    src="https://my.ispl-t10.com/assets/img/media/m11.jpeg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -211,12 +211,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m4.jpg"
+                to="https://my.ispl-t10.com/assets/img/media/m4.jpg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m4.jpg"
+                    src="https://my.ispl-t10.com/assets/img/media/m4.jpg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -226,12 +226,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m5.jpg"
+                to="https://my.ispl-t10.com/assets/img/media/m5.jpg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m5.jpg"
+                    src="https://my.ispl-t10.com/assets/img/media/m5.jpg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -241,12 +241,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m6.jpg"
+                to="https://my.ispl-t10.com/assets/img/media/m6.jpg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m6.jpg"
+                    src="https://my.ispl-t10.com/assets/img/media/m6.jpg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -256,12 +256,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m7.jpg"
+                to="https://my.ispl-t10.com/assets/img/media/m7.jpg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m7.jpg"
+                    src="https://my.ispl-t10.com/assets/img/media/m7.jpg"
                     alt="pbnm"
                     loading="lazy"
                   />
@@ -271,12 +271,12 @@ function IsplPage() {
             <div className="col">
               <Link
                 data-fancybox
-                to="https://www.ispl-t10.com/assets/img/media/m8.jpg"
+                to="https://my.ispl-t10.com/assets/img/media/m8.jpg"
                 className="comon-links-divb05"
               >
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/assets/img/media/m8.jpg"
+                    src="https://my.ispl-t10.com/assets/img/media/m8.jpg"
                     alt="pbnm"
                     loading="lazy"
                   />

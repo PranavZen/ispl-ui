@@ -136,7 +136,7 @@ function PrivacyPolicy() {
                 enforce or exercise any rights in our Website Terms and
                 Conditions available at the link &nbsp;
                 <Link to="/terms-condition">
-                  https://ispl-t10.com/terms-condition
+                  https://my.ispl-t10.com/terms-condition
                 </Link>{" "}
                 ;
               </li>
@@ -149,7 +149,7 @@ function PrivacyPolicy() {
                 against any activity not expressly authorized under the Website
                 Terms & Conditions available at the link&nbsp;
                 <Link to="/terms-condition">
-                  https://ispl-t10.com/terms-condition
+                  https://my.ispl-t10.com/terms-condition
                 </Link>
               </li>
             </ol>
@@ -177,7 +177,7 @@ function PrivacyPolicy() {
                 (ii) for enforcing the Website Terms and Conditions available at
                 the link &nbsp;
                 <Link to="/terms-condition">
-                  https://ispl-t10.com/terms-condition
+                  https://my.ispl-t10.com/terms-condition
                 </Link>{" "}
                 (iii) for protecting or defending ours, any Website users or any
                 third party's rights or property; (iv) for supporting any fraud/
@@ -214,7 +214,7 @@ function PrivacyPolicy() {
                 purposes and recordkeeping purposes or as required by law, as
                 well as to prevent fraud, enforce our Website Terms and
                 Conditions available at the link
-                https://ispl-t10.com/terms-condition, take actions we deem
+                https://my.ispl-t10.com/terms-condition, take actions we deem
                 necessary to protect the integrity of our Website or other
                 Website users, or take other actions otherwise permitted by law.
                 In addition, if certain information has already been provided to

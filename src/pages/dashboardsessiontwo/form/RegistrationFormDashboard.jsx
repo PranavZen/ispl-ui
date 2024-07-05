@@ -34,7 +34,7 @@ function RegistrationFormDashboard() {
 
   useEffect(() => {
     axios
-      .get("https://ispl-t10.com/api/playing_roles")
+      .get("https://my.ispl-t10.com/api/playing_roles")
       .then((response) => {
         if (Array.isArray(response.data.playing_roles)) {
           setPlayingRolesOptions(response.data.playing_roles);
@@ -45,7 +45,7 @@ function RegistrationFormDashboard() {
       .catch((error) => toast.error("Error fetching playing roles"));
 
     axios
-      .get("https://ispl-t10.com/api/batting_andedness")
+      .get("https://my.ispl-t10.com/api/batting_andedness")
       .then((response) => {
         if (Array.isArray(response.data.batting_andedness)) {
           setBattingHandednessOptions(response.data.batting_andedness);
@@ -56,7 +56,7 @@ function RegistrationFormDashboard() {
       .catch((error) => toast.error("Error fetching batting handedness"));
 
     axios
-      .get("https://ispl-t10.com/api/preferred_bowling_style")
+      .get("https://my.ispl-t10.com/api/preferred_bowling_style")
       .then((response) => {
         if (Array.isArray(response.data.preferred_bowling_style)) {
           setBowlingStyleOptions(response.data.preferred_bowling_style);
@@ -67,7 +67,7 @@ function RegistrationFormDashboard() {
       .catch((error) => toast.error("Error fetching bowling styles"));
 
     axios
-      .get("https://ispl-t10.com/api/preferred_batting_order")
+      .get("https://my.ispl-t10.com/api/preferred_batting_order")
       .then((response) => {
         if (Array.isArray(response.data.preferred_batting_order)) {
           setBattingOrderOptions(response.data.preferred_batting_order);
@@ -131,7 +131,7 @@ function RegistrationFormDashboard() {
   
     // Submit form data to form_submit API
     axios
-      .post("https://ispl-t10.com/api/form_submit", updatedFormData, { headers })
+      .post("https://my.ispl-t10.com/api/form_submit", updatedFormData, { headers })
       .then((response) => {
         // Handle success response
         toast.success("Form submitted successfully!");

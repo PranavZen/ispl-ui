@@ -45,14 +45,14 @@ const About = () => {
                 <div className="col position-relative">
                   <figure className="big-img">
                     <img
-                      src="https://www.ispl-t10.com/assets/img/stadium1.jpg"
+                      src="https://my.ispl-t10.com/assets/img/stadium1.jpg"
                       alt="pic"
                       loading="lazy"
                     />
                   </figure>
                   <figure className="small-img">
                     <img
-                      src="https://www.ispl-t10.com/assets/img/gully2.webp"
+                      src="https://my.ispl-t10.com/assets/img/gully2.webp"
                       alt="pic"
                       loading="lazy"
                     />
@@ -107,7 +107,7 @@ const About = () => {
             <div className="comon-fild-ads1 d-lg-flex align-items-center">
               <figure>
                 <img
-                  src="https://www.ispl-t10.com/assets/img/stadium1.jpg"
+                  src="https://my.ispl-t10.com/assets/img/stadium1.jpg"
                   alt="bg"
                   loading="lazy"
                 />
@@ -129,7 +129,7 @@ const About = () => {
             <div className="comon-fild-ads1 d-lg-flex align-items-center">
               <figure>
                 <img
-                  src="https://www.ispl-t10.com/assets/img/gully cricket.jpg"
+                  src="https://my.ispl-t10.com/assets/img/gully cricket.jpg"
                   alt="bg"
                   loading="lazy"
                 />
@@ -185,7 +185,7 @@ const About = () => {
                       </h5>
                       <div className="profileImgWrap">
                         <img
-                          src="https://www.ispl-t10.com/assets/img/Amol_mentor.jpg"
+                          src="https://my.ispl-t10.com/assets/img/Amol_mentor.jpg"
                           alt="Mentor-img"
                           loading="lazy"
                           className="card-img-top rounded-circle card-image img-fluid"
@@ -254,7 +254,7 @@ const About = () => {
                   <div className="col-md-3 mt-5 mb-2">
                     <div className="outer-layer rounded-circle">
                       <img
-                        src="https://www.ispl-t10.com/assets/img/Aashish_mentor.jpg"
+                        src="https://my.ispl-t10.com/assets/img/Aashish_mentor.jpg"
                         alt="Mentor-img"
                         loading="lazy"
                         className="card-img-top rounded-circle card-image"
@@ -318,7 +318,7 @@ const About = () => {
                       style={{ marginTop: "-50px" }}
                     >
                       <img
-                        src="https://www.ispl-t10.com/assets/img/Ravi_mentor.jpg"
+                        src="https://my.ispl-t10.com/assets/img/Ravi_mentor.jpg"
                         alt="Mentor-img"
                         loading="lazy"
                         className="card-img-top rounded-circle card-image"
@@ -374,7 +374,7 @@ const About = () => {
                     <br />
                     <div className="outer-layer rounded-circle">
                       <img
-                        src="https://www.ispl-t10.com/assets/img/suraj sawant.jpeg"
+                        src="https://my.ispl-t10.com/assets/img/suraj sawant.jpeg"
                         alt="Mentor-img"
                         loading="lazy"
                         className="card-img-top rounded-circle card-image"
@@ -455,7 +455,7 @@ const About = () => {
                       style={{ marginTop: "-50px" }}
                     >
                       <img
-                        src="https://www.ispl-t10.com/assets/img/pravin_amre.png"
+                        src="https://my.ispl-t10.com/assets/img/pravin_amre.png"
                         alt="Mentor-img"
                         loading="lazy"
                         className="card-img-top rounded-circle card-image"
@@ -494,7 +494,7 @@ const About = () => {
                       style={{ marginTop: "-50px" }}
                     >
                       <img
-                        src="https://www.ispl-t10.com/assets/img/jatin_paranjape.png"
+                        src="https://my.ispl-t10.com/assets/img/jatin_paranjape.png"
                         alt="Mentor-img"
                         loading="lazy"
                         className="card-img-top rounded-circle card-image"
@@ -562,7 +562,7 @@ const About = () => {
                   <div className="col-md-3">
                     <div className="outer-layer">
                       <img
-                        src="https://www.ispl-t10.com/assets/img/ccs_logo.png"
+                        src="https://my.ispl-t10.com/assets/img/ccs_logo.png"
                         alt="ccsLogo"
                         className="card-img-top card-image float-right"
                         style={{ marginTop: "-3.4rem", width: "19vw" }}

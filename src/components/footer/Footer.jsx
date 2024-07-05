@@ -75,7 +75,7 @@ function Footer() {
                     <ul>
                       <li>
                         <Link
-                          to="https://www.ispl-t10.com/assets/pdf/Dugout%20Rules%20ISPL.pdf"
+                          to="https://my.ispl-t10.com/assets/pdf/Dugout%20Rules%20ISPL.pdf"
                           target="_blank"
                         >
                           Code of Conduct in Team Dougouts
@@ -83,7 +83,7 @@ function Footer() {
                       </li>
                       <li>
                         <Link
-                          to="https://www.ispl-t10.com/assets/pdf/ISPL%20Commercial%20Guidelines.pdf"
+                          to="https://my.ispl-t10.com/assets/pdf/ISPL%20Commercial%20Guidelines.pdf"
                           target="_blank"
                         >
                           Ispl Commercial Guidelines
@@ -91,7 +91,7 @@ function Footer() {
                       </li>
                       <li>
                         <Link
-                          to="https://www.ispl-t10.com/assets/pdf/ISPL%20CRICKETING%20RULEBOOK%202024.pdf"
+                          to="https://my.ispl-t10.com/assets/pdf/ISPL%20CRICKETING%20RULEBOOK%202024.pdf"
                           target="_blank"
                         >
                           Cricket Rulebook
@@ -99,7 +99,7 @@ function Footer() {
                       </li>
                       <li>
                         <Link
-                          to="https://www.ispl-t10.com/assets/pdf/ISPL%20PMOA%20Guidelines.pdf"
+                          to="https://my.ispl-t10.com/assets/pdf/ISPL%20PMOA%20Guidelines.pdf"
                           target="_blank"
                         >
                           Cricket PMOA Guideline

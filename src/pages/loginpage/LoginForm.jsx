@@ -33,7 +33,7 @@ function LoginForm() {
     }
 
     try {
-      const response = await axios.post("https://ispl-t10.com/api/post-login", {
+      const response = await axios.post("https://my.ispl-t10.com/api/post-login", {
         email,
         password,
       });
@@ -46,19 +46,20 @@ function LoginForm() {
         localStorage.setItem("formData", response.data.data);
 
         toast.success("Login successful");
-
         const { completed_status } = response.data.data.user;
         if (completed_status === 1) {
           navigate("/dashboard-golden-page");
+          // window.location.reload();
         } else {
           navigate("/dashboard-session-2");
         }
 
-        await axios.get("https://ispl-t10.com/api/user-dashboard-api", {
+        await axios.get("https://my.ispl-t10.com/api/user-dashboard-api", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
           },
         });
+        
       }
     } catch (err) {
       const errorMessage =

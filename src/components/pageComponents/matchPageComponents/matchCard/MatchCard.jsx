@@ -17,7 +17,7 @@ function MatchCard() {
                       <div className="club-items d-flex align-items-center">
                         <figure className="m-0">
                           <img
-                            src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
+                            src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                             alt="bn"
                           />
                         </figure>
@@ -33,7 +33,7 @@ function MatchCard() {
                           <div className="watch-div">
                             <Link to="" className="btn ">
                               <img
-                                src="https://www.ispl-t10.com/assets/image/versus.png"
+                                src="https://my.ispl-t10.com/assets/image/versus.png"
                                 style={{ width: "50px" }}
                                 alt="versus"
                               />
@@ -49,7 +49,7 @@ function MatchCard() {
                       <div className="club-items d-flex align-items-center">
                         <figure className="m-0">
                           <img
-                            src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
+                            src="https://my.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                             alt="bn"
                           />
                         </figure>
@@ -78,7 +78,7 @@ function MatchCard() {
                   </div>
                   <div className="img-bg-div">
                     <img
-                      src="https://www.ispl-t10.com/assets/images/new-images/events-bg2.png"
+                      src="https://my.ispl-t10.com/assets/images/new-images/events-bg2.png"
                       alt="bh"
                     />
                   </div>

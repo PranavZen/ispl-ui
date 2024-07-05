@@ -12,7 +12,7 @@ function GlodenPage() {
 
     // Fetch data from the API using Axios with token in headers
     axios
-      .get("https://ispl-t10.com/api/user-dashboard-api", {
+      .get("https://my.ispl-t10.com/api/user-dashboard-api", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,7 +37,7 @@ function GlodenPage() {
                     <Link to="/">
                       <img
                         className="header-logo"
-                        src="https://ispl-t10.com/assets/img/logo.png"
+                        src="https://my.ispl-t10.com/assets/img/logo.png"
                         alt="Logo"
                       />
                     </Link>
@@ -79,7 +79,7 @@ function GlodenPage() {
                   <div className="col-lg-12 golden-ticket-container">
                     <div className="image-container">
                       <img
-                        src="https://ispl-t10.com/assets/img/golden-ticket.png"
+                        src="https://my.ispl-t10.com/assets/img/golden-ticket.png"
                         style={{ maxHeight: "430px" }}
                         className="image-fluid"
                         alt="Golden Ticket"

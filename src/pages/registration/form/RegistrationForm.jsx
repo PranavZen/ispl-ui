@@ -33,7 +33,7 @@ function RegistrationForm() {
 
   const fetchStates = async () => {
     try {
-      const response = await axios.get("https://ispl-t10.com/api/state");
+      const response = await axios.get("https://my.ispl-t10.com/api/state");
       let states = response.data.data.states || [];
 
       const uniqueStates = Array.from(
@@ -52,7 +52,7 @@ function RegistrationForm() {
   const fetchCitiesByState = async (stateName) => {
     try {
       const response = await axios.get(
-        `https://ispl-t10.com/api/get_city_base_on_state?state_name=${stateName}`
+        `https://my.ispl-t10.com/api/get_city_base_on_state?state_name=${stateName}`
       );
       setCities(response.data.cities || []);
     } catch (error) {
@@ -66,7 +66,7 @@ function RegistrationForm() {
   const fetchZonesByCity = async (cityId) => {
     try {
       const response = await axios.get(
-        `https://ispl-t10.com/api/get_zone_base_on_city?cities_states_id=${cityId}`
+        `https://my.ispl-t10.com/api/get_zone_base_on_city?cities_states_id=${cityId}`
       );
       const zones = response.data.zone || [];
       setZones(zones);
@@ -196,7 +196,7 @@ function RegistrationForm() {
 
     try {
       const response = await axios.post(
-        "https://ispl-t10.com/api/register",
+        "https://my.ispl-t10.com/api/register",
         formData
       );
 
@@ -232,7 +232,7 @@ function RegistrationForm() {
       toast.success("Registration successful!");
 
       const paymentRequestResponse = await axios.post(
-        `https://ispl-t10.com/api/payment-request/${payRequestId}`
+        `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
       );
 
       if (paymentRequestResponse.data.status === "Successful") {

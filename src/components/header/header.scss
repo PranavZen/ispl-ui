@@ -210,9 +210,9 @@
       position: absolute;
       right: 10%;
     }
-    &.deskMob{
+    &.deskMob {
       display: none;
-      @include x-767-tablet{
+      @include x-767-tablet {
         display: flex;
         flex-direction: column;
         position: relative;
@@ -220,7 +220,7 @@
         right: unset;
         width: 100%;
         margin-top: 2rem;
-        .regBtn{
+        .regBtn {
           width: 60%;
         }
       }
@@ -242,8 +242,8 @@
       align-items: center;
     }
     .regBtn {
-      width: 12rem;
-      height: 3.4rem;
+      width: fit-content;
+      height: 4.5rem;
       border-radius: 5rem;
       border: 0.2rem solid #caf75a;
       display: flex;
@@ -254,6 +254,7 @@
       font-size: 1.8rem;
       font-weight: 600;
       line-height: 0;
+      padding: 0.5rem 1.5rem;
       @include md-tablet {
         font-size: 1.4rem;
       }

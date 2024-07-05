@@ -53,7 +53,7 @@ function TeamListPage() {
                       >
                         <img
                           className="hero-profile-img"
-                          src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
+                          src="https://my.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                           alt=""
                         />
                         <div
@@ -65,7 +65,7 @@ function TeamListPage() {
                         ></div>
                         <div className="hero-logo">
                           <img
-                            src="https://www.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                            src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
                             alt=""
                           />
                         </div>
@@ -83,7 +83,7 @@ function TeamListPage() {
                       >
                         <img
                           className="hero-profile-img"
-                          src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
+                          src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                           alt=""
                         />
                         <div
@@ -95,7 +95,7 @@ function TeamListPage() {
                         ></div>
                         <div className="hero-logo">
                           <img
-                            src="https://www.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                            src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
                             alt=""
                           />
                         </div>
@@ -113,7 +113,7 @@ function TeamListPage() {
                       >
                         <img
                           className="hero-profile-img"
-                          src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
+                          src="https://my.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                           alt=""
                         />
                         <div
@@ -125,7 +125,7 @@ function TeamListPage() {
                         ></div>
                         <div className="hero-logo">
                           <img
-                            src="https://www.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                            src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
                             alt=""
                           />
                         </div>
@@ -143,7 +143,7 @@ function TeamListPage() {
                       >
                         <img
                           className="hero-profile-img"
-                          src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
+                          src="https://my.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                           alt=""
                         />
                         <div
@@ -155,7 +155,7 @@ function TeamListPage() {
                         ></div>
                         <div className="hero-logo">
                           <img
-                            src="https://www.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                            src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
                             alt=""
                           />
                         </div>
@@ -173,7 +173,7 @@ function TeamListPage() {
                       >
                         <img
                           className="hero-profile-img"
-                          src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
+                          src="https://my.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                           alt=""
                         />
                         <div
@@ -185,7 +185,7 @@ function TeamListPage() {
                         ></div>
                         <div className="hero-logo">
                           <img
-                            src="https://www.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                            src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
                             alt=""
                           />
                         </div>
@@ -203,7 +203,7 @@ function TeamListPage() {
                       >
                         <img
                           className="hero-profile-img"
-                          src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
+                          src="https://my.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                           alt=""
                         />
                         <div
@@ -215,7 +215,7 @@ function TeamListPage() {
                         ></div>
                         <div className="hero-logo">
                           <img
-                            src="https://www.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                            src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
                             alt=""
                           />
                         </div>

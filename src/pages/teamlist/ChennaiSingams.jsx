@@ -43,7 +43,7 @@ function ChennaiSingams() {
         className="about-page-main comon-sub-page-main d-inline-block w-100"
         style={{
           backgroundImage:
-            "url(https://www.ispl-t10.com/assets/image/ispl-bg.jpg)",
+            "url(https://my.ispl-t10.com/assets/image/ispl-bg.jpg)",
         }}
       >
         <div className="about-club-top">
@@ -52,7 +52,7 @@ function ChennaiSingams() {
               <div className="col text-center">
                 <Link to="/team-list/chennai-singams">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                     alt=""
                     className="bg-info img-fluid"
                     loading="lazy"
@@ -62,7 +62,7 @@ function ChennaiSingams() {
               <div className="col text-center">
                 <Link to="/team-list/majhi-mumbai">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -72,7 +72,7 @@ function ChennaiSingams() {
               <div className="col text-center">
                 <Link to="/team-list/tiigers-of-kolkata">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -82,7 +82,7 @@ function ChennaiSingams() {
               <div className="col text-center">
                 <Link to="/team-list/srinagar-ke-veer">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -92,7 +92,7 @@ function ChennaiSingams() {
               <div className="col text-center">
                 <Link to="/team-list/kvn-bangalore-strikers">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -102,7 +102,7 @@ function ChennaiSingams() {
               <div className="col text-center">
                 <Link to="/team-list/falcon-risers-hyderabad">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -120,7 +120,7 @@ function ChennaiSingams() {
                   <div className="team-logo">
                     <Link to="">
                       <img
-                        src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
+                        src="https://my.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                         alt=""
                       />
                     </Link>
@@ -160,7 +160,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/Cwu5FqRx8TV8MO5pF0aV3yTfPGkMIkOwcSyIK962.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/Cwu5FqRx8TV8MO5pF0aV3yTfPGkMIkOwcSyIK962.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -188,7 +188,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/V9Lod9QZzsaPPDY4VPJmsExRk0uznwSFWsZwyj0a.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/V9Lod9QZzsaPPDY4VPJmsExRk0uznwSFWsZwyj0a.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -216,7 +216,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/6aWIfGxN37iPZf1f59XMLzNORDxe4Q9R7V1cHuJd.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/6aWIfGxN37iPZf1f59XMLzNORDxe4Q9R7V1cHuJd.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -244,7 +244,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/NJYMT7y12mCBvBkXiCwlJLoKGDeVwsraNKkxGZMS.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/NJYMT7y12mCBvBkXiCwlJLoKGDeVwsraNKkxGZMS.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -272,7 +272,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/jHgMCRLGhlTdHSnTvudS3Divhz5VXdbP9SUyIyOx.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/jHgMCRLGhlTdHSnTvudS3Divhz5VXdbP9SUyIyOx.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -300,7 +300,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/S0vQOr35Vz3jHi4huGzinuQRGZLa4pSwotUNMvqh.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/S0vQOr35Vz3jHi4huGzinuQRGZLa4pSwotUNMvqh.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -328,7 +328,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/IfR5Wn2CcNHLSvOH4zNyF3EhyMpRDpHflZn2MbNT.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/IfR5Wn2CcNHLSvOH4zNyF3EhyMpRDpHflZn2MbNT.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -359,7 +359,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/4qNAPjNXOz9ujykhK1bNCiFKwmjhwvvvduMYNYJK.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/4qNAPjNXOz9ujykhK1bNCiFKwmjhwvvvduMYNYJK.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -381,7 +381,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/lTp9WGlEqhxK59uYjjPQKZhyY7ilacsCtEINBtIG.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/lTp9WGlEqhxK59uYjjPQKZhyY7ilacsCtEINBtIG.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -403,7 +403,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/DmLrVHkIBAVDw3BlJiWQDyObDeibrUZfgK8b56Ja.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/DmLrVHkIBAVDw3BlJiWQDyObDeibrUZfgK8b56Ja.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -425,7 +425,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/VOuOrKAqX7BPuh47fDcz7qo3qvLpEwj28qppaXjG.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/VOuOrKAqX7BPuh47fDcz7qo3qvLpEwj28qppaXjG.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -447,7 +447,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/XJoHjouhCeq3ne5QdkDIxxlVVE84m9Yv4vt4N541.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/XJoHjouhCeq3ne5QdkDIxxlVVE84m9Yv4vt4N541.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -472,7 +472,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/dnjW94ppdAAqOTAJhjwPCdvkQIwJNb4W9Kf5kBXo.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/dnjW94ppdAAqOTAJhjwPCdvkQIwJNb4W9Kf5kBXo.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -494,7 +494,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/FgS2sqy6pmPrjyCJT2pP8Z2D5QYU8FZg6UawHiHn.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/FgS2sqy6pmPrjyCJT2pP8Z2D5QYU8FZg6UawHiHn.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -516,7 +516,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/vDzHWYgVYcN4GAVFbjd9zyk0MLylzGBb2rRgh8md.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/vDzHWYgVYcN4GAVFbjd9zyk0MLylzGBb2rRgh8md.png"
                     alt="teams01"
                     loading="lazy"
                   />
@@ -538,7 +538,7 @@ function ChennaiSingams() {
               <div className="crm-teams01">
                 <figure>
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/players/vDnYYQnQVkhOL96nVcj5vKpmYZ3pINUKcNRQVXfD.png"
+                    src="https://my.ispl-t10.com/images/team-master/players/vDnYYQnQVkhOL96nVcj5vKpmYZ3pINUKcNRQVXfD.png"
                     alt="teams01"
                     loading="lazy"
                   />

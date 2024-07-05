@@ -34,7 +34,7 @@ function MatchDetails() {
                     {/* <!-- First Team Logo and Details --> */}
                     <div className="col-md-2 col-3">
                       <img
-                        src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
+                        src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                         alt="Team Logo"
                         className="team-logo align-middle"
                       />
@@ -74,7 +74,7 @@ function MatchDetails() {
                     </div>
                     <div className="col-md-2 col-3">
                       <img
-                        src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
+                        src="https://my.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                         alt="Team Logo"
                         className="team-logo align-middle"
                       />

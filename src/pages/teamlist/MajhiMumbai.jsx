@@ -43,7 +43,7 @@ function MajhiMumbai() {
         className="about-page-main comon-sub-page-main d-inline-block w-100"
         style={{
           backgroundImage:
-            "url(https://www.ispl-t10.com/assets/image/ispl-bg.jpg)",
+            "url(https://my.ispl-t10.com/assets/image/ispl-bg.jpg)",
         }}
       >
         <div className="about-club-top">
@@ -52,7 +52,7 @@ function MajhiMumbai() {
               <div className="col text-center">
                 <Link to="/team-list/chennai-singams">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/bjbZn8mrGvQLq8YZBccwvPge7kXwtCo17zdDGZyl.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -62,7 +62,7 @@ function MajhiMumbai() {
               <div className="col text-center">
                 <Link to="/team-list/majhi-mumbai">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                     alt=""
                     className="bg-info img-fluid"
                     loading="lazy"
@@ -72,7 +72,7 @@ function MajhiMumbai() {
               <div className="col text-center">
                 <Link to="/team-list/tiigers-of-kolkata">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -82,7 +82,7 @@ function MajhiMumbai() {
               <div className="col text-center">
                 <Link to="/team-list/srinagar-ke-veer">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/bbe0uutmwUfRVW4FrpGg7EmHBs8kOd1DSimaIKjZ.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -92,7 +92,7 @@ function MajhiMumbai() {
               <div className="col text-center">
                 <Link to="/team-list/kvn-bangalore-strikers">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/jzVTaGm8x3sv0HJFsbDELFR0juXkWCKUdturAY7e.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -102,7 +102,7 @@ function MajhiMumbai() {
               <div className="col text-center">
                 <Link to="/team-list/falcon-risers-hyderabad">
                   <img
-                    src="https://www.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
+                    src="https://my.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
                     alt=""
                     className="img-fluid"
                     loading="lazy"
@@ -120,7 +120,7 @@ function MajhiMumbai() {
                   <div className="team-logo">
                     <Link to="">
                       <img
-                        src="https://www.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
+                        src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
                         alt=""
                       />
                     </Link>
@@ -160,7 +160,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/qkLNjnJwcdtbN8MMLc7iKLYqYdABqNiQQE7Jumx1.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/qkLNjnJwcdtbN8MMLc7iKLYqYdABqNiQQE7Jumx1.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -188,7 +188,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/IKCBLoUYO8qkfZGDBMrRPc7pcoVuZpYpwl98KvAm.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/IKCBLoUYO8qkfZGDBMrRPc7pcoVuZpYpwl98KvAm.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -216,7 +216,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/YFWy4RnUBpx4F7ZIEOVnDmdPPYLJhnORWqQR64pB.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/YFWy4RnUBpx4F7ZIEOVnDmdPPYLJhnORWqQR64pB.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -244,7 +244,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/2FBL8sCYSISmoIRrWVn8Z2xe4j3ZFnPVGaCWmdDP.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/2FBL8sCYSISmoIRrWVn8Z2xe4j3ZFnPVGaCWmdDP.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -272,7 +272,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/sZF3eB9m2HcTIL5FbTesQRUVRX6fOz2Q5WHLNFtA.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/sZF3eB9m2HcTIL5FbTesQRUVRX6fOz2Q5WHLNFtA.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -300,7 +300,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/tE8v7T55rNC4r5aWi5VYNFXUBqrtl6gTX6TedCl2.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/tE8v7T55rNC4r5aWi5VYNFXUBqrtl6gTX6TedCl2.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -328,7 +328,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/eAKNSkVrgPhTklMY2j9SH2MgNpbURCCsoEcDnsN3.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/eAKNSkVrgPhTklMY2j9SH2MgNpbURCCsoEcDnsN3.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -356,7 +356,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/1dA2EX9gc0EpWel2dBCPaCyl30kmPm7Atef2Rm9p.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/1dA2EX9gc0EpWel2dBCPaCyl30kmPm7Atef2Rm9p.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -384,7 +384,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/HYn4LA5zqcDKCeW7YKKdvUeSfCnE6U8QWtpf7ddH.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/HYn4LA5zqcDKCeW7YKKdvUeSfCnE6U8QWtpf7ddH.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -415,7 +415,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/rUWanPey6VY1VdJhjIiBOhiT7jf1KEI2erhZb5AW.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/rUWanPey6VY1VdJhjIiBOhiT7jf1KEI2erhZb5AW.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -437,7 +437,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/2CBZvqOnETEQJD2MpNE5DsHFUNtrzamlpmKu4Idy.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/2CBZvqOnETEQJD2MpNE5DsHFUNtrzamlpmKu4Idy.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -459,7 +459,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/HUuLR3fbyOcuradQSclaAN4SKoFrBLFB0QHWjwlS.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/HUuLR3fbyOcuradQSclaAN4SKoFrBLFB0QHWjwlS.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -481,7 +481,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/Pz6LQX9402G817XwPHmxnMMuT6XlB3X9zumuhLHi.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/Pz6LQX9402G817XwPHmxnMMuT6XlB3X9zumuhLHi.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -503,7 +503,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/Qt6E43NKWQpVGJvL0tKv9A8YtAtWC3YEe4X0xIVE.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/Qt6E43NKWQpVGJvL0tKv9A8YtAtWC3YEe4X0xIVE.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -528,7 +528,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/UP4aYyeO8b4DWpzRUenxUTGf6842c2NwhVkaGFaL.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/UP4aYyeO8b4DWpzRUenxUTGf6842c2NwhVkaGFaL.png"
                       alt="teams01"
                       loading="lazy"
                     />
@@ -550,7 +550,7 @@ function MajhiMumbai() {
                 <div className="crm-teams01">
                   <figure>
                     <img
-                      src="https://www.ispl-t10.com/images/team-master/players/qpjb45pXXhwY9a9jNm9Ynaz0wWNwJRJcnc7APAuK.png"
+                      src="https://my.ispl-t10.com/images/team-master/players/qpjb45pXXhwY9a9jNm9Ynaz0wWNwJRJcnc7APAuK.png"
                       alt="teams01"
                       loading="lazy"
                     />
