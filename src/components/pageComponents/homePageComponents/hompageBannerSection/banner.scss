@@ -18,8 +18,8 @@
                 z-index: 1;
                 background: linear-gradient(
                   90deg,
-                  rgb(23 32 70 / 75%) 0%,
-                  rgb(23 32 70 / 0%) 100%
+                  rgb(23 32 70) 0%,
+                  rgb(23 32 70 / 29%) 100%
                 );
               }
               @include x-767-tablet {
@@ -45,7 +45,7 @@
                 letter-spacing: 0.1rem;
                 margin-bottom: 0.5rem;
                 display: block;
-                @include d-desktop{
+                @include d-desktop {
                   font-size: 1.6rem;
                 }
                 @include md-tablet {

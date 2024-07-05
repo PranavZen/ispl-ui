@@ -68,7 +68,7 @@ function TermsConditions() {
           read as well as fully understand these Terms which are applicable when
           you view/access/use the Website. Please also carefully read and fully
           understand our Privacy Policy available at the link{" "}
-          <Link to="/privacy-policy">https://my.ispl-t10.com/privacy-policy</Link>{" "}
+          <Link to="/privacy-policy"> https://ispl-t10.com/privacy-policy</Link>{" "}
           (<i>hereinafter referred to as the</i> <strong>Privacy Policy</strong>{" "}
           ), which is incorporated in these Terms by reference.
         </p>
@@ -95,7 +95,7 @@ function TermsConditions() {
                 enroll with the ISPL League by filling the form available at the
                 link{" "}
                 <Link to="/privacy-policy">
-                  https://my.ispl-t10.com/privacy-policy
+                   https://ispl-t10.com/privacy-policy
                 </Link>{" "}
                 and providing with all the requested details in the said form.
               </li>
@@ -224,7 +224,7 @@ function TermsConditions() {
                 regarding the type/nature of information we collect from you and
                 how we use it, please refer our Privacy Policy available at the&nbsp;
                 <Link to="/privacy-policy">
-                  https://my.ispl-t10.com/privacy-policy
+                   https://ispl-t10.com/privacy-policy
                 </Link>
               </li>
               <li>
@@ -408,7 +408,7 @@ function TermsConditions() {
                 information and content provided by you, please review our
                 Privacy Policy available at the link &nbsp;
                 <Link to="/privacy-policy">
-                  https://my.ispl-t10.com/privacy-policy
+                   https://ispl-t10.com/privacy-policy
                 </Link>
               </li>
               <li>

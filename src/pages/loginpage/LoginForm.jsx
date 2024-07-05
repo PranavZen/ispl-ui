@@ -49,7 +49,7 @@ function LoginForm() {
         const { completed_status } = response.data.data.user;
         if (completed_status === 1) {
           navigate("/dashboard-golden-page");
-          // window.location.reload();
+          window.location.reload();
         } else {
           navigate("/dashboard-session-2");
         }

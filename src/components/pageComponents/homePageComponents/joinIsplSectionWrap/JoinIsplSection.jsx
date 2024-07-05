@@ -43,6 +43,7 @@ function JoinIsplSection() {
                   svgFill="#CAF75A"
                   textColor="#CAF75A"
                   bordercolor="#CAF75A"
+                  btnLinkUrl="/registration"
                 />
               </div>
             </div>
