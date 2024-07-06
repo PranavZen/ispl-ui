@@ -36,6 +36,19 @@ const About = () => {
           content="https://www.example.com/home-image.jpg"
         />
         <link rel="canonical" href="https://www.example.com/" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4XX2NZ7QWK"
+        ></script>
+        <script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-4XX2NZ7QWK');
+        `}
+        </script>
       </Helmet>
       <section className="w-100 body-part pt-5 customAboutSectionOne">
         <div className="about-page-main comon-sub-page-main d-inline-block w-100">

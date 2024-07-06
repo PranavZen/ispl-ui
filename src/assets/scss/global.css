@@ -351,7 +351,7 @@ input {
 
 .centered-text {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
@@ -361,6 +361,11 @@ input {
   font-weight: bold;
   font-size: 4.2rem;
   margin-bottom: 1px;
+}
+@media (max-width: 767px) {
+  .golden-ticket-text {
+    font-size: 2rem !important;
+  }
 }
 
 .ticket-text {
@@ -375,9 +380,19 @@ input {
   margin-bottom: 5px;
   font-size: 2rem;
 }
+@media (max-width: 767px) {
+  .ticket-info {
+    font-size: 1.6rem;
+  }
+}
 
 .playerName {
   text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .playerName {
+    font-size: 1.4rem;
+  }
 }
 
 .email-content {
@@ -389,6 +404,11 @@ input {
 
 .city-name-title {
   font-size: 1.6rem;
+}
+@media (max-width: 767px) {
+  .city-name-title {
+    font-size: 1.4rem;
+  }
 }
 
 .email-body {

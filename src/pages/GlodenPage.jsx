@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function GlodenPage() {
   const [playerName, setPlayerName] = useState("");
   const [playerId, setPlayerId] = useState("");
+  const [cityName, setCityName] = useState("");
 
   useEffect(() => {
     // Retrieve the token from localStorage
@@ -20,8 +21,12 @@ function GlodenPage() {
       .then((response) => {
         // Update state with the fetched data
         const userData = response.data.user_data;
+        // console.log(userData);
         setPlayerName(`${userData.first_name} ${userData.surname}`);
         setPlayerId(userData.user_name);
+        const cityNameArray = JSON.parse(userData.cities_states_id);
+        const cityName = cityNameArray[0];
+        setCityName(cityName);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -95,7 +100,7 @@ function GlodenPage() {
                         }}
                       />
                       <p className="ticket-info playerId">{playerId}</p>
-                      <p className="city-name-title">YOUR TRIALS CITY</p>
+                      <p className="city-name-title">{cityName}</p>
                       <p
                         className="city-name-title"
                         style={{
