@@ -33,25 +33,28 @@ function LoginForm() {
     }
 
     try {
-      const response = await axios.post("https://my.ispl-t10.com/api/post-login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://my.ispl-t10.com/api/post-login",
+        {
+          email,
+          password,
+        }
+      );
 
       if (response.status === 200) {
-        // Handle success
         const token = response.data.data.token;
-        // Store the token in localStorage
         localStorage.setItem("apiToken", token);
-        localStorage.setItem("formData", response.data.data);
+        localStorage.setItem("formData", JSON.stringify(response.data.data));
 
         toast.success("Login successful");
+
         const { completed_status } = response.data.data.user;
         if (completed_status === 1) {
           navigate("/dashboard-golden-page");
           window.location.reload();
         } else {
           navigate("/dashboard-session-2");
+          window.location.reload();
         }
 
         await axios.get("https://my.ispl-t10.com/api/user-dashboard-api", {
@@ -59,17 +62,71 @@ function LoginForm() {
             Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
           },
         });
-        
       }
     } catch (err) {
-      const errorMessage =
-        err.response?.data?.error_message ||
-        "Incorrect Details Please Try Again !!!";
-      setError((prevError) => ({
-        ...prevError,
-        general: errorMessage,
-      }));
-      toast.error(errorMessage);
+      if (
+        err.response &&
+        err.response.status === 400 &&
+        err.response.data.pay_request_id
+      ) {
+        const pay_request_id = err.response.data.pay_request_id;
+        try {
+          const paymentRequestResponse = await axios.post(
+            `https://my.ispl-t10.com/api/payment-request/${pay_request_id}`
+          );
+
+          if (paymentRequestResponse.data.status === "Successful") {
+            const { encrypted_data, access_code } = paymentRequestResponse.data;
+
+            const ccAvenueForm = document.createElement("form");
+            ccAvenueForm.method = "POST";
+            ccAvenueForm.action =
+              "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+
+            const inputEncRequest = document.createElement("input");
+            inputEncRequest.type = "hidden";
+            inputEncRequest.name = "encRequest";
+            inputEncRequest.value = encrypted_data;
+            ccAvenueForm.appendChild(inputEncRequest);
+
+            const inputAccessCode = document.createElement("input");
+            inputAccessCode.type = "hidden";
+            inputAccessCode.name = "access_code";
+            inputAccessCode.value = access_code;
+            ccAvenueForm.appendChild(inputAccessCode);
+
+            document.body.appendChild(ccAvenueForm);
+            ccAvenueForm.submit();
+
+            window.addEventListener("message", (event) => {
+              if (event.origin !== "https://secure.ccavenue.com") return;
+              const paymentStatus = event.data.status;
+
+              if (paymentStatus === "Successful") {
+                window.location.href = "/login";
+              } else {
+                toast.error("Payment was unsuccessful. Please try again.");
+              }
+            });
+          } else {
+            toast.error("Payment request failed. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error processing payment request:", error);
+          toast.error(
+            "An error occurred while processing the payment. Please try again later."
+          );
+        }
+      } else {
+        const errorMessage =
+          err.response?.data?.error_message ||
+          "Incorrect Details Please Try Again !!!";
+        setError((prevError) => ({
+          ...prevError,
+          general: errorMessage,
+        }));
+        toast.error(errorMessage);
+      }
     } finally {
       setLoading(false);
     }

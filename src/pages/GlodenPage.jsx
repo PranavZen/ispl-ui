@@ -24,7 +24,7 @@ function GlodenPage() {
         // console.log(userData);
         setPlayerName(`${userData.first_name} ${userData.surname}`);
         setPlayerId(userData.user_name);
-        const cityNameArray = JSON.parse(userData.cities_states_id);
+        const cityNameArray = JSON.parse(userData.cities_states_names);
         const cityName = cityNameArray[0];
         setCityName(cityName);
       })

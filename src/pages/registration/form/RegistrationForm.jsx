@@ -292,19 +292,66 @@ function RegistrationForm() {
     }
   };
 
-  const checkQueryParams = () => {
-    const searchParams = new URLSearchParams(location.search);
+  const checkQueryParams = async () => {
+    const searchParams = new URLSearchParams(window.location.search);
     const status = searchParams.get("status");
+    const payRequestId = searchParams.get("pay_request_id");
+  
     if (
       status === "SomethingWrong" ||
       status === "PaymentFailed" ||
       status === "NoUserData"
     ) {
       toast.error("Payment was unsuccessful. Please try again.");
-      setTimeout(() => {
-        window.location.href = "/registration";
-      }, 2000);
+  
+      try {
+        const paymentRequestResponse = await axios.post(
+          `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
+        );
+  
+        if (paymentRequestResponse.data.status === "Successful") {
+          const { encrypted_data, access_code } = paymentRequestResponse.data;
+  
+          const ccAvenueForm = document.createElement("form");
+          ccAvenueForm.method = "POST";
+          ccAvenueForm.action =
+            "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+  
+          const inputEncRequest = document.createElement("input");
+          inputEncRequest.type = "hidden";
+          inputEncRequest.name = "encRequest";
+          inputEncRequest.value = encrypted_data;
+          ccAvenueForm.appendChild(inputEncRequest);
+  
+          const inputAccessCode = document.createElement("input");
+          inputAccessCode.type = "hidden";
+          inputAccessCode.name = "access_code";
+          inputAccessCode.value = access_code;
+          ccAvenueForm.appendChild(inputAccessCode);
+  
+          document.body.appendChild(ccAvenueForm);
+          ccAvenueForm.submit();
+  
+          // Monitor for payment response
+          window.addEventListener("message", (event) => {
+            if (event.origin !== "https://secure.ccavenue.com") return;
+            const paymentStatus = event.data.status;
+  
+            if (paymentStatus === "Successful") {
+              window.location.href = "/login";
+            } else {
+              toast.error("Payment was unsuccessful. Please try again.");
+            }
+          });
+        } else {
+          toast.error("Payment request failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error processing payment request:", error);
+        toast.error("An error occurred while processing the payment. Please try again later.");
+      }
     }
+  
     if (status === "PaymentSuccessful") {
       toast.success("Payment was successful.");
       setTimeout(() => {

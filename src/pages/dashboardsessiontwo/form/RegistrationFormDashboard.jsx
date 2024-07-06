@@ -19,14 +19,16 @@ function RegistrationFormDashboard() {
     email_id: "",
     instagram_id: "",
     facebook_id: "",
-    playing_roles: "",
-    batting_andedness: "",
-    preferred_bowling_style: "",
-    preferred_batting_order: "",
+    playing_roles: null, // Placeholder for options fetched from API
+    batting_andedness: null, // Placeholder for options fetched from API
+    preferred_bowling_style: null, // Placeholder for options fetched from API
+    preferred_batting_order: null, // Placeholder for options fetched from API
+    personal_info_status: "", // Initialize with an appropriate default value
+    playing_details_status: "",
   });
 
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [playingRolesOptions, setPlayingRolesOptions] = useState([]);
   const [battingHandednessOptions, setBattingHandednessOptions] = useState([]);
   const [bowlingStyleOptions, setBowlingStyleOptions] = useState([]);
@@ -86,9 +88,14 @@ function RegistrationFormDashboard() {
     });
   };
 
-  const handleSubmit = (e, completed_status) => {
+  const handleSubmit = (
+    e,
+    completed_status,
+    personal_info_status,
+    playing_details_status
+  ) => {
     e.preventDefault();
-  
+
     // Check if all necessary options are fetched
     if (
       playingRolesOptions.length === 0 ||
@@ -99,39 +106,42 @@ function RegistrationFormDashboard() {
       toast.error("Options are not yet loaded. Please wait.");
       return;
     }
-  
+
     // Validate form data before submission (example validation)
     const validationErrors = {};
     if (!formData.first_name.trim()) {
       validationErrors.first_name = "First Name is required";
     }
     // Add validations for other fields as per your requirements
-  
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       toast.error("Please fill in all required fields.");
       return;
     }
-  
+
     const token = localStorage.getItem("apiToken"); // Replace with your token retrieval logic
-    console.log(token);
-  
+
     // Update formData with the status
     const updatedFormData = {
       ...formData,
-      completed_status: completed_status // Assign the status passed as an argument
+      completed_status: completed_status, // Assign the status passed as an argument
+      personal_info_status: "created", // Example update based on form submission status
+      playing_details_status: "created",
     };
-  
+
     setFormData(updatedFormData); // Save status in formData state
-  
+
     const headers = {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json", // Adjust content type if sending JSON data
     };
-  
+
     // Submit form data to form_submit API
     axios
-      .post("https://my.ispl-t10.com/api/form_submit", updatedFormData, { headers })
+      .post("https://my.ispl-t10.com/api/form_submit", updatedFormData, {
+        headers,
+      })
       .then((response) => {
         // Handle success response
         toast.success("Form submitted successfully!");
@@ -149,15 +159,25 @@ function RegistrationFormDashboard() {
           email_id: "",
           instagram_id: "",
           facebook_id: "",
-          playing_roles: "",
-          batting_andedness: "",
-          preferred_bowling_style: "",
-          preferred_batting_order: "",
+          playing_roles: null,
+          batting_andedness: null,
+          preferred_bowling_style: null,
+          preferred_batting_order: null,
+          personal_info_status: "",
+          playing_details_status: "",
         });
         // Reset errors
         setErrors({});
-        if (completed_status === 1) {
+        if (
+          response.data.status === 1 &&
+          ((response.data.personal_info_status === "created" &&
+            response.data.playing_details_status === "created") ||
+            (response.data.personal_info_status === "updated" &&
+              response.data.playing_details_status === "updated"))
+        ) {
           navigate("/dashboard-golden-page");
+        } else {
+          navigate("/dashboard-session-2");
         }
       })
       .catch((error) => {
@@ -174,6 +194,7 @@ function RegistrationFormDashboard() {
       [name]: files[0],
     });
   };
+
   return (
     <form
       className="form p-t-20 payments-qrl"
