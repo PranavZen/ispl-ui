@@ -55,6 +55,15 @@
   padding-right: 1rem;
 }
 
+#mainTop {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  display: block;
+  transition: top 0.8s;
+  z-index: 999;
+}
+
 #header {
   padding: 0rem 6rem 0rem 6rem;
   background-color: #263574;

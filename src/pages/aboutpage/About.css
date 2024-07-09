@@ -1,5 +1,16 @@
 .customAboutSectionOne {
   background-color: #10172b;
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  .customAboutSectionOne {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .customAboutSectionOne {
+    margin-top: 6rem;
+  }
 }
 .customAboutSectionOne .container {
   margin: 0 auto !important;

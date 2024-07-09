@@ -159,12 +159,19 @@ input {
 }
 
 .teamListSection {
+  margin-top: 14rem;
   padding: 8rem 0;
   background: linear-gradient(90deg, rgb(2, 10, 54) 0%, rgb(0, 56, 123) 51%, rgb(0, 0, 50) 101%);
 }
 @media (max-width: 834px) {
   .teamListSection {
     padding: 0rem 0 4rem;
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .teamListSection {
+    margin-top: 6rem;
   }
 }
 .teamListSection .mianTabsWrap .sectionWrap {
@@ -202,6 +209,17 @@ input {
 #videoSection {
   padding: 8rem 0 10rem;
   background: #10172b;
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  #videoSection {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  #videoSection {
+    margin-top: 6rem;
+  }
 }
 #videoSection .sectionTitle {
   text-align: center;
@@ -250,6 +268,17 @@ input {
 #newsSection {
   padding: 8rem 0 10rem;
   background: #10172b;
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  #newsSection {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  #newsSection {
+    margin-top: 6rem;
+  }
 }
 #newsSection .sectionTitle {
   text-align: center;
@@ -286,6 +315,17 @@ input {
 
 #pageWrapSection {
   padding: 10rem 1rem;
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  #pageWrapSection {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  #pageWrapSection {
+    margin-top: 3rem;
+  }
 }
 #pageWrapSection .sectionTitle {
   text-align: center;

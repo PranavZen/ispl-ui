@@ -1,3 +1,17 @@
+.subpahe-head-cmon.rugby-spacla {
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  .subpahe-head-cmon.rugby-spacla {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .subpahe-head-cmon.rugby-spacla {
+    margin-top: 6rem;
+  }
+}
+
 .leag-name {
   display: inline-block;
   width: 100%;

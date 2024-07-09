@@ -1,3 +1,15 @@
+@import "../../../../assets/scss/media";
+.subpahe-head-cmon {
+  &.rugby-spacla {
+    margin-top: 14rem;
+    @include md-tablet{
+      margin-top: 10rem;
+    }
+    @include x-767-tablet{
+      margin-top: 6rem;
+    }
+  }
+}
 .leag-name {
   display: inline-block;
   width: 100%;

@@ -1,10 +1,22 @@
 .customIsplPage {
   background-color: #10172b;
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  .customIsplPage {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .customIsplPage {
+    margin-top: 6rem;
+  }
 }
 .customIsplPage .news-sectiondiv {
   background-image: url(https://my.ispl-t10.com/assets/image/foooter-bg.png);
   background-size: 100%;
   position: relative;
+  padding: 6rem 0 8rem;
 }
 .customIsplPage .news-sectiondiv .container {
   margin: 0 auto !important;

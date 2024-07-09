@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../header/header.css";
 import NavMenus from "./navmaneus/NavMenus";
 function Header() {
-  
+  const [prevScrollpos, setPrevScrollpos] = useState(0);
+  const [scroll, setScroll] = useState(false);
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 0);
+    });
+    const handleScroll = () => {
+      const currentScrollpos = window.pageYOffset;
+
+      if (prevScrollpos > currentScrollpos) {
+        document.getElementById("mainTop").style.top = "0px";
+      } else if (prevScrollpos > 500) {
+        document.getElementById("mainTop").style.top = "-180px";
+      }
+      setPrevScrollpos(currentScrollpos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollpos]);
   return (
     <>
-      <section id="mainTop">
+      <section
+        id="mainTop"
+        className={scroll ? "header" : "header topClass"}
+        ref={scrollRef}
+      >
         <section className="topBarSection">
           <div className="container-fluid">
             <div className="topRow">
@@ -193,7 +221,7 @@ function Header() {
           </div>
         </section>
         <header id="header">
-          <NavMenus/>
+          <NavMenus />
         </header>
       </section>
     </>

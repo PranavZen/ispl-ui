@@ -1,6 +1,17 @@
 .contact-page {
   padding: 70px 0;
   background-color: #10172b;
+  margin-top: 14rem;
+}
+@media (max-width: 834px) {
+  .contact-page {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact-page {
+    margin-top: 6rem;
+  }
 }
 @media (max-width: 576px) {
   .contact-page .row {

@@ -1,10 +1,18 @@
+@import "../../assets/scss/media";
 .customIsplPage {
   background-color: #10172b;
+  margin-top: 14rem;
+  @include md-tablet{
+    margin-top: 10rem;
+  }
+  @include x-767-tablet{
+    margin-top: 6rem;
+  }
   .news-sectiondiv {
     background-image: url(https://my.ispl-t10.com/assets/image/foooter-bg.png);
     background-size: 100%;
     position: relative;
-
+    padding: 6rem 0 8rem;
     .container {
       margin: 0 auto !important;
       @media (min-width: 576px) {

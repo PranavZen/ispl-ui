@@ -1,5 +1,12 @@
 @import "../../../../assets/scss/media";
 #bannerSection {
+  margin-top: 14rem;
+  @include md-tablet{
+    margin-top: 10rem;
+  }
+  @include x-767-tablet {
+    margin-top: 6rem;
+  }
   .slick-slider {
     .slick-list {
       .slick-track {

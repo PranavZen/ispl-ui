@@ -1,7 +1,14 @@
+@import "../../assets/scss/media";
 .contact-page {
   padding: 70px 0;
   background-color: #10172b;
-
+  margin-top: 14rem;
+  @include md-tablet{
+    margin-top: 10rem;
+  }
+  @include x-767-tablet{
+    margin-top: 6rem;
+  }
   .row {
     @media (max-width: 576px) {
       margin: 0 auto !important;

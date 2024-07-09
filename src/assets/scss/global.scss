@@ -148,6 +148,7 @@ input {
 }
 
 .teamListSection {
+  margin-top: 14rem;
   padding: 8rem 0;
   background: linear-gradient(
     90deg,
@@ -157,6 +158,10 @@ input {
   );
   @include md-tablet {
     padding: 0rem 0 4rem;
+    margin-top: 10rem;
+  }
+  @include x-767-tablet{
+    margin-top: 6rem;
   }
   .mianTabsWrap {
     .sectionWrap {
@@ -194,6 +199,13 @@ input {
 #videoSection {
   padding: 8rem 0 10rem;
   background: #10172b;
+  margin-top: 14rem;
+  @include md-tablet{
+    margin-top: 10rem;
+  }
+  @include x-767-tablet{
+    margin-top: 6rem;
+  }
   .sectionTitle {
     text-align: center;
     margin-bottom: 6rem;
@@ -254,6 +266,13 @@ input {
 #newsSection {
   padding: 8rem 0 10rem;
   background: #10172b;
+  margin-top: 14rem;
+  @include md-tablet{
+    margin-top: 10rem;
+  }
+  @include x-767-tablet{
+    margin-top: 6rem;
+  }
   .sectionTitle {
     text-align: center;
     margin-bottom: 6rem;
@@ -292,6 +311,13 @@ input {
 
 #pageWrapSection {
   padding: 10rem 1rem;
+  margin-top: 14rem;
+  @include md-tablet{
+    margin-top: 10rem;
+  }
+  @include x-767-tablet{
+    margin-top: 3rem;
+  }
   .sectionTitle {
     text-align: center;
     margin-bottom: 4rem;
