@@ -37,17 +37,31 @@ function RegistrationFormDashboard() {
   useEffect(() => {
     const fetchOptions = async () => {
       try {
-        const rolesResponse = await axios.get("https://my.ispl-t10.com/api/playing_roles");
+        const rolesResponse = await axios.get(
+          "https://my.ispl-t10.com/api/playing_roles"
+        );
         setPlayingRolesOptions(rolesResponse.data.playing_roles || []);
 
-        const handednessResponse = await axios.get("https://my.ispl-t10.com/api/batting_andedness");
-        setBattingHandednessOptions(handednessResponse.data.batting_andedness || []);
+        const handednessResponse = await axios.get(
+          "https://my.ispl-t10.com/api/batting_andedness"
+        );
+        setBattingHandednessOptions(
+          handednessResponse.data.batting_andedness || []
+        );
 
-        const bowlingStyleResponse = await axios.get("https://my.ispl-t10.com/api/preferred_bowling_style");
-        setBowlingStyleOptions(bowlingStyleResponse.data.preferred_bowling_style || []);
+        const bowlingStyleResponse = await axios.get(
+          "https://my.ispl-t10.com/api/preferred_bowling_style"
+        );
+        setBowlingStyleOptions(
+          bowlingStyleResponse.data.preferred_bowling_style || []
+        );
 
-        const battingOrderResponse = await axios.get("https://my.ispl-t10.com/api/preferred_batting_order");
-        setBattingOrderOptions(battingOrderResponse.data.preferred_batting_order || []);
+        const battingOrderResponse = await axios.get(
+          "https://my.ispl-t10.com/api/preferred_batting_order"
+        );
+        setBattingOrderOptions(
+          battingOrderResponse.data.preferred_batting_order || []
+        );
       } catch (error) {
         toast.error("Error fetching options");
       }
@@ -65,8 +79,9 @@ function RegistrationFormDashboard() {
         );
 
         const userData = response.data.users;
-        setFormData({
-          ...formData,
+
+        setFormData((prevFormData) => ({
+          ...prevFormData,
           first_name: userData.first_name || "",
           middle_name: userData.middle_name || "",
           surname: userData.surname || "",
@@ -79,15 +94,30 @@ function RegistrationFormDashboard() {
           email: userData.email || "",
           instagram_id: userData.instagram_id || "",
           facebook_id: userData.facebook_id || "",
-          playing_roles: userData.player_details.playing_roles || null,
-          batting_andedness: userData.player_details.batting_andedness || null,
-          preferred_bowling_style: userData.player_details.preferred_bowling_style || null,
-          preferred_batting_order: userData.player_details.preferred_batting_order || null,
+          playing_roles:
+            userData.player_details && userData.player_details.playing_roles
+              ? userData.player_details.playing_roles
+              : null,
+          batting_andedness:
+            userData.player_details && userData.player_details.batting_andedness
+              ? userData.player_details.batting_andedness
+              : null,
+          preferred_bowling_style:
+            userData.player_details &&
+            userData.player_details.preferred_bowling_style
+              ? userData.player_details.preferred_bowling_style
+              : null,
+          preferred_batting_order:
+            userData.player_details &&
+            userData.player_details.preferred_batting_order
+              ? userData.player_details.preferred_batting_order
+              : null,
           personal_info_status: userData.personal_info_status || "",
           playing_details_status: userData.playing_details_status || "",
-        });
+        }));
       } catch (error) {
         toast.error("Error fetching user data");
+        console.error("Fetch user data error:", error);
       }
     };
 
@@ -178,12 +208,16 @@ function RegistrationFormDashboard() {
     };
 
     try {
-      const response = await axios.post("https://my.ispl-t10.com/api/form_submit", updatedFormData, { headers });
+      const response = await axios.post(
+        "https://my.ispl-t10.com/api/form_submit",
+        updatedFormData,
+        { headers }
+      );
 
       if (response.data.status === false) {
         const serverErrors = response.data.message.reduce((acc, curr) => {
-          const [field, ...message] = curr.split(' ');
-          acc[field] = message.join(' ');
+          const [field, ...message] = curr.split(" ");
+          acc[field] = message.join(" ");
           return acc;
         }, {});
         setErrors(serverErrors);
@@ -242,7 +276,6 @@ function RegistrationFormDashboard() {
       [name]: files[0],
     });
   };
-
 
   return (
     <form

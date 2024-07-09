@@ -4,6 +4,7 @@ import TeamPlayers from "../../components/pageComponents/matchPageComponents/mat
 import axios from "axios";
 import Spinner from "../../components/pageComponents/matchPageComponents/spinnercomponent/Spinner";
 import { useParams } from "react-router-dom"; // Add this import
+import { Helmet } from "react-helmet-async";
 
 function formatDate(dateString) {
   const options = { day: "numeric", month: "short", year: "numeric" };
@@ -11,14 +12,17 @@ function formatDate(dateString) {
 }
 
 function formatTime(timeString) {
-  const [hours, minutes, period] = timeString.split(/[: ]/);
-  let formattedHours = parseInt(hours, 10);
-  if (formattedHours === 0) {
-    formattedHours = 12;
-  } else if (formattedHours > 12) {
-    formattedHours -= 12;
+  let [hours, minutes] = timeString.split(':');
+  hours = parseInt(hours, 10);
+  const period = hours >= 12 ? 'PM' : 'AM';
+
+  if (hours === 0) {
+    hours = 12;
+  } else if (hours > 12) {
+    hours -= 12;
   }
-  return `${formattedHours}:${minutes} ${period}`;
+
+  return `${hours}:${minutes} ${period}`;
 }
 
 const TeamDetails = () => {
@@ -73,7 +77,51 @@ const TeamDetails = () => {
   const match = matches.find((match) => match.id === parseInt(id));
 
   return (
-    <>
+    <div className="innerPageMatchCenter">
+     <Helmet>
+        <title>ISPL T10 | Match Center</title>
+        <meta
+          name="description"
+          content="This is the home page of our website."
+        />
+        <meta name="keywords" content="home, main, index" />
+        <meta name="author" content="Author Name" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Home Page" />
+        <meta
+          property="og:description"
+          content="This is the home page of our website."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.example.com/" />
+        <meta
+          property="og:image"
+          content="https://www.example.com/home-image.jpg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Home Page" />
+        <meta
+          name="twitter:description"
+          content="This is the home page of our website."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.example.com/home-image.jpg"
+        />
+        <link rel="canonical" href="https://www.example.com/" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4XX2NZ7QWK"
+        ></script>
+        <script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4XX2NZ7QWK');
+        `}
+        </script>
+      </Helmet>
       {loading ? (
         <Spinner />
       ) : !match ? (
@@ -97,7 +145,7 @@ const TeamDetails = () => {
         />
       )}
       <TeamPlayers teamPlayers={teamPlayers} />
-    </>
+    </div>
   );
 };
 

@@ -60,12 +60,6 @@ function Footer() {
                       <li>
                         <Link to="/news/all-news">News & Events</Link>
                       </li>
-                      <li>
-                        <Link to="">Media</Link>
-                      </li>
-                      <li>
-                        <Link to="">Careers</Link>
-                      </li>
                     </ul>
                   </div>
                 </div>

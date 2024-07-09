@@ -11,14 +11,17 @@ function formatDate(dateString) {
 }
 
 function formatTime(timeString) {
-  const [hours, minutes, period] = timeString.split(/[: ]/);
-  let formattedHours = parseInt(hours, 10);
-  if (formattedHours === 0) {
-    formattedHours = 12;
-  } else if (formattedHours > 12) {
-    formattedHours -= 12;
+  let [hours, minutes] = timeString.split(':');
+  hours = parseInt(hours, 10);
+  const period = hours >= 12 ? 'PM' : 'AM';
+
+  if (hours === 0) {
+    hours = 12;
+  } else if (hours > 12) {
+    hours -= 12;
   }
-  return `${formattedHours}:${minutes} ${period}`;
+
+  return `${hours}:${minutes} ${period}`;
 }
 
 function Match() {
@@ -62,7 +65,7 @@ function Match() {
   return (
     <>
       <Helmet>
-        <title>ISPL T10 | Match Center 111</title>
+        <title>ISPL T10 | Match Center</title>
         <meta
           name="description"
           content="This is the home page of our website."

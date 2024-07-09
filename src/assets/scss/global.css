@@ -417,4 +417,11 @@ input {
 .email-body p {
   font-size: 1.6rem;
   line-height: 1.8;
+}
+
+.innerPageMatchCenter .common-results-div {
+  padding: 1rem 0 2rem;
+}
+.innerPageMatchCenter .common-results-div .leag-name h2 {
+  display: none;
 }/*# sourceMappingURL=global.css.map */
