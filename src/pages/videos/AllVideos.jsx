@@ -1,25 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../videos/videopagestyle.css";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import HeighlightsCard from "../../components/common/sliderCard/heighlights/HeighlightsCard";
 import { Helmet } from "react-helmet-async";
 
-function AllVideos() {
+const AllVideos = () => {
+  const { category_names } = useParams();
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://my.ispl-t10.com/api/video-master/all-vedios")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "success") {
+          const filteredVideos =
+            category_names.toLowerCase() === "all"
+              ? data.data["all-video"]
+              : data.data["all-video"].filter(
+                  (video) =>
+                    video.category_names.toLowerCase() ===
+                    category_names.toLowerCase()
+                );
+          setVideos(filteredVideos);
+        } else {
+          throw new Error(data.message.success[0]);
+        }
+      })
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
+  }, [category_names]);
+
+  // if (loading) return <div>Loading...</div>;
+  // if (error) return <div>Error: {error.message}</div>;
+
+  // Check if videos array is empty
+  if (videos.length === 0) {
+    return (
+      <section id="videoSection" className="pgNotFoundSection">
+        <div className="container">
+          <SectionTitle titleText={`${category_names} Videos`} />
+          <div className="row">
+            <div className="col-lg-10 col-md-12 mx-auto">
+              <div className="pgNotFoundNotBox">
+                <h3>No data found</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="videoSection">
       <Helmet>
-        <title>ISPL T10 | All Videos</title>
-        <meta
-          name="description"
-          content="This is the home page of our website."
-        />
-        <meta name="keywords" content="home, main, index" />
+        <title>ISPL T10 | {category_names} Videos</title>
+        <meta name="description" content={`All ${category_names} videos.`} />
+        <meta name="keywords" content="videos, category, ISPL T10" />
         <meta name="author" content="Author Name" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Home Page" />
+        <meta property="og:title" content={`${category_names} Videos`} />
         <meta
           property="og:description"
-          content="This is the home page of our website."
+          content={`All ${category_names} videos.`}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.example.com/" />
@@ -28,10 +74,10 @@ function AllVideos() {
           content="https://www.example.com/home-image.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Home Page" />
+        <meta name="twitter:title" content={`${category_names} Videos`} />
         <meta
           name="twitter:description"
-          content="This is the home page of our website."
+          content={`All ${category_names} videos.`}
         />
         <meta
           name="twitter:image"
@@ -40,56 +86,22 @@ function AllVideos() {
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div className="container">
-        <SectionTitle titleText="All Videos" />
-        <div className="row">
-          <div className="col-lg-10 col-md-12 mx-auto">
-            <div className="row cardGap">
-              <div className="col-md-3">
-                <HeighlightsCard
-                  mainTitle="Tiigers of Kolkata vs Majhi Mumbai | 1st Innings..."
-                  backgroundImg="https://my.ispl-t10.com/images/videos/thumbnail/Y5LgjVkQ4jsrhvUdZ0gGEKMqjLyRaVpHLSWzN9yN.jpg"
-                  date="22 May, 2024"
-                  matchLink="https://www.youtube.com/embed/LYFI1ACU0_M?feature=shared"
-                />
-              </div>
-              <div className="col-md-3">
-                <HeighlightsCard
-                  mainTitle="Chennai Singams vs Majhi Mumbai | Highlights | ISPL..."
-                  backgroundImg="https://my.ispl-t10.com/images/videos/thumbnail/sWHqVfRLtJjXNpPlSy0W2DTIF0FmE3Omp4NIyuSo.jpg"
-                  date="22 May, 2024"
-                  matchLink="https://www.youtube.com/embed/xQdgdmxdPVs?feature=shared"
-                />
-              </div>
-              <div className="col-md-3">
-                <HeighlightsCard
-                  mainTitle="Tiigers of Kolkata vs Srinagar Ke Veer | Highlights..."
-                  backgroundImg="https://my.ispl-t10.com/images/videos/thumbnail/9wwznpGcGtlmICu5I6CEA43YsNEhZVsxhpy5hMZt.jpg"
-                  date="22 May, 2024"
-                  matchLink="https://www.youtube.com/embed/00p7UgSJu6E?feature=shared"
-                />
-              </div>
-              <div className="col-md-3">
-                <HeighlightsCard
-                  mainTitle="Tiigers of Kolkata vs Srinagar Ke Veer | Highlights..."
-                  backgroundImg="https://my.ispl-t10.com/images/videos/thumbnail/G6xqZDcENbrDJvfQtijojv9RGQUBa1C2JrOcA5jq.jpg"
-                  date="22 May, 2024"
-                  matchLink="https://www.youtube.com/embed/7ucE8BAychI?feature=shared"
-                />
-              </div>
-              <div className="col-md-3">
-                <HeighlightsCard
-                  mainTitle="Chennai Singams vs Falcon Risers Hyderabad | Highlights |..."
-                  backgroundImg="https://my.ispl-t10.com/images/videos/thumbnail/PIfW2k1BQAfvATvZas7NWHLfw5guknGOTz0Vkxsr.jpg"
-                  date="22 May, 2024"
-                  matchLink="https://www.youtube.com/embed/igpw_HiepdI?feature=shared"
-                />
-              </div>
+        <SectionTitle titleText={`${category_names} Videos`} />
+        <div className="row cardGap">
+          {videos.map((video, index) => (
+            <div className="col-md-3" key={index}>
+              <HeighlightsCard
+                mainTitle={video.title}
+                backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
+                date={video.date}
+                matchLink={video.video_link}
+              />
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default AllVideos;

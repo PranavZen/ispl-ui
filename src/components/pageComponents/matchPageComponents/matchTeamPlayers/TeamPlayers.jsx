@@ -6,6 +6,8 @@ import { bat, redball } from "../../../../assets/imagePath";
 import SectionTitle from "../../../../components/common/sectiontitletext/SectionTitle";
 import "../matchTeamPlayers/matchTeamplayers.css";
 import Spinner from "../spinnercomponent/Spinner";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const TeamPlayers = () => {
   const { id } = useParams();
@@ -40,10 +42,11 @@ const TeamPlayers = () => {
             <div className="col-6 col-sm-3" key={player.player_name}>
               <div className={`crm-teams01`}>
                 <figure>
-                  <img
+                  <LazyLoadImage
                     src={`https://my.ispl-t10.com/images/team-master/players/${player.player_image}`}
                     alt={player.player_name}
-                    loading="lazy" // Lazy load images for optimization
+                    effect="blur"
+                    placeholderSrc={`https://my.ispl-t10.com/images/team-master/players/${player.player_image}`}
                   />
                   <div
                     className={`bat-icon ${
@@ -51,27 +54,27 @@ const TeamPlayers = () => {
                     }`}
                   >
                     {specialization === "All Rounders" && (
-                      <>
-                        <img
+                      <div className="allRoundBoxsss">
+                        <LazyLoadImage
                           src={icon1}
                           alt="Bat"
                           className="img-fluid"
-                          loading="lazy"
+                          effect="blur"
                         />
-                        <img
+                        <LazyLoadImage
                           src={icon2}
                           alt="Red Ball"
                           className="img-fluid"
-                          loading="lazy"
+                          effect="blur"
                         />
-                      </>
+                      </div>
                     )}
                     {specialization !== "All Rounders" && (
-                      <img
+                      <LazyLoadImage
                         src={icon1}
                         alt={specialization}
                         className="img-fluid"
-                        loading="lazy"
+                        effect="blur"
                       />
                     )}
                   </div>
