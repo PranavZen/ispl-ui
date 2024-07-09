@@ -9,14 +9,14 @@ function RegistrationFormDashboard() {
   const [formData, setFormData] = useState({
     first_name: "",
     middle_name: "",
-    last_name: "",
+    surname: "",
     date_of_birth: "",
     permanent_address: "",
     current_address: "",
     adhar_card_no: "",
     phone_number: "",
     emergency_contact_no: "",
-    email_id: "",
+    email: "",
     instagram_id: "",
     facebook_id: "",
     playing_roles: null, // Placeholder for options fetched from API
@@ -35,68 +35,113 @@ function RegistrationFormDashboard() {
   const [battingOrderOptions, setBattingOrderOptions] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://my.ispl-t10.com/api/playing_roles")
-      .then((response) => {
-        if (Array.isArray(response.data.playing_roles)) {
-          setPlayingRolesOptions(response.data.playing_roles);
-        } else {
-          toast.error("Invalid response format for playing roles");
-        }
-      })
-      .catch((error) => toast.error("Error fetching playing roles"));
+    const fetchOptions = async () => {
+      try {
+        const rolesResponse = await axios.get("https://my.ispl-t10.com/api/playing_roles");
+        setPlayingRolesOptions(rolesResponse.data.playing_roles || []);
 
-    axios
-      .get("https://my.ispl-t10.com/api/batting_andedness")
-      .then((response) => {
-        if (Array.isArray(response.data.batting_andedness)) {
-          setBattingHandednessOptions(response.data.batting_andedness);
-        } else {
-          toast.error("Invalid response format for batting handedness");
-        }
-      })
-      .catch((error) => toast.error("Error fetching batting handedness"));
+        const handednessResponse = await axios.get("https://my.ispl-t10.com/api/batting_andedness");
+        setBattingHandednessOptions(handednessResponse.data.batting_andedness || []);
 
-    axios
-      .get("https://my.ispl-t10.com/api/preferred_bowling_style")
-      .then((response) => {
-        if (Array.isArray(response.data.preferred_bowling_style)) {
-          setBowlingStyleOptions(response.data.preferred_bowling_style);
-        } else {
-          toast.error("Invalid response format for bowling styles");
-        }
-      })
-      .catch((error) => toast.error("Error fetching bowling styles"));
+        const bowlingStyleResponse = await axios.get("https://my.ispl-t10.com/api/preferred_bowling_style");
+        setBowlingStyleOptions(bowlingStyleResponse.data.preferred_bowling_style || []);
 
-    axios
-      .get("https://my.ispl-t10.com/api/preferred_batting_order")
-      .then((response) => {
-        if (Array.isArray(response.data.preferred_batting_order)) {
-          setBattingOrderOptions(response.data.preferred_batting_order);
-        } else {
-          toast.error("Invalid response format for batting orders");
-        }
-      })
-      .catch((error) => toast.error("Error fetching batting orders"));
+        const battingOrderResponse = await axios.get("https://my.ispl-t10.com/api/preferred_batting_order");
+        setBattingOrderOptions(battingOrderResponse.data.preferred_batting_order || []);
+      } catch (error) {
+        toast.error("Error fetching options");
+      }
+    };
+
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          "https://my.ispl-t10.com/api/user-dashboard-api",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
+            },
+          }
+        );
+
+        const userData = response.data.users;
+        setFormData({
+          ...formData,
+          first_name: userData.first_name || "",
+          middle_name: userData.middle_name || "",
+          surname: userData.surname || "",
+          date_of_birth: userData.date_of_birth || "",
+          permanent_address: userData.permanent_address || "",
+          current_address: userData.current_address || "",
+          adhar_card_no: userData.adhar_card_no || "",
+          phone_number: userData.mobile_number || "",
+          emergency_contact_no: userData.emergency_contact_no || "",
+          email: userData.email || "",
+          instagram_id: userData.instagram_id || "",
+          facebook_id: userData.facebook_id || "",
+          playing_roles: userData.player_details.playing_roles || null,
+          batting_andedness: userData.player_details.batting_andedness || null,
+          preferred_bowling_style: userData.player_details.preferred_bowling_style || null,
+          preferred_batting_order: userData.player_details.preferred_batting_order || null,
+          personal_info_status: userData.personal_info_status || "",
+          playing_details_status: userData.playing_details_status || "",
+        });
+      } catch (error) {
+        toast.error("Error fetching user data");
+      }
+    };
+
+    fetchOptions();
+    fetchUserData();
   }, []);
+
+  const handleKeyDown = (e) => {
+    if (
+      !/^\d$/.test(e.key) &&
+      e.key !== "Backspace" &&
+      e.key !== "Delete" &&
+      e.key !== "ArrowLeft" &&
+      e.key !== "ArrowRight"
+    ) {
+      e.preventDefault();
+    }
+  };
+
+  const handlePhoneKeyDown = (e) => {
+    if (
+      !/^\d$/.test(e.key) &&
+      e.key !== "Backspace" &&
+      e.key !== "Delete" &&
+      e.key !== "ArrowLeft" &&
+      e.key !== "ArrowRight"
+    ) {
+      e.preventDefault();
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "adhar_card_no" && !/^\d{0,12}$/.test(value)) {
+      setErrors({
+        ...errors,
+        [name]: "Aadhar Card number should be exactly 12 digits.",
+      });
+    } else {
+      setErrors({
+        ...errors,
+        [name]: null,
+      });
+    }
+
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  const handleSubmit = (
-    e,
-    completed_status,
-    personal_info_status,
-    playing_details_status
-  ) => {
+  const handleSubmit = async (e, completed_status) => {
     e.preventDefault();
 
-    // Check if all necessary options are fetched
     if (
       playingRolesOptions.length === 0 ||
       battingHandednessOptions.length === 0 ||
@@ -107,12 +152,10 @@ function RegistrationFormDashboard() {
       return;
     }
 
-    // Validate form data before submission (example validation)
     const validationErrors = {};
     if (!formData.first_name.trim()) {
       validationErrors.first_name = "First Name is required";
     }
-    // Add validations for other fields as per your requirements
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -120,43 +163,49 @@ function RegistrationFormDashboard() {
       return;
     }
 
-    const token = localStorage.getItem("apiToken"); // Replace with your token retrieval logic
+    const token = localStorage.getItem("apiToken");
 
-    // Update formData with the status
     const updatedFormData = {
       ...formData,
-      completed_status: completed_status, // Assign the status passed as an argument
-      personal_info_status: "created", // Example update based on form submission status
+      completed_status: completed_status,
+      personal_info_status: "created",
       playing_details_status: "created",
     };
 
-    setFormData(updatedFormData); // Save status in formData state
-
     const headers = {
       Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json", // Adjust content type if sending JSON data
+      "Content-Type": "application/json",
     };
 
-    // Submit form data to form_submit API
-    axios
-      .post("https://my.ispl-t10.com/api/form_submit", updatedFormData, {
-        headers,
-      })
-      .then((response) => {
-        // Handle success response
+    try {
+      const response = await axios.post("https://my.ispl-t10.com/api/form_submit", updatedFormData, { headers });
+
+      if (response.data.status === false) {
+        const serverErrors = response.data.message.reduce((acc, curr) => {
+          const [field, ...message] = curr.split(' ');
+          acc[field] = message.join(' ');
+          return acc;
+        }, {});
+        setErrors(serverErrors);
+        toast.error("Please fix the errors before submitting.");
+        return;
+      }
+
+      if (completed_status === 0) {
+        toast.info("Form is saved!");
+      } else {
         toast.success("Form submitted successfully!");
-        // Optionally, reset form data
         setFormData({
           first_name: "",
           middle_name: "",
-          last_name: "",
+          surname: "",
           date_of_birth: "",
           permanent_address: "",
           current_address: "",
           adhar_card_no: "",
           phone_number: "",
           emergency_contact_no: "",
-          email_id: "",
+          email: "",
           instagram_id: "",
           facebook_id: "",
           playing_roles: null,
@@ -166,25 +215,24 @@ function RegistrationFormDashboard() {
           personal_info_status: "",
           playing_details_status: "",
         });
-        // Reset errors
         setErrors({});
-        if (
-          response.data.status === 1 &&
-          ((response.data.personal_info_status === "created" &&
-            response.data.playing_details_status === "created") ||
-            (response.data.personal_info_status === "updated" &&
-              response.data.playing_details_status === "updated"))
-        ) {
-          navigate("/dashboard-golden-page");
-        } else {
-          navigate("/dashboard-session-2");
-        }
-      })
-      .catch((error) => {
-        // Handle error response
-        toast.error("Error submitting form. Please try again later.");
-        console.error("Form submission error:", error);
-      });
+      }
+
+      if (
+        response.data.status === 1 &&
+        ((response.data.personal_info_status === "created" &&
+          response.data.playing_details_status === "created") ||
+          (response.data.personal_info_status === "updated" &&
+            response.data.playing_details_status === "updated"))
+      ) {
+        navigate("/dashboard-golden-page");
+      } else {
+        navigate("/dashboard-session-2");
+      }
+    } catch (error) {
+      toast.error("Error submitting form. Please try again later.");
+      console.error("Form submission error:", error);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -195,12 +243,13 @@ function RegistrationFormDashboard() {
     });
   };
 
+
   return (
     <form
       className="form p-t-20 payments-qrl"
       id="user_data_form"
       method="POST"
-      onSubmit={handleSubmit}
+      onSubmit={(e) => handleSubmit(e, 1)}
     >
       <div className="row mt-3 mb-3 noPad">
         <SectionTitle titleText="PERSONAL INFORMATION" />
@@ -245,21 +294,21 @@ function RegistrationFormDashboard() {
           )}
         </div>
         <div className="form-group col-md-6 mb-4">
-          <label htmlFor="last_name" className="form-label text-light">
+          <label htmlFor="surname" className="form-label text-light">
             Last Name *
           </label>
           <input
-            id="last_name"
+            id="surname"
             type="text"
             className={`form-control form-input ${
-              errors.last_name ? "is-invalid" : ""
+              errors.surname ? "is-invalid" : ""
             }`}
-            name="last_name"
+            name="surname"
             placeholder="Last Name"
-            value={formData.last_name}
+            value={formData.surname}
             onChange={handleChange}
           />
-          {errors.last_name && <div className="error">{errors.last_name}</div>}
+          {errors.surname && <div className="error">{errors.surname}</div>}
         </div>
         <div className="form-group col-md-6 mb-4">
           <label htmlFor="date_of_birth" className="form-label text-light">
@@ -326,12 +375,14 @@ function RegistrationFormDashboard() {
             id="adhar_card_no"
             required
             type="text"
+            pattern="[0-9]{12}"
             className={`form-control form-input ${
               errors.adhar_card_no ? "is-invalid" : ""
             }`}
             name="adhar_card_no"
             value={formData.adhar_card_no}
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
           />
           {errors.adhar_card_no && (
             <div className="error">{errors.adhar_card_no}</div>
@@ -345,6 +396,7 @@ function RegistrationFormDashboard() {
           <input
             id="phone_number"
             type="text"
+            pattern="[0-9]{10}"
             className={`form-control form-input ${
               errors.phone_number ? "is-invalid" : ""
             }`}
@@ -352,6 +404,7 @@ function RegistrationFormDashboard() {
             placeholder="Mobile Number"
             value={formData.phone_number}
             onChange={handleChange}
+            onKeyDown={handlePhoneKeyDown}
           />
           {errors.phone_number && (
             <div className="error">{errors.phone_number}</div>
@@ -380,21 +433,21 @@ function RegistrationFormDashboard() {
           )}
         </div>
         <div className="form-group col-md-6 mb-4">
-          <label htmlFor="email_id" className="form-label text-light">
+          <label htmlFor="email" className="form-label text-light">
             Email *
           </label>
           <input
-            id="email_id"
+            id="email"
             type="email"
             className={`form-control form-input ${
-              errors.email_id ? "is-invalid" : ""
+              errors.email ? "is-invalid" : ""
             }`}
-            name="email_id"
+            name="email"
             placeholder="Email"
-            value={formData.email_id}
+            value={formData.email}
             onChange={handleChange}
           />
-          {errors.email_id && <div className="error">{errors.email_id}</div>}
+          {errors.email && <div className="error">{errors.email}</div>}
         </div>
 
         <div className="col-md-6 mb-4">

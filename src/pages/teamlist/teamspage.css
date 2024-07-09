@@ -1,3 +1,7 @@
+.teamPage .about-page-main {
+  padding: 8rem 0 4rem;
+}
+
 .image-alignment {
   display: flex !important;
   justify-content: center;
@@ -267,7 +271,7 @@
   justify-content: center;
   right: 15px;
 }
-.bat-icon.allRoundBox img:nth-child(2) {
+.bat-icon.allRoundBox img:nth-child(1) {
   height: 3rem;
   width: 3rem;
 }
@@ -323,12 +327,17 @@
 }
 
 .crm-teams01 .design p {
+  text-align: center;
   background: #0047c0;
   color: #fff;
   border-radius: 5px;
-  padding: 5px 15px;
-  font-size: 16px;
+  padding: 5px 10px;
+  font-size: 14px;
   font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .crm-teams01 figure {

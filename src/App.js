@@ -64,7 +64,7 @@ function App() {
             element={<FalconRisersHyderabad />}
           />
           <Route path="/matches" element={<Match />} />
-          <Route path="/matches/matchNumber" element={<TeamDetails />} />
+          <Route path="/matches/match-center/:id" element={<TeamDetails />} />
           <Route path="/video/All" element={<AllVideos />} />
           <Route path="/video/latest" element={<LatestVideos />} />
           <Route path="/video/highlights" element={<HighlightsVideos />} />

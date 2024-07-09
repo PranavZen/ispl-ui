@@ -1,8 +1,7 @@
 import React from "react";
 import Tabs from "../../homePageComponents/pointTableSectionWrap/Tabs";
 import "../MatchDetails/matchDetailsStyles.css";
-import { Link } from "react-router-dom";
-import SqareButton from "../../../common/cta/SqareButton";
+import MatchRows from "./MatchRows";
 
 function MatchDetails() {
   return (
@@ -14,99 +13,13 @@ function MatchDetails() {
 <path d="M4 19V6.2C4 5.0799 4 4.51984 4.21799 4.09202C4.40973 3.71569 4.71569 3.40973 5.09202 3.21799C5.51984 3 6.0799 3 7.2 3H16.8C17.9201 3 18.4802 3 18.908 3.21799C19.2843 3.40973 19.5903 3.71569 19.782 4.09202C20 4.51984 20 5.0799 20 6.2V17H6C4.89543 17 4 17.8954 4 19ZM4 19C4 20.1046 4.89543 21 6 21H20M9 7H15M9 11H15M19 17V21" stroke="#263574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>'
         >
-          <div className="tab-pane  active show pt8rem" id="result" role="tabpanel">
+          <div 
+            className="tab-pane  active show pt8rem"
+            id="result"
+            role="tabpanel"
+          >
             <div className="container">
-              <div className="row">
-                <div className="col-3 col-md-3 d-flex align-items-start">
-                  <div className="shedTeam">
-                    <p className="badge bg-primary">FINAL</p>
-
-                    <p className="team-info">[ Dadoji Kondadev Stadium ]</p>
-
-                    <p className="team-info">
-                      TIIGERS OF KOLKATA WON BY 4 RUNS
-                    </p>
-                  </div>
-                </div>
-                <div className="col-8 col-md-7 result-tab mt-3 team-logo-1 ">
-                  {/* <!-- First Team Row --> */}
-                  <div className="row d-flex align-items-center">
-                    {/* <!-- First Team Logo and Details --> */}
-                    <div className="col-md-2 col-3">
-                      <img
-                        src="https://my.ispl-t10.com/images/team-master/teams/l0WvkaiAK483mzsHgU44h4uAXFkzUr9PWWd8D3DU.png"
-                        alt="Team Logo"
-                        className="team-logo align-middle"
-                      />
-                    </div>
-                    <div className="col-md-3 col-2">
-                      <div className="row text-start">
-                        <div className="col-12">
-                          <p className="team-name">MAJHI MUMBAI</p>
-                        </div>
-                        <div className="col-12">
-                          <p className="team-score">58 / 9</p>
-                        </div>
-                        <div className="col-12">
-                          <p className="over">10.0 OV</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* <!-- Versus --> */}
-                    <div className="col-md-1 col-2 text-center">
-                      <span className="versus"></span>
-                    </div>
-
-                    {/* <!-- Second Team Details and Logo --> */}
-                    <div className="col-md-3 col-2">
-                      <div className="row text-end">
-                        <div className="col-12">
-                          <p className="team-name">TIIGERS OF KOLKATA</p>
-                        </div>
-                        <div className="col-12">
-                          <p className="team-score">62 / 0</p>
-                        </div>
-                        <div className="col-12">
-                          <p className="over">7.4 OV</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-2 col-3">
-                      <img
-                        src="https://my.ispl-t10.com/images/team-master/teams/5PVSNCiBIBHYA94YN0ezkMMglhucXbX0JmIM2Svm.png"
-                        alt="Team Logo"
-                        className="team-logo align-middle"
-                      />
-                    </div>
-                  </div>
-
-                  {/* <!-- Super Over Row --> */}
-                </div>
-
-                <div className="col-1 col-md-2 shedTeam d-flex justify-content-end align-items-center">
-                  <Link
-                    to="/matches/matchNumber"
-                    className="btn continue-bn btn-match-center txt16"
-                  >
-                    <SqareButton
-                      classNameText="sqrBtn"
-                      btnName="Match Center"
-                      svgFill="#263574"
-                      textColor="#263574"
-                      bordercolor="#263574"
-                    />
-                  </Link>
-
-                  <span className="mobile-toggle">
-                    <Link to="/matches/matchNumber">
-                      <i className="fa fa-angle-right"></i>
-                    </Link>
-                  </span>
-                </div>
-              </div>
-
-              <hr className="hr-background" />
+              <MatchRows />
             </div>
           </div>
         </div>

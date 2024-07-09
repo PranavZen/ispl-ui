@@ -29,6 +29,7 @@ function NavMenus() {
   const handleLogout = () => {
     localStorage.removeItem("apiToken");
     setIsLoggedIn(false);
+    setOffcanvasOpen(false);
   };
   return (
     <div className="container-fluid">
