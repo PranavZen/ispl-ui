@@ -39,6 +39,9 @@
 #magicMoveMentSection .midBox p {
   display: none;
 }
+#magicMoveMentSection .shareBox img {
+  display: none;
+}
 #magicMoveMentSection .shareBox svg {
   display: none;
 }

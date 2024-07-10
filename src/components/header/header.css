@@ -265,4 +265,10 @@
   #header .headerBtnsWrap .regBtn {
     font-size: 1.4rem;
   }
+}
+#header .headerBtnsWrap .regBtn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.8rem;
 }/*# sourceMappingURL=header.css.map */

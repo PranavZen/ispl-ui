@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../pointTableSectionWrap/pointtablesection.css";
 import Tabs from "./Tabs";
 import PointsTableCard from "./pointscard/PointsTableCard";
@@ -15,24 +15,62 @@ import {
 import SqareButton from "../../../common/cta/SqareButton";
 import ResultSlider from "./tableSliderLayout/ResultSlider";
 
+import axios from "axios";
+
+function formatDate(dateString) {
+  const options = { day: "numeric", month: "short", year: "numeric" };
+  return new Date(dateString).toLocaleDateString("en-IN", options);
+}
+
+function formatTime(timeString) {
+  let [hours, minutes] = timeString.split(":");
+  hours = parseInt(hours, 10);
+  const period = hours >= 12 ? "PM" : "AM";
+
+  if (hours === 0) {
+    hours = 12;
+  } else if (hours > 12) {
+    hours -= 12;
+  }
+
+  return `${hours}:${minutes} ${period}`;
+}
+
 function PointTableSection() {
+  const [matches, setMatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMatches = async () => {
+      try {
+        const response = await axios.get(
+          "https://my.ispl-t10.com/api/matches/results"
+        );
+        setMatches(response.data.data.result);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching matches:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchMatches();
+  }, []);
+
+  const getWinMessage = (match) => {
+    if (match.team_one_scrore > match.team_two_scrore) {
+      return `${match.from_team_name.toUpperCase()} WON BY ${
+        match.team_one_scrore - match.team_two_scrore
+      } RUNS`;
+    } else if (match.team_one_scrore < match.team_two_scrore) {
+      return `${match.to_team_name.toUpperCase()} WON BY ${
+        match.team_two_scrore - match.team_one_scrore
+      } RUNS`;
+    }
+    return "MATCH TIED";
+  };
   return (
     <section id="pointsTableSection">
-      {/* <span className="deviderLine">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1440"
-          height="60"
-          viewBox="0 0 1440 60"
-          fill="none"
-        >
-          <path
-            d="M0 59H942.188L970.379 1H1440"
-            stroke="#9E9999"
-            strokeLinecap="round"
-          />
-        </svg>
-      </span> */}
       <div className="container">
         <div className="row">
           <div className="col-lg-10 col-md-12 mx-auto">
@@ -118,7 +156,7 @@ function PointTableSection() {
                     fullPtsLink="/"
                   />
                 </TableSlider>
-                <div className="tabBtnWrap">
+                {/* <div className="tabBtnWrap">
                   <SqareButton
                     classNameText="sqrBtn"
                     btnName="Full Points Table"
@@ -126,7 +164,7 @@ function PointTableSection() {
                     textColor="#CAF75A"
                     bordercolor="#CAF75A"
                   />
-                </div>
+                </div> */}
               </div>
               <div
                 label="Match Result"
@@ -135,62 +173,29 @@ function PointTableSection() {
 </svg>'
               >
                 <ResultSlider>
-                  <MatchResultCard
-                    matchStatus="Final"
-                    location="Dadoji Kondadev Stadium"
-                    dateTime="14 Mar, 2024 | 07:45 PM"
-                    team1Logo={team1}
-                    team2Logo={team4}
-                    team1finalScore="128"
-                    team2finalScore="126"
-                    team1Out="9"
-                    team2Out="10"
-                    team1Over="10.0"
-                    team2Over="10.0"
-                    finalresult="MAJHI MUMBAI WON BY 59 RUNS"
-                  />
-                  <MatchResultCard
-                    matchStatus="Qualifier 2"
-                    location="Dadoji Kondadev Stadium"
-                    dateTime="14 Mar, 2024 | 07:45 PM"
-                    team1Logo={team2}
-                    team2Logo={team3}
-                    team1finalScore="128"
-                    team2finalScore="126"
-                    team1Out="9"
-                    team2Out="10"
-                    team1Over="10.0"
-                    team2Over="10.0"
-                    finalresult="MAJHI MUMBAI WON BY 59 RUNS"
-                  />
-                  <MatchResultCard
-                    matchStatus="Qualifier 1"
-                    location="Dadoji Kondadev Stadium"
-                    dateTime="14 Mar, 2024 | 07:45 PM"
-                    team1Logo={team1}
-                    team2Logo={team5}
-                    team1finalScore="128"
-                    team2finalScore="126"
-                    team1Out="9"
-                    team2Out="10"
-                    team1Over="10.0"
-                    team2Over="10.0"
-                    finalresult="TIIGERS OF KOLKATA WON BY 2 RUNS"
-                  />
-                  <MatchResultCard
-                    matchStatus="Qualifier 3"
-                    location="Dadoji Kondadev Stadium"
-                    dateTime="14 Mar, 2024 | 07:45 PM"
-                    team1Logo={team3}
-                    team2Logo={team2}
-                    team1finalScore="128"
-                    team2finalScore="126"
-                    team1Out="9"
-                    team2Out="10"
-                    team1Over="10.0"
-                    team2Over="10.0"
-                    finalresult="TIIGERS OF KOLKATA WON BY 4 RUNS"
-                  />
+                  {loading ? (
+                    <div>Loading</div>
+                  ) : (
+                    matches.map((match) => (
+                      <MatchResultCard
+                        key={match.id}
+                        matchStatus={match.category_name}
+                        team1finalScore={match.team_one_scrore}
+                        team1Out={match.team_one_wicket}
+                        team1Over={match.team_one_over}
+                        team2finalScore={match.team_two_scrore}
+                        team2Out={match.team_two_wicket}
+                        team2Over={match.team_two_over}
+                        dateTime={formatDate(match.match_date)}
+                        mTime={formatTime(match.match_time)}
+                        finalresult={getWinMessage(match)}
+                        location={match.stadium_name}
+                        to_team_name={match.to_team_name}
+                        team1Logo={match.to_team_logo}
+                        team2Logo={match.from_team_logo}
+                      />
+                    ))
+                  )}
                 </ResultSlider>
                 <div className="tabBtnWrap">
                   <SqareButton
@@ -199,6 +204,7 @@ function PointTableSection() {
                     svgFill="#CAF75A"
                     textColor="#CAF75A"
                     bordercolor="#CAF75A"
+                    btnLinkUrl="/matches"
                   />
                 </div>
               </div>

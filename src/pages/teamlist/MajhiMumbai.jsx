@@ -152,11 +152,10 @@ function MajhiMumbai() {
         </div>
       </div>
       <div className="playerspage d-inline-block w-100">
-        <div className="container">
-          <div className="container">
+      <div className="container">
             <SectionTitle titleText="ALL ROUNDERS" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -184,7 +183,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -212,7 +211,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -240,7 +239,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -268,7 +267,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -296,7 +295,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -324,7 +323,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -352,7 +351,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -380,7 +379,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -411,7 +410,7 @@ function MajhiMumbai() {
             </div>
             <SectionTitle titleText="BATTERS" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -433,7 +432,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -455,7 +454,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -477,7 +476,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -499,7 +498,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -524,7 +523,7 @@ function MajhiMumbai() {
             </div>
             <SectionTitle titleText="BOWLERS" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -546,7 +545,7 @@ function MajhiMumbai() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -570,7 +569,6 @@ function MajhiMumbai() {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );

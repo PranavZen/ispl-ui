@@ -78,4 +78,10 @@
   color: #caf75a;
   font-size: 1.8rem;
   font-weight: 600;
+}
+.eventCardWrap .overLayBox .readMoreBtnWrap span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -0.5rem;
 }/*# sourceMappingURL=eventnewscard.css.map */

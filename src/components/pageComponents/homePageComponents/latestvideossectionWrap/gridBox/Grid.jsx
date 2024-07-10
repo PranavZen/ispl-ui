@@ -15,34 +15,54 @@ function Grid() {
     <div className="gridWrap">
       <div className="parent">
         <div className="div1 gridBox">
-          <Link to="">
+          <Link
+            to="https://www.youtube.com/watch?v=QQsavbMfhy4"
+            data-fancybox
+          >
             <div className="imgWrapper">
-              <img src={grid1} alt="" className="img-fluid" loading="lazy"/>
+              <img
+                src="https://my.ispl-t10.com/images/videos/thumbnail/2BTbG0z1rxumYLQ1ENHuXFfGBZaSRfqnwIH9MXDD.jpg"
+                alt="Ravi Shastri at ISPL Season 1 Semi Finals"
+                className="img-fluid"
+                loading="lazy"
+              />
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
+                <img
+                  src={playIcon}
+                  alt=""
+                  className="img-fluid"
+                  loading="lazy"
+                />
               </span>
             </div>
             <div className="contentWrap">
               <h6>Ravi Shastri at ISPL Season 1 Semi Finals</h6>
               <p>
                 Watch what he has to say about ISPL and its effect on the
-                cricket fever. Watch what he has to say about ISPL and its
-                effect on the cricket fever. Watch what he has to say about ISPL
-                and its effect on the cricket fever. Watch what he has to say
-                about ISPL and its effect on the cricket fever.
+                cricket fever.
               </p>
-            </div>
-            <div className="cardFooter">
-              <span>22 May 2024</span>
             </div>
           </Link>
         </div>
         <div className="div2 gridBox">
-          <Link to="">
+          <Link
+            to="https://youtu.be/AHyHKRx8mbg?si=eBJA2jYklbBbUhkO"
+            data-fancybox
+          >
             <div className="imgWrapper">
-              <img src={grid4} alt="" className="img-fluid" loading="lazy"/>
+              <img
+                src="https://my.ispl-t10.com/images/videos/thumbnail/ptWFTfIn2fSeVEUqSlPlEBH99l2PFZEnTWXmtrNZ.jpg"
+                alt="ISPL -Opening Ceremony"
+                className="img-fluid"
+                loading="lazy"
+              />
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
+                <img
+                  src={playIcon}
+                  alt=""
+                  className="img-fluid"
+                  loading="lazy"
+                />
               </span>
             </div>
             <div className="contentWrap">
@@ -51,41 +71,80 @@ function Grid() {
           </Link>
         </div>
         <div className="div3 gridBox">
-          <Link to="">
+          <Link
+            to="https://youtu.be/Ar-TanMHEuc?si=imGGwU3lZcTLUPTl"
+            data-fancybox
+          >
             <div className="imgWrapper">
-              <img src={grid3} alt="" className="img-fluid" loading="lazy"/>
+              <img
+                src="https://my.ispl-t10.com/images/videos/thumbnail/JphM6koPhcLSHiTPO3ifK0qrh42xnUAAfeYHX8u1.jpg"
+                alt="National Anthem in Finale"
+                className="img-fluid"
+                loading="lazy"
+              />
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
+                <img
+                  src={playIcon}
+                  alt=""
+                  className="img-fluid"
+                  loading="lazy"
+                />
               </span>
             </div>
             <div className="contentWrap">
-              <h6>Here's to an amazing season!</h6>
+              <h6>National Anthem in Finale</h6>
             </div>
           </Link>
         </div>
         <div className="div4 gridBox">
-          <Link to="">
+          <Link
+            to="https://youtu.be/u2uxWeNs04s?si=3d_ZDjCzrNm3NOQ-"
+            data-fancybox
+          >
             <div className="imgWrapper">
-              <img src={grid2} alt="" className="img-fluid" loading="lazy"/>
+              <img
+                src="https://my.ispl-t10.com/images/videos/thumbnail/P3Dipr75lXUGXVkC63CU7pNbC0zoj9GGiMmlEuVL.jpg"
+                alt="ISPL Journey"
+                className="img-fluid"
+                loading="lazy"
+              />
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
+                <img
+                  src={playIcon}
+                  alt=""
+                  className="img-fluid"
+                  loading="lazy"
+                />
               </span>
             </div>
             <div className="contentWrap">
-              <h6>A moment now made eternal in our memories!</h6>
+              <h6>ISPL Journey</h6>
             </div>
           </Link>
         </div>
         <div className="div5 gridBox">
-          <Link to="">
+          <Link
+            to="https://youtu.be/u2uxWeNs04s?si=2-8ed4RQcaukOFw1"
+            data-fancybox
+          >
             <div className="imgWrapper">
-              <img src={grid5} alt="" className="img-fluid" loading="lazy"/>
+              <img
+                src="https://my.ispl-t10.com/images/videos/thumbnail/MQpRHg1UsJJlOY0nVrkFL8PyJN7Pf7NXGkbeZpHG.jpg"
+                alt="ISPL Season 1"
+                className="img-fluid"
+                loading="lazy"
+              />
               <span className="playIconWrap">
-                <img src={playIcon} alt="" className="img-fluid" loading="lazy"/>
+                <img
+                  src={playIcon}
+                  alt=""
+                  className="img-fluid"
+                  loading="lazy"
+                />
               </span>
             </div>
             <div className="contentWrap">
-              <h6>A moment now made eternal in our memories!</h6>
+              <h6>ISPL Season 1</h6>
             </div>
           </Link>
         </div>

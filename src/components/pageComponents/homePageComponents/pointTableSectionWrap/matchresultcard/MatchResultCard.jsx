@@ -15,6 +15,7 @@ function MatchResultCard({
   team1Over,
   team2Over,
   finalresult,
+  mTime
 }) {
   return (
     <div className="matchResultCard">
@@ -23,32 +24,46 @@ function MatchResultCard({
       </div>
       <div className="matchDetailWrap">
         <h6>{location}</h6>
-        <p>{dateTime}</p>
+        <p>{dateTime}, {mTime}</p>
       </div>
       <div className="teamsWraps">
         <div className="leftTeamWrap boxx">
           <span>
-            <img src={team1Logo} alt="" className="img-fluid" loading="lazy"/>
+            <img
+              src={`https://my.ispl-t10.com/images/team-master/teams/${team1Logo}`}
+              alt=""
+              className="img-fluid"
+              loading="lazy"
+            />
           </span>
         </div>
         <div className="midBoxx">
           <span>
-            <img src={vs} alt="" className="img-fluid" loading="lazy"/>
+            <img src={vs} alt="" className="img-fluid" loading="lazy" />
           </span>
         </div>
         <div className="rightTeamWrap boxx">
           <span>
-            <img src={team2Logo} alt="" className="img-fluid" loading="lazy"/>
+            <img
+              src={`https://my.ispl-t10.com/images/team-master/teams/${team2Logo}`}
+              alt=""
+              className="img-fluid"
+              loading="lazy"
+            />
           </span>
         </div>
       </div>
       <div className="matchScoringWrap">
         <div className="leftTeamScore scoreBox">
-          <h4>{team1finalScore}/{team1Out}</h4>
+          <h4>
+            {team1finalScore}/{team1Out}
+          </h4>
           <p>{team1Over} OV</p>
         </div>
         <div className="rightTeamScore scoreBox">
-          <h4>{team2finalScore}/{team2Out}</h4>
+          <h4>
+            {team2finalScore}/{team2Out}
+          </h4>
           <p>{team2Over} OV</p>
         </div>
       </div>

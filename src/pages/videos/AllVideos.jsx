@@ -4,6 +4,7 @@ import "../videos/videopagestyle.css";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import HeighlightsCard from "../../components/common/sliderCard/heighlights/HeighlightsCard";
 import { Helmet } from "react-helmet-async";
+import Spinner from "../../components/pageComponents/matchPageComponents/spinnercomponent/Spinner";
 
 const AllVideos = () => {
   const { category_names } = useParams();
@@ -33,7 +34,21 @@ const AllVideos = () => {
       .finally(() => setLoading(false));
   }, [category_names]);
 
-  // if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <section id="videoSection" className="pgNotFoundSection">
+        <div className="container">
+          <SectionTitle titleText={`${category_names} Videos`} />
+          <div className="row">
+            <div className="col-lg-10 col-md-12 mx-auto">
+              <div className="pgNotFoundNotBox bg-transparent">
+                <Spinner/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   // if (error) return <div>Error: {error.message}</div>;
 
   // Check if videos array is empty

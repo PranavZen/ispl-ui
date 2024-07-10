@@ -19,6 +19,7 @@ function NewsEventsSection() {
                 svgFill="#263574"
                 textColor="#263574"
                 bordercolor="#263574"
+                btnLinkUrl="/news/all-news"
               />
             </div>
             <EventsNewsSlider>

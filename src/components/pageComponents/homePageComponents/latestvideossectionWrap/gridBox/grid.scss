@@ -14,6 +14,7 @@
     .imgWrapper {
       width: 100%;
       position: relative;
+      height: 34rem;
       img {
         width: 100%;
         height: 100%;
@@ -61,8 +62,11 @@
   @include x-767-tablet {
     grid-area: 1 / 1 / 2 / 2;
   }
+  .imgWrapper{
+    height: 45rem !important;
+  }
   .contentWrap {
-    border-bottom: 0.2rem solid #ddd;
+    // border-bottom: 0.2rem solid #ddd;
     h6 {
       font-size: 2rem !important;
     }

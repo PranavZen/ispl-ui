@@ -19,13 +19,13 @@ function MagicMovementSection() {
           <div className="col-lg-10 col-md-12 col-12 mx-auto px-0">
             <div className="topSecWrap">
             <SectionTitle titleText="Magic Movements" />
-              <SqareButton
+              {/* <SqareButton
                 classNameText="sqrBtn"
                 btnName="View More"
                 svgFill="#263574"
                 textColor="#263574"
                 bordercolor="#263574" 
-              />
+              /> */}
             </div>
             <CommonSlider>
               <HeighlightsCard

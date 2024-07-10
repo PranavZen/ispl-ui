@@ -39,7 +39,7 @@ const TeamPlayers = () => {
         {team.match_center
           .filter((player) => player.specializations_name === specialization)
           .map((player) => (
-            <div className="col-6 col-sm-3" key={player.player_name}>
+            <div className="col-12 col-md-6" key={player.player_name}>
               <div className={`crm-teams01`}>
                 <figure>
                   <LazyLoadImage

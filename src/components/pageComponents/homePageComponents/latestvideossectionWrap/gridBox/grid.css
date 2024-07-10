@@ -16,6 +16,7 @@
 .parent .gridBox .imgWrapper {
   width: 100%;
   position: relative;
+  height: 34rem;
 }
 .parent .gridBox .imgWrapper img {
   width: 100%;
@@ -66,8 +67,8 @@
     grid-area: 1/1/2/2;
   }
 }
-.div1 .contentWrap {
-  border-bottom: 0.2rem solid #ddd;
+.div1 .imgWrapper {
+  height: 45rem !important;
 }
 .div1 .contentWrap h6 {
   font-size: 2rem !important;

@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeighlightsCard from "../../../common/sliderCard/heighlights/HeighlightsCard";
 import CommonSlider from "../../../common/commonSliderLayout/CommonSlider";
-import {
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-} from "../../../../assets/imagePath";
 import "../heighlightsSectionWrap/heighlightsPage.css";
 import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../common/cta/SqareButton";
+
 function HeighlightsSection() {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch("https://my.ispl-t10.com/api/video-master/all-vedios")
+      .then((response) => response.json())
+      .then((data) => {
+        const filteredVideos = data.data["all-video"].filter(
+          (video) => video.category_names === "Highlights"
+        );
+        setVideos(filteredVideos);
+      });
+  }, []);
+
   return (
     <section id="heighhlightsSection">
       <div className="container">
@@ -26,57 +32,20 @@ function HeighlightsSection() {
                 svgFill="#263574"
                 textColor="#263574"
                 bordercolor="#263574"
+                btnLinkUrl="/video/highlights"
               />
             </div>
             <CommonSlider>
-              <HeighlightsCard
-                title="Match Highlights"
-                mainTitle="1 Tiigers of Kolkata vs Majhi Mumbai | 1st Innings Lorem, ipsum dolor."
-                backgroundImg={img1}
-                date="22 May 2024"
-                matchLink="/"
-                shareLink="/wwww"
-              />
-              <HeighlightsCard
-                title="Match Highlights"
-                mainTitle="2 Tiigers of Kolkata vs Majhi Mumbai | 1st Innings Lorem, ipsum dolor."
-                backgroundImg={img2}
-                date="22 May 2024"
-                matchLink="/"
-                shareLink="/wwww"
-              />
-              <HeighlightsCard
-                title="Match Highlights"
-                mainTitle="3 Tiigers of Kolkata vs Majhi Mumbai | 1st Innings Lorem, ipsum dolor."
-                backgroundImg={img3}
-                date="22 May 2024"
-                matchLink="/"
-                shareLink="/wwww"
-              />
-              <HeighlightsCard
-                title="Match Highlights"
-                mainTitle="4 Chennai Singams vs Majhi Mumbai | Highlights"
-                backgroundImg={img4}
-                date="22 May 2024"
-                matchLink="/"
-                shareLink="/wwww"
-              />
-              <HeighlightsCard
-                title="Match Highlights"
-                mainTitle="5 Tiigers of Kolkata vs Srinagar Ke Veer | Highlights"
-                backgroundImg={img5}
-                date="21 May 2024"
-                matchLink="/"
-                shareLink="/wwww"
-              />
-              <HeighlightsCard
-                title="Match Highlights"
-                mainTitle="6 Chennai Singams vs Falcon Risers Hyderabad"
-                backgroundImg={img6}
-                date="21 May 2024"
-                matchLink="/"
-                shareLink="/wwww"
-              />
+              {videos.map((video, index) => (
+                <div className="col-md-3" key={index}>
+                  <HeighlightsCard
+                    mainTitle={video.title}
+                    backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
+                    date={video.date}
+                    matchLink={video.video_link}
+                  />
+                </div>
+              ))}
             </CommonSlider>
           </div>
         </div>

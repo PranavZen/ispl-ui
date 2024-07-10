@@ -1,8 +1,23 @@
 .teamPage {
   margin-top: 14rem;
 }
+@media (max-width: 834px) {
+  .teamPage {
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .teamPage {
+    margin-top: 6rem;
+  }
+}
 .teamPage .about-page-main {
   padding: 8rem 0 4rem;
+}
+@media (max-width: 767px) {
+  .teamPage .about-page-main {
+    padding: 2rem 0 1rem;
+  }
 }
 
 .image-alignment {

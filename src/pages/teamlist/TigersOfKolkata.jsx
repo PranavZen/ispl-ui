@@ -153,11 +153,10 @@ function TigersOfKolkata() {
         </div>
       </div>
       <div className="playerspage d-inline-block w-100">
-        <div className="container">
-          <div className="container">
+      <div className="container">
             <SectionTitle titleText="Bowlers" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -179,7 +178,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -201,7 +200,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -223,7 +222,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -249,7 +248,7 @@ function TigersOfKolkata() {
 
             <SectionTitle titleText="Batters" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -271,7 +270,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -293,7 +292,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -315,7 +314,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -337,7 +336,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -359,7 +358,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -385,7 +384,7 @@ function TigersOfKolkata() {
 
             <SectionTitle titleText="All Rounders" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -413,7 +412,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -441,7 +440,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -469,7 +468,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -497,7 +496,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -525,7 +524,7 @@ function TigersOfKolkata() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 col-sm-3">
+              <div className="col-12 col-md-6">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -555,7 +554,6 @@ function TigersOfKolkata() {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );
