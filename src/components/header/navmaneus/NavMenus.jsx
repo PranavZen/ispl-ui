@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { dashboard, login, logo, logout } from "../../../assets/imagePath";
+import axios from "axios"; // Make sure axios is imported
 
 function NavMenus() {
   const [offcanvasOpen, setOffcanvasOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [completedStatus, setCompletedStatus] = useState(0); // Assuming this state is used to store completed_status
 
   const location = useLocation();
 
@@ -16,11 +18,28 @@ function NavMenus() {
     const token = localStorage.getItem("apiToken");
     if (token) {
       setIsLoggedIn(true);
-      // window.location.reload();
+      fetchUserDashboard();
     } else {
       setIsLoggedIn(false);
     }
   }, [isLoggedIn]);
+
+  const fetchUserDashboard = async () => {
+    try {
+      const response = await axios.get(
+        "https://my.ispl-t10.com/api/user-dashboard-api",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
+          },
+        }
+      );
+      // Assuming response.data contains the completed_status
+      setCompletedStatus(response.data.completed_status);
+    } catch (error) {
+      console.error("Error fetching user dashboard:", error);
+    }
+  };
 
   const closeOffcanvas = () => {
     setOffcanvasOpen(false);
@@ -31,6 +50,7 @@ function NavMenus() {
     setIsLoggedIn(false);
     setOffcanvasOpen(false);
   };
+
   return (
     <div className="container-fluid">
       <div className="row myDis">
@@ -82,36 +102,43 @@ function NavMenus() {
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav">
+                {" "}
                 <li className="nav-item">
+                  {" "}
                   <Link
                     className={isActive("/")}
                     aria-current="page"
                     to="/"
                     onClick={closeOffcanvas}
                   >
-                    Home
-                  </Link>
+                    {" "}
+                    Home{" "}
+                  </Link>{" "}
                 </li>
-
                 <li className="nav-item">
+                  {" "}
                   <Link
                     className={isActive("/team-list")}
                     to="/team-list"
                     onClick={closeOffcanvas}
                   >
-                    Teams
-                  </Link>
-                </li>
+                    {" "}
+                    Teams{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li className="nav-item">
+                  {" "}
                   <Link
                     className={isActive("/matches")}
                     to="/matches"
                     onClick={closeOffcanvas}
                   >
-                    Match Center
-                  </Link>
-                </li>
+                    {" "}
+                    Match Center{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li className="nav-item dropdown">
+                  {" "}
                   <Link
                     className="nav-link dropdown-toggle"
                     to="#"
@@ -119,8 +146,10 @@ function NavMenus() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Videos
+                    {" "}
+                    Videos{" "}
                     <span>
+                      {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -128,71 +157,86 @@ function NavMenus() {
                         viewBox="0 0 12 7"
                         fill="none"
                       >
+                        {" "}
                         <path
                           d="M11.7508 0.25273C11.6711 0.172649 11.5763 0.109086 11.4719 0.0657092C11.3674 0.0223323 11.2554 0 11.1423 0C11.0291 0 10.9171 0.0223323 10.8127 0.0657092C10.7082 0.109086 10.6134 0.172649 10.5338 0.25273L6.6085 4.16589C6.52883 4.24597 6.43404 4.30953 6.3296 4.35291C6.22516 4.39629 6.11314 4.41862 6 4.41862C5.88686 4.41862 5.77484 4.39629 5.6704 4.35291C5.56596 4.30953 5.47117 4.24597 5.3915 4.16589L1.46623 0.25273C1.38655 0.172649 1.29176 0.109086 1.18732 0.0657092C1.08289 0.0223323 0.970865 0 0.857725 0C0.744585 0 0.632564 0.0223323 0.528125 0.0657092C0.423686 0.109086 0.328896 0.172649 0.249222 0.25273C0.0895969 0.412813 0 0.629363 0 0.855083C0 1.0808 0.0895969 1.29735 0.249222 1.45744L4.18306 5.37914C4.66515 5.85914 5.31865 6.12876 6 6.12876C6.68135 6.12876 7.33485 5.85914 7.81694 5.37914L11.7508 1.45744C11.9104 1.29735 12 1.0808 12 0.855083C12 0.629363 11.9104 0.412813 11.7508 0.25273Z"
                           fill="#BBBBBB"
-                        />
-                      </svg>
-                    </span>
-                  </Link>
+                        />{" "}
+                      </svg>{" "}
+                    </span>{" "}
+                  </Link>{" "}
                   <ul className="dropdown-menu">
+                    {" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/video/All"
                         onClick={closeOffcanvas}
                       >
-                        All
-                      </Link>
-                    </li>
+                        {" "}
+                        All{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/video/latest"
                         onClick={closeOffcanvas}
                       >
-                        Latest
-                      </Link>
-                    </li>
+                        {" "}
+                        Latest{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/video/highlights"
                         onClick={closeOffcanvas}
                       >
-                        Highlights
-                      </Link>
-                    </li>
+                        {" "}
+                        Highlights{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/video/auction"
                         onClick={closeOffcanvas}
                       >
-                        Auction
-                      </Link>
-                    </li>
+                        {" "}
+                        Auction{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/video/magic-moments"
                         onClick={closeOffcanvas}
                       >
-                        Magic Moments
-                      </Link>
-                    </li>
+                        {" "}
+                        Magic Moments{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/video/interviews"
                         onClick={closeOffcanvas}
                       >
-                        Interviews
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
+                        {" "}
+                        Interviews{" "}
+                      </Link>{" "}
+                    </li>{" "}
+                  </ul>{" "}
+                </li>{" "}
                 <li className="nav-item dropdown">
+                  {" "}
                   <Link
                     className="nav-link dropdown-toggle"
                     to="#"
@@ -200,8 +244,10 @@ function NavMenus() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    News
+                    {" "}
+                    News{" "}
                     <span>
+                      {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -209,35 +255,42 @@ function NavMenus() {
                         viewBox="0 0 12 7"
                         fill="none"
                       >
+                        {" "}
                         <path
                           d="M11.7508 0.25273C11.6711 0.172649 11.5763 0.109086 11.4719 0.0657092C11.3674 0.0223323 11.2554 0 11.1423 0C11.0291 0 10.9171 0.0223323 10.8127 0.0657092C10.7082 0.109086 10.6134 0.172649 10.5338 0.25273L6.6085 4.16589C6.52883 4.24597 6.43404 4.30953 6.3296 4.35291C6.22516 4.39629 6.11314 4.41862 6 4.41862C5.88686 4.41862 5.77484 4.39629 5.6704 4.35291C5.56596 4.30953 5.47117 4.24597 5.3915 4.16589L1.46623 0.25273C1.38655 0.172649 1.29176 0.109086 1.18732 0.0657092C1.08289 0.0223323 0.970865 0 0.857725 0C0.744585 0 0.632564 0.0223323 0.528125 0.0657092C0.423686 0.109086 0.328896 0.172649 0.249222 0.25273C0.0895969 0.412813 0 0.629363 0 0.855083C0 1.0808 0.0895969 1.29735 0.249222 1.45744L4.18306 5.37914C4.66515 5.85914 5.31865 6.12876 6 6.12876C6.68135 6.12876 7.33485 5.85914 7.81694 5.37914L11.7508 1.45744C11.9104 1.29735 12 1.0808 12 0.855083C12 0.629363 11.9104 0.412813 11.7508 0.25273Z"
                           fill="#BBBBBB"
-                        />
-                      </svg>
-                    </span>
-                  </Link>
+                        />{" "}
+                      </svg>{" "}
+                    </span>{" "}
+                  </Link>{" "}
                   <ul className="dropdown-menu">
+                    {" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/news/all-news"
                         onClick={closeOffcanvas}
                       >
-                        All News
-                      </Link>
-                    </li>
+                        {" "}
+                        All News{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/news/announcement"
                         onClick={closeOffcanvas}
                       >
-                        Announcement
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
+                        {" "}
+                        Announcement{" "}
+                      </Link>{" "}
+                    </li>{" "}
+                  </ul>{" "}
+                </li>{" "}
                 <li className="nav-item dropdown">
+                  {" "}
                   <Link
                     className="nav-link dropdown-toggle"
                     to="#"
@@ -245,8 +298,10 @@ function NavMenus() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    More
+                    {" "}
+                    More{" "}
                     <span>
+                      {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -254,57 +309,67 @@ function NavMenus() {
                         viewBox="0 0 12 7"
                         fill="none"
                       >
+                        {" "}
                         <path
                           d="M11.7508 0.25273C11.6711 0.172649 11.5763 0.109086 11.4719 0.0657092C11.3674 0.0223323 11.2554 0 11.1423 0C11.0291 0 10.9171 0.0223323 10.8127 0.0657092C10.7082 0.109086 10.6134 0.172649 10.5338 0.25273L6.6085 4.16589C6.52883 4.24597 6.43404 4.30953 6.3296 4.35291C6.22516 4.39629 6.11314 4.41862 6 4.41862C5.88686 4.41862 5.77484 4.39629 5.6704 4.35291C5.56596 4.30953 5.47117 4.24597 5.3915 4.16589L1.46623 0.25273C1.38655 0.172649 1.29176 0.109086 1.18732 0.0657092C1.08289 0.0223323 0.970865 0 0.857725 0C0.744585 0 0.632564 0.0223323 0.528125 0.0657092C0.423686 0.109086 0.328896 0.172649 0.249222 0.25273C0.0895969 0.412813 0 0.629363 0 0.855083C0 1.0808 0.0895969 1.29735 0.249222 1.45744L4.18306 5.37914C4.66515 5.85914 5.31865 6.12876 6 6.12876C6.68135 6.12876 7.33485 5.85914 7.81694 5.37914L11.7508 1.45744C11.9104 1.29735 12 1.0808 12 0.855083C12 0.629363 11.9104 0.412813 11.7508 0.25273Z"
                           fill="#BBBBBB"
-                        />
-                      </svg>
-                    </span>
-                  </Link>
+                        />{" "}
+                      </svg>{" "}
+                    </span>{" "}
+                  </Link>{" "}
                   <ul className="dropdown-menu">
+                    {" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/contact-us"
                         onClick={closeOffcanvas}
                       >
-                        Contact Us
-                      </Link>
-                    </li>
+                        {" "}
+                        Contact Us{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/about"
                         onClick={closeOffcanvas}
                       >
-                        About Us
-                      </Link>
-                    </li>
+                        {" "}
+                        About Us{" "}
+                      </Link>{" "}
+                    </li>{" "}
                     <li>
+                      {" "}
                       <Link
                         className="dropdown-item"
                         to="/ispl-page"
                         onClick={closeOffcanvas}
                       >
-                        ISPL
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
+                        {" "}
+                        ISPL{" "}
+                      </Link>{" "}
+                    </li>{" "}
+                  </ul>{" "}
+                </li>{" "}
               </ul>
               <div className="headerBtnsWrap deskMob">
                 {isLoggedIn ? (
                   <>
-                    <Link
-                      to="/dashboard-golden-page"
-                      className="regBtn registraionButton"
-                      onClick={closeOffcanvas}
-                    >
-                      <span>
-                        <img src={dashboard} alt="Dashboard" />
-                      </span>
-                      Dashboard
-                    </Link>
+                    {completedStatus === 1 && (
+                      <Link
+                        to="/dashboard-golden-page"
+                        className="regBtn registraionButton"
+                        onClick={closeOffcanvas}
+                      >
+                        <span>
+                          <img src={dashboard} alt="Dashboard" />
+                        </span>
+                        Dashboard
+                      </Link>
+                    )}
                     <Link
                       to=""
                       className="regBtn loginButton"
@@ -362,21 +427,21 @@ function NavMenus() {
         <div className="headerBtnsWrap mobDisp">
           {isLoggedIn ? (
             <>
-              <Link
-                to="/dashboard-golden-page"
-                className="regBtn registraionButton"
-                onClick={closeOffcanvas}
-              >
-                <span>
-                  <img src={dashboard} alt="Dashboard" />
-                </span>
-                Dashboard
-              </Link>
+              {completedStatus === 1 && (
+                <Link
+                  to="/dashboard-golden-page"
+                  className="regBtn registraionButton"
+                  onClick={closeOffcanvas}
+                >
+                  <span>
+                    <img src={dashboard} alt="Dashboard" />
+                  </span>
+                  Dashboard
+                </Link>
+              )}
               <Link to="" className="regBtn loginButton" onClick={handleLogout}>
                 <span>
-                  <span>
-                    <img src={logout} alt="logout" />
-                  </span>
+                  <img src={logout} alt="logout" />
                 </span>
                 Logout
               </Link>

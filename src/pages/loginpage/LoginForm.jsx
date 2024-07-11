@@ -35,10 +35,7 @@ function LoginForm() {
     try {
       const response = await axios.post(
         "https://my.ispl-t10.com/api/post-login",
-        {
-          email,
-          password,
-        }
+        { email, password }
       );
 
       if (response.status === 200) {
@@ -49,8 +46,13 @@ function LoginForm() {
         toast.success("Login successful");
 
         const { completed_status } = response.data.data.user;
-        if (completed_status === 1) {
+        const form_city_edit = response.data.form_city_edit;
+
+        if (completed_status === 1 && form_city_edit === false) {
           navigate("/dashboard-golden-page");
+          window.location.reload();
+        } else if (completed_status === 1 && form_city_edit === true) {
+          navigate("/dashboard-session-2");
           window.location.reload();
         } else {
           navigate("/dashboard-session-2");
@@ -123,7 +125,8 @@ function LoginForm() {
           "Incorrect Details Please Try Again !!!";
         setError((prevError) => ({
           ...prevError,
-          general: errorMessage,
+          email: "Invalid email or password",
+          password: "Invalid email or password",
         }));
         toast.error(errorMessage);
       }
@@ -185,6 +188,7 @@ function LoginForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                {error.password && <div className="error">{error.password}</div>}
               </div>
             </div>
             <div className="row mb-4">

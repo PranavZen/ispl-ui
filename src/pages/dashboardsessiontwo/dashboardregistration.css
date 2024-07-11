@@ -3,4 +3,46 @@
 }
 .slider-banner .card-body .form .row .sectionTitle {
   margin-top: 5rem;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%);
+}
+
+.modal-dialog {
+  margin: 0;
+}
+
+.modal-content {
+  background: #182046;
+  padding: 3rem 0 2rem 0;
+  max-width: 40%;
+  margin: 0 auto;
+}
+.modal-content .sectionTitle {
+  text-align: center !important;
+  color: #fff !important;
+  font-size: 2.6rem;
+  margin-bottom: 2rem !important;
+}
+.modal-content .form .row {
+  flex-direction: column;
+  align-items: center;
+}
+.modal-content .form .row .form-control {
+  border: 0.2rem solid #dadada !important;
+}
+.modal-content .form .row .sqrBtn {
+  margin-top: 2rem;
 }/*# sourceMappingURL=dashboardregistration.css.map */
