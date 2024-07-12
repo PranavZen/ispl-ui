@@ -87,4 +87,10 @@
 #registrationFormSection .btmText .regster-bn.frgtBtn {
   font-size: 16px;
   text-transform: capitalize;
+}
+#registrationFormSection #register_user_form_data .mianTabsWrap .sectionTitle {
+  display: none;
+}
+#registrationFormSection #register_user_form_data .mianTabsWrap .tabs {
+  justify-content: center;
 }/*# sourceMappingURL=registration.css.map */

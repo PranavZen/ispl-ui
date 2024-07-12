@@ -5,14 +5,27 @@ import SectionTitle from "../../components/common/sectiontitletext/SectionTitle"
 import HeighlightsCard from "../../components/common/sliderCard/heighlights/HeighlightsCard";
 import { Helmet } from "react-helmet-async";
 import Spinner from "../../components/pageComponents/matchPageComponents/spinnercomponent/Spinner";
+import axios from "axios";
+import SqareButton from "../../components/common/cta/SqareButton";
+
+const API_KEY = "AIzaSyDbmDhTtCeyOtnpqtCBbt5U3hTpVyN-nZw";
+const CHANNEL_ID = "UC73dEMSiwTVJ8zZqeQfP9Lw";
 
 const AllVideos = () => {
   const { category_names } = useParams();
   const [videos, setVideos] = useState([]);
+  const [ytVideos, setYtVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [nextPageToken, setNextPageToken] = useState(null);
 
   useEffect(() => {
+    fetchLocalVideos();
+    fetchYouTubeVideos();
+  }, [category_names]);
+
+  const fetchLocalVideos = () => {
+    setLoading(true);
     fetch("https://my.ispl-t10.com/api/video-master/all-vedios")
       .then((response) => response.json())
       .then((data) => {
@@ -32,9 +45,59 @@ const AllVideos = () => {
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, [category_names]);
+  };
 
-  if (loading)
+  const fetchYouTubeVideos = async (pageToken = null) => {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/search`,
+        {
+          params: {
+            key: API_KEY,
+            channelId: CHANNEL_ID,
+            part: "snippet",
+            order: "date",
+            maxResults: 12,
+            pageToken: pageToken,
+          },
+        }
+      );
+
+      const { items, nextPageToken } = response.data;
+      const fetchedVideos = items.map((video) => ({
+        ...video,
+        video_link: `https://www.youtube.com/watch?v=${video.id.videoId}`,
+      }));
+
+      // Append to existing videos
+      setYtVideos((prevVideos) => [...prevVideos, ...fetchedVideos]);
+      setNextPageToken(nextPageToken);
+    } catch (error) {
+      console.error("Error fetching YouTube videos:", error);
+      if (error.response && error.response.status === 403) {
+        // Quota exceeded error handling
+        setError("Quota exceeded. Please try again later.");
+        // You can implement a retry mechanism here if needed
+      } else {
+        setError("Failed to fetch YouTube videos.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadMoreVideos = () => {
+    if (nextPageToken) {
+      fetchYouTubeVideos(nextPageToken);
+    }
+  };
+
+  const formatDate = (dateString) => {
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-US", options);
+  };
+
+  if (loading) {
     return (
       <section id="videoSection" className="pgNotFoundSection">
         <div className="container">
@@ -42,17 +105,16 @@ const AllVideos = () => {
           <div className="row">
             <div className="col-lg-10 col-md-12 mx-auto">
               <div className="pgNotFoundNotBox bg-transparent">
-                <Spinner/>
+                <Spinner />
               </div>
             </div>
           </div>
         </div>
       </section>
     );
-  // if (error) return <div>Error: {error.message}</div>;
+  }
 
-  // Check if videos array is empty
-  if (videos.length === 0) {
+  if (videos.length === 0 && ytVideos.length === 0) {
     return (
       <section id="videoSection" className="pgNotFoundSection">
         <div className="container">
@@ -108,11 +170,35 @@ const AllVideos = () => {
               <HeighlightsCard
                 mainTitle={video.title}
                 backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
-                date={video.date}
+                date={formatDate(video.date)}
                 matchLink={video.video_link}
               />
             </div>
           ))}
+          {category_names.toLowerCase() === "all" &&
+            ytVideos.map((video, indexx) => (
+              <div className="col-md-3" key={indexx}>
+                <HeighlightsCard
+                  mainTitle={video.snippet.title}
+                  backgroundImg={video.snippet.thumbnails.default.url}
+                  matchLink={video.video_link}
+                  date={formatDate(video.snippet.publishTime)}
+                />
+              </div>
+            ))}
+        </div>
+        <div className="loadMoreButton">
+          {category_names.toLowerCase() === "all" && nextPageToken && (
+            <SqareButton
+              classNameText="sqrBtn"
+              btnName="View More"
+              svgFill="#CAF75A"
+              textColor="#CAF75A"
+              bordercolor="#CAF75A"
+              onClick={loadMoreVideos}
+              type="button"
+            />
+          )}
         </div>
       </div>
     </section>

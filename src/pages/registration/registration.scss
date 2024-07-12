@@ -11,17 +11,17 @@
   height: 100%;
   position: relative;
   margin-top: 14rem;
-  @include md-tablet{
+  @include md-tablet {
     margin-top: 10rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     margin-top: 6rem;
   }
-  .error{
+  .error {
     font-size: 1.4rem;
     font-weight: 500;
     color: red;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
   .sectionTitle {
     text-align: center;
@@ -49,7 +49,7 @@
     height: 1.4rem;
     width: 1.4rem;
     cursor: pointer;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
   .form-control {
     font-size: 1.6rem;
@@ -78,9 +78,19 @@
     margin-top: 3rem;
     .regster-bn {
       color: #caf75a;
-      &.frgtBtn{
+      &.frgtBtn {
         font-size: 16px;
         text-transform: capitalize;
+      }
+    }
+  }
+  #register_user_form_data {
+    .mianTabsWrap {
+      .sectionTitle {
+        display: none;
+      }
+      .tabs{
+        justify-content: center;
       }
     }
   }
