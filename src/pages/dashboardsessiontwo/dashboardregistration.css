@@ -26,6 +26,18 @@
   width: 60%;
   max-width: 100%;
 }
+@media (max-width: 834px) {
+  .modal.verifyModalBox .modal-dialog .modal-content {
+    max-width: 70%;
+    width: 90%;
+  }
+}
+@media (max-width: 767px) {
+  .modal.verifyModalBox .modal-dialog .modal-content {
+    max-width: 90%;
+    padding: 2rem;
+  }
+}
 
 .modal-dialog {
   margin: 0;
@@ -36,6 +48,17 @@
   padding: 3rem 0 2rem 0;
   max-width: 40%;
   margin: 0 auto;
+}
+@media (max-width: 834px) {
+  .modal-content {
+    max-width: 70%;
+  }
+}
+@media (max-width: 767px) {
+  .modal-content {
+    max-width: 90%;
+    padding: 2rem;
+  }
 }
 .modal-content .sectionTitle {
   text-align: center !important;

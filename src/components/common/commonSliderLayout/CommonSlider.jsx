@@ -6,8 +6,8 @@ import "../commonSliderLayout/commonSlider.css";
 function CommonSlider({ children }) {
   const settings = {
     dots: true,
-    infinite: true,
-    loop: true,
+    infinite: false,
+    loop: false,
     slidesToShow: 4,
     slidesToScroll: 3,
     arrows: false,
@@ -29,6 +29,8 @@ function CommonSlider({ children }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: false,
+          arrows: true,
         },
       },
     ],

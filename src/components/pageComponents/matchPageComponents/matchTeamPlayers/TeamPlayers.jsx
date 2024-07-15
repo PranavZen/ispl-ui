@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Tabs from "../../../../components/pageComponents/homePageComponents/pointTableSectionWrap/Tabs";
 import { bat, redball } from "../../../../assets/imagePath";
 import SectionTitle from "../../../../components/common/sectiontitletext/SectionTitle";
 import "../matchTeamPlayers/matchTeamplayers.css";
 import Spinner from "../spinnercomponent/Spinner";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const TeamPlayers = () => {
   const { id } = useParams();
@@ -40,49 +40,51 @@ const TeamPlayers = () => {
           .filter((player) => player.specializations_name === specialization)
           .map((player) => (
             <div className="col-12 col-md-6" key={player.player_name}>
-              <div className={`crm-teams01`}>
-                <figure>
-                  <LazyLoadImage
-                    src={`https://my.ispl-t10.com/images/team-master/players/${player.player_image}`}
-                    alt={player.player_name}
-                    effect="blur"
-                    placeholderSrc={`https://my.ispl-t10.com/images/team-master/players/${player.player_image}`}
-                  />
-                  <div
-                    className={`bat-icon ${
-                      specialization === "All Rounders" ? "allRoundBox" : ""
-                    }`}
-                  >
-                    {specialization === "All Rounders" && (
-                      <div className="allRoundBoxsss">
+              <Link to="/matches/#statsId">
+                <div className={`crm-teams01`}>
+                  <figure>
+                    <LazyLoadImage
+                      src={`https://my.ispl-t10.com/images/team-master/players/${player.player_image}`}
+                      alt={player.player_name}
+                      effect="blur"
+                      placeholderSrc={`https://my.ispl-t10.com/images/team-master/players/${player.player_image}`}
+                    />
+                    <div
+                      className={`bat-icon ${
+                        specialization === "All Rounders" ? "allRoundBox" : ""
+                      }`}
+                    >
+                      {specialization === "All Rounders" && (
+                        <div className="allRoundBoxsss">
+                          <LazyLoadImage
+                            src={icon1}
+                            alt="Bat"
+                            className="img-fluid"
+                            effect="blur"
+                          />
+                          <LazyLoadImage
+                            src={icon2}
+                            alt="Red Ball"
+                            className="img-fluid"
+                            effect="blur"
+                          />
+                        </div>
+                      )}
+                      {specialization !== "All Rounders" && (
                         <LazyLoadImage
                           src={icon1}
-                          alt="Bat"
+                          alt={specialization}
                           className="img-fluid"
                           effect="blur"
                         />
-                        <LazyLoadImage
-                          src={icon2}
-                          alt="Red Ball"
-                          className="img-fluid"
-                          effect="blur"
-                        />
-                      </div>
-                    )}
-                    {specialization !== "All Rounders" && (
-                      <LazyLoadImage
-                        src={icon1}
-                        alt={specialization}
-                        className="img-fluid"
-                        effect="blur"
-                      />
-                    )}
+                      )}
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>{player.player_name}</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>{player.player_name}</p>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
       </div>

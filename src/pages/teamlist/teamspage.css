@@ -1,3 +1,7 @@
+.bgGregdwint {
+  background: linear-gradient(0deg, #263572 0%, #182046 100%);
+}
+
 .teamPage {
   margin-top: 14rem;
 }

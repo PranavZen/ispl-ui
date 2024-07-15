@@ -101,8 +101,8 @@ function RegistrationFormDashboard() {
           (response.data.personal_info_status === "updated" &&
             response.data.playing_details_status === "updated")
         ) {
-          
           navigate("/dashboard-golden-page");
+          window.location.reload();
         } else {
           navigate("/dashboard-session-2");
           // window.location.reload();
@@ -279,17 +279,17 @@ function RegistrationFormDashboard() {
       }
 
       if (
-        response.data.status === 1 &&
-        ((response.data.personal_info_status === "created" &&
-          response.data.playing_details_status === "created") ||
-          (response.data.personal_info_status === "updated" &&
-            response.data.playing_details_status === "updated"))
+        completed_status === 1 &&
+        ((updatedFormData.personal_info_status === "created" &&
+          updatedFormData.playing_details_status === "created") ||
+          (updatedFormData.personal_info_status === "updated" &&
+            updatedFormData.playing_details_status === "updated"))
       ) {
-        window.location.reload();
         navigate("/dashboard-golden-page");
-      } else {
         window.location.reload();
+      } else {
         navigate("/dashboard-session-2");
+        window.location.reload();
       }
     } catch (error) {
       toast.error("Error submitting form. Please try again later.");
@@ -308,7 +308,7 @@ function RegistrationFormDashboard() {
     setShowModal(false);
   };
   const closeVerifyModal = () => {
-    setVerifyModal(false)
+    setVerifyModal(false);
   };
   return (
     <>

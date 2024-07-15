@@ -1,15 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
+import { useLocation } from "react-router-dom";
 
 function Tabs({ children }) {
   // Ensure children is an array
   const tabsArray = React.Children.toArray(children);
+  const location = useLocation();
 
   // Set initial activeTab if there are children, otherwise set to null
   const [activeTab, setActiveTab] = useState(tabsArray.length > 0 ? tabsArray[0].props.label : null);
 
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      if (hash === 'statsId' && tabsArray[2]) {
+        // Set the active tab to the third tab if the hash is 'statsId'
+        setActiveTab(tabsArray[2].props.label);
+      } else {
+        // Set the active tab based on the hash
+        const tabToActivate = tabsArray.find(tab => tab.props.label === hash);
+        if (tabToActivate) {
+          setActiveTab(hash);
+        }
+      }
+    }
+  }, [location.hash, tabsArray]);
+
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash === 'statsId') {
+      window.scrollTo({
+        top: 200,
+        behavior: 'smooth'
+      });
+    }
+  }, [location.hash]);
+
   const handleTabClick = (label) => {
     setActiveTab(label);
+    window.location.hash = label; // Change the URL hash when a tab is clicked
   };
 
   return (
@@ -18,7 +47,7 @@ function Tabs({ children }) {
         <SectionTitle titleText="What Are You Looking For?" />
 
         <div className="tabs">
-          {tabsArray.map((child) => {
+          {tabsArray.map((child, index) => {
             const { label, spanImg } = child.props;
             return (
               <button

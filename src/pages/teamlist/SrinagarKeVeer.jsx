@@ -40,11 +40,8 @@ function SrinagarKeVeer() {
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div
-        className="about-page-main comon-sub-page-main  d-inline-block w-100"
-        style={{
-          backgroundImage:
-            "url(https://my.ispl-t10.com/assets/image/ispl-bg.jpg)",
-        }}
+        className="about-page-main comon-sub-page-main  d-inline-block w-100 bgGregdwint"
+        
       >
         <div className="about-club-top">
           <div className="container">
@@ -156,418 +153,450 @@ function SrinagarKeVeer() {
           <SectionTitle titleText="Bowlers" />
           <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/OHFgNRNVSmCaVDlQUtAxjQ7yEnGOu7mf6rOPtDYp.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BATTERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/OHFgNRNVSmCaVDlQUtAxjQ7yEnGOu7mf6rOPtDYp.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Navneet singh Parihar</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Navneet singh Parihar</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/bBMy7OdKcRQ2F4JPjwVOJgtVyWGrlq7oN7SGaEJX.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BATTERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/bBMy7OdKcRQ2F4JPjwVOJgtVyWGrlq7oN7SGaEJX.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>ADITYA BABBAR</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>ADITYA BABBAR</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/2rEznNgENV5e0gQ8XKzGnr2Q7Its3dd4fGbxsO9H.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BATTERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/2rEznNgENV5e0gQ8XKzGnr2Q7Its3dd4fGbxsO9H.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>kavinram rameshbabu</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>kavinram rameshbabu</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/lP6B7FIlZVD9xY3YrNmbnI4LjESlwqSrxAAswNgE.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BATTERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/lP6B7FIlZVD9xY3YrNmbnI4LjESlwqSrxAAswNgE.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={redball}
+                        alt="BATTERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Rohit Yadav</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Rohit Yadav</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 
           <SectionTitle titleText="All Rounders" />
           <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/UqwI3uNqgVvrdgGQfYyR0OwfgRkTxzrmxZPOHXVq.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/UqwI3uNqgVvrdgGQfYyR0OwfgRkTxzrmxZPOHXVq.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>TANISH Naik</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>TANISH Naik</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/8rC8UOOjzPfFYJJGKj76DtHPjDQFb5bXiuO8j2LU.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/8rC8UOOjzPfFYJJGKj76DtHPjDQFb5bXiuO8j2LU.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Lokesh Lokesh</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Lokesh Lokesh</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/7xt2iaoskbv3Ti5MSeCXrsK6l5e7EgoVL3rU9rxh.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/7xt2iaoskbv3Ti5MSeCXrsK6l5e7EgoVL3rU9rxh.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Deepak Dogra</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Deepak Dogra</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/rS79KXPc1UqjAaQ0Xd4yjExNcAOWQ0gojjHUHnNf.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/rS79KXPc1UqjAaQ0Xd4yjExNcAOWQ0gojjHUHnNf.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Ahmed Askari</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Ahmed Askari</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/YCXadIWYCsvCGSoH6ExoOacBbmxMTf7wdEe0B7vb.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/YCXadIWYCsvCGSoH6ExoOacBbmxMTf7wdEe0B7vb.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Aishwary ramnarayan surve Surve</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Aishwary ramnarayan surve Surve</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/vLJzFYtyXPQmxqAlg2IbMwWvO1SqaTL2ecgua3WV.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/vLJzFYtyXPQmxqAlg2IbMwWvO1SqaTL2ecgua3WV.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>BHUSHAN Gole</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>BHUSHAN Gole</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/FjvN2g2mGzGAysXgJQ4AxV9z0ehwmHQ41nH6sGZV.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/FjvN2g2mGzGAysXgJQ4AxV9z0ehwmHQ41nH6sGZV.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Omkar Desai</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Omkar Desai</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/bcl7sPAG43r7bostQRbMCVrsVu0qiDvxpqHpBOTu.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/bcl7sPAG43r7bostQRbMCVrsVu0qiDvxpqHpBOTu.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Pritam Bari</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Pritam Bari</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/c5Z3G5EAqF4O9uDIIOiCZjNe3Ojf9IaPWd8CZPyS.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon allRoundBox">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={redball}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/c5Z3G5EAqF4O9uDIIOiCZjNe3Ojf9IaPWd8CZPyS.png"
+                      alt="teams01"
                       loading="lazy"
                     />
-                    <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
+                    <div className="bat-icon allRoundBox">
+                      <img
+                        src={redball}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Rajesh Sorte</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Rajesh Sorte</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 
           <SectionTitle titleText="Batters" />
           <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/uGZXATQdAaSSXz13FFXIFCR4rHRcxvgmwG9gNyvH.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/uGZXATQdAaSSXz13FFXIFCR4rHRcxvgmwG9gNyvH.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Mohammed Nadeem</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Mohammed Nadeem</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/MUYrFrZB4plpFyOGuiFAREm25N1kOKRQU8MAtbaR.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/MUYrFrZB4plpFyOGuiFAREm25N1kOKRQU8MAtbaR.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Sumesh B</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Sumesh B</p>
                 </div>
-              </div>
+              </Link>
             </div>
             <div className="col-12 col-md-6">
-              <div className="crm-teams01">
-                <figure>
-                  <img
-                    src="https://my.ispl-t10.com/images/team-master/players/e3zAQXxwu7liKILJBlDc9YCCGrZeT8evGZvpZmHE.png"
-                    alt="teams01"
-                    loading="lazy"
-                  />
-                  <div className="bat-icon">
+              <Link to="/matches/#statsId">
+                <div className="crm-teams01">
+                  <figure>
                     <img
-                      src={bat}
-                      alt="BOWLERS"
-                      className="img-fluid"
+                      src="https://my.ispl-t10.com/images/team-master/players/e3zAQXxwu7liKILJBlDc9YCCGrZeT8evGZvpZmHE.png"
+                      alt="teams01"
                       loading="lazy"
                     />
+                    <div className="bat-icon">
+                      <img
+                        src={bat}
+                        alt="BOWLERS"
+                        className="img-fluid"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                  <div className="design">
+                    <p>Vineet Todkar</p>
                   </div>
-                </figure>
-                <div className="design">
-                  <p>Vineet Todkar</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

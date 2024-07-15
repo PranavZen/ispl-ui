@@ -40,11 +40,8 @@ function FalconRisersHyderabad() {
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div
-        className="about-page-main comon-sub-page-main d-inline-block w-100"
-        style={{
-          backgroundImage:
-            "url(https://my.ispl-t10.com/assets/image/ispl-bg.jpg)",
-        }}
+        className="about-page-main comon-sub-page-main d-inline-block w-100 bgGregdwint"
+        
       >
         <div className="about-club-top">
           <div className="container">
@@ -152,10 +149,11 @@ function FalconRisersHyderabad() {
         </div>
       </div>
       <div className="playerspage d-inline-block w-100">
-      <div className="container">
-            <SectionTitle titleText="Bowlers" />
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-12 col-md-6">
+        <div className="container">
+          <SectionTitle titleText="Bowlers" />
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -176,8 +174,10 @@ function FalconRisersHyderabad() {
                     <p>Anand Baghel</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -198,8 +198,10 @@ function FalconRisersHyderabad() {
                     <p>Anurag Sarshar</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -220,8 +222,10 @@ function FalconRisersHyderabad() {
                     <p>YASAR ARAFATH Md</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -242,12 +246,14 @@ function FalconRisersHyderabad() {
                     <p>Vicky Bhoir</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
+          </div>
 
-            <SectionTitle titleText="All Rounders" />
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-12 col-md-6">
+          <SectionTitle titleText="All Rounders" />
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -274,8 +280,10 @@ function FalconRisersHyderabad() {
                     <p>Irfan Patel</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -302,8 +310,10 @@ function FalconRisersHyderabad() {
                     <p>Furqan Khan</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -330,8 +340,10 @@ function FalconRisersHyderabad() {
                     <p>Ubaid Bashir</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -358,8 +370,10 @@ function FalconRisersHyderabad() {
                     <p>VARUN KUMAR</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -386,8 +400,10 @@ function FalconRisersHyderabad() {
                     <p>C. Dhilip ranjan C. Dhilip ranjan</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -414,8 +430,10 @@ function FalconRisersHyderabad() {
                     <p>Vivek Mohanan</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -442,8 +460,10 @@ function FalconRisersHyderabad() {
                     <p>Prathamesh Thakare</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -470,11 +490,13 @@ function FalconRisersHyderabad() {
                     <p>Vishwajit Thakur</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
-            <SectionTitle titleText="Batters" />
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-12 col-md-6">
+          </div>
+          <SectionTitle titleText="Batters" />
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -495,8 +517,10 @@ function FalconRisersHyderabad() {
                     <p>Jagat Sarkar</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -517,8 +541,10 @@ function FalconRisersHyderabad() {
                     <p>Krishna Satpute</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -539,8 +565,10 @@ function FalconRisersHyderabad() {
                     <p>Nitin Anili Matunge</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -561,9 +589,10 @@ function FalconRisersHyderabad() {
                     <p>Shreyash Kadam</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
+        </div>
       </div>
     </section>
   );

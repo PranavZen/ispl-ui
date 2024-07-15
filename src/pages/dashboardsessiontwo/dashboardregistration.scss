@@ -1,3 +1,4 @@
+@import "../../assets/scss/media";
 .slider-banner {
   .card-body {
     .form {
@@ -34,6 +35,14 @@
       .modal-content {
         width: 60%;
         max-width: 100%;
+        @include md-tablet {
+          max-width: 70%;
+          width: 90%;
+        }
+        @include x-767-tablet {
+          max-width: 90%;
+          padding: 2rem;
+        }
       }
     }
   }
@@ -46,6 +55,13 @@
   padding: 3rem 0 2rem 0;
   max-width: 40%;
   margin: 0 auto;
+  @include md-tablet {
+    max-width: 70%;
+  }
+  @include x-767-tablet {
+    max-width: 90%;
+    padding: 2rem;
+  }
   .sectionTitle {
     text-align: center !important;
     color: #fff !important;

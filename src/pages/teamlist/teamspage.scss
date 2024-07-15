@@ -1,16 +1,19 @@
 @import "../../assets/scss/media";
+.bgGregdwint {
+  background: linear-gradient(0deg, #263572 0%, #182046 100%);
+}
 
 .teamPage {
   margin-top: 14rem;
-  @include md-tablet{
+  @include md-tablet {
     margin-top: 10rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     margin-top: 6rem;
   }
   .about-page-main {
     padding: 8rem 0 4rem;
-    @include x-767-tablet{
+    @include x-767-tablet {
       padding: 2rem 0 1rem;
     }
   }
@@ -296,7 +299,7 @@
     align-items: center;
     justify-content: center;
     right: 15px;
-    .allRoundBoxsss{
+    .allRoundBoxsss {
       display: flex;
     }
     img {

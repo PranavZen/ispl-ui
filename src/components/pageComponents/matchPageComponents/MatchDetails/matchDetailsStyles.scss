@@ -1,5 +1,9 @@
+@import "../../../../assets/scss/media";
 .matchDetailsCustom {
   padding: 8rem 0;
+  @include x-767-tablet{
+    padding: 3rem 0;
+  }
   .sectionTitle {
     display: none !important;
   }
@@ -293,6 +297,20 @@
     td, th {
       font-size: 17px;
       font-weight: 500;
+      @include x-767-tablet{
+        font-size: 14px;
+      }
+    }
+  }
+  .tHead{
+    background-color: #182046;
+    td{
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 1.8rem;
+      @include x-767-tablet{
+        font-size: 1.4rem;
+      }
     }
   }
 }

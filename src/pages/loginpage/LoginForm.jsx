@@ -14,6 +14,8 @@ function LoginForm() {
   const [error, setError] = useState({ email: "", password: "", otp: "", general: "" });
   const [showOTP, setShowOTP] = useState(false); // New state for showing OTP input
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const [showVerifyModal, setVerifyModal] = useState(false);
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -150,8 +152,52 @@ function LoginForm() {
         localStorage.setItem("apiToken", token);
   
         // Navigate to dashboard after successful OTP verification
-        navigate("/dashboard-session-2");
-        window.location.reload();
+        // if (response.data.via_otp_city_update === true && response.data.is_city_update === 0) {
+        //   navigate("/dashboard-session-2");
+        // } else {
+        //   navigate("/dashboard-golden-page");
+        // }
+        try {
+          const response = await axios.get(
+            "https://my.ispl-t10.com/api/user-dashboard-api",
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
+              },
+            }
+          );
+  
+          const userData = response.data.users;
+          const is_city_updated = response.data.users.is_city_updated;
+          const { completed_status, form_city_edit } = response.data;
+          const is_email_verify = response.data.users.is_email_verify;
+          const is_mobile_verify = response.data.users.is_mobile_verify;
+  
+          if (completed_status === 1 && form_city_edit === true) {
+            setShowModal(true);
+          }
+          if (is_email_verify === 0 && is_mobile_verify === 0) {
+            setVerifyModal(true);
+          }
+          if (
+            (is_city_updated === 1 && completed_status === 1) ||
+            (response.data.personal_info_status === "created" &&
+              response.data.playing_details_status === "created") ||
+            (response.data.personal_info_status === "updated" &&
+              response.data.playing_details_status === "updated")
+          ) {
+            
+            navigate("/dashboard-golden-page");
+            window.location.reload();
+          } else {
+            navigate("/dashboard-session-2");
+            window.location.reload();
+          }
+        } catch (error) {
+          toast.error("Error fetching user data");
+          console.error("Fetch user data error:", error);
+        }
+        // window.location.reload();
       } else {
         toast.error("Failed to verify OTP. Please try again.");
       }

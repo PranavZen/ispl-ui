@@ -40,11 +40,8 @@ function BangaloreStrikers() {
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div
-        className="about-page-main comon-sub-page-main d-inline-block w-100"
-        style={{
-          backgroundImage:
-            "url(https://my.ispl-t10.com/assets/image/ispl-bg.jpg)",
-        }}
+        className="about-page-main comon-sub-page-main d-inline-block w-100 bgGregdwint"
+        
       >
         <div className="about-club-top">
           <div className="container">
@@ -153,10 +150,11 @@ function BangaloreStrikers() {
         </div>
       </div>
       <div className="playerspage d-inline-block w-100">
-      <div className="container">
-            <SectionTitle titleText="Batters" />
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-12 col-md-6">
+        <div className="container">
+          <SectionTitle titleText="Batters" />
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -177,8 +175,10 @@ function BangaloreStrikers() {
                     <p>Parv Lamba</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -199,8 +199,10 @@ function BangaloreStrikers() {
                     <p>Ajit Mohite</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -221,8 +223,10 @@ function BangaloreStrikers() {
                     <p>Sunil Chawri</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -243,12 +247,14 @@ function BangaloreStrikers() {
                     <p>Thomas Dias</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
+          </div>
 
-            <SectionTitle titleText="All Rounders" />
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-12 col-md-6">
+          <SectionTitle titleText="All Rounders" />
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -275,8 +281,10 @@ function BangaloreStrikers() {
                     <p>Rahul Baghel</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -303,8 +311,10 @@ function BangaloreStrikers() {
                     <p>Saroj Paramanik</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -331,8 +341,10 @@ function BangaloreStrikers() {
                     <p>Prajjwal Somvanshi</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -359,8 +371,10 @@ function BangaloreStrikers() {
                     <p>Sharik Yasir</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -387,8 +401,10 @@ function BangaloreStrikers() {
                     <p>Harishkumar Kk</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -415,8 +431,10 @@ function BangaloreStrikers() {
                     <p>Mansoor Kl</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -443,8 +461,10 @@ function BangaloreStrikers() {
                     <p>Ankur Singh</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -471,8 +491,10 @@ function BangaloreStrikers() {
                     <p>Bilal Rajput</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -499,12 +521,14 @@ function BangaloreStrikers() {
                     <p>Bunty Patel</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
+          </div>
 
-            <SectionTitle titleText="Bowlers" />
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
-              <div className="col-12 col-md-6">
+          <SectionTitle titleText="Bowlers" />
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5 ">
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -525,8 +549,10 @@ function BangaloreStrikers() {
                     <p>ASHIQ ALI SHAMSU</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -547,8 +573,10 @@ function BangaloreStrikers() {
                     <p>Akash Gautam</p>
                   </div>
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
+              </Link>
+            </div>
+            <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -569,9 +597,10 @@ function BangaloreStrikers() {
                     <p>Kulwinder Singh</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
+        </div>
       </div>
     </section>
   );

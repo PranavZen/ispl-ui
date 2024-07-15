@@ -8,6 +8,7 @@ import Spinner from "../../components/pageComponents/matchPageComponents/spinner
 import axios from "axios";
 import SqareButton from "../../components/common/cta/SqareButton";
 
+// Define your API key and Channel ID here for better readability
 const API_KEY = "AIzaSyDbmDhTtCeyOtnpqtCBbt5U3hTpVyN-nZw";
 const CHANNEL_ID = "UC73dEMSiwTVJ8zZqeQfP9Lw";
 
@@ -19,35 +20,40 @@ const AllVideos = () => {
   const [error, setError] = useState(null);
   const [nextPageToken, setNextPageToken] = useState(null);
 
+  // Fetch local and YouTube videos when category_names changes
   useEffect(() => {
     fetchLocalVideos();
     fetchYouTubeVideos();
   }, [category_names]);
 
-  const fetchLocalVideos = () => {
+  // Fetch local videos from your API
+  const fetchLocalVideos = async () => {
     setLoading(true);
-    fetch("https://my.ispl-t10.com/api/video-master/all-vedios")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === "success") {
-          const filteredVideos =
-            category_names.toLowerCase() === "all"
-              ? data.data["all-video"]
-              : data.data["all-video"].filter(
-                  (video) =>
-                    video.category_names.toLowerCase() ===
-                    category_names.toLowerCase()
-                );
-          setVideos(filteredVideos);
-        } else {
-          throw new Error(data.message.success[0]);
-        }
-      })
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
+    try {
+      const response = await fetch("https://my.ispl-t10.com/api/video-master/all-vedios");
+      const data = await response.json();
+      if (data.status === "success") {
+        const filteredVideos =
+          category_names.toLowerCase() === "all"
+            ? data.data["all-video"]
+            : data.data["all-video"].filter(
+                (video) =>
+                  video.category_names.toLowerCase() === category_names.toLowerCase()
+              );
+        setVideos(filteredVideos);
+      } else {
+        throw new Error(data.message.success[0]);
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
+  // Fetch YouTube videos using the YouTube Data API
   const fetchYouTubeVideos = async (pageToken = null) => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/search`,
@@ -75,9 +81,7 @@ const AllVideos = () => {
     } catch (error) {
       console.error("Error fetching YouTube videos:", error);
       if (error.response && error.response.status === 403) {
-        // Quota exceeded error handling
         setError("Quota exceeded. Please try again later.");
-        // You can implement a retry mechanism here if needed
       } else {
         setError("Failed to fetch YouTube videos.");
       }
@@ -86,17 +90,20 @@ const AllVideos = () => {
     }
   };
 
+  // Load more videos when "View More" button is clicked
   const loadMoreVideos = () => {
     if (nextPageToken) {
       fetchYouTubeVideos(nextPageToken);
     }
   };
 
+  // Format date to a more readable format
   const formatDate = (dateString) => {
     const options = { day: "2-digit", month: "short", year: "numeric" };
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
+  // Display a spinner while loading
   if (loading) {
     return (
       <section id="videoSection" className="pgNotFoundSection">
@@ -114,6 +121,7 @@ const AllVideos = () => {
     );
   }
 
+  // Display a message if no videos are found
   if (videos.length === 0 && ytVideos.length === 0) {
     return (
       <section id="videoSection" className="pgNotFoundSection">
@@ -140,26 +148,14 @@ const AllVideos = () => {
         <meta name="author" content="Author Name" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content={`${category_names} Videos`} />
-        <meta
-          property="og:description"
-          content={`All ${category_names} videos.`}
-        />
+        <meta property="og:description" content={`All ${category_names} videos.`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.example.com/" />
-        <meta
-          property="og:image"
-          content="https://www.example.com/home-image.jpg"
-        />
+        <meta property="og:image" content="https://www.example.com/home-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${category_names} Videos`} />
-        <meta
-          name="twitter:description"
-          content={`All ${category_names} videos.`}
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.example.com/home-image.jpg"
-        />
+        <meta name="twitter:description" content={`All ${category_names} videos.`} />
+        <meta name="twitter:image" content="https://www.example.com/home-image.jpg" />
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div className="container">
@@ -176,8 +172,8 @@ const AllVideos = () => {
             </div>
           ))}
           {category_names.toLowerCase() === "all" &&
-            ytVideos.map((video, indexx) => (
-              <div className="col-md-3" key={indexx}>
+            ytVideos.map((video, index) => (
+              <div className="col-md-3" key={index}>
                 <HeighlightsCard
                   mainTitle={video.snippet.title}
                   backgroundImg={video.snippet.thumbnails.default.url}

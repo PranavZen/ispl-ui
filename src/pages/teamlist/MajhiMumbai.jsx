@@ -40,11 +40,8 @@ function MajhiMumbai() {
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div
-        className="about-page-main comon-sub-page-main d-inline-block w-100"
-        style={{
-          backgroundImage:
-            "url(https://my.ispl-t10.com/assets/image/ispl-bg.jpg)",
-        }}
+        className="about-page-main comon-sub-page-main d-inline-block w-100 bgGregdwint"
+        
       >
         <div className="about-club-top">
           <div className="container">
@@ -156,6 +153,7 @@ function MajhiMumbai() {
             <SectionTitle titleText="ALL ROUNDERS" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -182,8 +180,10 @@ function MajhiMumbai() {
                     <p>Akshay Patil</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -210,8 +210,10 @@ function MajhiMumbai() {
                     <p>Abhishek Kumar Dalhor</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -238,8 +240,10 @@ function MajhiMumbai() {
                     <p>Ahmad Fayaz Rather</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -266,8 +270,10 @@ function MajhiMumbai() {
                     <p>Basharat Hussain Wani</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -294,8 +300,10 @@ function MajhiMumbai() {
                     <p>Murali A Murali</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -322,8 +330,10 @@ function MajhiMumbai() {
                     <p>Syed Salman Syed</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -350,8 +360,10 @@ function MajhiMumbai() {
                     <p>Krushna Pawar</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -378,8 +390,10 @@ function MajhiMumbai() {
                     <p>Ravi Gupta</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -406,11 +420,13 @@ function MajhiMumbai() {
                     <p>Vijay Jaysing</p>
                   </div>
                 </div>
+                </Link>
               </div>
             </div>
             <SectionTitle titleText="BATTERS" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -431,8 +447,10 @@ function MajhiMumbai() {
                     <p>Raviraj Ahire</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -453,8 +471,10 @@ function MajhiMumbai() {
                     <p>Ajaz Qureshi</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -475,8 +495,10 @@ function MajhiMumbai() {
                     <p>Ashraf Khan</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -497,8 +519,10 @@ function MajhiMumbai() {
                     <p>Shreyas Indulkar</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -519,11 +543,13 @@ function MajhiMumbai() {
                     <p>Yogesh Penkar</p>
                   </div>
                 </div>
+                </Link>
               </div>
             </div>
             <SectionTitle titleText="BOWLERS" />
             <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 g-lg-5">
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -544,8 +570,10 @@ function MajhiMumbai() {
                     <p>Deepak Kumar Limboo</p>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-12 col-md-6">
+              <Link to="/matches/#statsId">
                 <div className="crm-teams01">
                   <figure>
                     <img
@@ -566,6 +594,7 @@ function MajhiMumbai() {
                     <p>Devid Gogoi</p>
                   </div>
                 </div>
+                </Link>
               </div>
             </div>
           </div>

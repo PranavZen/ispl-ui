@@ -99,20 +99,26 @@ input {
 }
 @media (max-width: 767px) {
   .sectionTitle {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 }
 
 .tabs {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .tabs {
+    gap: 1rem;
+  }
 }
 .tabs .tab {
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 0;
+  line-height: 1.4;
   gap: 0.6rem;
   height: 4.7rem;
   border: 0.2rem solid #fff;

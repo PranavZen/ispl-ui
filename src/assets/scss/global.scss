@@ -88,19 +88,23 @@ input {
     font-size: 2.6rem;
   }
   @include x-767-tablet {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 }
 
 .tabs {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  @include x-767-tablet{
+    gap: 1rem;
+  }
   .tab {
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 0;
+    line-height: 1.4;
     gap: 0.6rem;
     height: 4.7rem;
     border: 0.2rem solid #fff;

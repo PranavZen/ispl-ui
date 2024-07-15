@@ -2,11 +2,41 @@
 
 .sliderContainer {
   .slick-slider {
+    .slick-arrow {
+      width: 2.6rem;
+      height: 2.6rem;
+      &.slick-prev {
+        left: 40%;
+        top: unset;
+        bottom: -45px;
+        &.slick-disabled{
+          opacity: .75;
+        }
+        &:before {
+          font-size: 2.6rem;
+          opacity: 1;
+          color: #263574;
+        }
+      }
+      &.slick-next {
+        left: 50%;
+        top: unset;
+        bottom: -45px;
+        &.slick-disabled{
+          opacity: .75;
+        }
+        &:before {
+          font-size: 2.6rem;
+          opacity: 1;
+          color: #263574;
+        }
+      }
+    }
     .slick-list {
       .slick-track {
         .slick-slide {
           padding: 0 10px;
-          @include x-767-tablet{
+          @include x-767-tablet {
             padding: 0;
           }
         }
@@ -14,11 +44,11 @@
     }
     .slick-dots {
       position: relative;
-      display: flex !important;
-      justify-content: center;
-      align-items: center;
-      margin-top: 0rem;
-      gap: 0.2rem;
+      // display: flex !important;
+      // justify-content: center;
+      // align-items: center;
+      // margin-top: 0rem;
+      // gap: 0.2rem;
       li {
         width: 3.5rem;
         height: 0.5rem;
