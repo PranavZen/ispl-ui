@@ -5,9 +5,11 @@ import SectionTitle from "../../../components/common/sectiontitletext/SectionTit
 import SqareButton from "../../../components/common/cta/SqareButton";
 import { useNavigate } from "react-router-dom";
 import StateCityZoneModal from "../StateCityZoneModal";
+import VerifyModal from "../VerifyModal";
 
 function RegistrationFormDashboard() {
   const [showModal, setShowModal] = useState(false);
+  const [showVerifyModal, setVerifyModal] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     middle_name: "",
@@ -83,9 +85,14 @@ function RegistrationFormDashboard() {
         const userData = response.data.users;
         const is_city_updated = response.data.users.is_city_updated;
         const { completed_status, form_city_edit } = response.data;
+        const is_email_verify = response.data.users.is_email_verify;
+        const is_mobile_verify = response.data.users.is_mobile_verify;
 
         if (completed_status === 1 && form_city_edit === true) {
           setShowModal(true);
+        }
+        if (is_email_verify === 0 && is_mobile_verify === 0) {
+          setVerifyModal(true);
         }
         if (
           (is_city_updated === 1 && completed_status === 1) ||
@@ -299,6 +306,9 @@ function RegistrationFormDashboard() {
   };
   const closeModal = () => {
     setShowModal(false);
+  };
+  const closeVerifyModal = () => {
+    setVerifyModal(false)
   };
   return (
     <>
@@ -713,6 +723,7 @@ function RegistrationFormDashboard() {
         </div>
       </form>
       {showModal && <StateCityZoneModal closeModal={closeModal} />}
+      {showVerifyModal && <VerifyModal closeVerifyModal={closeVerifyModal} />}
     </>
   );
 }

@@ -28,29 +28,38 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   transform: translate(-50%, -50%);
+  &.verifyModalBox {
+    .modal-dialog {
+      width: 100%;
+      .modal-content {
+        width: 60%;
+        max-width: 100%;
+      }
+    }
+  }
 }
-.modal-dialog{
-margin: 0;
+.modal-dialog {
+  margin: 0;
 }
 .modal-content {
   background: #182046;
   padding: 3rem 0 2rem 0;
   max-width: 40%;
   margin: 0 auto;
-  .sectionTitle{
+  .sectionTitle {
     text-align: center !important;
     color: #fff !important;
     font-size: 2.6rem;
     margin-bottom: 2rem !important;
   }
-  .form{
-    .row{
+  .form {
+    .row {
       flex-direction: column;
       align-items: center;
-      .form-control{
+      .form-control {
         border: 0.2rem solid #dadada !important;
       }
-      .sqrBtn{
+      .sqrBtn {
         margin-top: 2rem;
       }
     }

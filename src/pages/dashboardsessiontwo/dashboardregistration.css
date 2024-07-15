@@ -19,6 +19,13 @@
   background-color: rgba(0, 0, 0, 0.4);
   transform: translate(-50%, -50%);
 }
+.modal.verifyModalBox .modal-dialog {
+  width: 100%;
+}
+.modal.verifyModalBox .modal-dialog .modal-content {
+  width: 60%;
+  max-width: 100%;
+}
 
 .modal-dialog {
   margin: 0;
