@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/footer/Footer";
@@ -26,7 +26,7 @@ import DashboardForm from "./pages/dashboardsessiontwo/DashboardForm";
 import TermsConditions from "./pages/TermsConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GlodenPage from "./pages/GlodenPage";
-
+import { whtspIcon } from "./assets/imagePath";
 
 function App() {
   return (
@@ -75,6 +75,11 @@ function App() {
           <Route path="/dashboard-golden-page" element={<GlodenPage />} />
         </Routes>
         <Footer />
+        <Link to="https://wa.me/8097323666" className="floatIcon" target="_blank">
+          <span>
+            <img src={whtspIcon} alt="ISPL Whatsapp Chat" className="img-fluid whtspIco" width={65} height={65}/>
+          </span>
+        </Link>
       </BrowserRouter>
     </HelmetProvider>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../components/common/cta/SqareButton";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,11 +11,33 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({ email: "", password: "", otp: "", general: "" });
-  const [showOTP, setShowOTP] = useState(false); // New state for showing OTP input
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+    otp: "",
+    general: "",
+  });
+  const [showOTP, setShowOTP] = useState(false);
+  const [timer, setTimer] = useState(0);
+  const [showResendButton, setShowResendButton] = useState(false);
+  const [showSendOTPButton, setShowSendOTPButton] = useState(true);
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [showVerifyModal, setVerifyModal] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      setShowResendButton(true);
+      setShowSendOTPButton(false);
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,7 +92,6 @@ function LoginForm() {
         } else {
           toast.error("Token not found. Please try again.");
         }
-
       }
     } catch (err) {
       if (err.response && err.response.status === 401) {
@@ -122,7 +143,8 @@ function LoginForm() {
 
       if (response.data.success) {
         toast.success(response.data.message);
-        setShowOTP(true); // Show OTP input
+        setShowOTP(true);
+        setTimer(120);
       } else {
         toast.error("Failed to send OTP. Please try again.");
       }
@@ -137,26 +159,21 @@ function LoginForm() {
     event.preventDefault();
     setLoading(true);
     setError({ email: "", password: "", otp: "", general: "" });
-  
+
     try {
       const response = await axios.post(
         "https://my.ispl-t10.com/api/verify-otp",
         { otp, email }
       );
-  
+
       if (response.data.status) {
         toast.success(response.data.message);
-        
+
         // Store apiToken in local storage
         const token = response.data.data.token;
         localStorage.setItem("apiToken", token);
-  
+
         // Navigate to dashboard after successful OTP verification
-        // if (response.data.via_otp_city_update === true && response.data.is_city_update === 0) {
-        //   navigate("/dashboard-session-2");
-        // } else {
-        //   navigate("/dashboard-golden-page");
-        // }
         try {
           const response = await axios.get(
             "https://my.ispl-t10.com/api/user-dashboard-api",
@@ -166,13 +183,13 @@ function LoginForm() {
               },
             }
           );
-  
+
           const userData = response.data.users;
           const is_city_updated = response.data.users.is_city_updated;
           const { completed_status, form_city_edit } = response.data;
           const is_email_verify = response.data.users.is_email_verify;
           const is_mobile_verify = response.data.users.is_mobile_verify;
-  
+
           if (completed_status === 1 && form_city_edit === true) {
             setShowModal(true);
           }
@@ -186,7 +203,6 @@ function LoginForm() {
             (response.data.personal_info_status === "updated" &&
               response.data.playing_details_status === "updated")
           ) {
-            
             navigate("/dashboard-golden-page");
             window.location.reload();
           } else {
@@ -197,12 +213,66 @@ function LoginForm() {
           toast.error("Error fetching user data");
           console.error("Fetch user data error:", error);
         }
-        // window.location.reload();
       } else {
         toast.error("Failed to verify OTP. Please try again.");
       }
     } catch (err) {
-      toast.error("An error occurred. Please try again.");
+      if (
+        err.response &&
+        err.response.data &&
+        err.response.data.message &&
+        err.response.data.message.failed
+      ) {
+        toast.error(err.response.data.message.failed[0]);
+
+        // Redirection to the payment page on failure
+        const payRequestId = err.response.data.pay_request_id;
+        const paymentRequestResponse = await axios.post(
+          `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
+        );
+
+        if (paymentRequestResponse.data.status === "Successful") {
+          const { encrypted_data, access_code } = paymentRequestResponse.data;
+
+          const ccAvenueForm = document.createElement("form");
+          ccAvenueForm.method = "POST";
+          ccAvenueForm.action =
+            "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+
+          const inputEncRequest = document.createElement("input");
+          inputEncRequest.type = "hidden";
+          inputEncRequest.name = "encRequest";
+          inputEncRequest.value = encrypted_data;
+          ccAvenueForm.appendChild(inputEncRequest);
+
+          const inputAccessCode = document.createElement("input");
+          inputAccessCode.type = "hidden";
+          inputAccessCode.name = "access_code";
+          inputAccessCode.value = access_code;
+          ccAvenueForm.appendChild(inputAccessCode);
+
+          document.body.appendChild(ccAvenueForm);
+          ccAvenueForm.submit();
+
+          // Monitor for payment response
+          window.addEventListener("message", async (event) => {
+            if (event.origin !== "https://secure.ccavenue.com") return;
+            const paymentStatus = event.data.status;
+
+            if (paymentStatus === "Successful") {
+              window.location.href = "/login";
+            } else {
+              toast.error("Payment was unsuccessful. Please try again.");
+              window.location.href = "/payment-page"; // Redirect to payment page on failure
+            }
+          });
+        } else {
+          toast.error("Payment was unsuccessful. Please try again.");
+          window.location.href = "/payment-page"; // Redirect to payment page on failure
+        }
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -238,10 +308,14 @@ function LoginForm() {
                   value={email}
                   onChange={(e) => {
                     setemail(e.target.value);
-                    if (!validateEmail(e.target.value) && !validateMobile(e.target.value)) {
+                    if (
+                      !validateEmail(e.target.value) &&
+                      !validateMobile(e.target.value)
+                    ) {
                       setError((prevError) => ({
                         ...prevError,
-                        email: "Please enter a valid email address or mobile number",
+                        email:
+                          "Please enter a valid email address or mobile number",
                       }));
                     } else {
                       setError((prevError) => ({ ...prevError, email: "" }));
@@ -251,6 +325,7 @@ function LoginForm() {
                 {error.email && <div className="error">{error.email}</div>}
               </div>
             </div>
+
             {showOTP ? (
               <div className="row mb-4">
                 <div className="col-md-6 mx-auto">
@@ -278,6 +353,27 @@ function LoginForm() {
                         Login with password
                       </Link>
                     </p>
+                  </div>
+                  <div className="form-check justify-content-end">
+                    {timer > 0 ? (
+                      <p className="btmText mt-2">
+                        OTP expires in {Math.floor(timer / 60)}:
+                        {(timer % 60).toString().padStart(2, "0")}
+                      </p>
+                    ) : (
+                      showResendButton && (
+                        <p className="btmText mt-2">
+                          <Link
+                            to=""
+                            className="regster-bn frgtBtn resend-otp"
+                            onClick={handleSendOTP}
+                            disabled={loading}
+                          >
+                            {loading ? "Resending OTP..." : "Resend OTP"}
+                          </Link>
+                        </p>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

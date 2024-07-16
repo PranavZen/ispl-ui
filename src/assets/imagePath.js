@@ -47,3 +47,8 @@ export { default as insta } from "../assets/images/insta.svg";
 export { default as share } from "../assets/images/share.svg";
 export { default as playIc } from "../assets/images/playi.svg";
 export { default as greenArrow } from "../assets/images/greenArrow.svg";
+export { default as paper1 } from "../assets/images/paper1.jpg";
+export { default as paper2 } from "../assets/images/paper2.jpg";
+export { default as paper3 } from "../assets/images/paper3.jpg";
+export { default as paper4 } from "../assets/images/paper4.jpg";
+export { default as whtspIcon } from "../assets/images/whatsapp-chat-button.png";

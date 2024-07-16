@@ -1,7 +1,7 @@
 @import "../../../../assets/scss/media";
 .matchDetailsCustom {
   padding: 8rem 0;
-  @include x-767-tablet{
+  @include x-767-tablet {
     padding: 3rem 0;
   }
   .sectionTitle {
@@ -63,11 +63,9 @@
       border-color: #263574 !important;
       &:hover {
         border-color: transparent !important;
-        
       }
       &.active {
         border-color: transparent !important;
-
       }
       span {
         svg {
@@ -294,23 +292,46 @@
   }
 
   .tab-tables {
-    td, th {
+    td,
+    th {
       font-size: 17px;
       font-weight: 500;
-      @include x-767-tablet{
+      @include x-767-tablet {
         font-size: 14px;
       }
     }
   }
-  .tHead{
+  .tHead {
     background-color: #182046;
-    td{
+    td {
       color: #fff !important;
       font-weight: 600;
       font-size: 1.8rem;
-      @include x-767-tablet{
+      @include x-767-tablet {
         font-size: 1.4rem;
       }
+    }
+  }
+}
+
+.filterBtnWrap {
+  width: fit-content;
+  margin: 0 0 2rem auto;
+  .form-label {
+    color: #272727;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .form-select {
+    font-size: 1.6rem;
+    color: #010123;
+    height: 4.5rem;
+    border: 0.2rem solid #e5e5e5;
+    cursor: pointer;
+    &:focus{
+      outline: none;
+      box-shadow: none;
     }
   }
 }

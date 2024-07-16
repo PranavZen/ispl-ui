@@ -470,4 +470,10 @@ input {
 }
 .innerPageMatchCenter .common-results-div .leag-name h2 {
   display: none;
+}
+
+.floatIcon {
+  position: fixed;
+  bottom: 3%;
+  right: 1%;
 }/*# sourceMappingURL=global.css.map */

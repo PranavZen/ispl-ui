@@ -25,7 +25,6 @@ function ResultSlider({children}) {
       {
         breakpoint: 768,
         settings: {
-          // centerMode: false,
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
@@ -38,6 +37,8 @@ function ResultSlider({children}) {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: false,
+          arrows: true,
         },
       },
     ],

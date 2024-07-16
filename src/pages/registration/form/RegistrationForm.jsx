@@ -204,7 +204,7 @@ function RegistrationForm() {
         const serverErrors = response.data.message.error;
         if (Array.isArray(serverErrors)) {
           serverErrors.forEach((errMsg) => {
-            toast.error(errMsg);
+            toast.error(errMsg); 
           });
         } else {
           toast.error("An unexpected error occurred.");

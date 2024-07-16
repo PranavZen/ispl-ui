@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../components/common/cta/SqareButton";
-import "../dashboardsessiontwo/dashboardregistration.css";
 import { Link } from "react-router-dom";
 
 function VerifyModal({ closeVerifyModal }) {
   const [useEmail, setUseEmail] = useState(false);
-  const [email, setemail] = useState("");
+  const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [error, setError] = useState("");
+  const [timer, setTimer] = useState(0);
+  const [showResendButton, setShowResendButton] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const toggleInput = () => {
-    setUseEmail(!useEmail);
-    setemail("");
-    setError("");
-    setOtp("");
-    setOtpSent(false);
-  };
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      setShowResendButton(true);
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setemail(value);
+    setEmail(value);
 
     if (useEmail) {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,6 +56,7 @@ function VerifyModal({ closeVerifyModal }) {
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(
         "https://my.ispl-t10.com/api/send-otp",
@@ -59,35 +67,49 @@ function VerifyModal({ closeVerifyModal }) {
       if (response.data.success) {
         toast.success(response.data.message);
         setOtpSent(true);
+        setTimer(120); // Set timer for 30 seconds
       } else {
         toast.error("Failed to send OTP. Please try again.");
       }
     } catch (error) {
       toast.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(
         "https://my.ispl-t10.com/api/user-verify-otp",
         {
-          email: email,
+          email,
           otp,
         }
       );
       if (response.data.status) {
         toast.success(response.data.message);
         setTimeout(() => {
-            closeVerifyModal();
+          closeVerifyModal();
         }, 2000);
       } else {
         toast.error("Failed to verify OTP. Please try again.");
       }
     } catch (error) {
       toast.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const toggleInput = () => {
+    setUseEmail(!useEmail);
+    setEmail("");
+    setOtp("");
+    setOtpSent(false);
+    setError("");
   };
 
   return (
@@ -162,6 +184,24 @@ function VerifyModal({ closeVerifyModal }) {
                         </Link>
                       </p>
                     )}
+                    {otpSent && (
+                      <p className="btmText mt-0">
+                        {timer > 0 ? (
+                          `OTP expires in ${Math.floor(timer / 60)}:${
+                            (timer % 60).toString().padStart(2, "0")
+                          }`
+                        ) : (
+                          <Link
+                            to="#"
+                            className="regster-bn frgtBtn resend-otp"
+                            onClick={handleSendOtp}
+                            disabled={loading}
+                          >
+                            {loading ? "Resending OTP..." : "Resend OTP"}
+                          </Link>
+                        )}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -172,7 +212,7 @@ function VerifyModal({ closeVerifyModal }) {
                 textColor="#caf75a"
                 bordercolor="#caf75a"
                 type="submit"
-                disabled={!!error}
+                disabled={!!error || loading}
               />
             </div>
           </form>

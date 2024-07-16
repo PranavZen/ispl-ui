@@ -97,7 +97,7 @@ input {
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  @include x-767-tablet{
+  @include x-767-tablet {
     gap: 1rem;
   }
   .tab {
@@ -164,7 +164,7 @@ input {
     padding: 0rem 0 4rem;
     margin-top: 10rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     margin-top: 6rem;
   }
   .mianTabsWrap {
@@ -204,10 +204,10 @@ input {
   padding: 8rem 0 10rem;
   background: #10172b;
   margin-top: 14rem;
-  @include md-tablet{
+  @include md-tablet {
     margin-top: 10rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     margin-top: 6rem;
   }
   .sectionTitle {
@@ -271,10 +271,10 @@ input {
   padding: 8rem 1rem 10rem;
   background: #10172b;
   margin-top: 14rem;
-  @include md-tablet{
+  @include md-tablet {
     margin-top: 10rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     margin-top: 6rem;
   }
   .sectionTitle {
@@ -316,10 +316,10 @@ input {
 #pageWrapSection {
   padding: 10rem 1rem;
   margin-top: 14rem;
-  @include md-tablet{
+  @include md-tablet {
     margin-top: 10rem;
   }
-  @include x-767-tablet{
+  @include x-767-tablet {
     margin-top: 3rem;
   }
   .sectionTitle {
@@ -403,7 +403,7 @@ input {
   font-weight: bold;
   font-size: 4.2rem;
   margin-bottom: 1px;
-  @include x-767-tablet{
+  @include x-767-tablet {
     font-size: 2rem !important;
   }
 }
@@ -418,13 +418,13 @@ input {
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 2rem;
-  @include x-767-tablet{
+  @include x-767-tablet {
     font-size: 1.6rem;
   }
 }
 .playerName {
   text-transform: uppercase;
-  @include x-767-tablet{
+  @include x-767-tablet {
     font-size: 1.4rem;
   }
 }
@@ -436,7 +436,7 @@ input {
 }
 .city-name-title {
   font-size: 1.6rem;
-  @include x-767-tablet{
+  @include x-767-tablet {
     font-size: 1.4rem;
   }
 }
@@ -448,13 +448,19 @@ input {
   }
 }
 
-.innerPageMatchCenter{
-  .common-results-div{
+.innerPageMatchCenter {
+  .common-results-div {
     padding: 1rem 0 2rem;
     .leag-name {
-      h2{
+      h2 {
         display: none;
       }
     }
   }
+}
+
+.floatIcon {
+  position: fixed;
+  bottom: 3%;
+  right: 1%;
 }

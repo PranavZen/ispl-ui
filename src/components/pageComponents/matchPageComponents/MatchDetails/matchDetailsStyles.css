@@ -264,12 +264,14 @@
     line-height: 23px !important;
   }
 }
-.matchDetailsCustom .tab-tables td, .matchDetailsCustom .tab-tables th {
+.matchDetailsCustom .tab-tables td,
+.matchDetailsCustom .tab-tables th {
   font-size: 17px;
   font-weight: 500;
 }
 @media (max-width: 767px) {
-  .matchDetailsCustom .tab-tables td, .matchDetailsCustom .tab-tables th {
+  .matchDetailsCustom .tab-tables td,
+  .matchDetailsCustom .tab-tables th {
     font-size: 14px;
   }
 }
@@ -285,4 +287,27 @@
   .matchDetailsCustom .tHead td {
     font-size: 1.4rem;
   }
+}
+
+.filterBtnWrap {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 2rem auto;
+}
+.filterBtnWrap .form-label {
+  color: #272727;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.filterBtnWrap .form-select {
+  font-size: 1.6rem;
+  color: #010123;
+  height: 4.5rem;
+  border: 0.2rem solid #e5e5e5;
+  cursor: pointer;
+}
+.filterBtnWrap .form-select:focus {
+  outline: none;
+  box-shadow: none;
 }/*# sourceMappingURL=matchDetailsStyles.css.map */

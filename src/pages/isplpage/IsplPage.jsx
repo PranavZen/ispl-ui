@@ -60,7 +60,7 @@ function IsplPage() {
               Core <span> Commitee </span>{" "}
             </h1>
           </div>
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col-md-3 ">
               <div className="card-body text-center"></div>
               <div className="outer-layer rounded-circle text-center">
