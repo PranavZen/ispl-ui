@@ -21,7 +21,7 @@ function Grid() {
           >
             <div className="imgWrapper">
               <img
-                src="https://my.ispl-t10.com/images/videos/thumbnail/2BTbG0z1rxumYLQ1ENHuXFfGBZaSRfqnwIH9MXDD.jpg"
+                src={grid1}
                 alt="Ravi Shastri at ISPL Season 1 Semi Finals"
                 className="img-fluid"
                 loading="lazy"
@@ -51,7 +51,7 @@ function Grid() {
           >
             <div className="imgWrapper">
               <img
-                src="https://my.ispl-t10.com/images/videos/thumbnail/ptWFTfIn2fSeVEUqSlPlEBH99l2PFZEnTWXmtrNZ.jpg"
+                src={grid2}
                 alt="ISPL -Opening Ceremony"
                 className="img-fluid"
                 loading="lazy"
@@ -77,7 +77,7 @@ function Grid() {
           >
             <div className="imgWrapper">
               <img
-                src="https://my.ispl-t10.com/images/videos/thumbnail/JphM6koPhcLSHiTPO3ifK0qrh42xnUAAfeYHX8u1.jpg"
+                src={grid3}
                 alt="National Anthem in Finale"
                 className="img-fluid"
                 loading="lazy"
@@ -103,7 +103,7 @@ function Grid() {
           >
             <div className="imgWrapper">
               <img
-                src="https://my.ispl-t10.com/images/videos/thumbnail/P3Dipr75lXUGXVkC63CU7pNbC0zoj9GGiMmlEuVL.jpg"
+                src={grid4}
                 alt="ISPL Journey"
                 className="img-fluid"
                 loading="lazy"
@@ -129,7 +129,7 @@ function Grid() {
           >
             <div className="imgWrapper">
               <img
-                src="https://my.ispl-t10.com/images/videos/thumbnail/MQpRHg1UsJJlOY0nVrkFL8PyJN7Pf7NXGkbeZpHG.jpg"
+                src={grid5}
                 alt="ISPL Season 1"
                 className="img-fluid"
                 loading="lazy"

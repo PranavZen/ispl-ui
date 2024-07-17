@@ -476,4 +476,5 @@ input {
   position: fixed;
   bottom: 3%;
   right: 1%;
+  z-index: 9;
 }/*# sourceMappingURL=global.css.map */

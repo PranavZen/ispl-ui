@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function LoginForm() {
-  const [email, setemail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,6 @@ function LoginForm() {
   const [showOTP, setShowOTP] = useState(false);
   const [timer, setTimer] = useState(0);
   const [showResendButton, setShowResendButton] = useState(false);
-  const [showSendOTPButton, setShowSendOTPButton] = useState(true);
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [showVerifyModal, setVerifyModal] = useState(false);
@@ -33,7 +32,6 @@ function LoginForm() {
       }, 1000);
     } else if (timer === 0) {
       setShowResendButton(true);
-      setShowSendOTPButton(false);
       clearInterval(interval);
     }
     return () => clearInterval(interval);
@@ -54,11 +52,11 @@ function LoginForm() {
     setLoading(true);
     setError({ email: "", password: "", otp: "", general: "" });
 
-    if (!validateEmail(email) && !validateMobile(email)) {
+    if (!validateEmail(email)) {
       setLoading(false);
       setError((prevError) => ({
         ...prevError,
-        email: "Please enter a valid email address or mobile number",
+        email: "Please enter a valid email address",
       }));
       return;
     }
@@ -72,7 +70,6 @@ function LoginForm() {
       if (response.status === 200) {
         const token = response.data.data.token;
         localStorage.setItem("apiToken", token);
-        localStorage.setItem("formData", JSON.stringify(response.data.data));
 
         toast.success("Login successful");
 
@@ -85,19 +82,12 @@ function LoginForm() {
           redirectPath = "/dashboard-golden-page";
         }
 
-        // Check if apiToken is present in localStorage after setting it
-        if (localStorage.getItem("apiToken")) {
-          navigate(redirectPath);
-          window.location.reload();
-        } else {
-          toast.error("Token not found. Please try again.");
-        }
+        navigate(redirectPath);
+        window.location.reload();
       }
     } catch (err) {
       if (err.response && err.response.status === 401) {
-        // Handle 401 Unauthorized error
         toast.error("Session expired. Please login again.");
-        // Clear token and redirect to login page
         localStorage.removeItem("apiToken");
         navigate("/login");
       } else if (
@@ -105,7 +95,7 @@ function LoginForm() {
         err.response.status === 400 &&
         err.response.data.pay_request_id
       ) {
-        // Handle payment request logic
+        handlePaymentFailure(err.response.data.pay_request_id);
       } else {
         const errorMessage =
           err.response?.data?.error_message ||
@@ -124,10 +114,10 @@ function LoginForm() {
 
   const handleSendOTP = async (event) => {
     event.preventDefault();
-    if (!validateEmail(email) && !validateMobile(email)) {
+    if (!validateEmail(email)) {
       setError((prevError) => ({
         ...prevError,
-        email: "Please enter a valid email address or mobile number",
+        email: "Please enter a valid email address",
       }));
       return;
     }
@@ -169,11 +159,9 @@ function LoginForm() {
       if (response.data.status) {
         toast.success(response.data.message);
 
-        // Store apiToken in local storage
         const token = response.data.data.token;
         localStorage.setItem("apiToken", token);
 
-        // Navigate to dashboard after successful OTP verification
         try {
           const response = await axios.get(
             "https://my.ispl-t10.com/api/user-dashboard-api",
@@ -188,7 +176,7 @@ function LoginForm() {
           const is_city_updated = response.data.users.is_city_updated;
           const { completed_status, form_city_edit } = response.data;
           const is_email_verify = response.data.users.is_email_verify;
-          const is_mobile_verify = response.data.users.is_mobile_verify;
+          const is_mobile_verify = response.data.users.is_mo
 
           if (completed_status === 1 && form_city_edit === true) {
             setShowModal(true);
@@ -224,57 +212,63 @@ function LoginForm() {
         err.response.data.message.failed
       ) {
         toast.error(err.response.data.message.failed[0]);
-
-        // Redirection to the payment page on failure
-        const payRequestId = err.response.data.pay_request_id;
-        const paymentRequestResponse = await axios.post(
-          `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
-        );
-
-        if (paymentRequestResponse.data.status === "Successful") {
-          const { encrypted_data, access_code } = paymentRequestResponse.data;
-
-          const ccAvenueForm = document.createElement("form");
-          ccAvenueForm.method = "POST";
-          ccAvenueForm.action =
-            "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
-
-          const inputEncRequest = document.createElement("input");
-          inputEncRequest.type = "hidden";
-          inputEncRequest.name = "encRequest";
-          inputEncRequest.value = encrypted_data;
-          ccAvenueForm.appendChild(inputEncRequest);
-
-          const inputAccessCode = document.createElement("input");
-          inputAccessCode.type = "hidden";
-          inputAccessCode.name = "access_code";
-          inputAccessCode.value = access_code;
-          ccAvenueForm.appendChild(inputAccessCode);
-
-          document.body.appendChild(ccAvenueForm);
-          ccAvenueForm.submit();
-
-          // Monitor for payment response
-          window.addEventListener("message", async (event) => {
-            if (event.origin !== "https://secure.ccavenue.com") return;
-            const paymentStatus = event.data.status;
-
-            if (paymentStatus === "Successful") {
-              window.location.href = "/login";
-            } else {
-              toast.error("Payment was unsuccessful. Please try again.");
-              window.location.href = "/payment-page"; // Redirect to payment page on failure
-            }
-          });
-        } else {
-          toast.error("Payment was unsuccessful. Please try again.");
-          window.location.href = "/payment-page"; // Redirect to payment page on failure
-        }
+        handlePaymentFailure(err.response.data.pay_request_id);
       } else {
         toast.error("An error occurred. Please try again.");
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handlePaymentFailure = async (payRequestId) => {
+    try {
+      const paymentRequestResponse = await axios.post(
+        `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
+      );
+
+      if (paymentRequestResponse.data.status === "Successful") {
+        const { encrypted_data, access_code } = paymentRequestResponse.data;
+
+        const ccAvenueForm = document.createElement("form");
+        ccAvenueForm.method = "POST";
+        ccAvenueForm.action =
+          "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+
+        const inputEncRequest = document.createElement("input");
+        inputEncRequest.type = "hidden";
+        inputEncRequest.name = "encRequest";
+        inputEncRequest.value = encrypted_data;
+        ccAvenueForm.appendChild(inputEncRequest);
+
+        const inputAccessCode = document.createElement("input");
+        inputAccessCode.type = "hidden";
+        inputAccessCode.name = "access_code";
+        inputAccessCode.value = access_code;
+        ccAvenueForm.appendChild(inputAccessCode);
+
+        document.body.appendChild(ccAvenueForm);
+        ccAvenueForm.submit();
+
+        window.addEventListener("message", async (event) => {
+          if (event.origin !== "https://secure.ccavenue.com") return;
+          const paymentStatus = event.data.status;
+
+          if (paymentStatus === "Successful") {
+            window.location.href = "/login";
+          } else {
+            toast.error("Payment was unsuccessful. Please try again.");
+            window.location.href = "/payment-page";
+          }
+        });
+      } else {
+        toast.error("Payment request failed. Please try again.");
+        window.location.href = "/payment-page";
+      }
+    } catch (error) {
+      console.error("Payment request error:", error);
+      toast.error("An error occurred during payment. Please try again.");
+      window.location.href = "/payment-page";
     }
   };
 
@@ -307,7 +301,7 @@ function LoginForm() {
                   autoComplete="email"
                   value={email}
                   onChange={(e) => {
-                    setemail(e.target.value);
+                    setEmail(e.target.value);
                     if (
                       !validateEmail(e.target.value) &&
                       !validateMobile(e.target.value)
@@ -325,7 +319,6 @@ function LoginForm() {
                 {error.email && <div className="error">{error.email}</div>}
               </div>
             </div>
-
             {showOTP ? (
               <div className="row mb-4">
                 <div className="col-md-6 mx-auto">

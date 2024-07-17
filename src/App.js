@@ -75,7 +75,7 @@ function App() {
           <Route path="/dashboard-golden-page" element={<GlodenPage />} />
         </Routes>
         <Footer />
-        <Link to="https://wa.me/8097323666" className="floatIcon" target="_blank">
+        <Link to="https://wa.me/918097323666" className="floatIcon" target="_blank">
           <span>
             <img src={whtspIcon} alt="ISPL Whatsapp Chat" className="img-fluid whtspIco" width={65} height={65}/>
           </span>

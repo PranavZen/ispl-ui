@@ -46,19 +46,6 @@ function HomePage() {
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
         <link rel="canonical" href="https://ispl-t10.com" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-4XX2NZ7QWK"
-        ></script>
-        <script>
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-4XX2NZ7QWK');
-        `}
-        </script>
       </Helmet>
       <Banner />
       <HeighlightsSection />

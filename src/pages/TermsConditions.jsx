@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 function TermsConditions() {
   return (
     <Layout>
-       <Helmet>
+      <Helmet>
         <title>ISPL T10 | Terms & Conditions</title>
         <meta
           name="description"
@@ -38,18 +38,6 @@ function TermsConditions() {
           content="https://www.example.com/home-image.jpg"
         />
         <link rel="canonical" href="https://www.example.com/" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-4XX2NZ7QWK"
-        ></script>
-        <script>
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-4XX2NZ7QWK');
-        `}
-        </script>
       </Helmet>
       <SectionTitle titleText="Terms & Conditions" />
       <div className="contentWraps">
@@ -140,7 +128,7 @@ function TermsConditions() {
                 enroll with the ISPL League by filling the form available at the
                 link{" "}
                 <Link to="/privacy-policy">
-                   https://ispl-t10.com/privacy-policy
+                  https://ispl-t10.com/privacy-policy
                 </Link>{" "}
                 and providing with all the requested details in the said form.
               </li>
@@ -267,9 +255,10 @@ function TermsConditions() {
                 your contacts you might share in common with other Website
                 users, your interests and dislikes. For more information
                 regarding the type/nature of information we collect from you and
-                how we use it, please refer our Privacy Policy available at the&nbsp;
+                how we use it, please refer our Privacy Policy available at
+                the&nbsp;
                 <Link to="/privacy-policy">
-                   https://ispl-t10.com/privacy-policy
+                  https://ispl-t10.com/privacy-policy
                 </Link>
               </li>
               <li>
@@ -453,7 +442,7 @@ function TermsConditions() {
                 information and content provided by you, please review our
                 Privacy Policy available at the link &nbsp;
                 <Link to="/privacy-policy">
-                   https://ispl-t10.com/privacy-policy
+                  https://ispl-t10.com/privacy-policy
                 </Link>
               </li>
               <li>
@@ -934,7 +923,10 @@ function TermsConditions() {
           </li>
         </ol>
         <h4>
-          Last Updated on: <strong>30<sup>th</sup> November 2023</strong>
+          Last Updated on:{" "}
+          <strong>
+            30<sup>th</sup> November 2023
+          </strong>
         </h4>
       </div>
     </Layout>

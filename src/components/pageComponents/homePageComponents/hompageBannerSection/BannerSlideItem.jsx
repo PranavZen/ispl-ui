@@ -12,7 +12,7 @@ function BannerSlideItem({
     <>
       <div className="sliderItme">
         <div className="sliderItmeImg">
-          <img src={bannerImg} alt={altTitle} className="img-fluid" width={1920} height={651}/>
+          <img src={bannerImg} alt={altTitle} className="img-fluid" loading="lazy"/>
         </div>
         <div className="sliderItmeContent">
           <span>{tagline}</span>
