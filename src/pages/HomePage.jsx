@@ -30,21 +30,24 @@ function HomePage() {
         <meta property="og:url" content="https://ispl-t10.com" />
         <meta
           property="og:image"
-          content="https://my.ispl-t10.com/path-to-your-image.jpg"
+          content="https://www.ispl-t10.com/static/media/logo.efebca2aff231fa932c2.webp"
         />
-        <meta property="og:site_name" content="ISPL T10" />
+        <meta property="og:image:width" content="90" />
+        <meta property="og:image:height" content="90" />
+        <meta property="og:image:type" content="image/jpg"/>
+        <meta name="twitter:image:type" content="image/jpg"/>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Home Page" />
+        <meta name="twitter:title" content="ISPL T10 Home Page" />
         <meta
           name="twitter:description"
           content="This is the home page of our website."
         />
         <meta
           name="twitter:image"
-          content="https://my.ispl-t10.com/path-to-your-image.jpg"
+          content="https://www.ispl-t10.com/static/media/logo.efebca2aff231fa932c2.webp"
         />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
-        <meta name="twitter:creator" content="@YourTwitterHandle" />
+        <meta name="twitter:site" content="@ispl_t10" />
+        <meta name="twitter:creator" content="@ispl_t10" />
         <link rel="canonical" href="https://ispl-t10.com" />
       </Helmet>
       <Banner />

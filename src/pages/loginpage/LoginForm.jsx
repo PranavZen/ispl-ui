@@ -114,7 +114,7 @@ function LoginForm() {
 
   const handleSendOTP = async (event) => {
     event.preventDefault();
-    if (!validateEmail(email)) {
+    if (!validateEmail(email) && !validateMobile(email)) {
       setError((prevError) => ({
         ...prevError,
         email: "Please enter a valid email address",
@@ -258,17 +258,17 @@ function LoginForm() {
             window.location.href = "/login";
           } else {
             toast.error("Payment was unsuccessful. Please try again.");
-            window.location.href = "/payment-page";
+            // window.location.href = "/payment-page";
           }
         });
       } else {
         toast.error("Payment request failed. Please try again.");
-        window.location.href = "/payment-page";
+        // window.location.href = "/payment-page";
       }
     } catch (error) {
       console.error("Payment request error:", error);
       toast.error("An error occurred during payment. Please try again.");
-      window.location.href = "/payment-page";
+      // window.location.href = "/payment-page";
     }
   };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { dashboard, login, logo, logout } from "../../../assets/imagePath";
 import axios from "axios"; // Make sure axios is imported
 
@@ -9,6 +9,7 @@ function NavMenus() {
   const [completedStatus, setCompletedStatus] = useState(0); // Assuming this state is used to store completed_status
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => {
     return location.pathname === path ? "nav-link active" : "nav-link";
@@ -48,7 +49,9 @@ function NavMenus() {
   const handleLogout = () => {
     localStorage.removeItem("apiToken");
     setIsLoggedIn(false);
+    navigate("/");
     setOffcanvasOpen(false);
+    window.location.reload();
   };
 
   return (

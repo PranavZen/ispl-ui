@@ -1,12 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../hompageBannerSection/banner.css";
 import BannerSlideItem from "./BannerSlideItem";
 import { banner1, banner2, banner3 } from "../../../../assets/imagePath";
+import axios from "axios";
 
 function Banner() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [completedStatus, setCompletedStatus] = useState(0);
+
+  useEffect(() => {
+    const token = localStorage.getItem("apiToken");
+    if (token) {
+      setIsLoggedIn(true);
+      fetchUserDashboard();
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [isLoggedIn]);
+
+  const fetchUserDashboard = async () => {
+    try {
+      const response = await axios.get(
+        'https://my.ispl-t10.com/api/user-dashboard-api',
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('apiToken')}`,
+          },
+        }
+      );
+      // Assuming response.data contains the completed_status
+      setCompletedStatus(response.data.completed_status);
+    } catch (error) {
+      console.error('Error fetching user dashboard:', error);
+    }
+  };
+
+ 
+  const handleLogout = () => {
+    localStorage.removeItem('apiToken');
+    setIsLoggedIn(false);
+  };
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -44,6 +82,7 @@ function Banner() {
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
             altTitle="ISPL=T10"
+            completedStatus={completedStatus}
           />
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
@@ -51,6 +90,7 @@ function Banner() {
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
             altTitle="ISPL=T10"
+            completedStatus={completedStatus}
           />
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
@@ -58,6 +98,7 @@ function Banner() {
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
             altTitle="ISPL=T10"
+            completedStatus={completedStatus}
           />
         </Slider>
       </section>

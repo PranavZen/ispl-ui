@@ -10,6 +10,7 @@ import VerifyModal from "../VerifyModal";
 function RegistrationFormDashboard() {
   const [showModal, setShowModal] = useState(false);
   const [showVerifyModal, setVerifyModal] = useState(false);
+  const [sameAsPermanent, setSameAsPermanent] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     middle_name: "",
@@ -17,6 +18,16 @@ function RegistrationFormDashboard() {
     date_of_birth: "",
     permanent_address: "",
     current_address: "",
+    current_pincode: "",
+    permanent_pincode: "",
+    current_city: "",
+    permanent_city: "",
+    current_state: "",
+    permanent_state: "",
+    current_locality: "",
+    permanent_locality: "",
+    current_landmark: "",
+    permanent_landmark: "",
     adhar_card_no: "",
     phone_number: "",
     emergency_contact_no: "",
@@ -29,7 +40,13 @@ function RegistrationFormDashboard() {
     preferred_batting_order: null,
     personal_info_status: "",
     playing_details_status: "",
+    trouser_size: "",
+    jersey_sizes: "",
+    shoe_size: "",
+    blood_group: "",
   });
+
+  console.log(formData);
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -37,10 +54,138 @@ function RegistrationFormDashboard() {
   const [battingHandednessOptions, setBattingHandednessOptions] = useState([]);
   const [bowlingStyleOptions, setBowlingStyleOptions] = useState([]);
   const [battingOrderOptions, setBattingOrderOptions] = useState([]);
+  const [trouserSize, setTrouserSize] = useState([]);
+  const [jerseySizes, setJerseySizes] = useState([]);
+  const [shoeSize, setShoeSize] = useState([]);
+  const [bloodGroup, setBloodGroup] = useState([]);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get(
+        "https://my.ispl-t10.com/api/user-dashboard-api",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
+          },
+        }
+      );
+
+      const userData = response.data.users;
+      const personalInfo = response.data.personal_information;
+      const playerDetails = response.data.player_details;
+      const is_city_updated = response.data.users.is_city_updated;
+      const { completed_status, form_city_edit } = response.data;
+      const is_email_verify = response.data.users.is_email_verify;
+      const is_mobile_verify = response.data.users.is_mobile_verify;
+      const PlyerDiliveryDetail = response.data.dilivery_detail;
+      console.log("PlyerDiliveryDetail ", PlyerDiliveryDetail);
+      if (completed_status === 1 && form_city_edit === true) {
+        setShowModal(true);
+      }
+      if (is_email_verify === 0 && is_mobile_verify === 0) {
+        setVerifyModal(true);
+      }
+      if (
+        (is_city_updated === 1 && completed_status === 1) ||
+        (response.data.personal_info_status === "created" &&
+          response.data.playing_details_status === "created") ||
+        (response.data.personal_info_status === "updated" &&
+          response.data.playing_details_status === "updated")
+      ) {
+        navigate("/dashboard-golden-page");
+        window.location.reload();
+      } else if (personalInfo === null) {
+        navigate("/dashboard-session-2");
+        // window.location.reload();
+      } else {
+        navigate("/dashboard-session-2");
+      }
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        first_name: userData?.first_name || "",
+        middle_name: personalInfo?.middle_name || "",
+        surname: userData?.surname || "",
+        date_of_birth: userData?.date_of_birth || "",
+        permanent_address: personalInfo?.permanent_address || "",
+        current_address: personalInfo?.current_address || "",
+        current_pincode: PlyerDiliveryDetail?.pincode || "",
+        permanent_pincode: personalInfo?.permanent_pincode || "",
+        current_city: PlyerDiliveryDetail?.city_district_town || "",
+        permanent_city: personalInfo?.permanent_city || "",
+        current_state: PlyerDiliveryDetail?.state || "",
+        permanent_state: personalInfo?.permanent_state || "",
+        current_locality: PlyerDiliveryDetail?.locality || "",
+        permanent_locality: personalInfo?.permanent_locality || "",
+        current_landmark: PlyerDiliveryDetail?.landmark || "",
+        permanent_landmark: personalInfo?.permanent_landmark || "",
+        adhar_card_no: personalInfo?.adhar_card_no || "",
+        phone_number: userData?.mobile_number || "",
+        emergency_contact_no: personalInfo?.emergency_contact_no || "",
+        email: userData?.email || "",
+        trouser_size: personalInfo?.trouser_jersey_id || "",
+        jersey_sizes: personalInfo?.tshirt_jersey_id || "",
+        shoe_size: personalInfo?.shoes_size || "",
+        blood_group: personalInfo?.blood_group || "",
+        instagram_id: personalInfo?.instagram_id || "",
+        facebook_id: personalInfo?.facebook_id || "",
+        playing_roles:
+          playerDetails && playerDetails?.playing_roles
+            ? playerDetails?.playing_roles
+            : null,
+        batting_andedness:
+          playerDetails && playerDetails?.batting_andedness
+            ? playerDetails?.batting_andedness
+            : null,
+        preferred_bowling_style:
+          playerDetails && playerDetails?.preferred_bowling_style
+            ? playerDetails?.preferred_bowling_style
+            : null,
+        preferred_batting_order:
+          playerDetails && playerDetails?.preferred_batting_order
+            ? playerDetails?.preferred_batting_order
+            : null,
+        personal_info_status: userData?.personal_info_status || "",
+        playing_details_status: userData?.playing_details_status || "",
+      }));
+    } catch (error) {
+      toast.error("Error fetching user data");
+      console.error("Fetch user data error:", error);
+    }
+  };
 
   useEffect(() => {
+    const savedFormData = JSON.parse(localStorage.getItem("formData"));
+    const savedSameAsPermanent = JSON.parse(localStorage.getItem("sameAsPermanent"));
+
+    if (savedFormData) {
+      setFormData(savedFormData);
+    }
+
+    if (savedSameAsPermanent) {
+      setSameAsPermanent(savedSameAsPermanent);
+    }
     const fetchOptions = async () => {
       try {
+        const trouserSizeResponse = await axios.get(
+          "https://my.ispl-t10.com/api/trouser_size"
+        );
+        setTrouserSize(trouserSizeResponse.data.data.trouser_sizes || []);
+
+        const jerseySizesResponse = await axios.get(
+          "https://my.ispl-t10.com/api/jersey_sizes"
+        );
+        setJerseySizes(jerseySizesResponse.data.data.jersey_sizes || []);
+
+        const shoeSizeSizesResponse = await axios.get(
+          "https://my.ispl-t10.com/api/shoe_size"
+        );
+        setShoeSize(shoeSizeSizesResponse.data.data.shoe_size || []);
+
+        const bloodGroupResponse = await axios.get(
+          "https://my.ispl-t10.com/api/blood_group"
+        );
+        setBloodGroup(bloodGroupResponse.data.data.blood_group || []);
+
         const rolesResponse = await axios.get(
           "https://my.ispl-t10.com/api/playing_roles"
         );
@@ -70,84 +215,6 @@ function RegistrationFormDashboard() {
         toast.error("Error fetching options");
       }
     };
-
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(
-          "https://my.ispl-t10.com/api/user-dashboard-api",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
-            },
-          }
-        );
-
-        const userData = response.data.users;
-        const is_city_updated = response.data.users.is_city_updated;
-        const { completed_status, form_city_edit } = response.data;
-        const is_email_verify = response.data.users.is_email_verify;
-        const is_mobile_verify = response.data.users.is_mobile_verify;
-
-        if (completed_status === 1 && form_city_edit === true) {
-          setShowModal(true);
-        }
-        if (is_email_verify === 0 && is_mobile_verify === 0) {
-          setVerifyModal(true);
-        }
-        if (
-          (is_city_updated === 1 && completed_status === 1) ||
-          (response.data.personal_info_status === "created" &&
-            response.data.playing_details_status === "created") ||
-          (response.data.personal_info_status === "updated" &&
-            response.data.playing_details_status === "updated")
-        ) {
-          navigate("/dashboard-golden-page");
-          window.location.reload();
-        } else {
-          navigate("/dashboard-session-2");
-          // window.location.reload();
-        }
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          first_name: userData.first_name || "",
-          middle_name: userData.middle_name || "",
-          surname: userData.surname || "",
-          date_of_birth: userData.date_of_birth || "",
-          permanent_address: userData.permanent_address || "",
-          current_address: userData.current_address || "",
-          adhar_card_no: userData.adhar_card_no || "",
-          phone_number: userData.mobile_number || "",
-          emergency_contact_no: userData.emergency_contact_no || "",
-          email: userData.email || "",
-          instagram_id: userData.instagram_id || "",
-          facebook_id: userData.facebook_id || "",
-          playing_roles:
-            userData.player_details && userData.player_details.playing_roles
-              ? userData.player_details.playing_roles
-              : null,
-          batting_andedness:
-            userData.player_details && userData.player_details.batting_andedness
-              ? userData.player_details.batting_andedness
-              : null,
-          preferred_bowling_style:
-            userData.player_details &&
-            userData.player_details.preferred_bowling_style
-              ? userData.player_details.preferred_bowling_style
-              : null,
-          preferred_batting_order:
-            userData.player_details &&
-            userData.player_details.preferred_batting_order
-              ? userData.player_details.preferred_batting_order
-              : null,
-          personal_info_status: userData.personal_info_status || "",
-          playing_details_status: userData.playing_details_status || "",
-        }));
-      } catch (error) {
-        toast.error("Error fetching user data");
-        console.error("Fetch user data error:", error);
-      }
-    };
-
     fetchOptions();
     fetchUserData();
   }, []);
@@ -176,38 +243,163 @@ function RegistrationFormDashboard() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const updatedFormData = { ...formData, [name]: value };
+    setFormData(updatedFormData);
+    localStorage.setItem("formData", JSON.stringify(updatedFormData));
+    let errorMessage = null;
+
+    // Aadhar Card validation
     if (name === "adhar_card_no" && !/^\d{0,12}$/.test(value)) {
-      setErrors({
-        ...errors,
-        [name]: "Aadhar Card number should be exactly 12 digits.",
-      });
-    } else {
-      setErrors({
-        ...errors,
-        [name]: null,
-      });
+      errorMessage = "Aadhar Card number should be exactly 12 digits.";
     }
 
-    setFormData({
-      ...formData,
+    // Pincode validation
+    if (
+      (name === "permanent_pincode" || name === "current_pincode") &&
+      !/^\d{0,6}$/.test(value)
+    ) {
+      errorMessage = "Pincode must be a 6-digit number.";
+    }
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: errorMessage,
+    }));
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       [name]: value,
-    });
+    }));
   };
+
+  const handleSameAsPermanentChange = (e) => {
+    const { checked } = e.target;
+    setSameAsPermanent(checked);
+    localStorage.setItem("sameAsPermanent", JSON.stringify(checked));
+
+    if (checked) {
+      const updatedFormData = {
+        ...formData,
+        current_address: formData.permanent_address,
+        current_city: formData.permanent_city,
+        current_state: formData.permanent_state,
+        current_pincode: formData.permanent_pincode,
+        current_locality: formData.permanent_locality,
+        current_landmark: formData.permanent_landmark,
+      };
+      setFormData(updatedFormData);
+      localStorage.setItem("formData", JSON.stringify(updatedFormData));
+    } else {
+      const updatedFormData = {
+        ...formData,
+        current_address: "",
+        current_city: "",
+        current_state: "",
+        current_pincode: "",
+        current_locality: "",
+        current_landmark: "",
+      };
+      setFormData(updatedFormData);
+      localStorage.setItem("formData", JSON.stringify(updatedFormData));
+    }
+  };
+  // const handleSameAsPermanentPincodeChange = (e) => {
+  //   const { checked } = e.target;
+  //   setSameAsPermanentPincode(checked);
+  //   if (checked) {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_pincode: prevFormData.permanent_pincode,
+  //     }));
+  //   } else {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_pincode: "",
+  //     }));
+  //   }
+  // };
+  // const handleSameAsPermanentStateChange = (e) => {
+  //   const { checked } = e.target;
+  //   setSameAsPermanentState(checked);
+  //   if (checked) {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_state: prevFormData.permanent_state,
+  //     }));
+  //   } else {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_state: "",
+  //     }));
+  //   }
+  // };
+  // const handleSameAsPermanentCityChange = (e) => {
+  //   const { checked } = e.target;
+  //   setSameAsPermanentCity(checked);
+  //   if (checked) {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_city: prevFormData.permanent_city,
+  //     }));
+  //   } else {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_city: "",
+  //     }));
+  //   }
+  // };
+  // const handleSameAsPermanentLocalityChange = (e) => {
+  //   const { checked } = e.target;
+  //   setSameAsPermanentLocality(checked);
+  //   if (checked) {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_locality: prevFormData.permanent_locality,
+  //     }));
+  //   } else {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_locality: "",
+  //     }));
+  //   }
+  // };
+
+  // const handleSameAsPermanentLandmarkChange = (e) => {
+  //   const { checked } = e.target;
+  //   setSameAsPermanentLandmark(checked);
+  //   if (checked) {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_landmark: prevFormData.permanent_landmark,
+  //     }));
+  //   } else {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       current_landmark: "",
+  //     }));
+  //   }
+  // };
 
   const handleSubmit = async (e, completed_status) => {
     e.preventDefault();
 
-    if (
-      playingRolesOptions.length === 0 ||
-      battingHandednessOptions.length === 0 ||
-      bowlingStyleOptions.length === 0 ||
-      battingOrderOptions.length === 0
-    ) {
-      toast.error("Options are not yet loaded. Please wait.");
-      return;
-    }
+    // if (
+    //   playingRolesOptions.length === 0 ||
+    //   battingHandednessOptions.length === 0 ||
+    //   bowlingStyleOptions.length === 0 ||
+    //   battingOrderOptions.length === 0
+    // ) {
+    //   toast.error("Options are not yet loaded. Please wait.");
+    //   return;
+    // }
 
     const validationErrors = {};
     if (!formData.first_name.trim()) {
@@ -248,9 +440,12 @@ function RegistrationFormDashboard() {
           return acc;
         }, {});
         setErrors(serverErrors);
-        toast.error("Please fix the errors before submitting.");
+        Object.entries(serverErrors).forEach(([field, error], index) => {
+          toast.error(`Error ${index + 1}: ${error}`);
+        });
         return;
       }
+
       if (completed_status === 0) {
         toast.info("Form is saved!");
       } else {
@@ -262,6 +457,16 @@ function RegistrationFormDashboard() {
           date_of_birth: "",
           permanent_address: "",
           current_address: "",
+          current_pincode: "",
+          permanent_pincode: "",
+          current_city: "",
+          permanent_city: "",
+          current_state: "",
+          permanent_state: "",
+          current_locality: "",
+          permanent_locality: "",
+          current_landmark: "",
+          permanent_landmark: "",
           adhar_card_no: "",
           phone_number: "",
           emergency_contact_no: "",
@@ -274,10 +479,14 @@ function RegistrationFormDashboard() {
           preferred_batting_order: null,
           personal_info_status: "",
           playing_details_status: "",
+          trouser_size: "",
+          jersey_sizes: "",
+          shoe_size: "",
+          blood_group: "",
         });
         setErrors({});
       }
-
+      await fetchUserData();
       if (
         completed_status === 1 &&
         ((updatedFormData.personal_info_status === "created" &&
@@ -395,42 +604,270 @@ function RegistrationFormDashboard() {
               <div className="error">{errors.date_of_birth}</div>
             )}
           </div>
-          <div className="form-group col-md-6 mb-4">
-            <label
-              htmlFor="permanent_address"
-              className="form-label text-light"
-            >
-              Permanent Address *
-            </label>
-            <textarea
-              id="permanent_address"
-              className={`form-control form-input ${
-                errors.permanent_address ? "is-invalid" : ""
-              }`}
-              name="permanent_address"
-              value={formData.permanent_address}
-              onChange={handleChange}
-            />
-            {errors.permanent_address && (
-              <div className="error">{errors.permanent_address}</div>
-            )}
+
+          <div className="col-lg-6 col-md-6 col-12">
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="permanent_address"
+                className="form-label text-light"
+              >
+                Permanent Address *
+              </label>
+              <textarea
+                id="permanent_address"
+                className={`form-control form-input ${
+                  errors.permanent_address ? "is-invalid" : ""
+                }`}
+                name="permanent_address"
+                value={formData.permanent_address}
+                onChange={handleChange}
+              />
+              {errors.permanent_address && (
+                <div className="error">{errors.permanent_address}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label htmlFor="permanent_city" className="form-label text-light">
+                Permanent City
+              </label>
+              <input
+                id="permanent_city"
+                className={`form-control form-input ${
+                  errors.permanent_city ? "is-invalid" : ""
+                }`}
+                name="permanent_city"
+                value={formData.permanent_city}
+                onChange={handleChange}
+              />
+              {errors.permanent_city && (
+                <div className="error">{errors.permanent_city}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="permanent_state"
+                className="form-label text-light"
+              >
+                Permanent State
+              </label>
+              <input
+                id="permanent_state"
+                className={`form-control form-input ${
+                  errors.permanent_state ? "is-invalid" : ""
+                }`}
+                name="permanent_state"
+                value={formData.permanent_state}
+                onChange={handleChange}
+              />
+              {errors.permanent_state && (
+                <div className="error">{errors.permanent_state}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="permanent_pincode"
+                className="form-label text-light"
+              >
+                Permanent Pincode
+              </label>
+              <input
+                id="permanent_pincode"
+                className={`form-control form-input ${
+                  errors.permanent_pincode ? "is-invalid" : ""
+                }`}
+                name="permanent_pincode"
+                value={formData.permanent_pincode}
+                onChange={handleChange}
+                onKeyPress={handleKeyPress}
+              />
+              {errors.permanent_pincode && (
+                <div className="error">{errors.permanent_pincode}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="permanent_locality"
+                className="form-label text-light"
+              >
+                Permanent Locality
+              </label>
+              <textarea
+                id="permanent_locality"
+                className={`form-control form-input ${
+                  errors.permanent_locality ? "is-invalid" : ""
+                }`}
+                name="permanent_locality"
+                value={formData.permanent_locality}
+                onChange={handleChange}
+              />
+              {errors.permanent_locality && (
+                <div className="error">{errors.permanent_locality}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="permanent_landmark"
+                className="form-label text-light"
+              >
+                Permanent Landmark
+              </label>
+              <textarea
+                id="permanent_landmark"
+                className={`form-control form-input ${
+                  errors.permanent_landmark ? "is-invalid" : ""
+                }`}
+                name="permanent_landmark"
+                value={formData.permanent_landmark}
+                onChange={handleChange}
+              />
+              {errors.permanent_landmark && (
+                <div className="error">{errors.permanent_landmark}</div>
+              )}
+            </div>
           </div>
-          <div className="form-group col-md-6 mb-4">
-            <label htmlFor="current_address" className="form-label text-light">
-              Current Address *
-            </label>
-            <textarea
-              id="current_address"
-              className={`form-control form-input ${
-                errors.current_address ? "is-invalid" : ""
-              }`}
-              name="current_address"
-              value={formData.current_address}
-              onChange={handleChange}
-            />
-            {errors.current_address && (
-              <div className="error">{errors.current_address}</div>
-            )}
+          <div className="col-lg-6 col-md-6 col-12">
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="current_address"
+                className="form-label text-light d-flex justify-content-between"
+              >
+                Current Address *
+                <div className="form-check checkBoxWrap">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="sameAsPermanent"
+                    name="sameAsPermanent"
+                    checked={sameAsPermanent}
+                    onChange={handleSameAsPermanentChange}
+                  />
+                  <label className="form-check-label" htmlFor="sameAsPermanent">
+                    Same as Permanent Address
+                  </label>
+                </div>
+              </label>
+
+              <textarea
+                id="current_address"
+                className={`form-control form-input ${
+                  errors.current_address ? "is-invalid" : ""
+                }`}
+                name="current_address"
+                value={formData.current_address}
+                onChange={handleChange}
+                disabled={sameAsPermanent}
+              />
+              {errors.current_address && (
+                <div className="error">{errors.current_address}</div>
+              )}
+            </div>
+
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="current_city"
+                className="form-label text-light d-flex justify-content-between"
+              >
+                Current City
+              </label>
+              <input
+                id="current_city"
+                className={`form-control form-input ${
+                  errors.current_city ? "is-invalid" : ""
+                }`}
+                name="current_city"
+                value={formData.current_city}
+                onChange={handleChange}
+                disabled={sameAsPermanent}
+              />
+              {errors.current_city && (
+                <div className="error">{errors.current_city}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="current_state"
+                className="form-label text-light d-flex justify-content-between"
+              >
+                Current State
+              </label>
+              <input
+                id="current_state"
+                className={`form-control form-input ${
+                  errors.current_state ? "is-invalid" : ""
+                }`}
+                name="current_state"
+                value={formData.current_state}
+                onChange={handleChange}
+                disabled={sameAsPermanent}
+              />
+              {errors.current_state && (
+                <div className="error">{errors.current_state}</div>
+              )}
+            </div>
+
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="current_pincode"
+                className="form-label text-light d-flex justify-content-between"
+              >
+                Current Pincode
+              </label>
+              <input
+                id="current_pincode"
+                className={`form-control form-input ${
+                  errors.current_pincode ? "is-invalid" : ""
+                }`}
+                name="current_pincode"
+                value={formData.current_pincode}
+                onChange={handleChange}
+                disabled={sameAsPermanent}
+              />
+              {errors.current_pincode && (
+                <div className="error">{errors.current_pincode}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="current_locality"
+                className="form-label text-light d-flex justify-content-between"
+              >
+                Current Locality
+              </label>
+              <textarea
+                id="current_locality"
+                className={`form-control form-input ${
+                  errors.current_locality ? "is-invalid" : ""
+                }`}
+                name="current_locality"
+                value={formData.current_locality}
+                onChange={handleChange}
+                disabled={sameAsPermanent}
+              />
+              {errors.current_locality && (
+                <div className="error">{errors.current_locality}</div>
+              )}
+            </div>
+            <div className="form-group col-md-12 mb-4">
+              <label
+                htmlFor="current_landmark"
+                className="form-label text-light d-flex justify-content-between"
+              >
+                Current Landmark
+              </label>
+              <textarea
+                id="current_landmark"
+                className={`form-control form-input ${
+                  errors.current_landmark ? "is-invalid" : ""
+                }`}
+                name="current_landmark"
+                value={formData.current_landmark}
+                onChange={handleChange}
+                disabled={sameAsPermanent}
+              />
+              {errors.current_landmark && (
+                <div className="error">{errors.current_landmark}</div>
+              )}
+            </div>
           </div>
         </div>
         <div className="row mt-3 mb-3">
@@ -561,6 +998,7 @@ function RegistrationFormDashboard() {
         <div className="row mt-3 mb-3">
           <SectionTitle titleText="PLAYING DETAILS" />
         </div>
+
         <div className="row mb-3">
           <div className="col-md-6 mb-4">
             <label htmlFor="playing_roles" className="form-label text-light">
@@ -575,7 +1013,7 @@ function RegistrationFormDashboard() {
               value={formData.playing_roles}
               onChange={handleChange}
             >
-              <option>Select Playing Roles</option>
+              <option value="Playing Roles">Select Playing Roles</option>
               {playingRolesOptions.map((role, index) => (
                 <option key={index} value={role}>
                   {role}
@@ -602,7 +1040,9 @@ function RegistrationFormDashboard() {
               value={formData.batting_andedness}
               onChange={handleChange}
             >
-              <option>Select Batting Handedness</option>
+              <option value="Select Batting Handedness">
+                Select Batting Handedness
+              </option>
               {battingHandednessOptions.map((handedness, index) => (
                 <option key={index} value={handedness}>
                   {handedness}
@@ -629,7 +1069,9 @@ function RegistrationFormDashboard() {
               value={formData.preferred_bowling_style}
               onChange={handleChange}
             >
-              <option>Select Preferred Bowling Style</option>
+              <option value="Preferred Bowling Style">
+                Select Preferred Bowling Style
+              </option>
               {bowlingStyleOptions.map((style, index) => (
                 <option key={index} value={style}>
                   {style}
@@ -657,7 +1099,9 @@ function RegistrationFormDashboard() {
               value={formData.preferred_batting_order}
               onChange={handleChange}
             >
-              <option>Select Preferred Batting Order</option>
+              <option value="Preferred Batting Order">
+                Select Preferred Batting Order
+              </option>
               {battingOrderOptions.map((order, index) => (
                 <option key={index} value={order}>
                   {order}
@@ -669,6 +1113,109 @@ function RegistrationFormDashboard() {
             )}
           </div>
         </div>
+        <div className="row mt-3 mb-3">
+          <SectionTitle titleText="PLAYER JERSEY DETAILS" />
+        </div>
+
+        <div className="row mb-3">
+          <div className="col-md-3 mb-4">
+            <label htmlFor="trouser_size" className="form-label text-light">
+              Trouser Size
+            </label>
+            <select
+              id="trouser_size"
+              name="trouser_size"
+              className={`form-select form-input ${
+                errors.trouser_size ? "is-invalid" : ""
+              }`}
+              value={formData.trouser_size}
+              onChange={handleChange}
+            >
+              <option value="Trouser Size">Trouser Size</option>
+              {trouserSize.map((size) => (
+                <option key={size.id} value={size.id}>
+                  {size.description} - {size.waist_size}
+                </option>
+              ))}
+            </select>
+            {errors.trouser_size && (
+              <div className="error">{errors.trouser_size}</div>
+            )}
+          </div>
+          <div className="col-md-3 mb-4">
+            <label htmlFor="jersey_sizes" className="form-label text-light">
+              T-Shirt Size
+            </label>
+            <select
+              className={`form-select form-input ${
+                errors.jersey_sizes ? "is-invalid" : ""
+              }`}
+              name="jersey_sizes"
+              id="jersey_sizes"
+              value={formData.jersey_sizes}
+              onChange={handleChange}
+            >
+              <option value="T-Shirt Size">T-Shirt Size</option>
+              {jerseySizes.map((handedness, index) => (
+                <option key={index} value={handedness.id}>
+                  {handedness.size_name}
+                </option>
+              ))}
+            </select>
+            {errors.jersey_sizes && (
+              <div className="error">{errors.jersey_sizes}</div>
+            )}
+          </div>
+          <div className="col-md-3 mb-4">
+            <label htmlFor="shoe_size" className="form-label text-light">
+              Shoes Size
+            </label>
+            <select
+              className={`form-select form-input ${
+                errors.shoe_size ? "is-invalid" : ""
+              }`}
+              name="shoe_size"
+              id="shoe_size"
+              value={formData.shoe_size}
+              onChange={handleChange}
+            >
+              <option value="Shoes Size">Shoes Size</option>
+              {shoeSize.map((style, index) => (
+                <option key={index} value={style.size_number}>
+                  {style.description} - {style.size_number}
+                </option>
+              ))}
+            </select>
+            {errors.shoe_size && (
+              <div className="error">{errors.shoe_size}</div>
+            )}
+          </div>
+          <div className="col-md-3 mb-4">
+            <label htmlFor="blood_group" className="form-label text-light">
+              Blood Group
+            </label>
+            <select
+              required
+              className={`form-select form-input ${
+                errors.blood_group ? "is-invalid" : ""
+              }`}
+              name="blood_group"
+              value={formData.blood_group}
+              onChange={handleChange}
+            >
+              <option value="Blood Group">Blood Group</option>
+              {bloodGroup.map((order, index) => (
+                <option key={index} value={order.blood_group}>
+                  {order.blood_group}
+                </option>
+              ))}
+            </select>
+            {errors.blood_group && (
+              <div className="error">{errors.blood_group}</div>
+            )}
+          </div>
+        </div>
+
         <div className="row mt-3 mb-3">
           <SectionTitle titleText="Upload documents" />
         </div>

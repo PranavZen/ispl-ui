@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../joinIsplSectionWrap/joinisplsection.css";
 import { ball } from "../../../../assets/imagePath";
 import SqareButton from "../../../common/cta/SqareButton";
+import axios from "axios";
 
 function JoinIsplSection() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [completedStatus, setCompletedStatus] = useState(0);
+
+  useEffect(() => {
+    const token = localStorage.getItem("apiToken");
+    if (token) {
+      setIsLoggedIn(true);
+      fetchUserDashboard();
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [isLoggedIn]);
+
+  const fetchUserDashboard = async () => {
+    try {
+      const response = await axios.get(
+        "https://my.ispl-t10.com/api/user-dashboard-api",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
+          },
+        }
+      );
+      // Assuming response.data contains the completed_status
+      setCompletedStatus(response.data.completed_status);
+    } catch (error) {
+      console.error("Error fetching user dashboard:", error);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("apiToken");
+    setIsLoggedIn(false);
+  };
+
   return (
     <section id="joinIsplSection">
       <div className="container">
@@ -37,14 +73,16 @@ function JoinIsplSection() {
                     <li>#Street2stadium</li>
                   </ul>
                 </div>
-                <SqareButton
-                  classNameText="sqrBtn"
-                  btnName="Register Now"
-                  svgFill="#CAF75A"
-                  textColor="#CAF75A"
-                  bordercolor="#CAF75A"
-                  btnLinkUrl="/registration"
-                />
+                {completedStatus !== 1 && (
+                  <SqareButton
+                    classNameText="sqrBtn"
+                    btnName="Register Now"
+                    svgFill="#CAF75A"
+                    textColor="#CAF75A"
+                    bordercolor="#CAF75A"
+                    btnLinkUrl="/registration"
+                  />
+                )}
               </div>
             </div>
           </div>
