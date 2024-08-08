@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../pointTableSectionWrap/pointtablesection.css";
 import Tabs from "./Tabs";
-import PointsTableCard from "./pointscard/PointsTableCard";
 import MatchResultCard from "./matchresultcard/MatchResultCard";
-import TableSlider from "./tableSliderLayout/TableSlider";
-import {
-  qlfy,
-  team1,
-  team2,
-  team3,
-  team4,
-  team5,
-} from "../../../../assets/imagePath";
 import SqareButton from "../../../common/cta/SqareButton";
 import ResultSlider from "./tableSliderLayout/ResultSlider";
 
 import axios from "axios";
+import Spinner from "../../matchPageComponents/spinnercomponent/Spinner";
 
 function formatDate(dateString) {
   const options = { day: "numeric", month: "short", year: "numeric" };
@@ -75,7 +66,7 @@ function PointTableSection() {
         <div className="row">
           <div className="col-lg-10 col-md-12 mx-auto">
             <Tabs>
-              <div
+              {/* <div
                 label="Points Table"
                 spanImg='<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
 <path d="M4.125 15.75C3.62772 15.75 3.15081 15.5525 2.79917 15.2008C2.44754 14.8492 2.25 14.3723 2.25 13.875V1.125C2.25 0.826631 2.13147 0.540483 1.9205 0.329505C1.70952 0.118526 1.42337 0 1.125 0C0.826631 0 0.540483 0.118526 0.329505 0.329505C0.118526 0.540483 0 0.826631 0 1.125L0 13.875C0 14.969 0.434597 16.0182 1.20818 16.7918C1.98177 17.5654 3.03098 18 4.125 18H16.875C17.1734 18 17.4595 17.8815 17.6705 17.6705C17.8815 17.4595 18 17.1734 18 16.875C18 16.5766 17.8815 16.2905 17.6705 16.0795C17.4595 15.8685 17.1734 15.75 16.875 15.75H4.125Z" fill="white"/>
@@ -156,16 +147,7 @@ function PointTableSection() {
                     fullPtsLink="/"
                   />
                 </TableSlider>
-                {/* <div className="tabBtnWrap">
-                  <SqareButton
-                    classNameText="sqrBtn"
-                    btnName="Full Points Table"
-                    svgFill="#CAF75A"
-                    textColor="#CAF75A"
-                    bordercolor="#CAF75A"
-                  />
-                </div> */}
-              </div>
+              </div> */}
               <div
                 label="Match Result"
                 spanImg='<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -174,7 +156,7 @@ function PointTableSection() {
               >
                 <ResultSlider>
                   {loading ? (
-                    <div>Loading</div>
+                    <Spinner />
                   ) : (
                     matches.map((match) => (
                       <MatchResultCard

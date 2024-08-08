@@ -1248,7 +1248,7 @@ function RegistrationFormDashboard() {
             />
           </div>
         </div>
-        <div className="col-md-12 d-flex align-items-center justify-content-around mt-5">
+        <div className="col-md-12 d-flex align-items-center justify-content-around mt-5 mobileBtn">
           <SqareButton
             classNameText="sqrBtn mt-3"
             btnName="Complete registration Later"

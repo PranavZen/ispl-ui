@@ -465,3 +465,9 @@ input {
   right: 1%;
   z-index: 9;
 }
+
+.lastLink {
+  .nav-link {
+    gap: 0 !important;
+  }
+}

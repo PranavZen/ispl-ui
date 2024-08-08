@@ -37,6 +37,11 @@
   color: #fff;
   margin-bottom: 1rem;
 }
+@media (max-width: 767px) {
+  #registrationFormSection .form-label {
+    font-size: 1.4rem;
+  }
+}
 #registrationFormSection .form-check {
   display: flex;
   align-items: center;
@@ -53,6 +58,11 @@
   width: 1.4rem;
   cursor: pointer;
   margin-right: 0.5rem;
+}
+@media (max-width: 767px) {
+  #registrationFormSection .form-check-input {
+    margin-right: 0;
+  }
 }
 #registrationFormSection .form-control {
   font-size: 1.6rem;
@@ -104,8 +114,29 @@
   width: 2rem;
   height: 2rem;
 }
+@media (max-width: 767px) {
+  #registrationFormSection .checkBoxWrap .form-check-input {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
 #registrationFormSection .checkBoxWrap .form-check-label {
   font-size: 1.8rem;
   font-weight: 600;
   color: #fff;
+}
+@media (max-width: 767px) {
+  #registrationFormSection .checkBoxWrap .form-check-label {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  #registrationFormSection .mobileBtn {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  #registrationFormSection .mobileBtn .sqrBtn {
+    width: 100%;
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=registration.css.map */

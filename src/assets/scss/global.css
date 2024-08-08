@@ -477,4 +477,8 @@ input {
   bottom: 3%;
   right: 1%;
   z-index: 9;
+}
+
+.lastLink .nav-link {
+  gap: 0 !important;
 }/*# sourceMappingURL=global.css.map */

@@ -16,10 +16,21 @@ function ResultSlider({children}) {
     autoplaySpeed: 2500,
     responsive: [
       {
-        breakpoint: 1025,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          centerMode: false,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: false,
+          arrows: true,
         },
       },
       {
@@ -28,6 +39,8 @@ function ResultSlider({children}) {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: false,
+          arrows: true,
         },
       },
       {

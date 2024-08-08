@@ -22,11 +22,35 @@ function TableSlider({ children }) {
         },
       },
       {
+        breakpoint: 1024,
+        settings: {
+          centerMode: false,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: false,
+          arrows: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: false,
+          arrows: true,
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
+          centerMode: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: false,
+          arrows: true,
         },
       },
     ],
