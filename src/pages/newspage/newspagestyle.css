@@ -14,6 +14,8 @@
 }
 .newList li a {
   display: block;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .newList li a span {
   color: #ebf0ff;
@@ -32,14 +34,14 @@
 .newList li a span i {
   padding-left: 1rem;
   font-size: 2rem;
-  color: #caf75a;
+  color: #fbe29a;
   font-size: 1.8rem;
 }
 .newList li a span i:hover {
-  color: #caf75a;
+  color: #fbe29a;
 }
 .newList li a:hover span {
-  color: #caf75a;
+  color: #fbe29a;
 }
 
 .newsGridWrap {

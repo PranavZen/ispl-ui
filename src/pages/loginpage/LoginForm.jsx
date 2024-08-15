@@ -434,9 +434,9 @@ function LoginForm() {
               <SqareButton
                 classNameText="sqrBtn"
                 btnName={showOTP ? "Verify OTP" : "Login Now"}
-                svgFill="#caf75a"
-                textColor="#caf75a"
-                bordercolor="#caf75a"
+                svgFill="#fbe29a"
+                textColor="#fbe29a"
+                bordercolor="#fbe29a"
                 type="submit"
                 onClick={showOTP ? handleVerifyOTP : handleSubmit}
                 disabled={loading}

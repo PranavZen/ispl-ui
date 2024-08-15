@@ -12,7 +12,7 @@ function TableSlider({ children }) {
     slidesToScroll: 3,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 2500, 
     responsive: [
       {
         breakpoint: 1100,

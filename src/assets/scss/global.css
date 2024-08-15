@@ -148,16 +148,16 @@ input {
   transform: skew(30deg, 0deg);
 }
 .tabs .tab.active {
-  border-color: #caf75a;
-  background-color: #caf75a;
+  border-color: #fbe29a;
+  background-color: #fbe29a;
   color: #263574;
 }
 .tabs .tab.active span path {
   fill: #263574;
 }
 .tabs .tab:hover {
-  border-color: #caf75a;
-  background-color: #caf75a;
+  border-color: #fbe29a;
+  background-color: #fbe29a;
   color: #263574;
 }
 .tabs .tab:hover span path {

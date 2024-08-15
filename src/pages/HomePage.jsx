@@ -21,31 +21,28 @@ function HomePage() {
         <meta name="keywords" content="home, main, index" />
         <meta name="author" content="Author Name" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Home Page" />
+        <meta property="og:title" content="ISPL T10 | Home" />
         <meta
           property="og:description"
           content="This is the home page of our website."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ispl-t10.com" />
-        <meta
-          property="og:image"
-          content="https://www.ispl-t10.com/static/media/logo.efebca2aff231fa932c2.webp"
-        />
+        <meta property="og:image" content="https://ispl-t10.com/logo.png" />
         <meta property="og:image:width" content="90" />
         <meta property="og:image:height" content="90" />
-        <meta property="og:image:type" content="image/jpg"/>
-        <meta name="twitter:image:type" content="image/jpg"/>
+        <meta property="og:image:type" content="image/png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ISPL T10 Home Page" />
+        <meta name="twitter:title" content="ISPL T10 | Home" />
         <meta
           name="twitter:description"
           content="This is the home page of our website."
         />
         <meta
           name="twitter:image"
-          content="https://www.ispl-t10.com/static/media/logo.efebca2aff231fa932c2.webp"
+          content="https://ispl-t10.com/logo.png"
         />
+        <meta name="twitter:image:type" content="image/png" />
         <meta name="twitter:site" content="@ispl_t10" />
         <meta name="twitter:creator" content="@ispl_t10" />
         <link rel="canonical" href="https://ispl-t10.com" />

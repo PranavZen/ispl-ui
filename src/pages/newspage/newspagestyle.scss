@@ -17,6 +17,7 @@
     }
     a {
       display: block;
+      width: fit-content;
       span {
         color: #ebf0ff;
         font-size: 1.8rem;
@@ -31,16 +32,16 @@
         i {
           padding-left: 1rem;
           font-size: 2rem;
-          color: #caf75a;
+          color: #fbe29a;
           font-size: 1.8rem;
           &:hover {
-            color: #caf75a;
+            color: #fbe29a;
           }
         }
       }
       &:hover {
         span {
-          color: #caf75a;
+          color: #fbe29a;
         }
       }
     }

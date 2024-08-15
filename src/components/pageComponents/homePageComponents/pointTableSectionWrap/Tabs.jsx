@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 function Tabs({ children }) {
   // Ensure children is an array
   const tabsArray = React.Children.toArray(children);
+  // console.log("tabsArray " , tabsArray)
   const location = useLocation();
 
   // Set initial activeTab if there are children, otherwise set to null
@@ -38,7 +39,7 @@ function Tabs({ children }) {
 
   const handleTabClick = (label) => {
     setActiveTab(label);
-    window.location.hash = label; // Change the URL hash when a tab is clicked
+    window.location.hash = label;
   };
 
   return (

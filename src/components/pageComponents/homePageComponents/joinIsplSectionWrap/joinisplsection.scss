@@ -13,13 +13,13 @@
   }
   .joinIsplWrap {
     position: relative;
-    background-image: url(../../../../assets/images/joinisplbg.webp);
+    background-image: url(../../../../assets/images/joinisplbg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 47rem;
-    border-radius: 0.6rem;
+    // border-radius: 0.6rem;
     overflow: hidden;
     @include d-desktop {
       height: 40rem;

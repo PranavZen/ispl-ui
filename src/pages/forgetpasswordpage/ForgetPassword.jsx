@@ -257,9 +257,9 @@ function ForgetPassword() {
                         <SqareButton
                           classNameText="sqrBtn"
                           btnName="Reset Password"
-                          svgFill="#caf75a"
-                          textColor="#caf75a"
-                          bordercolor="#caf75a"
+                          svgFill="#fbe29a"
+                          textColor="#fbe29a"
+                          bordercolor="#fbe29a"
                           type="submit"
                         />
                       </div>
@@ -271,9 +271,9 @@ function ForgetPassword() {
                       <SqareButton
                         classNameText="sqrBtn"
                         btnName="Verify OTP"
-                        svgFill="#caf75a"
-                        textColor="#caf75a"
-                        bordercolor="#caf75a"
+                        svgFill="#fbe29a"
+                        textColor="#fbe29a"
+                        bordercolor="#fbe29a"
                         type="submit"
                       />
                     </div>

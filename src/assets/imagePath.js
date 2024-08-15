@@ -1,4 +1,5 @@
-export { default as logo } from "../assets/images/logo.webp";
+// export { default as logo } from "../assets/images/logo.webp";
+export { default as logo } from "../assets/images/ISPL-season2-logo.png";
 export { default as fooLeft } from "../assets/images/foo-left.png";
 export { default as img1 } from "../assets/images/Rectangle 100.png";
 export { default as img2 } from "../assets/images/Rectangle 101.png";

@@ -77,9 +77,9 @@ function JoinIsplSection() {
                   <SqareButton
                     classNameText="sqrBtn"
                     btnName="Register Now"
-                    svgFill="#CAF75A"
-                    textColor="#CAF75A"
-                    bordercolor="#CAF75A"
+                    svgFill="#fbe29a"
+                    textColor="#fbe29a"
+                    bordercolor="#fbe29a"
                     btnLinkUrl="/registration"
                   />
                 )}

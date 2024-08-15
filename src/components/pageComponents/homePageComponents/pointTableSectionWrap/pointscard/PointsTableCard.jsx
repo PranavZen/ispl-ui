@@ -9,7 +9,7 @@ function PointsTableCard({
   teamName,
   pts,
   playedgames,
-  winsPt,
+  winsPt, 
   nrr,
   winLable,
   lossLable,

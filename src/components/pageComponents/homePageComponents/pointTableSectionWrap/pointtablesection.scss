@@ -1,7 +1,7 @@
 @import "../../../../assets/scss/media";
 #pointsTableSection {
   padding: 10rem 0 0;
-  background-image: url(../../../../assets/images/pointstablebg.png);
+  background-image: url(../../../../assets/images/pointstablebg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -145,7 +145,7 @@
         margin-top: 8rem;
         .sqrBtn {
           &:hover {
-            background-color: #caf75a;
+            background-color: #fbe29a;
             color: #263574 !important;
             span{
               svg{

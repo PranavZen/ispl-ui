@@ -136,7 +136,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.ptinews.com/story/sports/East-Zone-cricketer-Dalhor-bought-for-Rs-27-lakh-in-ISPL-auction/1316141"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     1. East Zone cricketer Dalhor bought for Rs 27 lakh in ISPL
@@ -174,7 +175,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.mid-day.com/sports/cricket/article/rs-27-lakh-for-abhishek-dalhor-lock-kiya-jaye-say-team-big-b-23336979"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     4. Rs 27 lakh for Abhishek Dalhor? Lock kiya jaye, say Team
@@ -185,7 +187,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.amarujala.com/photo-gallery/entertainment/ispl-auction-press-conferance-tiger-of-kolkata-owner-saif-ali-khan-manjhi-mumbai-abhishek-bachchan-2024-02-25"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     5. ISPL: आईएसपीएल को लेकर उत्साहित हैं बॉलीवुड सितारे,
@@ -197,7 +200,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://theprint.in/sport/east-zone-cricketer-dalhor-bought-for-rs-27-lakh-in-ispl-auction/1978562/"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     6. East Zone cricketer Dalhor bought for Rs 27 lakh in ISPL
@@ -209,7 +213,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.lokmattimes.com/cricket/news/when-i-was-11-or-12-i-was-not-selected-sachin-tendulkar-recalls-setback-during-cricketing-journey/"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     7. When I was 11 or 12, I was not selected.....: Sachin
@@ -221,7 +226,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.sportstiger.com/photos/cricket/in-pictures-glimpses-from-ispl-inaugural-season-auction"
-                  data-fancybox="gallery"
+                 target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     8. In pictures: Glimpses from ISPL inaugural season auction
@@ -232,7 +238,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.risingkashmir.com/anantnags-farhat-ahmad-auctioned-in-maiden-ispl-4a02dafe-f922-4846-bb97-6b5213a335b7"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     9. Anantnag's Farhat Ahmad auctioned in maiden ISPL
@@ -256,7 +263,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.latestly.com/agency-news/entertainment-news-ispl-saif-ali-khan-opens-up-on-his-love-for-cricket-and-city-of-joy-kolkata-5782329.html#google_vignette"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     11. Entertainment News | ISPL: Saif Ali Khan Opens Up on His
@@ -268,7 +276,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.bollywoodhungama.com/news/parties-and-events/photos-saif-ali-khan-sachin-tendulkar-snapped-ispl-indian-street-premiere-league-event/"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     12. Saif Ali Khan, Abhishek Bachchan and Sachin Tendulkar
@@ -280,7 +289,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://hindi.asianetnews.com/webstories/entertainment/entertainment-news/saif-ali-khan-abhishek-bachchan-sachin-tendulkar-were-present-in-ispl-auction-rps-d4zq5rz"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     13. IPL के बाद मचेगी ISPL की धूम, ऑक्शन मेंपहुंचेये हफल्म
@@ -305,7 +315,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.outlookindia.com/sports/cricket/indian-street-premier-league-2024-abhishek-kumar-dalhor-hits-jackpot-joins-amitabh-bachchan-owned-majhi-mumbai-for-inr-27-lakh"
-                  data-fancybox="gallery"
+                 target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     15. Indian Street Premier League 2024: Abhishek Kumar Dalhor
@@ -331,7 +342,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.dailyexcelsior.com/east-zone-cricketer-dalhor-bought-for-rs-27-lakh-in-ispl-auction/"
-                  data-fancybox="gallery"
+                 target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     17. East Zone cricketer Dalhor bought for Rs 27 lakh in ISPL
@@ -355,8 +367,9 @@ function NewsPages() {
               </li>
               <li>
                 <Link
-                  to="https://www.ptinews.com/story/sports/East-Zone-cricketer-Dalhor-bought-for-Rs-27-lakh-in-ISPL-auction/1316141"
-                  data-fancybox="gallery"
+                  to="https://hindi.asianetnews.com/webstories/entertainment/entertainment-news/saif-ali-khan-abhishek-bachchan-sachin-tendulkar-were-present-in-ispl-auction-rps-d4zq5rz"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     19. Films stars at the ISPL auction
@@ -384,8 +397,7 @@ function NewsPages() {
                   rel="noopener noreferrer"
                 >
                   <span>
-                    21. आहदवासी बाहल्य हिलेसे हआ ISPL मेचयन:कलेक्टर नेसम्माहनत
-                    कर हकया आहथाक सियोग
+                    21. आदिवासी बाहुल्य जिले से हुआ ISPL मे चयन:कलेक्टर ने सम्मानित कर किया आर्थिक सहयोग
                     <i>( Dainik Bhaskar )</i>
                   </span>
                 </Link>
@@ -393,7 +405,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.newsdrum.in/sports/east-zone-cricketer-dalhor-bought-for-rs-27-lakh-in-ispl-auction-3999111"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     22. East Zone cricketer Dalhor bought for Rs 27 lakh in ISPL
@@ -405,7 +418,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.latestly.com/agency-news/sports-news-east-zone-cricketer-dalhor-bought-for-rs-27-lakh-in-ispl-auction-5782438.html"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     23. Sports News | East Zone Cricketer Dalhor Bought for Rs
@@ -417,7 +431,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.devdiscourse.com/article/sports-games/2839697-east-zone-cricketer-dalhor-bought-for-rs-27-lakh-in-ispl-auction"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     24. East Zone cricketer Dalhor bought for Rs 27 lakh in ISPL
@@ -429,7 +444,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.lokmattimes.com/cricket/news/ispl-2024-list-of-top-10-costliest-buys-in-indian-street-premier-league-auction-a507/"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     25. ISPL 2024: List of top 10 costliest buys in Indian
@@ -441,7 +457,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://sportsmintmedia.com/chennai-singams-emerge-top-bidder-at-ispl-auction-by-spending-inr-96-4-lakh/"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     26. Chennai Singams emerge top bidder at ISPL auction by
@@ -453,7 +470,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.sportstiger.com/photos/cricket/top-5-under-19-players-in-ispl-auction-2024"
-                  data-fancybox="gallery"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     27. Top 5 Under-19 Players in ISPL Auction 2024
@@ -477,7 +495,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://globalnewsmakers.wordpress.com/2024/02/25/bidding-wars-and-big-bucks-indian-street-premier-league-ispl-auction-showcases-tennis-ball-crickets-finest-in-high-stakes-showdown/"
-                  data-fancybox
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     29. Bidding Wars and Big Bucks: Indian Street Premier League
@@ -695,7 +714,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://telanganatoday.com/when-i-was-11-or-12-i-was-not-selected-sachin-tendulkar-recalls-setback-during-cricketing-journey"
-                  data-fancybox="gallery"
+                 target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     46. #SachinTendulkar reflects on his #cricket journey from
@@ -720,7 +740,8 @@ function NewsPages() {
               <li>
                 <Link
                   to="https://www.amarujala.com/video/entertainment/bollywood/ispl-auction-saif-ali-khan-and-abhishek-bachchan-said-this-2024-02-25"
-                  data-fancybox
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <span>
                     48. ISPL Auction: Saif Ali Khan And Abhishek Bachchan Said
@@ -735,8 +756,7 @@ function NewsPages() {
                   data-fancybox
                 >
                   <span>
-                    49. ISPL के AUCTION मैं हकसके उपर िादा बोली लगी 😱 27 Lakh
-                    😱
+                    49. ISPL के AUCTION मैं किसके उपर जादा बोली लगी 😱 27 Lakh 😱
                     <i>( PLD Sports )</i>
                   </span>
                 </Link>
@@ -759,8 +779,7 @@ function NewsPages() {
                   data-fancybox
                 >
                   <span>
-                    51. LIVE : टेहनस हिके ट ISPL कौनसेखिलाडी को हकतना पैसा हमला
-                    ? ISPL UPDATE TENNIS CRICKET
+                    51. 🔴LIVE : टेनिस क्रिकेट ISPL कौनसे खिलाडी को कितना पैसा मिला ? ISPL UPDATE TENNIS CRICKET
                     <i>( Bhiwandi Cricket TV )</i>
                   </span>
                 </Link>

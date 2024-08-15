@@ -1252,18 +1252,18 @@ function RegistrationFormDashboard() {
           <SqareButton
             classNameText="sqrBtn mt-3"
             btnName="Complete registration Later"
-            svgFill="#caf75a"
-            textColor="#caf75a"
-            bordercolor="#caf75a"
+            svgFill="#fbe29a"
+            textColor="#fbe29a"
+            bordercolor="#fbe29a"
             type="submit"
             onClick={(e) => handleSubmit(e, 0)}
           />
           <SqareButton
             classNameText="sqrBtn mt-3"
             btnName="Complete registration"
-            svgFill="#caf75a"
-            textColor="#caf75a"
-            bordercolor="#caf75a"
+            svgFill="#fbe29a"
+            textColor="#fbe29a"
+            bordercolor="#fbe29a"
             type="submit"
             onClick={(e) => handleSubmit(e, 1)}
           />

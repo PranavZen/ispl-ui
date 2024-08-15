@@ -208,9 +208,9 @@ function VerifyModal({ closeVerifyModal }) {
               <SqareButton
                 classNameText="sqrBtn"
                 btnName={otpSent ? "Verify OTP" : "Send OTP"}
-                svgFill="#caf75a"
-                textColor="#caf75a"
-                bordercolor="#caf75a"
+                svgFill="#fbe29a"
+                textColor="#fbe29a"
+                bordercolor="#fbe29a"
                 type="submit"
                 disabled={!!error || loading}
               />

@@ -176,8 +176,8 @@
 }
 .matchDetailsCustom .continue-bn.txt16 .sqrBtn:hover {
   color: #263574 !important;
-  background-color: #caf75a;
-  border-color: #caf75a !important;
+  background-color: #fbe29a;
+  border-color: #fbe29a !important;
 }
 .matchDetailsCustom .continue-bn.txt16 .sqrBtn:hover svg path {
   fill: #263574 !important;
@@ -188,7 +188,7 @@
 }
 .matchDetailsCustom .continue-bn .sqrBtn:hover {
   color: white !important;
-  background-color: #caf75a;
+  background-color: #fbe29a;
 }
 .matchDetailsCustom .continue-bn .sqrBtn:hover svg path {
   fill: white !important;

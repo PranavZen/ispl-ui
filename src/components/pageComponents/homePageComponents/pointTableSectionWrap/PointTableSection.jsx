@@ -4,9 +4,11 @@ import Tabs from "./Tabs";
 import MatchResultCard from "./matchresultcard/MatchResultCard";
 import SqareButton from "../../../common/cta/SqareButton";
 import ResultSlider from "./tableSliderLayout/ResultSlider";
-
 import axios from "axios";
 import Spinner from "../../matchPageComponents/spinnercomponent/Spinner";
+import { qlfy, team1, team2, team3, team4, team5 } from "../../../../assets/imagePath";
+import TableSlider from "./tableSliderLayout/TableSlider";
+import PointsTableCard from "./pointscard/PointsTableCard";
 
 function formatDate(dateString) {
   const options = { day: "numeric", month: "short", year: "numeric" };
@@ -30,7 +32,7 @@ function formatTime(timeString) {
 function PointTableSection() {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  console.log("matches :", matches)
   useEffect(() => {
     const fetchMatches = async () => {
       try {
@@ -173,8 +175,8 @@ function PointTableSection() {
                         finalresult={getWinMessage(match)}
                         location={match.stadium_name}
                         to_team_name={match.to_team_name}
-                        team1Logo={match.to_team_logo}
-                        team2Logo={match.from_team_logo}
+                        team1Logo={match.from_team_logo}
+                        team2Logo={match.to_team_logo}
                       />
                     ))
                   )}
@@ -183,9 +185,9 @@ function PointTableSection() {
                   <SqareButton
                     classNameText="sqrBtn"
                     btnName="Full Match Result"
-                    svgFill="#CAF75A"
-                    textColor="#CAF75A"
-                    bordercolor="#CAF75A"
+                    svgFill="#fbe29a"
+                    textColor="#fbe29a"
+                    bordercolor="#fbe29a"
                     btnLinkUrl="/matches"
                   />
                 </div>

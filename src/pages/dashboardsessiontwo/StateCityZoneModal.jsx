@@ -210,9 +210,9 @@ function StateCityZoneModal({ closeModal }) {
             <SqareButton
               classNameText="sqrBtn"
               btnName="Update Now"
-              svgFill="#caf75a"
-              textColor="#caf75a"
-              bordercolor="#caf75a"
+              svgFill="#fbe29a"
+              textColor="#fbe29a"
+              bordercolor="#fbe29a"
               type="submit"
             />
           </div>

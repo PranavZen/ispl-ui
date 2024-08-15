@@ -59,7 +59,7 @@ function NavMenus() {
       <div className="row myDis">
         <nav className="navbar navbar-expand-lg">
           <Link className="navbar-brand " to="/">
-            <img src={logo} alt="ISPL" />
+            <img src={logo} alt="ISPL" className="img-fluid" width={75}/>
           </Link>
           <button
             className="navbar-toggler"

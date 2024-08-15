@@ -44,7 +44,7 @@
   z-index: 2;
 }
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent span {
-  color: #caf75a;
+  color: #fbe29a;
   font-size: 2rem;
   font-style: normal;
   font-weight: 900;
@@ -93,7 +93,7 @@
   }
 }
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent .sqrBtn:hover {
-  background-color: #caf75a;
+  background-color: #fbe29a;
   color: #263574 !important;
 }
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent .sqrBtn:hover span svg path {

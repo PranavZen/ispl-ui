@@ -12,7 +12,7 @@ function ResultSlider({children}) {
     centerMode: true,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2500,
     responsive: [
       {
