@@ -37,7 +37,17 @@ function MatchRows() {
   };
 
   const getCategoryName = (match) => {
-    return match.cat_id === 3 ? "ISPL LEAGUE" : match.category_name;
+    if (match.cat_id === 3) {
+      return "LEAGUE MATCH";
+    } else if (match.category_name === "QUALIFIER 1") {
+      return "SEMIFINAL 1";
+    } else if (match.category_name === "QUALIFIER 2") {
+      return "SEMIFINAL 2";
+    } else if (match.category_name === "FINAL") {
+      return "FINAL";
+    } else {
+      return match.category_name;
+    }
   };
 
   return (

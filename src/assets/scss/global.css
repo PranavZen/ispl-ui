@@ -481,4 +481,52 @@ input {
 
 .lastLink .nav-link {
   gap: 0 !important;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.error-page h1 {
+  display: flex;
+  font-size: 18rem;
+  margin: 0px;
+  color: #263474;
+  font-weight: 800;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .error-page h1 {
+    font-size: 7rem !important;
+  }
+}
+.error-page h1 .erro-imgball {
+  width: 15rem;
+  height: 15rem;
+}
+@media (max-width: 767px) {
+  .error-page h1 .erro-imgball {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+.error-page p {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .error-page p {
+    font-size: 1.6rem;
+  }
+}
+.error-page a {
+  color: #004085;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
 }/*# sourceMappingURL=global.css.map */

@@ -6,7 +6,14 @@ import SqareButton from "../../../common/cta/SqareButton";
 import ResultSlider from "./tableSliderLayout/ResultSlider";
 import axios from "axios";
 import Spinner from "../../matchPageComponents/spinnercomponent/Spinner";
-import { qlfy, team1, team2, team3, team4, team5 } from "../../../../assets/imagePath";
+import {
+  qlfy,
+  team1,
+  team2,
+  team3,
+  team4,
+  team5,
+} from "../../../../assets/imagePath";
 import TableSlider from "./tableSliderLayout/TableSlider";
 import PointsTableCard from "./pointscard/PointsTableCard";
 
@@ -32,7 +39,7 @@ function formatTime(timeString) {
 function PointTableSection() {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log("matches :", matches)
+  // console.log("matches :", matches);
   useEffect(() => {
     const fetchMatches = async () => {
       try {
@@ -61,6 +68,19 @@ function PointTableSection() {
       } RUNS`;
     }
     return "MATCH TIED";
+  };
+  const getCategoryName = (match) => {
+    if (match.cat_id === 3) {
+      return "LEAGUE MATCH";
+    } else if (match.category_name === "QUALIFIER 1") {
+      return "SEMIFINAL 1";
+    } else if (match.category_name === "QUALIFIER 2") {
+      return "SEMIFINAL 2";
+    } else if (match.category_name === "FINAL") {
+      return "FINAL";
+    } else {
+      return match.category_name;
+    }
   };
   return (
     <section id="pointsTableSection">
@@ -163,7 +183,7 @@ function PointTableSection() {
                     matches.map((match) => (
                       <MatchResultCard
                         key={match.id}
-                        matchStatus={match.category_name}
+                        matchStatus={getCategoryName(match)}
                         team1finalScore={match.team_one_scrore}
                         team1Out={match.team_one_wicket}
                         team1Over={match.team_one_over}

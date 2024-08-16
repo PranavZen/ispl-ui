@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/footer/Footer";
@@ -27,6 +27,7 @@ import TermsConditions from "./pages/TermsConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GlodenPage from "./pages/GlodenPage";
 import { whtspIcon } from "./assets/imagePath";
+import Error404 from "./pages/Error404";
 
 function App() {
   return (
@@ -73,6 +74,8 @@ function App() {
           <Route path="/terms-condition" element={<TermsConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/dashboard-golden-page" element={<GlodenPage />} />
+          <Route path="/error404" element={<Error404 />} />
+          <Route path="*" element={<Navigate to="/Error404" />} />
         </Routes>
         <Footer />
         <Link to="https://wa.me/918097323666" className="floatIcon" target="_blank">

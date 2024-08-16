@@ -6,13 +6,13 @@ import "slick-carousel/slick/slick-theme.css";
 function ResultSlider({children}) {
   const settings = {
     dots: true,
-    infinite: true,
-    loop: true,
+    infinite: false,
+    loop: false,
     slidesToShow: 3,
-    centerMode: true,
+    centerMode: false,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2500,
     responsive: [
       {

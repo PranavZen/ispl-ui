@@ -15,10 +15,32 @@ function Grid() {
     <div className="gridWrap">
       <div className="parent">
         <div className="div1 gridBox">
-          <Link
-            to="https://www.youtube.com/watch?v=QQsavbMfhy4"
-            data-fancybox
-          >
+          <Link to="https://www.youtube.com/embed/I6e0v45n2Y4" data-fancybox>
+            {/* <iframe width="914" height="514" src="https://www.youtube.com/embed/I6e0v45n2Y4" title="ISPL Season 2 - Dikha Apna Game #ispl #isplt10 #street2stadium #sachintendulkar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+            <div className="imgWrapper">
+              <img
+                src="https://ispl-t10.com/registration-season-2.jpg"
+                alt="Dikha Apna Game #isplt10 #street2stadium #amitabhbachchan"
+                className="img-fluid"
+                loading="lazy"
+              />
+              <span className="playIconWrap">
+                <img
+                  src={playIcon}
+                  alt=""
+                  className="img-fluid"
+                  loading="lazy"
+                />
+              </span>
+            </div>
+            <div className="contentWrap">
+              <h6>Dikha Apna Game #isplt10 #street2stadium #amitabhbachchan</h6>
+            </div>
+          </Link>
+        </div>
+        <div className="div2 gridBox">
+          <Link to="https://www.youtube.com/embed/QQsavbMfhy4" data-fancybox>
+            {/* <iframe width="914" height="514" src="https://www.youtube.com/embed/QQsavbMfhy4" title="Ravi Shastri at ISPL Season 1 Semi Finals #isplt10 #street2stadium #ispl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <div className="imgWrapper">
               <img
                 src={grid1}
@@ -37,18 +59,16 @@ function Grid() {
             </div>
             <div className="contentWrap">
               <h6>Ravi Shastri at ISPL Season 1 Semi Finals</h6>
-              <p>
+              {/* <p>
                 Watch what he has to say about ISPL and its effect on the
                 cricket fever.
-              </p>
+              </p> */}
             </div>
           </Link>
         </div>
-        <div className="div2 gridBox">
-          <Link
-            to="https://youtu.be/AHyHKRx8mbg?si=eBJA2jYklbBbUhkO"
-            data-fancybox
-          >
+        <div className="div3 gridBox">
+          <Link to="https://www.youtube.com/embed/AHyHKRx8mbg" data-fancybox>
+            {/* <iframe width="1142" height="642" src="https://www.youtube.com/embed/AHyHKRx8mbg" title="ISPL Season 1 -Opening Ceremony #ispl #isplt10 #street2stadium" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <div className="imgWrapper">
               <img
                 src={grid2}
@@ -70,11 +90,9 @@ function Grid() {
             </div>
           </Link>
         </div>
-        <div className="div3 gridBox">
-          <Link
-            to="https://youtu.be/Ar-TanMHEuc?si=imGGwU3lZcTLUPTl"
-            data-fancybox
-          >
+        <div className="div4 gridBox">
+          <Link to="https://www.youtube.com/embed/Ar-TanMHEuc" data-fancybox>
+            {/* <iframe width="1142" height="642" src="https://www.youtube.com/embed/Ar-TanMHEuc" title="National Anthem at ISPL Season 1 Finals #isplt10 #ispl #street2stadium" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <div className="imgWrapper">
               <img
                 src={grid3}
@@ -96,11 +114,9 @@ function Grid() {
             </div>
           </Link>
         </div>
-        <div className="div4 gridBox">
-          <Link
-            to="https://youtu.be/u2uxWeNs04s?si=3d_ZDjCzrNm3NOQ-"
-            data-fancybox
-          >
+        <div className="div5 gridBox">
+          <Link to="https://www.youtube.com/embed/u2uxWeNs04s" data-fancybox>
+            {/* <iframe width="1142" height="642" src="https://www.youtube.com/embed/u2uxWeNs04s" title="ISPL Season 1 #ispl #isplt10 #street2stadium" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <div className="imgWrapper">
               <img
                 src={grid4}
@@ -122,11 +138,9 @@ function Grid() {
             </div>
           </Link>
         </div>
-        <div className="div5 gridBox">
-          <Link
-            to="https://youtu.be/u2uxWeNs04s?si=2-8ed4RQcaukOFw1"
-            data-fancybox
-          >
+        <div className="div6 gridBox">
+          <Link to="https://www.youtube.com/embed/u2uxWeNs04s" data-fancybox>
+            {/* <iframe width="1142" height="642" src="https://www.youtube.com/embed/u2uxWeNs04s" title="ISPL Season 1 #ispl #isplt10 #street2stadium" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <div className="imgWrapper">
               <img
                 src={grid5}

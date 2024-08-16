@@ -471,3 +471,45 @@ input {
     gap: 0 !important;
   }
 }
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  h1 {
+    display: flex;
+    font-size: 18rem;
+    margin: 0px;
+    color: #263474; 
+    font-weight: 800;
+    align-items: center;
+    @include x-767-tablet {
+      font-size: 7rem !important;
+    }
+    .erro-imgball {
+      width: 15rem;
+      height: 15rem;
+      @include x-767-tablet {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+  }
+  p {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    @include x-767-tablet {
+      font-size: 1.6rem;
+    }
+  }
+  a {
+    color: #004085;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}

@@ -8,14 +8,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "https://ispl-t10.com/logo.png",
+      "src": "https://ispl-t10.com/ISPL-season2-logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://ispl-t10.com/logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "https://ispl-t10.com/ISPL-season2-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": ".",

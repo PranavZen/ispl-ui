@@ -65,12 +65,6 @@ function JoinIsplSection() {
                 <div className="hashTagWrap">
                   <ul>
                     <li>#Street2stadium</li>
-                    <li>#Street2stadium</li>
-                    <li>#Street2stadium</li>
-                    <li>#Street2stadium</li>
-                    <li>#Street2stadium</li>
-                    <li>#Street2stadium</li>
-                    <li>#Street2stadium</li>
                   </ul>
                 </div>
                 {completedStatus !== 1 && (

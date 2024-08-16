@@ -14,6 +14,7 @@ const CHANNEL_ID = "UC73dEMSiwTVJ8zZqeQfP9Lw";
 
 const AllVideos = () => {
   const { category_names } = useParams();
+  console.log("category_names ", category_names)
   const [videos, setVideos] = useState([]);
   const [ytVideos, setYtVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,26 +104,26 @@ const AllVideos = () => {
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
-  // Display a spinner while loading
-  if (loading) {
-    return (
-      <section id="videoSection" className="pgNotFoundSection">
-        <div className="container">
-          <SectionTitle titleText={`${category_names} Videos`} />
-          <div className="row">
-            <div className="col-lg-10 col-md-12 mx-auto">
-              <div className="pgNotFoundNotBox bg-transparent">
-                <Spinner />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // // Display a spinner while loading
+  // if (loading) {
+  //   return (
+  //     <section id="videoSection" className="pgNotFoundSection">
+  //       <div className="container">
+  //         <SectionTitle titleText={`${category_names} Videos`} />
+  //         <div className="row">
+  //           <div className="col-lg-10 col-md-12 mx-auto">
+  //             <div className="pgNotFoundNotBox bg-transparent">
+  //               <Spinner />
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   // Display a message if no videos are found
-  if (videos.length === 0 && ytVideos.length === 0) {
+  if (loading || !category_names || (videos.length === 0 && ytVideos.length === 0)) {
     return (
       <section id="videoSection" className="pgNotFoundSection">
         <div className="container">
@@ -130,7 +131,7 @@ const AllVideos = () => {
           <div className="row">
             <div className="col-lg-10 col-md-12 mx-auto">
               <div className="pgNotFoundNotBox">
-                <h3>No data found</h3>
+              {loading ? <Spinner /> : <h3>No data found</h3>}
               </div>
             </div>
           </div>
