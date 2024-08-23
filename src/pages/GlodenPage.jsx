@@ -2,11 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'; // Import default styles for Skeleton
 
 function GlodenPage() {
   const [playerName, setPlayerName] = useState("");
   const [playerId, setPlayerId] = useState("");
   const [cityName, setCityName] = useState("");
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     // Retrieve the token from localStorage
@@ -22,47 +25,36 @@ function GlodenPage() {
       .then((response) => {
         // Update state with the fetched data
         const userData = response.data.user_data;
-        // console.log(userData);
         setPlayerName(`${userData.first_name} ${userData.surname}`);
         setPlayerId(userData.user_name);
         const cityNameArray = JSON.parse(userData.cities_states_names);
         const cityName = cityNameArray[0];
         setCityName(cityName);
+        setLoading(false); // Set loading to false once data is fetched
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false in case of an error
+      });
   }, []);
+
   return (
     <section className="teamListSection">
       <Helmet>
         <title>ISPL T10 | Golden Ticket</title>
-        <meta
-          name="description"
-          content="This is the home page of our website."
-        />
+        <meta name="description" content="This is the home page of our website." />
         <meta name="keywords" content="home, main, index" />
         <meta name="author" content="Author Name" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Home Page" />
-        <meta
-          property="og:description"
-          content="This is the home page of our website."
-        />
+        <meta property="og:description" content="This is the home page of our website." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.example.com/" />
-        <meta
-          property="og:image"
-          content="https://www.example.com/home-image.jpg"
-        />
+        <meta property="og:image" content="https://www.example.com/home-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Home Page" />
-        <meta
-          name="twitter:description"
-          content="This is the home page of our website."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.example.com/home-image.jpg"
-        />
+        <meta name="twitter:description" content="This is the home page of our website." />
+        <meta name="twitter:image" content="https://www.example.com/home-image.jpg" />
         <link rel="canonical" href="https://www.example.com/" />
       </Helmet>
       <div className="container">
@@ -87,7 +79,7 @@ function GlodenPage() {
                   <br />
                   <div className="email-body">
                     <p>
-                      Dear <span className="playerName ">{playerName}</span>,
+                      Dear <span className="playerName">{loading ? <Skeleton width={200} /> : playerName}</span>,
                     </p>
                     <br />
                     <p>
@@ -125,22 +117,21 @@ function GlodenPage() {
                     </div>
                     <div className="centered-text">
                       <h1 className="golden-ticket-text">GOLDEN TICKET</h1>
-                      <p className="ticket-info playerName">MR. {playerName}</p>
+                      <p className="ticket-info playerName">
+                        {loading ? <Skeleton width={200} /> : `MR. ${playerName}`}
+                      </p>
                       <hr
                         style={{
                           width: "100%",
                           border: "1px solid #000",
                         }}
                       />
-                      <p className="ticket-info playerId">{playerId}</p>
-                      <p className="city-name-title">{cityName}</p>
-                      <p
-                        className="city-name-title"
-                        style={{
-                          background: "#0b0b0b",
-                          color: "white",
-                        }}
-                      ></p>
+                      <p className="ticket-info playerId">
+                        {loading ? <Skeleton width={150} /> : playerId}
+                      </p>
+                      <p className="city-name-title">
+                        {loading ? <Skeleton width={150} /> : cityName}
+                      </p>
                     </div>
                   </div>
 

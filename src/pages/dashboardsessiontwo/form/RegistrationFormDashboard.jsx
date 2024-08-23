@@ -6,56 +6,8 @@ import SqareButton from "../../../components/common/cta/SqareButton";
 import { useNavigate } from "react-router-dom";
 import StateCityZoneModal from "../StateCityZoneModal";
 import VerifyModal from "../VerifyModal";
-// import * as Yup from "yup";
-
-// const validationSchema = Yup.object({
-//   first_name: Yup.string()
-//     .matches(/^[A-Za-z]+$/, "First Name must contain only letters")
-//     .required("First Name is required"),
-//   middle_name: Yup.string()
-//     .matches(/^[A-Za-z]*$/, "Middle Name must contain only letters")
-//     .notRequired(), // or .nullable() if you want it to be optional
-//   surname: Yup.string()
-//     .matches(/^[A-Za-z]+$/, "Last Name must contain only letters")
-//     .required("Last Name is required"),
-//   date_of_birth: Yup.date().required("Date of Birth is required"),
-//   permanent_address: Yup.string().required("Permanent Address is required"),
-//   permanent_city: Yup.string().required("Permanent City is required"),
-//   permanent_state: Yup.string().required("Permanent State is required"),
-//   permanent_pincode: Yup.string().required("Permanent Pincode is required"),
-//   permanent_locality: Yup.string(),
-//   permanent_landmark: Yup.string(),
-//   current_address: Yup.string(),
-//   current_city: Yup.string(),
-//   current_state: Yup.string(),
-//   current_pincode: Yup.string(),
-//   current_locality: Yup.string(),
-//   current_landmark: Yup.string(),
-//   adhar_card_no: Yup.string()
-//     .matches(/^\d{12}$/, "Aadhar Card Number must be 12 digits")
-//     .required("Aadhar Card Number is required"),
-//   phone_number: Yup.string()
-//     .matches(/^\d{10}$/, "Phone Number must be 10 digits")
-//     .required("Phone Number is required"),
-//   emergency_contact_no: Yup.string()
-//     .matches(/^\d{10}$/, "Emergency Contact Number must be 10 digits")
-//     .required("Emergency Contact Number is required"),
-//   email: Yup.string().email("Invalid email format").required("Email is required"),
-//   instagram_id: Yup.string(),
-//   facebook_id: Yup.string(),
-//   playing_roles: Yup.string().required("Playing Roles are required"),
-//   batting_andedness: Yup.string().required("Batting Handedness is required"),
-//   preferred_bowling_style: Yup.string().required("Preferred Bowling Style is required"),
-//   preferred_batting_order: Yup.string().required("Preferred Batting Order is required"),
-//     trouser_size: Yup.string().required("Trouser size is required"),
-//     jersey_sizes: Yup.string().required("Jersey sizes is required"),
-//     shoe_size: Yup.string().required("Shoe size is required"),
-//     blood_group: Yup.string().required("Blood group is required"),
-// });
-
-// console.log("validationSchema ", validationSchema);
-
 function RegistrationFormDashboard() {
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showVerifyModal, setVerifyModal] = useState(false);
   const [sameAsPermanent, setSameAsPermanent] = useState(false);
@@ -118,6 +70,8 @@ function RegistrationFormDashboard() {
       const userData = response.data.users;
       const personalInfo = response.data.personal_information;
       const playerDetails = response.data.player_details;
+      console.log("userData =", userData);
+
       const is_city_updated = response.data.users.is_city_updated;
       const { completed_status, form_city_edit } = response.data;
       const is_email_verify = response.data.users.is_email_verify;
@@ -129,20 +83,32 @@ function RegistrationFormDashboard() {
       if (is_email_verify === 0 && is_mobile_verify === 0) {
         setVerifyModal(true);
       }
-      if (
-        (is_city_updated === 1 && completed_status === 1) ||
-        (response.data.personal_info_status === "created" &&
-          response.data.playing_details_status === "created") ||
-        (response.data.personal_info_status === "updated" &&
-          response.data.playing_details_status === "updated")
-      ) {
-        navigate("/dashboard-golden-page");
-        window.location.reload();
-      } else if (personalInfo === null) {
-        navigate("/dashboard-session-2");
-      } else {
-        navigate("/dashboard-session-2");
-      }
+      setTimeout(() => {
+        if (
+          (is_city_updated === 1 && completed_status === 1) ||
+          (response.data.personal_info_status === "created" &&
+            response.data.playing_details_status === "created") ||
+          (response.data.personal_info_status === "updated" &&
+            response.data.playing_details_status === "updated")
+        ) {
+          setLoading(true);
+          navigate("/dashboard-golden-page");
+          window.location.reload();
+        } else if (personalInfo === null) {
+          setLoading(true);
+          navigate("/dashboard-session-2");
+        } else if (
+          userData.personal_info_status === "created" &&
+          userData.playing_details_status === "created"
+        ) {
+          setLoading(true);
+          navigate("/dashboard-golden-page");
+          window.location.reload();
+        } else {
+          setLoading(true);
+          navigate("/dashboard-session-2");
+        }
+      }, 10);
       setFormData((prevFormData) => ({
         ...prevFormData,
         first_name: userData?.first_name || "",
@@ -277,6 +243,10 @@ function RegistrationFormDashboard() {
   };
 
   const handlePhoneKeyDown = (e) => {
+    if (e.target.value.length >= 10 && e.key !== "Backspace") {
+      e.preventDefault();
+      toast.error("Phone number must be exactly 10 digits.");
+    }
     if (
       !/^\d$/.test(e.key) &&
       e.key !== "Backspace" &&
@@ -300,10 +270,55 @@ function RegistrationFormDashboard() {
     setFormData(updatedFormData);
     localStorage.setItem("formData", JSON.stringify(updatedFormData));
     let errorMessage = null;
+    if (
+      name === "first_name" ||
+      name === "middle_name" ||
+      name === "surname" ||
+      name === "permanent_state" ||
+      name === "permanent_city" ||
+      name === "current_state" ||
+      name === "current_city"
+    ) {
+      const regex = /^[A-Za-z\s]*$/; // Only letters and spaces allowed
+      if (!regex.test(value)) {
+        // Display an error message or handle invalid input
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [name]: "Names cannot contain numbers or special characters.",
+        }));
+        return;
+      } else {
+        // Clear the error message if input is valid
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [name]: "",
+        }));
+      }
+    }
+
+    if (
+      (name === "phone_number" || name === "emergency_contact_no") &&
+      value.length > 10
+    ) {
+      toast.error("Phone number must be exactly 10 digits.");
+      return;
+    }
 
     // Aadhar Card validation
-    if (name === "adhar_card_no" && !/^\d{0,12}$/.test(value)) {
-      errorMessage = "Aadhar Card number should be exactly 12 digits.";
+    if (name === "adhar_card_no") {
+      const regex = /^[0-9]{0,12}$/; // Allow only up to 12 digits
+      if (!regex.test(value)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          adhar_card_no: "Aadhar Card Number must be exactly 12 digits.",
+        }));
+        return;
+      } else if (value.length === 12) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          adhar_card_no: "",
+        }));
+      }
     }
 
     // Pincode validation
@@ -358,6 +373,19 @@ function RegistrationFormDashboard() {
   };
   const handleSubmit = async (e, completed_status) => {
     e.preventDefault();
+    const { adhar_card_no } = formData;
+    const { emergency_contact_no } = formData;
+
+    if (adhar_card_no.length !== 12) {
+      toast.error("Aadhar Card Number must be exactly 12 digits.");
+      return;
+    }
+    if (emergency_contact_no.length !== 10) {
+      toast.error("Emergency Contact Number must be exactly 10 digits.");
+      return;
+    }
+
+    setLoading(true);
 
     const validationErrors = {};
     if (!formData.first_name.trim()) {
@@ -485,840 +513,865 @@ function RegistrationFormDashboard() {
             <div className="row mt-3 justify-content-center">
               <div className="col-md-10">
                 <div className="card-body login-modal-pn">
-                  <form
-                    className="form p-t-20 payments-qrl"
-                    id="user_data_form"
-                    method="POST"
-                    onSubmit={(e) => handleSubmit(e, 1)}
-                  >
-                    <div className="row mt-3 mb-3 noPad">
-                      <SectionTitle titleText="PERSONAL INFORMATION" />
-                    </div>
-                    <div className="row">
-                      <div className="form-group col-md-6 mb-4">
-                        <label
-                          htmlFor="first_name"
-                          className="form-label text-light"
-                        >
-                          First Name *
-                        </label>
-                        <input
-                          id="first_name"
-                          type="text"
-                          className={`form-control form-input ${
-                            errors.first_name ? "is-invalid" : ""
-                          }`}
-                          name="first_name"
-                          placeholder="First Name"
-                          value={formData.first_name}
-                          onChange={handleChange}
-                        />
-                        {errors.first_name && (
-                          <div className="error">{errors.first_name}</div>
-                        )}
+                  {loading ? (
+                    <form
+                      className="form p-t-20 payments-qrl"
+                      id="user_data_form"
+                      method="POST"
+                      onSubmit={(e) => handleSubmit(e, 1)}
+                    >
+                      <div className="row mt-3 mb-3 noPad">
+                        <SectionTitle titleText="PERSONAL INFORMATION" />
                       </div>
-                      <div className="form-group col-md-6 mb-4">
-                        <label
-                          htmlFor="middle_name"
-                          className="form-label text-light"
-                        >
-                          Middle Name
-                        </label>
-                        <input
-                          id="middle_name"
-                          type="text"
-                          className={`form-control form-input ${
-                            errors.middle_name ? "is-invalid" : ""
-                          }`}
-                          name="middle_name"
-                          placeholder="Middle Name"
-                          value={formData.middle_name}
-                          onChange={handleChange}
-                        />
-                        {errors.middle_name && (
-                          <div className="error">{errors.middle_name}</div>
-                        )}
-                      </div>
-                      <div className="form-group col-md-6 mb-4">
-                        <label
-                          htmlFor="surname"
-                          className="form-label text-light"
-                        >
-                          Last Name *
-                        </label>
-                        <input
-                          id="surname"
-                          type="text"
-                          className={`form-control form-input ${
-                            errors.surname ? "is-invalid" : ""
-                          }`}
-                          name="surname"
-                          placeholder="Last Name"
-                          value={formData.surname}
-                          onChange={handleChange}
-                        />
-                        {errors.surname && (
-                          <div className="error">{errors.surname}</div>
-                        )}
-                      </div>
-                      <div className="form-group col-md-6 mb-4">
-                        <label
-                          htmlFor="date_of_birth"
-                          className="form-label text-light"
-                        >
-                          Date of Birth *
-                        </label>
-                        <input
-                          id="date_of_birth"
-                          type="date"
-                          className={`form-control form-input ${
-                            errors.date_of_birth ? "is-invalid" : ""
-                          }`}
-                          name="date_of_birth"
-                          value={formData.date_of_birth}
-                          onChange={handleChange}
-                        />
-                        {errors.date_of_birth && (
-                          <div className="error">{errors.date_of_birth}</div>
-                        )}
-                      </div>
-
-                      <div className="col-lg-6 col-md-6 col-12">
-                        <div className="form-group col-md-12 mb-4">
+                      <div className="row">
+                        <div className="form-group col-md-6 mb-4">
                           <label
-                            htmlFor="permanent_address"
+                            htmlFor="first_name"
                             className="form-label text-light"
                           >
-                            Permanent Address *
-                          </label>
-                          <textarea
-                            id="permanent_address"
-                            className={`form-control form-input ${
-                              errors.permanent_address ? "is-invalid" : ""
-                            }`}
-                            name="permanent_address"
-                            value={formData.permanent_address}
-                            onChange={handleChange}
-                          />
-                          {errors.permanent_address && (
-                            <div className="error">
-                              {errors.permanent_address}
-                            </div>
-                          )}
-                        </div>
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="permanent_city"
-                            className="form-label text-light"
-                          >
-                            Permanent City
+                            First Name *
                           </label>
                           <input
-                            id="permanent_city"
+                            id="first_name"
+                            type="text"
                             className={`form-control form-input ${
-                              errors.permanent_city ? "is-invalid" : ""
+                              errors.first_name ? "is-invalid" : ""
                             }`}
-                            name="permanent_city"
-                            value={formData.permanent_city}
+                            name="first_name"
+                            placeholder="First Name"
+                            value={formData.first_name}
                             onChange={handleChange}
+                            onBlur={handleChange}
                           />
-                          {errors.permanent_city && (
-                            <div className="error">{errors.permanent_city}</div>
+                          {errors.first_name && (
+                            <div className="error">{errors.first_name}</div>
                           )}
                         </div>
-                        <div className="form-group col-md-12 mb-4">
+                        <div className="form-group col-md-6 mb-4">
                           <label
-                            htmlFor="permanent_state"
+                            htmlFor="middle_name"
                             className="form-label text-light"
                           >
-                            Permanent State
+                            Middle Name
                           </label>
                           <input
-                            id="permanent_state"
+                            id="middle_name"
+                            type="text"
                             className={`form-control form-input ${
-                              errors.permanent_state ? "is-invalid" : ""
+                              errors.middle_name ? "is-invalid" : ""
                             }`}
-                            name="permanent_state"
-                            value={formData.permanent_state}
+                            name="middle_name"
+                            placeholder="Middle Name"
+                            value={formData.middle_name}
                             onChange={handleChange}
+                            onBlur={handleChange}
                           />
-                          {errors.permanent_state && (
-                            <div className="error">
-                              {errors.permanent_state}
-                            </div>
+                          {errors.middle_name && (
+                            <div className="error">{errors.middle_name}</div>
                           )}
                         </div>
-                        <div className="form-group col-md-12 mb-4">
+                        <div className="form-group col-md-6 mb-4">
                           <label
-                            htmlFor="permanent_pincode"
+                            htmlFor="surname"
                             className="form-label text-light"
                           >
-                            Permanent Pincode
+                            Last Name *
                           </label>
                           <input
-                            id="permanent_pincode"
+                            id="surname"
+                            type="text"
                             className={`form-control form-input ${
-                              errors.permanent_pincode ? "is-invalid" : ""
+                              errors.surname ? "is-invalid" : ""
                             }`}
-                            name="permanent_pincode"
-                            value={formData.permanent_pincode}
+                            name="surname"
+                            placeholder="Last Name"
+                            value={formData.surname}
                             onChange={handleChange}
-                            onKeyPress={handleKeyPress}
+                            onBlur={handleChange}
                           />
-                          {errors.permanent_pincode && (
-                            <div className="error">
-                              {errors.permanent_pincode}
-                            </div>
+                          {errors.surname && (
+                            <div className="error">{errors.surname}</div>
                           )}
                         </div>
-                        <div className="form-group col-md-12 mb-4">
+                        <div className="form-group col-md-6 mb-4">
                           <label
-                            htmlFor="permanent_locality"
+                            htmlFor="date_of_birth"
                             className="form-label text-light"
                           >
-                            Permanent Locality
+                            Date of Birth *
                           </label>
-                          <textarea
-                            id="permanent_locality"
+                          <input
+                            id="date_of_birth"
+                            type="date"
                             className={`form-control form-input ${
-                              errors.permanent_locality ? "is-invalid" : ""
+                              errors.date_of_birth ? "is-invalid" : ""
                             }`}
-                            name="permanent_locality"
-                            value={formData.permanent_locality}
+                            name="date_of_birth"
+                            value={formData.date_of_birth}
                             onChange={handleChange}
                           />
-                          {errors.permanent_locality && (
-                            <div className="error">
-                              {errors.permanent_locality}
-                            </div>
-                          )}
-                        </div>
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="permanent_landmark"
-                            className="form-label text-light"
-                          >
-                            Permanent Landmark
-                          </label>
-                          <textarea
-                            id="permanent_landmark"
-                            className={`form-control form-input ${
-                              errors.permanent_landmark ? "is-invalid" : ""
-                            }`}
-                            name="permanent_landmark"
-                            value={formData.permanent_landmark}
-                            onChange={handleChange}
-                          />
-                          {errors.permanent_landmark && (
-                            <div className="error">
-                              {errors.permanent_landmark}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-6 col-12">
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="current_address"
-                            className="form-label text-light d-flex justify-content-between"
-                          >
-                            Current Address *
-                            <div className="form-check checkBoxWrap">
-                              <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id="sameAsPermanent"
-                                name="sameAsPermanent"
-                                checked={sameAsPermanent}
-                                onChange={handleSameAsPermanentChange}
-                              />
-                              <label
-                                className="form-check-label"
-                                htmlFor="sameAsPermanent"
-                              >
-                                Same as Permanent Address
-                              </label>
-                            </div>
-                          </label>
-
-                          <textarea
-                            id="current_address"
-                            className={`form-control form-input ${
-                              errors.current_address ? "is-invalid" : ""
-                            }`}
-                            name="current_address"
-                            value={formData.current_address}
-                            onChange={handleChange}
-                            disabled={sameAsPermanent}
-                          />
-                          {errors.current_address && (
-                            <div className="error">
-                              {errors.current_address}
-                            </div>
+                          {errors.date_of_birth && (
+                            <div className="error">{errors.date_of_birth}</div>
                           )}
                         </div>
 
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="current_city"
-                            className="form-label text-light d-flex justify-content-between"
-                          >
-                            Current City
-                          </label>
-                          <input
-                            id="current_city"
-                            className={`form-control form-input ${
-                              errors.current_city ? "is-invalid" : ""
-                            }`}
-                            name="current_city"
-                            value={formData.current_city}
-                            onChange={handleChange}
-                            disabled={sameAsPermanent}
-                          />
-                          {errors.current_city && (
-                            <div className="error">{errors.current_city}</div>
-                          )}
-                        </div>
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="current_state"
-                            className="form-label text-light d-flex justify-content-between"
-                          >
-                            Current State
-                          </label>
-                          <input
-                            id="current_state"
-                            className={`form-control form-input ${
-                              errors.current_state ? "is-invalid" : ""
-                            }`}
-                            name="current_state"
-                            value={formData.current_state}
-                            onChange={handleChange}
-                            disabled={sameAsPermanent}
-                          />
-                          {errors.current_state && (
-                            <div className="error">{errors.current_state}</div>
-                          )}
-                        </div>
-
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="current_pincode"
-                            className="form-label text-light d-flex justify-content-between"
-                          >
-                            Current Pincode
-                          </label>
-                          <input
-                            id="current_pincode"
-                            className={`form-control form-input ${
-                              errors.current_pincode ? "is-invalid" : ""
-                            }`}
-                            name="current_pincode"
-                            value={formData.current_pincode}
-                            onChange={handleChange}
-                            disabled={sameAsPermanent}
-                          />
-                          {errors.current_pincode && (
-                            <div className="error">
-                              {errors.current_pincode}
-                            </div>
-                          )}
-                        </div>
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="current_locality"
-                            className="form-label text-light d-flex justify-content-between"
-                          >
-                            Current Locality
-                          </label>
-                          <textarea
-                            id="current_locality"
-                            className={`form-control form-input ${
-                              errors.current_locality ? "is-invalid" : ""
-                            }`}
-                            name="current_locality"
-                            value={formData.current_locality}
-                            onChange={handleChange}
-                            disabled={sameAsPermanent}
-                          />
-                          {errors.current_locality && (
-                            <div className="error">
-                              {errors.current_locality}
-                            </div>
-                          )}
-                        </div>
-                        <div className="form-group col-md-12 mb-4">
-                          <label
-                            htmlFor="current_landmark"
-                            className="form-label text-light d-flex justify-content-between"
-                          >
-                            Current Landmark
-                          </label>
-                          <textarea
-                            id="current_landmark"
-                            className={`form-control form-input ${
-                              errors.current_landmark ? "is-invalid" : ""
-                            }`}
-                            name="current_landmark"
-                            value={formData.current_landmark}
-                            onChange={handleChange}
-                            disabled={sameAsPermanent}
-                          />
-                          {errors.current_landmark && (
-                            <div className="error">
-                              {errors.current_landmark}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row mt-3 mb-3">
-                      <SectionTitle titleText="CONTACT INFORMATION" />
-                    </div>
-                    <div className="row">
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="adhar_card_no"
-                          className="form-label text-light"
-                        >
-                          Aadhar Card Number *
-                        </label>
-                        <input
-                          id="adhar_card_no"
-                          required
-                          type="text"
-                          pattern="[0-9]{12}"
-                          className={`form-control form-input ${
-                            errors.adhar_card_no ? "is-invalid" : ""
-                          }`}
-                          name="adhar_card_no"
-                          value={formData.adhar_card_no}
-                          onChange={handleChange}
-                          onKeyDown={handleKeyDown}
-                        />
-                        {errors.adhar_card_no && (
-                          <div className="error">{errors.adhar_card_no}</div>
-                        )}
-                      </div>
-
-                      <div className="form-group col-md-6 mb-4">
-                        <label
-                          htmlFor="phone_number"
-                          className="form-label text-light"
-                        >
-                          Mobile Number *
-                        </label>
-                        <input
-                          id="phone_number"
-                          type="text"
-                          pattern="[0-9]{10}"
-                          className={`form-control form-input ${
-                            errors.phone_number ? "is-invalid" : ""
-                          }`}
-                          name="phone_number"
-                          placeholder="Mobile Number"
-                          value={formData.phone_number}
-                          onChange={handleChange}
-                          onKeyDown={handlePhoneKeyDown}
-                        />
-                        {errors.phone_number && (
-                          <div className="error">{errors.phone_number}</div>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="emergency_contact_no"
-                          className="form-label text-light"
-                        >
-                          Emergency Contact Number
-                        </label>
-                        <input
-                          id="emergency_contact_no"
-                          type="text"
-                          className={`form-control form-input ${
-                            errors.emergency_contact_no ? "is-invalid" : ""
-                          }`}
-                          name="emergency_contact_no"
-                          value={formData.emergency_contact_no}
-                          onChange={handleChange}
-                        />
-                        {errors.emergency_contact_no && (
-                          <div className="error">
-                            {errors.emergency_contact_no}
+                        <div className="col-lg-6 col-md-6 col-12">
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="permanent_address"
+                              className="form-label text-light"
+                            >
+                              Permanent Address *
+                            </label>
+                            <textarea
+                              id="permanent_address"
+                              className={`form-control form-input ${
+                                errors.permanent_address ? "is-invalid" : ""
+                              }`}
+                              name="permanent_address"
+                              value={formData.permanent_address}
+                              onChange={handleChange}
+                            />
+                            {errors.permanent_address && (
+                              <div className="error">
+                                {errors.permanent_address}
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                      <div className="form-group col-md-6 mb-4">
-                        <label
-                          htmlFor="email"
-                          className="form-label text-light"
-                        >
-                          Email *
-                        </label>
-                        <input
-                          id="email"
-                          type="email"
-                          className={`form-control form-input ${
-                            errors.email ? "is-invalid" : ""
-                          }`}
-                          name="email"
-                          placeholder="Email"
-                          value={formData.email}
-                          onChange={handleChange}
-                        />
-                        {errors.email && (
-                          <div className="error">{errors.email}</div>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="instagram_id"
-                          className="form-label text-light"
-                        >
-                          Instagram ID
-                        </label>
-                        <input
-                          id="instagram_id"
-                          type="text"
-                          className={`form-control form-input ${
-                            errors.instagram_id ? "is-invalid" : ""
-                          }`}
-                          name="instagram_id"
-                          value={formData.instagram_id}
-                          onChange={handleChange}
-                        />
-                        {errors.instagram_id && (
-                          <div className="error">{errors.instagram_id}</div>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="facebook_id"
-                          className="form-label text-light"
-                        >
-                          Facebook ID
-                        </label>
-                        <input
-                          id="facebook_id"
-                          type="text"
-                          className={`form-control form-input ${
-                            errors.facebook_id ? "is-invalid" : ""
-                          }`}
-                          name="facebook_id"
-                          value={formData.facebook_id}
-                          onChange={handleChange}
-                        />
-                        {errors.facebook_id && (
-                          <div className="error">{errors.facebook_id}</div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="row mt-3 mb-3">
-                      <SectionTitle titleText="PLAYING DETAILS" />
-                    </div>
-
-                    <div className="row mb-3">
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="playing_roles"
-                          className="form-label text-light"
-                        >
-                          Playing Roles *
-                        </label>
-                        <select
-                          required
-                          name="playing_roles"
-                          className={`form-select form-input ${
-                            errors.playing_roles ? "is-invalid" : ""
-                          }`}
-                          value={formData.playing_roles}
-                          onChange={handleChange}
-                        >
-                          <option value="Playing Roles">
-                            Select Playing Roles
-                          </option>
-                          {playingRolesOptions.map((role, index) => (
-                            <option key={index} value={role}>
-                              {role}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.playing_roles && (
-                          <div className="error">{errors.playing_roles}</div>
-                        )}
-                      </div>
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="batting_andedness"
-                          className="form-label text-light"
-                        >
-                          Batting Handedness *
-                        </label>
-                        <select
-                          required
-                          className={`form-select form-input ${
-                            errors.batting_andedness ? "is-invalid" : ""
-                          }`}
-                          name="batting_andedness"
-                          value={formData.batting_andedness}
-                          onChange={handleChange}
-                        >
-                          <option value="Select Batting Handedness">
-                            Select Batting Handedness
-                          </option>
-                          {battingHandednessOptions.map((handedness, index) => (
-                            <option key={index} value={handedness}>
-                              {handedness}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.batting_andedness && (
-                          <div className="error">
-                            {errors.batting_andedness}
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="permanent_city"
+                              className="form-label text-light"
+                            >
+                              Permanent City
+                            </label>
+                            <input
+                              id="permanent_city"
+                              className={`form-control form-input ${
+                                errors.permanent_city ? "is-invalid" : ""
+                              }`}
+                              name="permanent_city"
+                              value={formData.permanent_city}
+                              onChange={handleChange}
+                              onBlur={handleChange}
+                            />
+                            {errors.permanent_city && (
+                              <div className="error">
+                                {errors.permanent_city}
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="preferred_bowling_style"
-                          className="form-label text-light"
-                        >
-                          Preferred Bowling Style *
-                        </label>
-                        <select
-                          required
-                          className={`form-select form-input ${
-                            errors.preferred_bowling_style ? "is-invalid" : ""
-                          }`}
-                          name="preferred_bowling_style"
-                          value={formData.preferred_bowling_style}
-                          onChange={handleChange}
-                        >
-                          <option value="Preferred Bowling Style">
-                            Select Preferred Bowling Style
-                          </option>
-                          {bowlingStyleOptions.map((style, index) => (
-                            <option key={index} value={style}>
-                              {style}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.preferred_bowling_style && (
-                          <div className="error">
-                            {errors.preferred_bowling_style}
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="permanent_state"
+                              className="form-label text-light"
+                            >
+                              Permanent State
+                            </label>
+                            <input
+                              id="permanent_state"
+                              className={`form-control form-input ${
+                                errors.permanent_state ? "is-invalid" : ""
+                              }`}
+                              name="permanent_state"
+                              value={formData.permanent_state}
+                              onChange={handleChange}
+                              onBlur={handleChange}
+                            />
+                            {errors.permanent_state && (
+                              <div className="error">
+                                {errors.permanent_state}
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="preferred_batting_order"
-                          className="form-label text-light"
-                        >
-                          Preferred Batting Order *
-                        </label>
-                        <select
-                          required
-                          className={`form-select form-input ${
-                            errors.preferred_batting_order ? "is-invalid" : ""
-                          }`}
-                          name="preferred_batting_order"
-                          value={formData.preferred_batting_order}
-                          onChange={handleChange}
-                        >
-                          <option value="Preferred Batting Order">
-                            Select Preferred Batting Order
-                          </option>
-                          {battingOrderOptions.map((order, index) => (
-                            <option key={index} value={order}>
-                              {order}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.preferred_batting_order && (
-                          <div className="error">
-                            {errors.preferred_batting_order}
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="permanent_pincode"
+                              className="form-label text-light"
+                            >
+                              Permanent Pincode
+                            </label>
+                            <input
+                              id="permanent_pincode"
+                              className={`form-control form-input ${
+                                errors.permanent_pincode ? "is-invalid" : ""
+                              }`}
+                              name="permanent_pincode"
+                              value={formData.permanent_pincode}
+                              onChange={handleChange}
+                              onKeyPress={handleKeyPress}
+                            />
+                            {errors.permanent_pincode && (
+                              <div className="error">
+                                {errors.permanent_pincode}
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="row mt-3 mb-3">
-                      <SectionTitle titleText="PLAYER JERSEY DETAILS" />
-                    </div>
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="permanent_locality"
+                              className="form-label text-light"
+                            >
+                              Permanent Locality
+                            </label>
+                            <textarea
+                              id="permanent_locality"
+                              className={`form-control form-input ${
+                                errors.permanent_locality ? "is-invalid" : ""
+                              }`}
+                              name="permanent_locality"
+                              value={formData.permanent_locality}
+                              onChange={handleChange}
+                            />
+                            {errors.permanent_locality && (
+                              <div className="error">
+                                {errors.permanent_locality}
+                              </div>
+                            )}
+                          </div>
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="permanent_landmark"
+                              className="form-label text-light"
+                            >
+                              Permanent Landmark
+                            </label>
+                            <textarea
+                              id="permanent_landmark"
+                              className={`form-control form-input ${
+                                errors.permanent_landmark ? "is-invalid" : ""
+                              }`}
+                              name="permanent_landmark"
+                              value={formData.permanent_landmark}
+                              onChange={handleChange}
+                            />
+                            {errors.permanent_landmark && (
+                              <div className="error">
+                                {errors.permanent_landmark}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-12">
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="current_address"
+                              className="form-label text-light d-flex justify-content-between"
+                            >
+                              Current Address *
+                              <div className="form-check checkBoxWrap">
+                                <input
+                                  className="form-check-input"
+                                  type="checkbox"
+                                  id="sameAsPermanent"
+                                  name="sameAsPermanent"
+                                  checked={sameAsPermanent}
+                                  onChange={handleSameAsPermanentChange}
+                                />
+                                <label
+                                  className="form-check-label"
+                                  htmlFor="sameAsPermanent"
+                                >
+                                  Same as Permanent Address
+                                </label>
+                              </div>
+                            </label>
 
-                    <div className="row mb-3">
-                      <div className="col-md-3 mb-4">
-                        <label
-                          htmlFor="trouser_size"
-                          className="form-label text-light"
-                        >
-                          Trouser Size
-                        </label>
-                        <select
-                          id="trouser_size"
-                          name="trouser_size"
-                          className={`form-select form-input ${
-                            errors.trouser_size ? "is-invalid" : ""
-                          }`}
-                          value={formData.trouser_size}
-                          onChange={handleChange}
-                        >
-                          <option value="Trouser Size">Trouser Size</option>
-                          {trouserSize.map((size) => (
-                            <option key={size.id} value={size.id}>
-                              {size.description} - {size.waist_size}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.trouser_size && (
-                          <div className="error">{errors.trouser_size}</div>
-                        )}
-                      </div>
-                      <div className="col-md-3 mb-4">
-                        <label
-                          htmlFor="jersey_sizes"
-                          className="form-label text-light"
-                        >
-                          T-Shirt Size
-                        </label>
-                        <select
-                          className={`form-select form-input ${
-                            errors.jersey_sizes ? "is-invalid" : ""
-                          }`}
-                          name="jersey_sizes"
-                          id="jersey_sizes"
-                          value={formData.jersey_sizes}
-                          onChange={handleChange}
-                        >
-                          <option value="T-Shirt Size">T-Shirt Size</option>
-                          {jerseySizes.map((handedness, index) => (
-                            <option key={index} value={handedness.id}>
-                              {handedness.size_name}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.jersey_sizes && (
-                          <div className="error">{errors.jersey_sizes}</div>
-                        )}
-                      </div>
-                      <div className="col-md-3 mb-4">
-                        <label
-                          htmlFor="shoe_size"
-                          className="form-label text-light"
-                        >
-                          Shoes Size
-                        </label>
-                        <select
-                          className={`form-select form-input ${
-                            errors.shoe_size ? "is-invalid" : ""
-                          }`}
-                          name="shoe_size"
-                          id="shoe_size"
-                          value={formData.shoe_size}
-                          onChange={handleChange}
-                        >
-                          <option value="Shoes Size">Shoes Size</option>
-                          {shoeSize.map((style, index) => (
-                            <option key={index} value={style.size_number}>
-                              {style.description} - {style.size_number}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.shoe_size && (
-                          <div className="error">{errors.shoe_size}</div>
-                        )}
-                      </div>
-                      <div className="col-md-3 mb-4">
-                        <label
-                          htmlFor="blood_group"
-                          className="form-label text-light"
-                        >
-                          Blood Group
-                        </label>
-                        <select
-                          required
-                          className={`form-select form-input ${
-                            errors.blood_group ? "is-invalid" : ""
-                          }`}
-                          name="blood_group"
-                          value={formData.blood_group}
-                          onChange={handleChange}
-                        >
-                          <option value="Blood Group">Blood Group</option>
-                          {bloodGroup.map((order, index) => (
-                            <option key={index} value={order.blood_group}>
-                              {order.blood_group}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.blood_group && (
-                          <div className="error">{errors.blood_group}</div>
-                        )}
-                      </div>
-                    </div>
+                            <textarea
+                              id="current_address"
+                              className={`form-control form-input ${
+                                errors.current_address ? "is-invalid" : ""
+                              }`}
+                              name="current_address"
+                              value={formData.current_address}
+                              onChange={handleChange}
+                              disabled={sameAsPermanent}
+                            />
+                            {errors.current_address && (
+                              <div className="error">
+                                {errors.current_address}
+                              </div>
+                            )}
+                          </div>
 
-                    <div className="row mt-3 mb-3">
-                      <SectionTitle titleText="Upload documents" />
-                    </div>
-                    <div className="row mb-3">
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="doc_upload_photo"
-                          className="form-label text-light"
-                        >
-                          Upload Photo
-                        </label>
-                        <input
-                          className="form-control"
-                          required=""
-                          name="doc_upload_photo"
-                          accept="image/*"
-                          type="file"
-                          onChange={handleFileChange}
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="current_city"
+                              className="form-label text-light d-flex justify-content-between"
+                            >
+                              Current City
+                            </label>
+                            <input
+                              id="current_city"
+                              className={`form-control form-input ${
+                                errors.current_city ? "is-invalid" : ""
+                              }`}
+                              name="current_city"
+                              value={formData.current_city}
+                              onChange={handleChange}
+                              onBlur={handleChange}
+                              disabled={sameAsPermanent}
+                            />
+                            {errors.current_city && (
+                              <div className="error">{errors.current_city}</div>
+                            )}
+                          </div>
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="current_state"
+                              className="form-label text-light d-flex justify-content-between"
+                            >
+                              Current State
+                            </label>
+                            <input
+                              id="current_state"
+                              className={`form-control form-input ${
+                                errors.current_state ? "is-invalid" : ""
+                              }`}
+                              name="current_state"
+                              value={formData.current_state}
+                              onChange={handleChange}
+                              onBlur={handleChange}
+                              disabled={sameAsPermanent}
+                            />
+                            {errors.current_state && (
+                              <div className="error">
+                                {errors.current_state}
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="current_pincode"
+                              className="form-label text-light d-flex justify-content-between"
+                            >
+                              Current Pincode
+                            </label>
+                            <input
+                              id="current_pincode"
+                              className={`form-control form-input ${
+                                errors.current_pincode ? "is-invalid" : ""
+                              }`}
+                              name="current_pincode"
+                              value={formData.current_pincode}
+                              onChange={handleChange}
+                              disabled={sameAsPermanent}
+                            />
+                            {errors.current_pincode && (
+                              <div className="error">
+                                {errors.current_pincode}
+                              </div>
+                            )}
+                          </div>
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="current_locality"
+                              className="form-label text-light d-flex justify-content-between"
+                            >
+                              Current Locality
+                            </label>
+                            <textarea
+                              id="current_locality"
+                              className={`form-control form-input ${
+                                errors.current_locality ? "is-invalid" : ""
+                              }`}
+                              name="current_locality"
+                              value={formData.current_locality}
+                              onChange={handleChange}
+                              disabled={sameAsPermanent}
+                            />
+                            {errors.current_locality && (
+                              <div className="error">
+                                {errors.current_locality}
+                              </div>
+                            )}
+                          </div>
+                          <div className="form-group col-md-12 mb-4">
+                            <label
+                              htmlFor="current_landmark"
+                              className="form-label text-light d-flex justify-content-between"
+                            >
+                              Current Landmark
+                            </label>
+                            <textarea
+                              id="current_landmark"
+                              className={`form-control form-input ${
+                                errors.current_landmark ? "is-invalid" : ""
+                              }`}
+                              name="current_landmark"
+                              value={formData.current_landmark}
+                              onChange={handleChange}
+                              disabled={sameAsPermanent}
+                            />
+                            {errors.current_landmark && (
+                              <div className="error">
+                                {errors.current_landmark}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mt-3 mb-3">
+                        <SectionTitle titleText="CONTACT INFORMATION" />
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="adhar_card_no"
+                            className="form-label text-light"
+                          >
+                            Aadhar Card Number *
+                          </label>
+                          <input
+                            id="adhar_card_no"
+                            required
+                            type="text"
+                            pattern="[0-9]{12}"
+                            className={`form-control form-input ${
+                              errors.adhar_card_no ? "is-invalid" : ""
+                            }`}
+                            name="adhar_card_no"
+                            value={formData.adhar_card_no}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            onBlur={handleChange}
+                            maxLength="12"
+                          />
+                          {errors.adhar_card_no && (
+                            <div className="error">{errors.adhar_card_no}</div>
+                          )}
+                        </div>
+
+                        <div className="form-group col-md-6 mb-4">
+                          <label
+                            htmlFor="phone_number"
+                            className="form-label text-light"
+                          >
+                            Mobile Number *
+                          </label>
+                          <input
+                            id="phone_number"
+                            type="text"
+                            maxLength="10"
+                            pattern="\d{10}"
+                            className={`form-control form-input ${
+                              errors.phone_number ? "is-invalid" : ""
+                            }`}
+                            name="phone_number"
+                            placeholder="Mobile Number"
+                            value={formData.phone_number}
+                            onChange={handleChange}
+                            onKeyDown={handlePhoneKeyDown}
+                          />
+                          {errors.phone_number && (
+                            <div className="error">{errors.phone_number}</div>
+                          )}
+                        </div>
+
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="emergency_contact_no"
+                            className="form-label text-light"
+                          >
+                            Emergency Contact Number
+                          </label>
+                          <input
+                            id="emergency_contact_no"
+                            type="text"
+                            maxLength="10"
+                            pattern="\d{10}"
+                            className={`form-control form-input ${
+                              errors.emergency_contact_no ? "is-invalid" : ""
+                            }`}
+                            name="emergency_contact_no"
+                            value={formData.emergency_contact_no}
+                            onChange={handleChange}
+                            onKeyDown={handlePhoneKeyDown}
+                          />
+                          {errors.emergency_contact_no && (
+                            <div className="error">
+                              {errors.emergency_contact_no}
+                            </div>
+                          )}
+                        </div>
+                        <div className="form-group col-md-6 mb-4">
+                          <label
+                            htmlFor="email"
+                            className="form-label text-light"
+                          >
+                            Email *
+                          </label>
+                          <input
+                            id="email"
+                            type="email"
+                            className={`form-control form-input ${
+                              errors.email ? "is-invalid" : ""
+                            }`}
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
+                          {errors.email && (
+                            <div className="error">{errors.email}</div>
+                          )}
+                        </div>
+
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="instagram_id"
+                            className="form-label text-light"
+                          >
+                            Instagram ID
+                          </label>
+                          <input
+                            id="instagram_id"
+                            type="text"
+                            className={`form-control form-input ${
+                              errors.instagram_id ? "is-invalid" : ""
+                            }`}
+                            name="instagram_id"
+                            value={formData.instagram_id}
+                            onChange={handleChange}
+                          />
+                          {errors.instagram_id && (
+                            <div className="error">{errors.instagram_id}</div>
+                          )}
+                        </div>
+
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="facebook_id"
+                            className="form-label text-light"
+                          >
+                            Facebook ID
+                          </label>
+                          <input
+                            id="facebook_id"
+                            type="text"
+                            className={`form-control form-input ${
+                              errors.facebook_id ? "is-invalid" : ""
+                            }`}
+                            name="facebook_id"
+                            value={formData.facebook_id}
+                            onChange={handleChange}
+                          />
+                          {errors.facebook_id && (
+                            <div className="error">{errors.facebook_id}</div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="row mt-3 mb-3">
+                        <SectionTitle titleText="PLAYING DETAILS" />
+                      </div>
+
+                      <div className="row mb-3">
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="playing_roles"
+                            className="form-label text-light"
+                          >
+                            Playing Roles *
+                          </label>
+                          <select
+                            required
+                            name="playing_roles"
+                            className={`form-select form-input ${
+                              errors.playing_roles ? "is-invalid" : ""
+                            }`}
+                            value={formData.playing_roles}
+                            onChange={handleChange}
+                          >
+                            <option value="Playing Roles">
+                              Select Playing Roles
+                            </option>
+                            {playingRolesOptions.map((role, index) => (
+                              <option key={index} value={role}>
+                                {role}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.playing_roles && (
+                            <div className="error">{errors.playing_roles}</div>
+                          )}
+                        </div>
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="batting_andedness"
+                            className="form-label text-light"
+                          >
+                            Batting Handedness *
+                          </label>
+                          <select
+                            required
+                            className={`form-select form-input ${
+                              errors.batting_andedness ? "is-invalid" : ""
+                            }`}
+                            name="batting_andedness"
+                            value={formData.batting_andedness}
+                            onChange={handleChange}
+                          >
+                            <option value="Select Batting Handedness">
+                              Select Batting Handedness
+                            </option>
+                            {battingHandednessOptions.map(
+                              (handedness, index) => (
+                                <option key={index} value={handedness}>
+                                  {handedness}
+                                </option>
+                              )
+                            )}
+                          </select>
+                          {errors.batting_andedness && (
+                            <div className="error">
+                              {errors.batting_andedness}
+                            </div>
+                          )}
+                        </div>
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="preferred_bowling_style"
+                            className="form-label text-light"
+                          >
+                            Preferred Bowling Style *
+                          </label>
+                          <select
+                            required
+                            className={`form-select form-input ${
+                              errors.preferred_bowling_style ? "is-invalid" : ""
+                            }`}
+                            name="preferred_bowling_style"
+                            value={formData.preferred_bowling_style}
+                            onChange={handleChange}
+                          >
+                            <option value="Preferred Bowling Style">
+                              Select Preferred Bowling Style
+                            </option>
+                            {bowlingStyleOptions.map((style, index) => (
+                              <option key={index} value={style}>
+                                {style}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.preferred_bowling_style && (
+                            <div className="error">
+                              {errors.preferred_bowling_style}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="preferred_batting_order"
+                            className="form-label text-light"
+                          >
+                            Preferred Batting Order *
+                          </label>
+                          <select
+                            required
+                            className={`form-select form-input ${
+                              errors.preferred_batting_order ? "is-invalid" : ""
+                            }`}
+                            name="preferred_batting_order"
+                            value={formData.preferred_batting_order}
+                            onChange={handleChange}
+                          >
+                            <option value="Preferred Batting Order">
+                              Select Preferred Batting Order
+                            </option>
+                            {battingOrderOptions.map((order, index) => (
+                              <option key={index} value={order}>
+                                {order}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.preferred_batting_order && (
+                            <div className="error">
+                              {errors.preferred_batting_order}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="row mt-3 mb-3">
+                        <SectionTitle titleText="PLAYER JERSEY DETAILS" />
+                      </div>
+
+                      <div className="row mb-3">
+                        <div className="col-md-3 mb-4">
+                          <label
+                            htmlFor="trouser_size"
+                            className="form-label text-light"
+                          >
+                            Trouser Size
+                          </label>
+                          <select
+                            id="trouser_size"
+                            name="trouser_size"
+                            className={`form-select form-input ${
+                              errors.trouser_size ? "is-invalid" : ""
+                            }`}
+                            value={formData.trouser_size}
+                            onChange={handleChange}
+                          >
+                            <option value="Trouser Size">Trouser Size</option>
+                            {trouserSize.map((size) => (
+                              <option key={size.id} value={size.id}>
+                                {size.description} - {size.waist_size}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.trouser_size && (
+                            <div className="error">{errors.trouser_size}</div>
+                          )}
+                        </div>
+                        <div className="col-md-3 mb-4">
+                          <label
+                            htmlFor="jersey_sizes"
+                            className="form-label text-light"
+                          >
+                            T-Shirt Size
+                          </label>
+                          <select
+                            className={`form-select form-input ${
+                              errors.jersey_sizes ? "is-invalid" : ""
+                            }`}
+                            name="jersey_sizes"
+                            id="jersey_sizes"
+                            value={formData.jersey_sizes}
+                            onChange={handleChange}
+                          >
+                            <option value="T-Shirt Size">T-Shirt Size</option>
+                            {jerseySizes.map((handedness, index) => (
+                              <option key={index} value={handedness.id}>
+                                {handedness.size_name}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.jersey_sizes && (
+                            <div className="error">{errors.jersey_sizes}</div>
+                          )}
+                        </div>
+                        <div className="col-md-3 mb-4">
+                          <label
+                            htmlFor="shoe_size"
+                            className="form-label text-light"
+                          >
+                            Shoes Size
+                          </label>
+                          <select
+                            className={`form-select form-input ${
+                              errors.shoe_size ? "is-invalid" : ""
+                            }`}
+                            name="shoe_size"
+                            id="shoe_size"
+                            value={formData.shoe_size}
+                            onChange={handleChange}
+                          >
+                            <option value="Shoes Size">Shoes Size</option>
+                            {shoeSize.map((style, index) => (
+                              <option key={index} value={style.size_number}>
+                                {style.description} - {style.size_number}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.shoe_size && (
+                            <div className="error">{errors.shoe_size}</div>
+                          )}
+                        </div>
+                        <div className="col-md-3 mb-4">
+                          <label
+                            htmlFor="blood_group"
+                            className="form-label text-light"
+                          >
+                            Blood Group
+                          </label>
+                          <select
+                            required
+                            className={`form-select form-input ${
+                              errors.blood_group ? "is-invalid" : ""
+                            }`}
+                            name="blood_group"
+                            value={formData.blood_group}
+                            onChange={handleChange}
+                          >
+                            <option value="Blood Group">Blood Group</option>
+                            {bloodGroup.map((order, index) => (
+                              <option key={index} value={order.blood_group}>
+                                {order.blood_group}
+                              </option>
+                            ))}
+                          </select>
+                          {errors.blood_group && (
+                            <div className="error">{errors.blood_group}</div>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="row mt-3 mb-3">
+                        <SectionTitle titleText="Upload documents" />
+                      </div>
+                      <div className="row mb-3">
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="doc_upload_photo"
+                            className="form-label text-light"
+                          >
+                            Upload Photo
+                          </label>
+                          <input
+                            className="form-control"
+                            required=""
+                            name="doc_upload_photo"
+                            accept="image/*"
+                            type="file"
+                            onChange={handleFileChange}
+                          />
+                        </div>
+
+                        <div className="col-md-6 mb-4">
+                          <label
+                            htmlFor="doc_upload_adhar"
+                            className="form-label text-light"
+                          >
+                            Upload Aadhar
+                          </label>
+                          <input
+                            className="form-control"
+                            required=""
+                            name="doc_upload_adhar"
+                            accept="image/*"
+                            type="file"
+                            onChange={handleFileChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-12 d-flex align-items-center justify-content-around mt-5 mobileBtn">
+                        <SqareButton
+                          classNameText="sqrBtn mt-3"
+                          btnName="Complete registration Later"
+                          svgFill="#fbe29a"
+                          textColor="#fbe29a"
+                          bordercolor="#fbe29a"
+                          type="submit"
+                          onClick={(e) => handleSubmit(e, 0)}
+                        />
+                        <SqareButton
+                          classNameText="sqrBtn mt-3"
+                          btnName="Complete registration"
+                          svgFill="#fbe29a"
+                          textColor="#fbe29a"
+                          bordercolor="#fbe29a"
+                          type="submit"
+                          onClick={(e) => handleSubmit(e, 1)}
                         />
                       </div>
-
-                      <div className="col-md-6 mb-4">
-                        <label
-                          htmlFor="doc_upload_adhar"
-                          className="form-label text-light"
-                        >
-                          Upload Aadhar
-                        </label>
-                        <input
-                          className="form-control"
-                          required=""
-                          name="doc_upload_adhar"
-                          accept="image/*"
-                          type="file"
-                          onChange={handleFileChange}
-                        />
-                      </div>
+                    </form>
+                  ) : (
+                    <div className="h-100 w-100 d-flex justify-content-center align-items-center">
+                      <h1 className="loading">Loading</h1>
                     </div>
-                    <div className="col-md-12 d-flex align-items-center justify-content-around mt-5 mobileBtn">
-                      <SqareButton
-                        classNameText="sqrBtn mt-3"
-                        btnName="Complete registration Later"
-                        svgFill="#fbe29a"
-                        textColor="#fbe29a"
-                        bordercolor="#fbe29a"
-                        type="submit"
-                        onClick={(e) => handleSubmit(e, 0)}
-                      />
-                      <SqareButton
-                        classNameText="sqrBtn mt-3"
-                        btnName="Complete registration"
-                        svgFill="#fbe29a"
-                        textColor="#fbe29a"
-                        bordercolor="#fbe29a"
-                        type="submit"
-                        onClick={(e) => handleSubmit(e, 1)}
-                      />
-                    </div>
-                  </form>
+                  )}
                 </div>
               </div>
             </div>
