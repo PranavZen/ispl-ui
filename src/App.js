@@ -28,7 +28,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GlodenPage from "./pages/GlodenPage";
 import { whtspIcon } from "./assets/imagePath";
 import Error404 from "./pages/Error404";
-
+import RegistrationCamp from "./pages/registrationcamp/RegistrationCamp";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TrialFormation from "./pages/trialformation/TrialFormation";
 function App() {
   return (
     <HelmetProvider>
@@ -65,8 +67,10 @@ function App() {
           <Route path="/news/all-news" element={<NewsPages />} />
           <Route path="/news/announcement" element={<Announcement />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/registration-camp" element={<RegistrationCamp />} />
           <Route path="/ispl-page" element={<IsplPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/trial-dates" element={<TrialFormation />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/dashboard-session-2" element={<DashboardForm />} />
@@ -78,11 +82,22 @@ function App() {
           <Route path="*" element={<Navigate to="/Error404" />} />
         </Routes>
         <Footer />
-        <Link to="https://wa.me/918097323666" className="floatIcon" target="_blank">
+        <Link
+          to="https://wa.me/918097323666"
+          className="floatIcon"
+          target="_blank"
+        >
           <span>
-            <img src={whtspIcon} alt="ISPL Whatsapp Chat" className="img-fluid whtspIco" width={65} height={65}/>
+            <img
+              src={whtspIcon}
+              alt="ISPL Whatsapp Chat"
+              className="img-fluid whtspIco"
+              width={65}
+              height={65}
+            />
           </span>
         </Link>
+        
       </BrowserRouter>
     </HelmetProvider>
   );

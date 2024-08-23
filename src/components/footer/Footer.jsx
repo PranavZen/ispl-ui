@@ -62,6 +62,28 @@ function Footer() {
                         <Link to="/news/all-news">News & Events</Link>
                       </li>
                     </ul>
+                    <div className="storeLinksWrap mt-4">
+                      <Link
+                        to="https://apps.apple.com/in/app/ispl/id6504962220"
+                        target="_blank"
+                      >
+                        <img
+                          src="ios-app.svg"
+                          alt="ios app store"
+                         
+                        />
+                      </Link>
+                      <Link
+                        to="https://play.google.com/store/apps/details?id=com.cricclubs.isplt10&pcampaignid=web_share"
+                        target="_blank"
+                      >
+                        <img
+                          src="google-store.png"
+                          alt="ios app store"
+                          
+                        />
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6 col-12">

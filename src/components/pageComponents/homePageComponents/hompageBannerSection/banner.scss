@@ -1,11 +1,17 @@
 @import "../../../../assets/scss/media";
 #bannerSection {
   margin-top: 14rem;
+  @include xu-desktop{
+    margin-top: 19rem;
+  }
+  @include d-desktop{
+    margin-top: 18rem;
+  }
   @include md-tablet{
-    margin-top: 10rem;
+    margin-top: 18rem;
   }
   @include x-767-tablet {
-    margin-top: 6rem;
+    margin-top: 7rem;
   }
   .slick-slider {
     .slick-list {
@@ -30,7 +36,7 @@
                 );
               }
               @include x-767-tablet {
-                height: 24rem;
+                height: 20rem;
                 img {
                   height: 100%;
                 }

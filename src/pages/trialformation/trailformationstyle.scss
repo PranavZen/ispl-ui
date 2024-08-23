@@ -1,0 +1,61 @@
+@import "../../assets/scss/_media.scss";
+#trialFormationSection {
+  margin-top: 14rem;
+  padding: 8rem 0;
+  @include x-767-tablet {
+    padding: 0rem 1rem 6rem;
+  }
+  .dataBox {
+    margin-top: 4rem;
+    @include x-767-tablet {
+      margin-top: 3rem;
+    }
+    p {
+      color: #121212;
+      font-size: 2rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      @include x-767-tablet {
+        font-size: 1.6rem;
+      }
+    }
+    ul {
+      padding-left: 3rem;
+      margin-bottom: 2rem;
+      li {
+        list-style: decimal;
+        color: #6d6d6d;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        @include x-767-tablet {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+  .trailListDataWrap {
+    margin-top: 2rem;
+    h4 {
+      color: #121212;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    ul {
+      padding-left: 3rem;
+      li {
+        list-style: circle;
+        color: #6d6d6d;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+.btmText {
+  color: #121212;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}

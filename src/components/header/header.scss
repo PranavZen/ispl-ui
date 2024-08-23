@@ -66,15 +66,18 @@
   padding: 0rem 6rem 0rem 6rem;
   background-color: #263574;
   position: relative;
-  @include d-desktop {
-    padding: 0rem 2rem 0rem 2rem;
+  @include xu-desktop {
+    padding: 0rem 6rem 3rem 6rem;
   }
-  // @include md-tablet {
-  //   padding: 1rem 2rem 1rem 8rem;
-  // }
-  // @include x-767-tablet {
-  //   padding: 0rem 1rem 0rem 2rem;
-  // }
+  @include d-desktop {
+    padding: 0rem 2rem 2rem 2rem;
+  }
+  @include md-tablet {
+    padding: 1rem 2rem 1rem 2rem;
+  }
+  @include x-767-tablet {
+    padding: 0rem 1rem 0rem 2rem;
+  }
   .myDis {
     display: flex;
     justify-content: space-between;
@@ -90,7 +93,7 @@
       // top: 5%;
       // left: -5%;
       // transform: translate(-50%, -50%);
-      margin-right: 3rem;
+      margin-right: 2rem;
       @include d-desktop {
         margin-right: 1rem;
       }
@@ -98,7 +101,10 @@
         position: relative;
         transform: none;
         img {
-          width: 4.5rem;
+          width: 7rem;
+          @include x-767-tablet{
+            width: 4rem;
+          }
         }
       }
     }
@@ -132,14 +138,23 @@
       }
       .offcanvas-body {
         .navbar-nav {
-          gap: 2.5rem;
-          @include d-desktop {
-            gap: 1rem;
+          gap: 1.5rem;
+          @include xu-desktop{
+            gap: 3rem;
+          }
+          @include d-1366-desktop{
+            gap: 2.5rem;
+          }
+          @include d-1280-desktop{
+            gap: 1.8rem;
+          }
+          @include d-desktop{
+            gap: 1.3rem;
           }
           .nav-item {
             .nav-link {
               color: #dcdbdb;
-              font-size: 1.8rem;
+              font-size: 1.7rem;
               font-weight: 400;
               display: flex;
               justify-content: center;
@@ -165,7 +180,6 @@
                   }
                 }
               }
-              
             }
             &.dropdown {
               .dropdown-menu {
@@ -191,6 +205,9 @@
                     font-weight: 500;
                     line-height: normal;
                     letter-spacing: 0.18px;
+                    @include x-767-tablet {
+                      font-size: 1.4rem;
+                    }
                     &:hover {
                       background-color: transparent;
                       color: #c8c8c8;
@@ -223,7 +240,7 @@
     }
     &.deskMob {
       display: none;
-      @include x-767-tablet {
+      @include md-tablet {
         display: flex;
         flex-direction: column;
         position: relative;
@@ -238,7 +255,18 @@
     }
     &.mobDisp {
       display: flex;
-      @include x-767-tablet {
+      @include xu-desktop {
+        padding-bottom: 2rem;
+        position: absolute;
+        bottom: -5px;
+        right: 1.5%;
+      }
+      @include md-tablet{
+        bottom: 35px;
+        right: 7rem;
+        padding-bottom: 0;
+      }
+      @include md-tablet {
         display: none;
       }
     }
@@ -266,16 +294,126 @@
       font-weight: 600;
       line-height: 0;
       padding: 0.5rem 1.5rem;
-      @include d-desktop{
+      @include d-desktop {
         font-size: 1.4rem;
         height: 3.5rem;
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
       }
       span {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 1.8rem;
+      }
+    }
+  }
+}
+.agreedModalWrap {
+  display: flex;
+  padding-left: 0 !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  justify-content: center;
+  align-items: center;
+  .modal-dialog {
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    z-index: 1051;
+    @include d-desktop {
+      width: 85%;
+    }
+    @include x-767-tablet {
+      width: 100%;
+      margin: 0;
+      height: 100%;
+    }
+    .modal-content {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      padding: 0 1rem;
+      .modal-header {
+        padding-top: 4rem;
+        justify-content: center;
+        padding-bottom: 1rem;
+        border: 0;
+        .modal-title {
+          color: #172046;
+          font-size: 3rem;
+          font-weight: 700;
+          text-align: center;
+        }
+        .btn-close {
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+          background-size: 3rem;
+          opacity: 1;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+      }
+      .modal-body {
+        .mainPara {
+          color: #121212;
+          font-size: 1.8rem;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+          text-align: justify;
+        }
+        ul {
+          padding-left: 3rem;
+          margin-bottom: 2rem;
+          li {
+            list-style: decimal;
+            color: #6d6d6d;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .noteText {
+          color: #121212;
+          font-size: 1.8rem;
+        }
+        .notePara {
+          color: #6d6d6d;
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+        }
+        .form-check {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin: 0;
+          min-height: 1.5rem;
+          .form-check-input {
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+          }
+          .form-check-label {
+            color: #6d6d6d;
+            font-size: 1.6rem;
+          }
+        }
+      }
+      .modal-footer {
+        .btn-primary {
+          background-color: #182046;
+          border-color: #182046;
+          font-size: 1.6rem;
+          font-weight: 600;
+          height: 4rem;
+        }
       }
     }
   }

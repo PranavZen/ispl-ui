@@ -264,30 +264,6 @@
     line-height: 23px !important;
   }
 }
-.matchDetailsCustom .tab-tables td,
-.matchDetailsCustom .tab-tables th {
-  font-size: 17px;
-  font-weight: 500;
-}
-@media (max-width: 767px) {
-  .matchDetailsCustom .tab-tables td,
-  .matchDetailsCustom .tab-tables th {
-    font-size: 14px;
-  }
-}
-.matchDetailsCustom .tHead {
-  background-color: #182046;
-}
-.matchDetailsCustom .tHead td {
-  color: #fff !important;
-  font-weight: 600;
-  font-size: 1.8rem;
-}
-@media (max-width: 767px) {
-  .matchDetailsCustom .tHead td {
-    font-size: 1.4rem;
-  }
-}
 
 .filterBtnWrap {
   width: -moz-fit-content;

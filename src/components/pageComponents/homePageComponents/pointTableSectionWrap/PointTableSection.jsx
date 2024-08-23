@@ -99,74 +99,88 @@ function PointTableSection() {
               >
                 <TableSlider>
                   <PointsTableCard
-                    addClassName="card1"
+                    addClassName="card4"
                     cardNum="1"
-                    teamLogo={team1}
-                    teamName="Chennai Singhams"
-                    pts="5"
+                    teamLogo={team4}
+                    teamName="Majhi Mumbai"
+                    pts="6"
                     playedgames="5"
-                    winsPt="5"
-                    nrr="2.44"
-                    winLable="w"
-                    lossLable="l"
+                    winsPt="3"
+                    nrr="1.247"
+                    // winLable="w"
+                    // lossLable="l"
                     tag={qlfy}
-                    fullPtsLink="/"
-                  />
-                  <PointsTableCard
-                    addClassName="card2"
-                    cardNum="2"
-                    teamLogo={team2}
-                    teamName="Bangalore Strikers"
-                    pts="5"
-                    playedgames="5"
-                    winsPt="5"
-                    nrr="2.44"
-                    winLable="w"
-                    lossLable="l"
-                    tag={qlfy}
-                    fullPtsLink="/"
+                    fullPtsLink="/matches"
                   />
                   <PointsTableCard
                     addClassName="card3"
-                    cardNum="3"
+                    cardNum="2"
                     teamLogo={team3}
                     teamName="Tiigers Of Kolkata"
-                    pts="5"
+                    pts="6"
                     playedgames="5"
-                    winsPt="5"
-                    nrr="2.44"
-                    winLable="w"
-                    lossLable="l"
+                    winsPt="3"
+                    nrr="0.5"
+                    // winLable="w"
+                    // lossLable="l"
                     tag={qlfy}
-                    fullPtsLink="/"
-                  />
-                  <PointsTableCard
-                    addClassName="card4"
-                    cardNum="4"
-                    teamLogo={team4}
-                    teamName="Majhi Mumbai"
-                    pts="5"
-                    playedgames="5"
-                    winsPt="5"
-                    nrr="2.44"
-                    winLable="w"
-                    lossLable="l"
-                    tag={qlfy}
-                    fullPtsLink="/"
+                    fullPtsLink="/matches"
                   />
                   <PointsTableCard
                     addClassName="card5"
-                    cardNum="5"
+                    cardNum="3"
                     teamLogo={team5}
-                    teamName="Majhi Mumbai"
-                    pts="5"
+                    teamName="Srinagar Ke Veer"
+                    pts="6"
                     playedgames="5"
-                    winsPt="5"
-                    nrr="2.44"
-                    winLable="w"
-                    lossLable="l"
+                    winsPt="3"
+                    nrr="0.156"
+                    // winLable="w"
+                    // lossLable="l"
                     tag={qlfy}
-                    fullPtsLink="/"
+                    fullPtsLink="/matches"
+                  />
+                  <PointsTableCard
+                    addClassName="card1"
+                    cardNum="4"
+                    teamLogo={team1}
+                    teamName="Chennai Singhams"
+                    pts="6"
+                    playedgames="5"
+                    winsPt="3"
+                    nrr="-0.017"
+                    // winLable="w"
+                    // lossLable="l"
+                    tag={qlfy}
+                    fullPtsLink="/matches"
+                  />
+                  <PointsTableCard
+                    addClassName="card2"
+                    cardNum="5"
+                    teamLogo={team2}
+                    teamName="Bangalore Strikers"
+                    pts="4"
+                    playedgames="5"
+                    winsPt="2"
+                    nrr="-1.013"
+                    // winLable="w"
+                    // lossLable="l"
+                    // tag={qlfy}
+                    fullPtsLink="/matches"
+                  />
+                  <PointsTableCard
+                    addClassName="card6"
+                    cardNum="6"
+                    teamLogo="https://my.ispl-t10.com/images/team-master/teams/swp1DD0AQL6lQPc9SbwPlWNPx6IjBCosZDzBFZ1t.png"
+                    teamName="Falcon Risers Hyderabad"
+                    pts="2"
+                    playedgames="5"
+                    winsPt="1"
+                    nrr="-0.688"
+                    // winLable="w"
+                    // lossLable="l"
+                    // tag={qlfy}
+                    fullPtsLink="/matches"
                   />
                 </TableSlider>
               </div> */}

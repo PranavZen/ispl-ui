@@ -6,7 +6,7 @@ import SectionTitle from "../../components/common/sectiontitletext/SectionTitle"
 import SqareButton from "../../components/common/cta/SqareButton";
 import { Link } from "react-router-dom";
 
-function VerifyModal({ closeVerifyModal }) {
+function VerifyModal({ isOpen, closeVerifyModal }) {
   const [useEmail, setUseEmail] = useState(false);
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -112,17 +112,15 @@ function VerifyModal({ closeVerifyModal }) {
     setError("");
   };
 
+  if (!isOpen) return null;
+
   return (
-    <div
-      className="modal fade show verifyModalBox"
-      id="exampleModalssss"
-      tabIndex="-1"
-      aria-labelledby="exampleModalLabelsss"
-      aria-hidden="true"
-    >
+    <div className="modal show conditionalModal " style={{ display: "block" }}>
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content">
-          <SectionTitle titleText="Verify MOB or Email" />
+          <SectionTitle
+            titleText={`Verify ${useEmail ? "Email ID" : "Mobile Number"} `}
+          />
           <form
             className="form p-t-20"
             id="state_city_zone_form"
@@ -187,9 +185,11 @@ function VerifyModal({ closeVerifyModal }) {
                     {otpSent && (
                       <p className="btmText mt-0">
                         {timer > 0 ? (
-                          `OTP expires in ${Math.floor(timer / 60)}:${
-                            (timer % 60).toString().padStart(2, "0")
-                          }`
+                          `OTP expires in ${Math.floor(timer / 60)}:${(
+                            timer % 60
+                          )
+                            .toString()
+                            .padStart(2, "0")}`
                         ) : (
                           <Link
                             to="#"

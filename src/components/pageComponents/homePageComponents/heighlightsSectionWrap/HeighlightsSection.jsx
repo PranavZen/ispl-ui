@@ -29,7 +29,7 @@ function HeighlightsSection() {
               <SqareButton
                 classNameText="sqrBtn"
                 btnName="View More"
-                svgFill="#263574"
+                svgFill="#263574" 
                 textColor="#263574"
                 bordercolor="#263574"
                 btnLinkUrl="/video/highlights"
@@ -43,6 +43,7 @@ function HeighlightsSection() {
                     backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
                     date={video.date}
                     matchLink={video.video_link}
+                    datafancybox="data-fancybox"
                   />
                 </div>
               ))}

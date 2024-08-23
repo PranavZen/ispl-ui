@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import "../videos/videopagestyle.css";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
@@ -14,21 +14,14 @@ const CHANNEL_ID = "UC73dEMSiwTVJ8zZqeQfP9Lw";
 
 const AllVideos = () => {
   const { category_names } = useParams();
-  console.log("category_names ", category_names)
   const [videos, setVideos] = useState([]);
   const [ytVideos, setYtVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [nextPageToken, setNextPageToken] = useState(null);
 
-  // Fetch local and YouTube videos when category_names changes
-  useEffect(() => {
-    fetchLocalVideos();
-    fetchYouTubeVideos();
-  }, [category_names]);
-
   // Fetch local videos from your API
-  const fetchLocalVideos = async () => {
+  const fetchLocalVideos = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch("https://my.ispl-t10.com/api/video-master/all-vedios");
@@ -50,7 +43,7 @@ const AllVideos = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [category_names]);
 
   // Fetch YouTube videos using the YouTube Data API
   const fetchYouTubeVideos = async (pageToken = null) => {
@@ -104,23 +97,11 @@ const AllVideos = () => {
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
-  // // Display a spinner while loading
-  // if (loading) {
-  //   return (
-  //     <section id="videoSection" className="pgNotFoundSection">
-  //       <div className="container">
-  //         <SectionTitle titleText={`${category_names} Videos`} />
-  //         <div className="row">
-  //           <div className="col-lg-10 col-md-12 mx-auto">
-  //             <div className="pgNotFoundNotBox bg-transparent">
-  //               <Spinner />
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </section>
-  //   );
-  // }
+  // Fetch local and YouTube videos when category_names changes
+  useEffect(() => {
+    fetchLocalVideos();
+    fetchYouTubeVideos();
+  }, [category_names, fetchLocalVideos]);
 
   // Display a message if no videos are found
   if (loading || !category_names || (videos.length === 0 && ytVideos.length === 0)) {
@@ -131,7 +112,7 @@ const AllVideos = () => {
           <div className="row">
             <div className="col-lg-10 col-md-12 mx-auto">
               <div className="pgNotFoundNotBox">
-              {loading ? <Spinner /> : <h3>No data found</h3>}
+                {loading ? <Spinner /> : error ? <h3>{error}</h3> : <h3>No data found</h3>}
               </div>
             </div>
           </div>
@@ -169,6 +150,7 @@ const AllVideos = () => {
                 backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
                 date={formatDate(video.date)}
                 matchLink={video.video_link}
+                datafancybox="data-fancybox"
               />
             </div>
           ))}
@@ -180,6 +162,7 @@ const AllVideos = () => {
                   backgroundImg={video.snippet.thumbnails.default.url}
                   matchLink={video.video_link}
                   date={formatDate(video.snippet.publishTime)}
+                  datafancybox="data-fancybox"
                 />
               </div>
             ))}

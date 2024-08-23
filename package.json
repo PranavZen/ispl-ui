@@ -2,7 +2,7 @@
   "name": "ispl-t10.com",
   "homepage": "https://ispl-t10.com",
   "proxy": "https://ispl-t10.com",
-  "version": "5.0.7",
+  "version": "6.0.2",
   "private": true,
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
@@ -11,7 +11,9 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "formik": "^2.4.6",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-lazy-load-image-component": "^1.6.2",
@@ -24,7 +26,8 @@
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

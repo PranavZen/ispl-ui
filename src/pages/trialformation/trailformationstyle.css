@@ -1,0 +1,69 @@
+#trialFormationSection {
+  margin-top: 14rem;
+  padding: 8rem 0;
+}
+@media (max-width: 767px) {
+  #trialFormationSection {
+    padding: 0rem 1rem 6rem;
+  }
+}
+#trialFormationSection .dataBox {
+  margin-top: 4rem;
+}
+@media (max-width: 767px) {
+  #trialFormationSection .dataBox {
+    margin-top: 3rem;
+  }
+}
+#trialFormationSection .dataBox p {
+  color: #121212;
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  #trialFormationSection .dataBox p {
+    font-size: 1.6rem;
+  }
+}
+#trialFormationSection .dataBox ul {
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+}
+#trialFormationSection .dataBox ul li {
+  list-style: decimal;
+  color: #6d6d6d;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  #trialFormationSection .dataBox ul li {
+    font-size: 1.6rem;
+  }
+}
+#trialFormationSection .trailListDataWrap {
+  margin-top: 2rem;
+}
+#trialFormationSection .trailListDataWrap h4 {
+  color: #121212;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+#trialFormationSection .trailListDataWrap ul {
+  padding-left: 3rem;
+}
+#trialFormationSection .trailListDataWrap ul li {
+  list-style: circle;
+  color: #6d6d6d;
+  font-size: 1.6rem;
+}
+
+.btmText {
+  color: #121212;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}/*# sourceMappingURL=trailformationstyle.css.map */

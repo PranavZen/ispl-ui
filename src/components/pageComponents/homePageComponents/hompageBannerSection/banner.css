@@ -1,14 +1,24 @@
 #bannerSection {
   margin-top: 14rem;
 }
+@media (max-width: 1440px) {
+  #bannerSection {
+    margin-top: 19rem;
+  }
+}
+@media (max-width: 1024px) {
+  #bannerSection {
+    margin-top: 18rem;
+  }
+}
 @media (max-width: 834px) {
   #bannerSection {
-    margin-top: 10rem;
+    margin-top: 18rem;
   }
 }
 @media (max-width: 767px) {
   #bannerSection {
-    margin-top: 6rem;
+    margin-top: 7rem;
   }
 }
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide {
@@ -29,7 +39,7 @@
 }
 @media (max-width: 767px) {
   #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeImg {
-    height: 24rem;
+    height: 20rem;
   }
   #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeImg img {
     height: 100%;

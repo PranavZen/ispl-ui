@@ -117,4 +117,26 @@
     text-align: center;
     font-size: 1.4rem;
   }
+}
+
+.storeLinksWrap {
+  display: flex;
+  gap: 1rem;
+}
+.storeLinksWrap a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18rem;
+  height: 4rem;
+}
+@media (max-width: 1024px) {
+  .storeLinksWrap a {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 834px) {
+  .storeLinksWrap a {
+    width: 14rem;
+  }
 }/*# sourceMappingURL=footer.css.map */

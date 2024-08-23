@@ -162,7 +162,7 @@ input {
   );
   @include md-tablet {
     padding: 0rem 0 4rem;
-    margin-top: 10rem;
+    margin-top: 18rem;
   }
   @include x-767-tablet {
     margin-top: 6rem;
@@ -242,6 +242,7 @@ input {
     }
   }
   .shareBox {
+    display: none;
     svg {
       path {
         fill: #fff;
@@ -484,7 +485,7 @@ input {
     display: flex;
     font-size: 18rem;
     margin: 0px;
-    color: #263474; 
+    color: #263474;
     font-weight: 800;
     align-items: center;
     @include x-767-tablet {
@@ -511,5 +512,76 @@ input {
     text-decoration: none;
     font-size: 2rem;
     font-weight: 600;
+  }
+}
+
+.tab-tables {
+  td,
+  th {
+    font-size: 17px;
+    font-weight: 500;
+    @include x-767-tablet {
+      font-size: 14px;
+    }
+  }
+}
+.tHead {
+  td {
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 1.8rem;
+    background-color: #182046;
+    @include x-767-tablet {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.thank-you-message {
+  p {
+    font-size: 2rem;
+    color: #4cff4c;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    word-spacing: 0.2rem;
+    margin-bottom: 0;
+  }
+}
+
+.error {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.conditionalModal {
+  // display: block;
+  width: 100vw;
+  left: 50%;
+  height: 100vh;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  &.cityZoneModalWrap {
+    .modal-dialog {
+      .modal-content {
+        .form {
+          .sqrBtn {
+            width: 35%;
+          }
+        }
+      }
+    }
+  }
+  .modal-dialog {
+    .modal-content {
+      max-width: 65%;
+      background: #0e132a;
+      .form {
+        .sqrBtn {
+          width: 30%;
+        }
+      }
+    }
   }
 }

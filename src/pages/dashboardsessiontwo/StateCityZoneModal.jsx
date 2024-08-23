@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import SqareButton from "../../components/common/cta/SqareButton";
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 
-function StateCityZoneModal({ closeModal }) {
+function StateCityZoneModal({ isOpen, closeModal }) {
   const [formData, setFormData] = useState({
     state_name: "",
     cities_states_id: "",
@@ -125,98 +125,93 @@ function StateCityZoneModal({ closeModal }) {
     }
   };
 
+  if (!isOpen) return null;
+
+
   return (
-    <div
-      class="modal fade show"
-      id="exampleModal"
-      tabIndex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg"></div>
-      <div className="modal-content">
-      <SectionTitle titleText="Update City" />
-        <form
-          className="form p-t-20"
-          id="state_city_zone_form"
-          onSubmit={handleSubmit}
-        >
-          <div className="row mb-4">
-            <div className="col-md-8 mb-4">
-              <label htmlFor="state_name" className="form-label ">
-                State
-              </label>
-              <select
-                required
-                id="state_name"
-                className="form-control"
-                name="state_name"
-                value={formData.state_name}
-                onChange={handleChange}
-              >
-                <option value="">Select a state</option>
-                {states.map((state, index) => (
-                  <option key={index} value={state.state_name}>
-                    {state.state_name}
-                  </option>
-                ))}
-              </select>
-              {errors.state_name && (
-                <div className="error">{errors.state_name}</div>
-              )}
-            </div>
-            <div className="col-md-8 mb-4">
-              <label
-                htmlFor="cities_states_id"
-                className="form-label "
-              >
-                City
-              </label>
-              <select
-                required
-                id="cities_states_id"
-                className="form-control"
-                name="cities_states_id"
-                value={formData.cities_states_id}
-                onChange={handleChange}
-              >
-                <option value="">Select a city</option>
-                {cities.map((city, index) => (
-                  <option key={index} value={city.city_id}>
-                    {city.city_name}
-                  </option>
-                ))}
-              </select>
-              {errors.cities_states_id && (
-                <div className="error">{errors.cities_states_id}</div>
-              )}
-            </div>
-            <div className="col-md-8 mb-4">
-              <label htmlFor="zone_name" className="form-label ">
-                Zone
-              </label>
-              <input
-                id="zone_name"
-                type="text"
-                className="form-control"
-                name="zone_name"
-                value={formData.zone_name}
-                disabled
+    <div className="modal show conditionalModal cityZoneModalWrap" style={{ display: "block" }}>
+      <div className="modal-dialog modal-dialog-centered modal-lg">
+        <div className="modal-content">
+          <SectionTitle titleText="Update City" />
+          <form
+            className="form p-t-20"
+            id="state_city_zone_form"
+            onSubmit={handleSubmit}
+          >
+            <div className="row mb-4">
+              <div className="col-md-8 mb-4">
+                <label htmlFor="state_name" className="form-label ">
+                  State
+                </label>
+                <select
+                  required
+                  id="state_name"
+                  className="form-control"
+                  name="state_name"
+                  value={formData.state_name}
+                  onChange={handleChange}
+                >
+                  <option value="">Select a state</option>
+                  {states.map((state, index) => (
+                    <option key={index} value={state.state_name}>
+                      {state.state_name}
+                    </option>
+                  ))}
+                </select>
+                {errors.state_name && (
+                  <div className="error">{errors.state_name}</div>
+                )}
+              </div>
+              <div className="col-md-8 mb-4">
+                <label htmlFor="cities_states_id" className="form-label ">
+                  City
+                </label>
+                <select
+                  required
+                  id="cities_states_id"
+                  className="form-control"
+                  name="cities_states_id"
+                  value={formData.cities_states_id}
+                  onChange={handleChange}
+                >
+                  <option value="">Select a city</option>
+                  {cities.map((city, index) => (
+                    <option key={index} value={city.city_id}>
+                      {city.city_name}
+                    </option>
+                  ))}
+                </select>
+                {errors.cities_states_id && (
+                  <div className="error">{errors.cities_states_id}</div>
+                )}
+              </div>
+              <div className="col-md-8 mb-4">
+                <label htmlFor="zone_name" className="form-label ">
+                  Zone
+                </label>
+                <input
+                  id="zone_name"
+                  type="text"
+                  className="form-control"
+                  name="zone_name"
+                  value={formData.zone_name}
+                  disabled
+                />
+                {errors.zone_name && (
+                  <div className="error">{errors.zone_name}</div>
+                )}
+              </div>
+              <SqareButton
+                classNameText="sqrBtn"
+                btnName="Update Now"
+                svgFill="#fbe29a"
+                textColor="#fbe29a"
+                bordercolor="#fbe29a"
+                type="submit"
               />
-              {errors.zone_name && (
-                <div className="error">{errors.zone_name}</div>
-              )}
             </div>
-            <SqareButton
-              classNameText="sqrBtn"
-              btnName="Update Now"
-              svgFill="#fbe29a"
-              textColor="#fbe29a"
-              bordercolor="#fbe29a"
-              type="submit"
-            />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

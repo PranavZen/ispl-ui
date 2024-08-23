@@ -38,22 +38,9 @@ function DashboardForm() {
           content="https://www.example.com/home-image.jpg"
         />
         <link rel="canonical" href="https://www.example.com/" />
-        
       </Helmet>
-      <div className="slider-banner">
-        <div className="row justify-content-center">
-          <div className="col-md-12">
-            <div className="row mt-3 justify-content-center">
-              <div className="col-md-10">
-                <div className="card-body login-modal-pn">
-                 <RegistrationFormDashboard/>
-                </div>
-              </div>
-            </div>
-            <ToastContainer />
-          </div>
-        </div>
-      </div>
+      <RegistrationFormDashboard />
+      <ToastContainer />
     </section>
   );
 }

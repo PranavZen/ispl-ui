@@ -1,0 +1,73 @@
+const southzone = [
+  {
+    "Sr No.": 1,
+    City: "Chennai",
+    From: "01-Oct",
+    To: "03-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 2,
+    City: "Tirunelveli",
+    From: "01-Oct",
+    To: "01-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 3,
+    City: "Vijayawada",
+    From: "01-Oct",
+    To: "01-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 4,
+    City: "Madurai",
+    From: "03-Oct",
+    To: "03-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 5,
+    City: "Visakhapatnam",
+    From: "03-Oct",
+    To: "03-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 6,
+    City: "Bengaluru",
+    From: "04-Oct",
+    To: "08-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 7,
+    City: "Coimbatore",
+    From: "05-Oct",
+    To: "05-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 8,
+    City: "Hyderabad",
+    From: "05-Oct",
+    To: "10-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 9,
+    City: "Tirupur",
+    From: "07-Oct",
+    To: "07-Oct",
+    zone: "South",
+  },
+  {
+    "Sr No.": 10,
+    City: "Mysore",
+    From: "09-Oct",
+    To: "09-Oct",
+    zone: "South",
+  },
+];
+export default southzone;

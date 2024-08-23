@@ -1,75 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import CommonSlider from "../../../common/commonSliderLayout/CommonSlider";
 import HeighlightsCard from "../../../common/sliderCard/heighlights/HeighlightsCard";
-import {
-  magicmovement1,
-  magicmovement2,
-  magicmovement3,
-  magicmovement4,
-} from "../../../../assets/imagePath";
 import "../magicmovmentsectionwrap/magicmovement.css";
 import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../common/cta/SqareButton";
 
 function MagicMovementSection() {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    // Fetch the video data from the API
+    axios
+      .get("https://my.ispl-t10.com/api/video-master/all-vedios")
+      .then((response) => {
+        // Log the response to inspect its structure
+        // console.log("API Response:", response.data);
+
+        // Access the 'all-video' array within 'data'
+        const allVideos = response.data.data["all-video"];
+
+        // Filter videos with category name "Magic Moments"
+        const magicMomentVideos = allVideos.filter(
+          (video) => video.category_names === "Magic-Moments"
+        );
+        setVideos(magicMomentVideos);
+      })
+      .catch((error) => {
+        console.error("Error fetching video data:", error);
+      });
+  }, []);
+
   return (
     <section id="magicMoveMentSection">
       <div className="container">
         <div className="row">
           <div className="col-lg-10 col-md-12 col-12 mx-auto px-0">
             <div className="topSecWrap">
-            <SectionTitle titleText="Magic Movements" />
-              {/* <SqareButton
+              <SectionTitle titleText="Magic Moments" />
+              <SqareButton
                 classNameText="sqrBtn"
                 btnName="View More"
                 svgFill="#263574"
                 textColor="#263574"
-                bordercolor="#263574" 
-              /> */}
+                bordercolor="#263574"
+                btnLinkUrl="/video/magic-moments"
+              />
             </div>
             <CommonSlider>
-              <HeighlightsCard
-                mainTitle="Srinagar Ke Veer vs Majhi Mumbai | Penkar's Impressive 61 "
-                backgroundImg={magicmovement1}
-                date="22 May 2024"
-                matchLink="/"
-                timeText="1hr ago"
-              />
-              <HeighlightsCard
-                mainTitle="Chennai Singams vs Majhi Mumbai | Tape Ball Over"
-                backgroundImg={magicmovement2}
-                date="22 May 2024"
-                matchLink="/"
-                timeText="2hrs ago"
-              />
-              <HeighlightsCard
-                mainTitle="Tiigers of Kolkata vs Majhi Mumbai | 50-50 Challenge Over"
-                backgroundImg={magicmovement3}
-                date="22 May 2024"
-                matchLink="/"
-                timeText="42 minutes ago"
-              />
-              <HeighlightsCard
-                mainTitle="Chennai Singams vs Majhi Mumbai | Highlights"
-                backgroundImg={magicmovement4}
-                date="22 May 2024"
-                matchLink="/"
-                timeText="12 minutes ago"
-              />
-              <HeighlightsCard
-                mainTitle="Tiigers of Kolkata vs Srinagar Ke Veer | Highlights"
-                backgroundImg={magicmovement2}
-                date="21 May 2024"
-                matchLink="/"
-                timeText="4hrs ago"
-              />
-              <HeighlightsCard
-                mainTitle="Chennai Singams vs Falcon Risers Hyderabad"
-                backgroundImg={magicmovement1}
-                date="21 May 2024"
-                matchLink="/"
-                timeText="9 minutes ago"
-              />
+              {videos.map((video, index) => (
+                <div className="col-md-3" key={index}>
+                  <HeighlightsCard
+                    mainTitle={video.title}
+                    backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
+                    date={video.date}
+                    matchLink={video.video_link}
+                    datafancybox="data-fancybox"
+                  />
+                </div>
+              ))}
             </CommonSlider>
           </div>
         </div>

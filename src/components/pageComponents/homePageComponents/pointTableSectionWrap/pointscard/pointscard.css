@@ -11,6 +11,9 @@
 .pointCardWrap.card2 {
   background-color: #fff2f3;
 }
+.pointCardWrap.card2 .qualifyTagWrap {
+  display: none;
+}
 .pointCardWrap.card3 {
   background-color: #f6f6f6;
 }
@@ -19,6 +22,12 @@
 }
 .pointCardWrap.card5 {
   background-color: #fff4e8;
+}
+.pointCardWrap.card6 {
+  background-color: #f6f6f6;
+}
+.pointCardWrap.card6 .qualifyTagWrap {
+  display: none;
 }
 .pointCardWrap .qualifyTagWrap {
   position: absolute;

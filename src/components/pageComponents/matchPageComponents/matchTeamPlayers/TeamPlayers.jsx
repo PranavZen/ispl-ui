@@ -96,7 +96,7 @@ const TeamPlayers = () => {
       <Tabs>
         <div
           label={teamPlayers.team_1.team_name[0].team_name}
-          spanImg='<i class="fa fa-users"></i>'
+          spanImg='<i className="fa fa-users"></i>'
         >
           <div className="playerspage d-inline-block w-100">
             <div className="container">
@@ -126,7 +126,7 @@ const TeamPlayers = () => {
         </div>
         <div
           label={teamPlayers.team_2.team_name[0].team_name}
-          spanImg='<i class="fa fa-users"></i>'
+          spanImg='<i className="fa fa-users"></i>'
         >
           <div className="playerspage d-inline-block w-100">
             <div className="container">

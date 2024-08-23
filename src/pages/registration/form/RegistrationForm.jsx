@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import SectionTitle from "../../../components/common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../components/common/cta/SqareButton";
@@ -23,8 +23,6 @@ function RegistrationForm() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [zones, setZones] = useState([]);
-
-  const location = useLocation();
 
   useEffect(() => {
     fetchStates();
@@ -372,7 +370,7 @@ function RegistrationForm() {
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="first_name" className="form-label">
-                First Name
+                First Name *
               </label>
               <input
                 required
@@ -391,7 +389,7 @@ function RegistrationForm() {
             </div>
             <div className="col-md-6">
               <label htmlFor="surname" className="form-label">
-                Surname
+                Surname *
               </label>
               <input
                 required
@@ -410,7 +408,7 @@ function RegistrationForm() {
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="mobile_number" className="form-label">
-                Mobile Number
+                Mobile Number *
               </label>
               <input
                 required
@@ -429,7 +427,7 @@ function RegistrationForm() {
             </div>
             <div className="col-md-6">
               <label htmlFor="date_of_birth" className="form-label">
-                Date of Birth
+                Date of Birth *
               </label>
               <input
                 required
@@ -450,7 +448,7 @@ function RegistrationForm() {
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="email" className="form-label">
-                Email
+                Email *
               </label>
               <input
                 required
@@ -467,7 +465,7 @@ function RegistrationForm() {
             </div>
             <div className="col-md-6">
               <label htmlFor="state_name" className="form-label">
-                State
+                State *
               </label>
               <select
                 required
@@ -494,7 +492,7 @@ function RegistrationForm() {
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="cities_states_id" className="form-label">
-                City
+                City *
               </label>
               <select
                 required
@@ -537,7 +535,7 @@ function RegistrationForm() {
           <div className="row mb-4">
             <div className="col-md-6">
               <label htmlFor="password" className="form-label">
-                Password
+                Password *
               </label>
               <input
                 required
@@ -556,7 +554,7 @@ function RegistrationForm() {
             </div>
             <div className="col-md-6">
               <label htmlFor="password_confirmation" className="form-label">
-                Confirm Password
+                Confirm Password *
               </label>
               <input
                 required

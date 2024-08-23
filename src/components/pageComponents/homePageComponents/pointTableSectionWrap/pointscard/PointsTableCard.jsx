@@ -51,7 +51,7 @@ function PointsTableCard({
             </li>
           </ul>
         </div>
-        <div className="matchSummeryWrap">
+        <div className="matchSummeryWrap d-none">
           <ul>
             <li className="losstext">
               <span>{lossLable}</span>

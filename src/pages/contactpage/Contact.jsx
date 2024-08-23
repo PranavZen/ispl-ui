@@ -2,6 +2,7 @@ import React from "react";
 import "../contactpage/Contact.css"
 import SectionTitle from "../../components/common/sectiontitletext/SectionTitle";
 import { Helmet } from "react-helmet-async";
+import ContactForm from "./ContactForm";
 const Contact = () => {
   return (
     <section className="w-100 body-part pt-0"> 
@@ -245,88 +246,7 @@ const Contact = () => {
                   </li>
                 </ul>
                 <SectionTitle titleText={"Get in touch"}/>
-                <form id="contact_us_form ">
-                  <input
-                    type="hidden"
-                    name="_token"
-                    value="jQBSRp9MjuSWqt4DIUfQl7Nm6KDB1lMTX75XObxi"
-                    autoComplete="off"
-                  />{" "}
-                  <div className="row mt-4">
-                    <div className="col-lg-6">
-                      <div className="from-group">
-                        <input
-                          type="text"
-                          name="firstname"
-                          className="form-control"
-                          placeholder="First Name"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="from-group">
-                        <input
-                          type="text"
-                          name="surname"
-                          className="form-control"
-                          placeholder="Surname"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="from-group">
-                        <input
-                          type="text"
-                          name="email"
-                          className="form-control"
-                          placeholder="Email"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="from-group">
-                        <input
-                          type="tel"
-                          name="phone"
-                          className="form-control"
-                          placeholder="Phone"
-                          maxLength="10"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="from-group">
-                        <textarea
-                          className="form-control"
-                          name="message"
-                          placeholder="Message"
-                          required=""
-                        ></textarea>
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <button type="submit" className="btn continue-bn submit_btn">
-                        <span>Submit</span>
-                      </button>
-                      <button
-                        className="btn btn-primary loading_btn"
-                        type="button"
-                        disabled=""
-                        style={{ display: "none" }}
-                      >
-                        <span
-                          className="spinner-border spinner-border-sm"
-                          aria-hidden="true"
-                        ></span>
-                        Loading...
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                <ContactForm/>
               </div>
             </div>
           </div>

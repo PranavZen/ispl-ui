@@ -21,6 +21,7 @@ $desktop-1350-width: 1350px;
 $desk-mid-width: 1440px;
 $desk-1400-width: 1400px;
 $desk-1680-width: 1680px;
+$desk-1600-width: 1600px;
 $desk-large-width: 1920px;
 $l-desktop-width: 2560px;
 
@@ -50,6 +51,16 @@ $l-desktop-width: 2560px;
 }
 @mixin x-1680-desktop {
   @media (max-width: #{$desk-1680-width}) {
+    @content;
+  }
+}
+@mixin x-1600-desktop {
+  @media (max-width: #{$desk-1600-width}) {
+    @content;
+  }
+}
+@mixin x-1400-desktop {
+  @media (max-width: #{$desk-1400-width}) {
     @content;
   }
 }
