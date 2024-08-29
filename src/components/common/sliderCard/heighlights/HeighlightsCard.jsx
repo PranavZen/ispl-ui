@@ -7,7 +7,7 @@ function HeighlightsCard({
   title,
   mainTitle,
   backgroundImg,
-  date,
+  date, 
   matchLink,
   shareLink,
   timeText,

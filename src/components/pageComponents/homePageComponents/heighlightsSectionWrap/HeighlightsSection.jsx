@@ -6,7 +6,7 @@ import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../common/cta/SqareButton";
 
 function HeighlightsSection() {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([]); 
 
   useEffect(() => {
     fetch("https://my.ispl-t10.com/api/video-master/all-vedios")
