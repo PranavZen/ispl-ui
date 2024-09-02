@@ -168,7 +168,7 @@ function NavMenus() {
                       Trial Dates{" "}
                     </Link>{" "}
                   </li>{" "}
-                  <li className="nav-item lastLink">
+                  {/* <li className="nav-item lastLink">
                     {" "}
                     <Link
                       className={isActive("")}
@@ -187,7 +187,7 @@ function NavMenus() {
                         />
                       </span>
                     </Link>{" "}
-                  </li>{" "}
+                  </li>{" "} */}
                   <li className="nav-item">
                     {" "}
                     <Link
