@@ -161,7 +161,7 @@ input {
     rgb(0 0 50) 101%
   );
   @include md-tablet {
-    padding: 0rem 0 4rem;
+    padding: 6rem 0 4rem;
     margin-top: 18rem;
   }
   @include x-767-tablet {
@@ -185,6 +185,134 @@ input {
         justify-content: center;
         align-items: center;
       }
+    }
+  }
+  .card-body {
+    .btnWraps {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .timeSlotModalWrap {
+      padding: 3rem;
+      background: #182046;
+      border-radius: 0.8rem;
+      height: fit-content;
+      max-width: calc(100% - 45%);
+      margin: 0 auto;
+      width: 100%;
+      position: absolute;
+      z-index: 1001;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      @include d-desktop {
+        max-width: calc(100% - 20%);
+      }
+      @include x-767-tablet {
+        max-width: 90%;
+      }
+      .contentWrap {
+        .mainPara {
+          color: #dcdbdb;
+          font-size: 1.7rem;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
+        .form-check {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin: 0;
+          min-height: 1.5rem;
+          margin-bottom: 1rem;
+          .form-check-input {
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+          }
+          
+        }
+      }
+      .form-check-label {
+        color: #ffffff;
+        font-size: 1.6rem;
+      }
+      .slotWrap {
+        h1 {
+          text-align: center;
+          color: #fff;
+          font-weight: 700;
+          margin-bottom: 2rem;
+        }
+        .closeBtn {
+          position: absolute;
+          top: 1rem;
+          right: 2rem;
+          line-height: 0;
+          background-image: none;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+          svg {
+            width: 1.8rem;
+            height: 1.8rem;
+          }
+        }
+        .formWrap {
+          form {
+            .row {
+              flex-direction: column;
+              align-items: center;
+              gap: 2rem;
+
+              .btnBox {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+    }
+    .frgtBtn {
+      font-size: 16px;
+      text-transform: capitalize;
+      color: #fbe29a;
+      cursor: pointer;
+    }
+    .form-label {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+      @include x-767-tablet {
+        font-size: 1.4rem;
+      }
+    }
+    .form-control {
+      font-size: 1.6rem;
+      color: #000;
+      height: 4.5rem;
+      border: 0;
+      appearance: auto;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    .backDropModal {
+      height: 100%;
+      width: 100%;
+      background: #00000094;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
   }
 }
@@ -584,4 +712,192 @@ input {
       }
     }
   }
+}
+
+.cityBox {
+  height: 4.5rem;
+  background: #fbe29a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  margin-bottom: 1.5rem;
+  h4 {
+    font-size: 2.2rem;
+    line-height: 1.8;
+    color: #000;
+    font-weight: 800;
+  }
+}
+
+.card {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.65rem;
+}
+.card-title{
+  font-size: 1.8rem;
+  color: #000;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+.card-text{
+  font-size: 1.6rem;
+  color: #848484;
+  display: flex;
+  flex-direction: column;
+  small{
+    color: green;
+    font-weight: 600;
+  }
+}
+
+hr.style-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.07);
+}
+
+.fw-500 {
+  font-weight: 400;
+}
+
+.fw-600 {
+  font-weight: 500;
+}
+
+.mt_2 {
+  margin-top: 2rem !important;
+}
+
+/*Simple radio btn input CSS*/
+.custom-control-label {
+  cursor: pointer;
+}
+
+.cap-opt-1 {
+  display: inline-block;
+  min-width: 50px;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #59a9f7;
+  background-color: #59a9f7;
+}
+/*Card Button CSS*/
+
+.card-radio-btn .content_head {
+  color: #333;
+  font-size: 1.8rem;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.card-radio-btn .content_sub {
+  color: #9e9e9e;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.card-input-element + .card {
+  width: 18rem;
+  height: 12rem;
+  justify-content: center;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  text-align: center;
+  -webkit-box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-input-element + .card:hover {
+  cursor: pointer;
+}
+
+.card-input-element:checked + .card {
+  border: 2px solid #719eca;
+  -webkit-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}
+
+.card-input-element:checked + .card::after {
+  content: "\f058";
+  content: "\f058";
+  color: rgb(24 32 70);
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation-name: fadeInCheckbox;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@-webkit-keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    -webkit-transform: rotateZ(-20deg);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: rotateZ(0deg);
+  }
+}
+
+@keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    transform: rotateZ(-20deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+.timeBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.availBoxWrap {
+  margin-top: 1.5rem;
+  span {
+    font-size: 1.8rem;
+    &.TSNum {
+      color: #fbe29a;
+    }
+    &.AvlSNum {
+      color: rgb(0, 161, 0);
+    }
+    &.FNum {
+      color: rgb(198, 228, 0);
+    }
+    &.AFNum {
+      color: rgb(228, 175, 0);
+    }
+    &.NAMsg {
+      color: rgb(228, 0, 0);
+    }
+  }
+}
+
+.bookedText{
+  color: rgb(0, 170, 0);
 }

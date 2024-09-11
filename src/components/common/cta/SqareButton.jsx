@@ -11,6 +11,7 @@ function SqareButton({
   onClick,
   type,
   btnLinkUrl,
+  disabled
 }) {
   const ButtonOrLink = btnLinkUrl ? Link : "button";
 
@@ -21,6 +22,7 @@ function SqareButton({
       style={{ color: textColor, borderColor: bordercolor }}
       onClick={onClick}
       type={type}
+      disabled={disabled}
     >
       {btnName}
       <span>

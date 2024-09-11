@@ -24,6 +24,8 @@ function RegistrationForm() {
   const [cities, setCities] = useState([]);
   const [zones, setZones] = useState([]);
 
+  // console.log("zones ", zones)
+
   useEffect(() => {
     fetchStates();
     checkQueryParams();
@@ -48,6 +50,7 @@ function RegistrationForm() {
   };
 
   const fetchCitiesByState = async (stateName) => {
+    // console.log("stateName", stateName)
     try {
       const response = await axios.get(
         `https://my.ispl-t10.com/api/get_city_base_on_state?state_name=${stateName}`
@@ -62,6 +65,7 @@ function RegistrationForm() {
   };
 
   const fetchZonesByCity = async (cityId) => {
+    // console.log("cityId", cityId)
     try {
       const response = await axios.get(
         `https://my.ispl-t10.com/api/get_zone_base_on_city?cities_states_id=${cityId}`

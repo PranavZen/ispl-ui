@@ -52,7 +52,7 @@ function LoginForm() {
     setLoading(true);
     setError({ email: "", password: "", otp: "", general: "" });
 
-    if (!validateEmail(email)) {
+    if (!validateEmail(email) && !validateMobile(email)) {
       setLoading(false);
       setError((prevError) => ({
         ...prevError,

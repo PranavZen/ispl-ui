@@ -70,7 +70,7 @@ function RegistrationFormDashboard() {
       const userData = response.data.users;
       const personalInfo = response.data.personal_information;
       const playerDetails = response.data.player_details;
-      console.log("userData =", userData);
+      // console.log("userData =", userData);
 
       const is_city_updated = response.data.users.is_city_updated;
       const { completed_status, form_city_edit } = response.data;
@@ -974,7 +974,7 @@ function RegistrationFormDashboard() {
                             htmlFor="emergency_contact_no"
                             className="form-label text-light"
                           >
-                            Emergency Contact Number
+                            Emergency Contact Number *
                           </label>
                           <input
                             id="emergency_contact_no"

@@ -8,6 +8,7 @@ import LatestVideoSection from "../components/pageComponents/homePageComponents/
 import NewsEventsSection from "../components/pageComponents/homePageComponents/newseventsSectionWrap/NewsEventsSection";
 import GlimpseSection from "../components/pageComponents/homePageComponents/glimpseSectionWrap/GlimpseSection";
 import { Helmet } from "react-helmet-async";
+import ProtectedRoute from "../components/common/ProtectedRoute";
 
 function HomePage() {
   return (
