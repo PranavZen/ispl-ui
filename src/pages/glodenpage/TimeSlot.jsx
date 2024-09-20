@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SqareButton from "../../components/common/cta/SqareButton";
 import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 function TimeSlot() {
   const [showModal, setShowModal] = useState(false);
@@ -17,10 +19,15 @@ function TimeSlot() {
   const [mobileOtp, setMobileOtp] = useState("");
   const [emailOtp, setEmailOtp] = useState("");
   const [cityId, setCityId] = useState("");
+  const [venuNameTop, setvenuNameTop] = useState("");
   const [savedTimeSlot, setSavedTimeSlot] = useState("");
   const [savedTimeSlotUser, setSavedTimeSlotUser] = useState("");
   const [checkSlot, setCheckSlot] = useState("");
-  console.log("checkSlot", checkSlot);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [lastCountSlot, setLastCountSlot] = useState(false);
+  const [shouldReload, setShouldReload] = useState(false);
+  const [isCheckTimeSlot, setIsCheckTimeSlot] = useState(0);
+  const [isTimeSlotVeifyOtp, setTimeSlotVeifyOtp] = useState(0);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -62,9 +69,218 @@ function TimeSlot() {
     }
   };
 
-  const handleSubmit = () => {
-    setCurrentSection(3);
+  const handleSubmit = async () => {
+    // Fetch time slots from the API to get real-time data
+    try {
+      const apiToken = localStorage.getItem("apiToken");
+      if (!apiToken) {
+        throw new Error("API token is missing");
+      }
+
+      const response = await fetch(
+        `https://my.ispl-t10.com/api/get-time-slots?city_id=${cityId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiToken}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch time slots");
+      }
+
+      const data = await response.json();
+      setTimeSlots(data.time_slots);
+
+      // Find the selected slot
+      const selectedSlot =
+        data.time_slots[selectedDate] &&
+        Object.values(data.time_slots[selectedDate]).find(
+          (slot) => `${slot.start_time} | ${slot.end_time}` === selectedBatch
+        );
+
+      if (selectedSlot) {
+        if (selectedSlot.user_slots_count === 0) {
+          alert("No slots available for the selected batch.");
+          window.location.reload();
+          return; // Exit the function early if no slots are available
+        }
+
+        // Update the state for disabled and last count slot
+        setIsDisabled(selectedSlot.user_slots_count === 0);
+        setLastCountSlot(selectedSlot.user_slots_count === 5);
+
+        // Proceed to the next section if a batch is selected
+        if (selectedBatch) {
+          setCurrentSection(3);
+        }
+      } else {
+        alert("Selected batch is invalid.");
+      }
+    } catch (error) {
+      console.error("Error fetching time slots:", error);
+    }
   };
+
+  const handleReSubmit = async () => {
+    saveToSession(cityId, selectedDate, selectedBatch);
+
+    try {
+      const token = localStorage.getItem("apiToken");
+
+      if (!token) {
+        toast.error("Authorization token is missing.");
+        return;
+      }
+
+      const response = await axios.get(
+        "https://my.ispl-t10.com/api/user-dashboard-api",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const user_name_ecp = response.data.user_name_ecp;
+
+      const paymentRequestResponse = await axios.post(
+        `https://my.ispl-t10.com/api/payment-time-slot-request/${user_name_ecp}`
+      );
+
+      if (paymentRequestResponse.data.status === "Successful") {
+        const { encrypted_data, access_code } = paymentRequestResponse.data;
+
+        const ccAvenueForm = document.createElement("form");
+        ccAvenueForm.method = "POST";
+        ccAvenueForm.action =
+          "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+
+        const inputEncRequest = document.createElement("input");
+        inputEncRequest.type = "hidden";
+        inputEncRequest.name = "encRequest";
+        inputEncRequest.value = encrypted_data;
+        ccAvenueForm.appendChild(inputEncRequest);
+
+        const inputAccessCode = document.createElement("input");
+        inputAccessCode.type = "hidden";
+        inputAccessCode.name = "access_code";
+        inputAccessCode.value = access_code;
+        ccAvenueForm.appendChild(inputAccessCode);
+
+        document.body.appendChild(ccAvenueForm);
+        ccAvenueForm.submit();
+
+        // Handle payment response
+        const handlePaymentMessage = async (event) => {
+          if (event.origin !== "https://secure.ccavenue.com") return;
+
+          const paymentStatus = event.data.status;
+
+          if (paymentStatus === "Successful") {
+            // Redirect to a page with status query parameter
+            window.location.href = "/dashboard-golden-page?status=Successful";
+          } else {
+            toast.error("Payment was unsuccessful. Please try again.");
+          }
+
+          // Remove the event listener after processing
+          window.removeEventListener("message", handlePaymentMessage);
+        };
+
+        window.addEventListener("message", handlePaymentMessage);
+      } else {
+        toast.error("Payment request failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during payment process:", error);
+      toast.error("An error occurred. Please try again.");
+    }
+  };
+
+  const saveToSession = (cityId, selectedDate, selectedBatch) => {
+    sessionStorage.setItem("cityId", cityId);
+    sessionStorage.setItem("selectedDate", selectedDate);
+    sessionStorage.setItem("selectedBatch", selectedBatch);
+  };
+
+  const getFromSession = () => {
+    const cityId = sessionStorage.getItem("cityId");
+    const selectedDate = sessionStorage.getItem("selectedDate");
+    const selectedBatch = sessionStorage.getItem("selectedBatch");
+
+    return { cityId, selectedDate, selectedBatch };
+  };
+  const clearSessionStorage = () => {
+    sessionStorage.clear();
+  };
+  const checkQueryParams = async () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const status = searchParams.get("status");
+
+    if (status === "Successful") {
+      toast.success("Payment was successful.");
+
+      const apiToken = localStorage.getItem("apiToken");
+      const { cityId, selectedDate, selectedBatch } = getFromSession();
+
+      if (apiToken && cityId && selectedDate && selectedBatch) {
+        try {
+          const response = await fetch(
+            "https://my.ispl-t10.com/api/save-time-slots",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${apiToken}`,
+              },
+              body: JSON.stringify({
+                city_id: cityId,
+                venue_date: selectedDate,
+                time_slot: selectedBatch,
+              }),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if (data.status === "success") {
+            clearSessionStorage();
+            toast.success("Time Slot Saved Successfully"); // Avoid double call
+            setTimeout(() => {
+              // Clear status query param to avoid re-triggering the logic
+              window.location.href = "/dashboard-golden-page";
+            }, 2000);
+          } else {
+            toast.error("Failed to save Time Slot. Please try again.");
+          }
+        } catch (error) {
+          toast.error("An error occurred while saving the time slot.");
+        }
+      } else {
+        if (!cityId) console.error("cityId is missing");
+        if (!selectedDate) console.error("selectedDate is missing");
+        if (!selectedBatch) console.error("selectedBatch is missing");
+      }
+    } else if (status === "PaymentFailed") {
+      clearSessionStorage();
+      toast.error("Payment was unsuccessful. Please try again.");
+      setTimeout(() => {
+        window.location.href = "/dashboard-golden-page";
+      }, 2000);
+    }
+  };
+
+  useEffect(() => {
+    checkQueryParams();
+  }, []);
 
   const handleConfirmationYes = async () => {
     try {
@@ -138,8 +354,16 @@ function TimeSlot() {
         }
       );
 
+      // Check if the response has content before trying to parse
+      const textResponse = await response.text();
+      // console.log("textResponse",textResponse);
+      if (textResponse.trim() === "") {
+        throw new Error("Empty response from the server.");
+      }
+      const errorData = JSON.parse(textResponse);
+      // console.log("errorData",errorData);
+
       if (!response.ok) {
-        const errorData = await response.json();
         throw new Error(
           `Failed to verify OTP: ${errorData.message || "Unknown error"}`
         );
@@ -163,25 +387,50 @@ function TimeSlot() {
         }
       );
 
+      const saveSlotTextResponse = await saveSlotResponse.text();
+      if (saveSlotTextResponse.trim() === "") {
+        throw new Error("Empty response while saving time slot.");
+      }
+      const saveTimeSlotData = JSON.parse(saveSlotTextResponse);
+
       if (!saveSlotResponse.ok) {
-        const errorData = await saveSlotResponse.json();
+        const errorData = saveTimeSlotData;
         throw new Error(
           `Failed to save time slot: ${errorData.message || "Unknown error"}`
         );
       }
 
-      const saveTimeSlotData = await saveSlotResponse.json();
       setSavedTimeSlot(saveTimeSlotData);
-
-      toast.success("Time slot saved successfully!");
-
+      toast.success("Time Slot Saved Successfully");
       setCurrentSection(5);
       setMobileOtp("");
       setEmailOtp("");
     } catch (error) {
       console.error("Error:", error.message);
-      toast.error("Failed to verify OTP or save time slot. Please try again.");
+      toast.error(
+        `Failed to verify OTP or save time slot: ${error.message}. Please try again.`
+      );
     }
+  };
+
+  const handleCloseModal = () => {
+    if (shouldReload) {
+      window.location.reload(); // Reload the page if needed
+    }
+    setShowModal(false); // Close the modal
+  };
+
+  // Effect to handle page reload when section 5 is set
+  useEffect(() => {
+    if (currentSection === 5) {
+      setShouldReload(true); // Set reload flag to true
+    } else {
+      setShouldReload(false); // Reset reload flag for other sections
+    }
+  }, [currentSection]);
+
+  const handleRechangeSlot = () => {
+    setCurrentSection(2);
   };
 
   const startTimer = () => {
@@ -257,18 +506,21 @@ function TimeSlot() {
 
         const data = await response.json();
         const cityName = data.users.cities_states_name;
+        const setvenuNameTopName = data.venue_name;
         const checkSlotConfirm = data.users.is_time_slot_confirmed;
         const userTimeSlotDatas = data.user_slots_master[0];
         const is_check_disclaimer_slot = data.users.is_check_disclaimer_slot;
-        console.log("is_check_disclaimer_slot", is_check_disclaimer_slot);
+        const setTimeSlotVeifyOtp_slot = data.users.is_time_slot_otp_confirmed;
+        setIsCheckTimeSlot(is_check_disclaimer_slot);
         setSavedTimeSlotUser(userTimeSlotDatas);
         setCheckSlot(checkSlotConfirm);
-
+        setTimeSlotVeifyOtp(setTimeSlotVeifyOtp_slot);
+        setvenuNameTop(setvenuNameTopName);
         setEmail(data.users.email);
         setMobileNumber(data.users.mobile_number);
         if (is_check_disclaimer_slot === 1) {
           setCurrentSection(2);
-        }else {
+        } else {
           setCurrentSection(1);
         }
         if (checkSlotConfirm === 1 && is_check_disclaimer_slot === 1) {
@@ -297,6 +549,17 @@ function TimeSlot() {
     };
   }, [showModal]);
 
+  const sectionTitles = {
+    1: "Disclaimer",
+    2: "Select Time Slot",
+    3: "Confirm Selection",
+    4: "OTP Verification",
+    5: "Trial Time Slot Booked",
+    6: "Your Trial Details",
+  };
+
+  const title = sectionTitles[currentSection] || "";
+
   return (
     <>
       <div className="btnWraps">
@@ -312,26 +575,26 @@ function TimeSlot() {
       </div>
       {showModal ? (
         <>
-          <div className="timeSlotModalWrap">
+          <div
+            className={
+              currentSection === 6
+                ? " timeSlotModalWrap bgGolden"
+                : "timeSlotModalWrap"
+            }
+          >
             <div className="slotWrap">
               <div className="modalHeder">
-                <h1>
-                  {currentSection === 1
-                    ? "Disclaimer"
-                    : currentSection === 2
-                    ? "Select Time Slot"
-                    : currentSection === 3
-                    ? "Confirm Selection"
-                    : "OTP Verification"}
+                <h1 className={currentSection === 6 ? "darkText" : ""}>
+                  {title}
                 </h1>
                 <button
                   className="closeBtn btn-close btn-close-black"
-                  onClick={() => setShowModal(false)}
+                  onClick={handleCloseModal}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
-                    fill="#fff"
+                    fill={currentSection === 6 ? "#172046" : "#fff"}
                   >
                     <path d="M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z" />
                   </svg>
@@ -342,9 +605,23 @@ function TimeSlot() {
               {currentSection === 1 && (
                 <div className="contentWrap">
                   <p className="mainPara">
-                    To support the <b>"Street to Stadium"</b> initiative and
-                    contribute to grassroots cricket development, organizations
-                    or individuals must meet the following criteria:
+                    To secure your city trials, please book your slot
+                    exclusively through the official website at{" "}
+                    <Link to="https://ispl-t10.com/" target="_blank">
+                      www.ispl-t10.com
+                    </Link>
+                    . City trial slots will open one hour before the selected
+                    time and close two hours before the trial begins.
+                  </p>
+                  <p className="mainPara">
+                    Booking confirmations will be sent via OTP to your
+                    registered mobile number. Slot availability is limited, so
+                    check availability before booking.
+                  </p>
+                  <p className="mainPara">
+                    If you need to change your slot timing after confirmation,
+                    an additional fee of ₹599 + GST will apply for each change,
+                    subject to availability.
                   </p>
 
                   <form>
@@ -384,6 +661,7 @@ function TimeSlot() {
                     <div className="col-lg-6 col-md-12 col-12 mx-auto">
                       <div className="cityBox">
                         <h4>City : {cityId}</h4>
+                        <h4>Venue Name : {venuNameTop}</h4>
                       </div>
                       <label htmlFor="venue_id" className="form-label">
                         Select Date
@@ -398,7 +676,11 @@ function TimeSlot() {
                         <option value="">Select Date</option>
                         {Object.keys(timeSlots).map((date) => (
                           <option key={date} value={date}>
-                            {date}
+                            {new Date(date).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
                           </option>
                         ))}
                       </select>
@@ -413,6 +695,21 @@ function TimeSlot() {
                                 (batchKey, index) => {
                                   const slot =
                                     timeSlots[selectedDate][batchKey];
+
+                                  let availabilityMessage;
+                                  if (slot.user_slots_count === 0) {
+                                    availabilityMessage = "Fully Booked";
+                                  } else if (slot.user_slots_count <= 3) {
+                                    availabilityMessage = "Almost Full";
+                                  } else if (slot.user_slots_count <= 5) {
+                                    availabilityMessage = "Filling Fast...";
+                                  }
+
+                                  const isDisabled =
+                                    slot.user_slots_count === 0;
+                                  const lastCountSlot =
+                                    slot.user_slots_count === 5;
+
                                   return (
                                     <label
                                       htmlFor={`batch-${index}`}
@@ -432,17 +729,55 @@ function TimeSlot() {
                                         onChange={(e) =>
                                           setSelectedBatch(e.target.value)
                                         }
+                                        disabled={isDisabled}
                                       />
-                                      <div className="card card-radio">
+                                      <div
+                                        className={
+                                          isDisabled
+                                            ? "card card-radio bgDisabled"
+                                            : "card card-radio"
+                                        }
+                                      >
                                         <div className="card-body">
                                           <p className="card-title">
                                             {batchKey}
                                           </p>
                                           <p className="card-text">
-                                            {slot.start_time} - {slot.end_time}
-                                            <small>
+                                            {new Date(
+                                              `1970-01-01T${slot.start_time}:00`
+                                            ).toLocaleTimeString("en-US", {
+                                              hour: "2-digit",
+                                              minute: "2-digit",
+                                              hour12: true,
+                                            })}{" "}
+                                            -{" "}
+                                            {new Date(
+                                              `1970-01-01T${slot.end_time}:00`
+                                            ).toLocaleTimeString("en-US", {
+                                              hour: "2-digit",
+                                              minute: "2-digit",
+                                              hour12: true,
+                                            })}
+                                            {/* Display when user_slots_count is 2 */}
+                                            <small
+                                              className={
+                                                lastCountSlot
+                                                  ? "d-none"
+                                                  : "d-block"
+                                              }
+                                            >
                                               Available Slots:{" "}
-                                              {slot.no_of_users}
+                                              {slot.user_slots_count}
+                                            </small>
+                                            {/* Display when user_slots_count is 0 */}
+                                            <small
+                                              className={
+                                                isDisabled
+                                                  ? "d-none"
+                                                  : "d-block"
+                                              }
+                                            >
+                                              {availabilityMessage}
                                             </small>
                                           </p>
                                         </div>
@@ -457,16 +792,29 @@ function TimeSlot() {
                     </div>
                   </div>
                   <div className="d-flex justify-content-center mt-3">
-                    <SqareButton
-                      classNameText="sqrBtn"
-                      btnName="Continue"
-                      svgFill="#fbe29a"
-                      textColor="#fbe29a"
-                      bordercolor="#fbe29a"
-                      type="button"
-                      onClick={handleSubmit}
-                      disabled={!selectedBatch}
-                    />
+                    {isTimeSlotVeifyOtp === 0 ? (
+                      <SqareButton
+                        classNameText="sqrBtn"
+                        btnName="Continue"
+                        svgFill="#fbe29a"
+                        textColor="#fbe29a"
+                        bordercolor="#fbe29a"
+                        type="button"
+                        onClick={handleSubmit}
+                        disabled={!selectedBatch}
+                      />
+                    ) : (
+                      <SqareButton
+                        classNameText="sqrBtn"
+                        btnName="Rechange Time Slot"
+                        svgFill="#fbe29a"
+                        textColor="#fbe29a"
+                        bordercolor="#fbe29a"
+                        type="button"
+                        onClick={handleReSubmit}
+                        disabled={!selectedBatch}
+                      />
+                    )}
                   </div>
                 </form>
               )}
@@ -510,48 +858,12 @@ function TimeSlot() {
                         OTP has been sent to your mobile number and Email.
                       </h3>
                       <form>
-                        <div className="form-group mb-4">
-                          <label
-                            htmlFor="Mobileotp"
-                            className="form-check-label mb-2"
-                          >
-                            Enter Mobile OTP
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="otpmobile"
-                            name="mobile_otp"
-                            value={mobileOtp}
-                            onChange={(e) => setMobileOtp(e.target.value)}
-                          />
-                          {timer > 0 && (
-                            <p className="btmText mt-0 text-end">
-                              <span className="regster-bn frgtBtn">
-                                OTP expires in {Math.floor(timer / 60)}:
-                                {timer % 60}
-                              </span>
-                            </p>
-                          )}
-
-                          {timer === 0 && (
-                            <p
-                              className="btmText mt-0 text-end"
-                              onClick={handleResendOtp}
-                            >
-                              <span className="regster-bn frgtBtn">
-                                Resend OTP
-                              </span>
-                            </p>
-                          )}
-                        </div>
-                        <h3 className="text-center">OR</h3>
                         <div className="form-group">
                           <label
                             htmlFor="Emailotp"
                             className="form-check-label mb-2"
                           >
-                            Enter Email OTP
+                            Enter OTP
                           </label>
                           <input
                             type="text"
@@ -602,50 +914,105 @@ function TimeSlot() {
 
               {currentSection === 5 && savedTimeSlot && (
                 <div className="contentWrap">
-                  <h3 className="mb-5 text-center">
-                    Your Time Slots Are Booked
-                  </h3>
-                  <div className="details">
-                    <p>
-                      <strong>City Name:</strong>{" "}
-                      {savedTimeSlot?.data?.user?.cities_name}
-                    </p>
-                    <p>
-                      <strong>Venue Date:</strong>{" "}
-                      {savedTimeSlot?.data?.user?.venue_date}
-                    </p>
-                    <p>
-                      <strong>Start Time:</strong>{" "}
-                      {savedTimeSlot?.data?.user?.venue_start_time}
-                    </p>
-                    <p>
-                      <strong>End Time:</strong>{" "}
-                      {savedTimeSlot?.data?.user?.venue_end_time}
-                    </p>
+                  <div className="col-lg-12 col-md-12 col-12 mx-auto">
+                    <h3 className="preFinalText">
+                      Your time slot are booked in{" "}
+                      <strong>{savedTimeSlot?.data?.user?.cities_name}</strong>{" "}
+                      on{" "}
+                      <strong>
+                        {new Date(
+                          savedTimeSlot?.data?.user?.venue_date
+                        ).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </strong>
+                      . The slot is scheduled from{" "}
+                      <strong>
+                        {new Date(
+                          `1970-01-01T${savedTimeSlot?.data?.user?.venue_start_time}:00`
+                        ).toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                      </strong>{" "}
+                      to{" "}
+                      <strong>
+                        {new Date(
+                          `1970-01-01T${savedTimeSlot?.data?.user?.venue_end_time}:00`
+                        ).toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                      </strong>{" "}
+                      . Please ensure to arrive on time.
+                    </h3>
                   </div>
                 </div>
               )}
               {currentSection === 6 && savedTimeSlotUser && (
                 <div className="contentWrap">
-                  <h3 className="mb-5 text-center">Time Slot Details</h3>
-                  <div className="details">
-                    <p>
-                      <strong>City Name:</strong>{" "}
-                      {savedTimeSlotUser.cities_name}
-                    </p>
-                    <p>
-                      <strong>Venue Date:</strong>{" "}
-                      {savedTimeSlotUser.venue_date}
-                    </p>
-                    <p>
-                      <strong>Start Time:</strong>{" "}
-                      {savedTimeSlotUser.venue_start_time}
-                    </p>
-                    <p>
-                      <strong>End Time:</strong>{" "}
-                      {savedTimeSlotUser.venue_end_time}
-                    </p>
+                  <div className="col-lg-12 col-md-12 col-12 mx-auto">
+                    <h3 className="finalText">
+                      You have successfully booked your trial slot in{" "}
+                      <strong>{savedTimeSlotUser.cities_name}</strong> at{" "}
+                      <strong>{savedTimeSlotUser.venue_name}</strong> on{" "}
+                      <strong>
+                        {new Date(
+                          savedTimeSlotUser.venue_date
+                        ).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </strong>
+                      . The trial is scheduled to take place from{" "}
+                      <strong>
+                        {new Date(
+                          `1970-01-01T${savedTimeSlotUser.venue_start_time}:00`
+                        ).toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                      </strong>{" "}
+                      to{" "}
+                      <strong>
+                        {new Date(
+                          `1970-01-01T${savedTimeSlotUser.venue_end_time}:00`
+                        ).toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                      </strong>
+                      .{" "}
+                      {savedTimeSlotUser.venue_start_time === "09:00"
+                        ? "Please note that entry to the venue will be open from 8:00 a.m. and will close at 11:30 a.m. We request that you arrive on time to ensure a smooth and efficient trial process."
+                        : "Please note that entry to the venue will be open from 12:30 p.m. and will close at 3:00 p.m. We request that you arrive on time to ensure a smooth and efficient trial process."}
+                    </h3>
                   </div>
+                  <div className="d-flex justify-content-center mt-5 mb-3">
+                    <SqareButton
+                      classNameText="sqrBtn"
+                      btnName="Change Slot"
+                      svgFill="#fbe29a"
+                      textColor="#fbe29a"
+                      bordercolor="#fbe29a"
+                      type="button"
+                      onClick={handleRechangeSlot}
+                    />
+                  </div>
+                  <p className="chargedMsg">
+                    If you need to change your trial slot, you can do so by
+                    clicking the '<strong>Change Slot</strong>' button. Please
+                    note that a fee of{" "}
+                    <strong>Rs.599 + 18% GST = Rs. 707</strong> will be
+                    applicable for changing your slot.
+                  </p>
                 </div>
               )}
             </div>

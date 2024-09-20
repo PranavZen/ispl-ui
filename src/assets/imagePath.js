@@ -53,3 +53,4 @@ export { default as paper2 } from "../assets/images/paper2.jpg";
 export { default as paper3 } from "../assets/images/paper3.jpg";
 export { default as paper4 } from "../assets/images/paper4.jpg";
 export { default as whtspIcon } from "../assets/images/whatsapp-chat-button.png";
+export { default as qrCode } from "../assets/images/qr_code.png";

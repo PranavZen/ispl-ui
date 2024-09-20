@@ -29,8 +29,9 @@ import GlodenPage from "./pages/GlodenPage";
 import { whtspIcon } from "./assets/imagePath";
 import Error404 from "./pages/Error404";
 import RegistrationCamp from "./pages/registrationcamp/RegistrationCamp";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import TrialFormation from "./pages/trialformation/TrialFormation";
+import GoldenTicketDownload from "./pages/GoldenTicketDownload";
 function App() {
   return (
     <HelmetProvider>
@@ -56,6 +57,10 @@ function App() {
           <Route
             path="/team-list/kvn-bangalore-strikers"
             element={<BangaloreStrikers />}
+          />
+          <Route
+            path="/GoldenTicketDownload"
+            element={<GoldenTicketDownload />}
           />
           <Route
             path="/team-list/falcon-risers-hyderabad"
@@ -97,7 +102,6 @@ function App() {
             />
           </span>
         </Link>
-        
       </BrowserRouter>
     </HelmetProvider>
   );

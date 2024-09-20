@@ -5,12 +5,26 @@ import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import TimeSlot from "./glodenpage/TimeSlot";
+import { QRCodeSVG } from "qrcode.react";
 
 function GlodenPage() {
   const [playerName, setPlayerName] = useState("");
+  const [isplId, setIsplId] = useState("");
+  const [userNameSlot, setUserNameSlot] = useState(""); // Corrected naming
+  const [userSlotId, setUserSlotId] = useState(""); // Corrected naming
   const [playerId, setPlayerId] = useState("");
   const [cityName, setCityName] = useState("");
+  const [seasonTypes, setSeasonTypes] = useState("");
   const [loading, setLoading] = useState(true);
+  const [selectedSlotDate, setSelectedSlotDate] = useState(null);
+  const [selectedSlotStartTime, setSelectedSlotStartTime] = useState(null);
+  const [selectedSlotEndTime, setSelectedSlotEndTime] = useState(null);
+  const [selectedSlotCityName, setSelectedSlotCityName] = useState("");
+  const [isSlotAvailable, setIsSlotAvailable] = useState(false);
+
+  const generateQRCodeData = () => {
+    return JSON.stringify(userNameSlot); // Corrected to userNameSlot
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("apiToken");
@@ -22,12 +36,47 @@ function GlodenPage() {
       })
       .then((response) => {
         const userData = response.data.user_data;
+        const isplId = userData.user_name;
+
+        let selectedSlotDate = null;
+        let selectedSlotStartTime = null;
+        let selectedSlotEndTime = null;
+        let userName = null;
+        let userslotId = null;
+
+        if (
+          response.data.user_slots_master &&
+          response.data.user_slots_master.length > 0
+        ) {
+          const slotMaster = response.data.user_slots_master[0]; // First slot master entry
+
+          selectedSlotDate = slotMaster.venue_date || ""; // Fallback to empty string if undefined
+          selectedSlotStartTime = slotMaster.venue_start_time || "";
+          selectedSlotEndTime = slotMaster.venue_end_time || "";
+          userName = slotMaster.user_name || ""; // Check if user_name exists
+          userslotId = slotMaster.venue_name || ""; // Check if venue_name exists
+
+          setIsSlotAvailable(true); // Enable slot-related elements
+        } else {
+          setIsSlotAvailable(false); // Disable slot-related elements
+        }
+
+        const selectedSlotCityName = response.data.venue_name;
+
         setPlayerName(`${userData.first_name} ${userData.surname}`);
         setPlayerId(userData.user_name);
         const cityNameArray = JSON.parse(userData.cities_states_names);
         const cityName = cityNameArray[0];
         setCityName(cityName);
         setLoading(false);
+        setSeasonTypes(userData.season_types);
+        setSelectedSlotDate(selectedSlotDate);
+        setSelectedSlotStartTime(selectedSlotStartTime);
+        setSelectedSlotEndTime(selectedSlotEndTime);
+        setSelectedSlotCityName(selectedSlotCityName);
+        setIsplId(isplId);
+        setUserNameSlot(userName); // Corrected to setUserNameSlot
+        setUserSlotId(userslotId); // Corrected to setUserSlotId
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -121,6 +170,7 @@ function GlodenPage() {
                     <p>Here's what to expect next:</p>
                     <br />
                   </div>
+
                   <div className="col-lg-12 golden-ticket-container">
                     <div className="image-container">
                       <img
@@ -132,6 +182,13 @@ function GlodenPage() {
                     </div>
                     <div className="centered-text">
                       <h1 className="golden-ticket-text">GOLDEN TICKET</h1>
+                      <p className="typeTitle">
+                        {loading ? (
+                          <Skeleton width={150} />
+                        ) : (
+                          `Season ${seasonTypes}`
+                        )}
+                      </p>
                       <p className="ticket-info playerName">
                         {loading ? (
                           <Skeleton width={200} />
@@ -145,11 +202,57 @@ function GlodenPage() {
                           border: "1px solid #000",
                         }}
                       />
+                      <div className="qrCodeWrap">
+                        {userNameSlot === null ? (
+                          ""
+                        ) : (
+                          <QRCodeSVG
+                            value={generateQRCodeData()}
+                            size={110}
+                            level={"H"}
+                            bgColor="transparent"
+                          />
+                        )}
+                      </div>
                       <p className="ticket-info playerId">
-                        {loading ? <Skeleton width={150} /> : playerId}
+                        {loading ? <Skeleton width={150} /> : playerId}{" "}
+                        <span className="city-name-title">
+                          ({loading ? <Skeleton width={150} /> : cityName})
+                        </span>
                       </p>
-                      <p className="city-name-title">
-                        {loading ? <Skeleton width={150} /> : cityName}
+                      <p className="finalTextSlotTicket">
+                        {userSlotId}
+                        <br />
+                        {isSlotAvailable ? (
+                          <>
+                            {new Date(selectedSlotDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              }
+                            )}{" "}
+                            <br />
+                            {new Date(
+                              `1970-01-01T${selectedSlotStartTime}:00`
+                            ).toLocaleTimeString("en-US", {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: true,
+                            })}{" "}
+                            to{" "}
+                            {new Date(
+                              `1970-01-01T${selectedSlotEndTime}:00`
+                            ).toLocaleTimeString("en-US", {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: true,
+                            })}
+                          </>
+                        ) : (
+                          <span></span>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -157,9 +260,9 @@ function GlodenPage() {
                   <div className="email-body mt-5">
                     <br />
                     <p>
-                      Stay tuned for updates on trials, events, and important
-                      announcements. We'll keep you informed every step of the
-                      way.
+                      Your city trials will begin shortly. Kindly confirm your
+                      trials slot for your selected city. Best of luck for your
+                      trials.
                     </p>
                     <p>
                       Feel free to reach out if you have any questions or need

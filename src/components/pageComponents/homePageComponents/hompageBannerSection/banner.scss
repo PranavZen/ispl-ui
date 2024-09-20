@@ -1,18 +1,18 @@
 @import "../../../../assets/scss/media";
 #bannerSection {
   margin-top: 14rem;
-  @include xu-desktop{
-    margin-top: 19rem;
-  }
-  @include d-desktop{
-    margin-top: 18rem;
-  }
-  @include md-tablet{
-    margin-top: 18rem;
-  }
-  @include x-767-tablet {
-    margin-top: 7rem;
-  }
+  // @include xu-desktop{
+  //   margin-top: 19rem;
+  // }
+  // @include d-desktop{
+  //   margin-top: 18rem;
+  // }
+  // @include md-tablet{
+  //   margin-top: 18rem;
+  // }
+  // @include x-767-tablet {
+  //   margin-top: 7rem;
+  // }
   .slick-slider {
     .slick-list {
       .slick-track {

@@ -198,7 +198,7 @@ input {
       background: #182046;
       border-radius: 0.8rem;
       height: fit-content;
-      max-width: calc(100% - 45%);
+      max-width: calc(100% - 40%);
       margin: 0 auto;
       width: 100%;
       position: absolute;
@@ -206,6 +206,9 @@ input {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      &.bgGolden {
+        background: #fbe29a;
+      }
       @include d-desktop {
         max-width: calc(100% - 20%);
       }
@@ -219,6 +222,25 @@ input {
           font-weight: 400;
           margin-bottom: 1rem;
         }
+        .sqrBtn {
+          background: #172046;
+        }
+        .finalText {
+          color: #172046;
+          line-height: 1.6;
+          font-size: 1.8rem;
+        }
+        .preFinalText {
+          color: #b4b4b4;
+          line-height: 1.6;
+          font-size: 2rem;
+        }
+        .chargedMsg {
+          color: #172046;
+          font-size: 1.8rem;
+          text-align: center;
+          margin-bottom: 0;
+        }
         .form-check {
           display: flex;
           align-items: center;
@@ -231,7 +253,6 @@ input {
             height: 1.5rem;
             cursor: pointer;
           }
-          
         }
       }
       .form-check-label {
@@ -244,6 +265,9 @@ input {
           color: #fff;
           font-weight: 700;
           margin-bottom: 2rem;
+          &.darkText {
+            color: #182046;
+          }
         }
         .closeBtn {
           position: absolute;
@@ -518,6 +542,16 @@ input {
   position: relative;
   text-align: center;
   color: white;
+  @include x-767-tablet {
+    margin: 60px 0;
+  }
+  .image-container {
+    img {
+      @include x-767-tablet {
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
 
 .centered-text {
@@ -526,14 +560,31 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
+  hr {
+    margin: 0px 0 10px;
+    @include x-767-tablet {
+      margin: 0px 0 5px;
+    }
+  }
+}
+.qrCodeWrap {
+  @include x-767-tablet {
+    margin-bottom: 5px;
+    svg {
+      width: 65px;
+      height: 65px;
+    }
+  }
 }
 
 .golden-ticket-text {
-  font-weight: bold;
-  font-size: 4.2rem;
-  margin-bottom: 1px;
+  font-size: 3rem;
+  margin-bottom: 0px;
+  line-height: 1;
+  font-weight: 800;
   @include x-767-tablet {
-    font-size: 2rem !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 0;
   }
 }
 
@@ -544,17 +595,19 @@ input {
 }
 .ticket-info {
   font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-size: 2rem;
   @include x-767-tablet {
-    font-size: 1.6rem;
+    font-size: 1rem;
+    margin: 0 0 3px;
   }
 }
 .playerName {
   text-transform: uppercase;
   @include x-767-tablet {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    margin-bottom: 0;
   }
 }
 .email-content {
@@ -565,8 +618,9 @@ input {
 }
 .city-name-title {
   font-size: 1.6rem;
+  font-weight: 600;
   @include x-767-tablet {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 .email-body {
@@ -574,6 +628,14 @@ input {
   p {
     font-size: 1.6rem;
     line-height: 1.8;
+  }
+}
+.finalTextSlotTicket {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3;
+  @include x-767-tablet {
+    font-size: 1rem;
   }
 }
 
@@ -611,13 +673,15 @@ input {
   font-family: Arial, sans-serif;
   h1 {
     display: flex;
-    font-size: 18rem;
+    font-size: 4rem;
     margin: 0px;
     color: #263474;
     font-weight: 800;
     align-items: center;
+    margin-bottom: 1.5rem;
     @include x-767-tablet {
-      font-size: 7rem !important;
+      font-size: 2.4rem !important;
+      margin-bottom: 1rem;
     }
     .erro-imgball {
       width: 15rem;
@@ -715,18 +779,19 @@ input {
 }
 
 .cityBox {
-  height: 4.5rem;
   background: #fbe29a;
   display: flex;
   align-items: center;
-  justify-content: center;
   border-radius: 0.3rem;
   margin-bottom: 1.5rem;
+  flex-direction: column;
+  padding: .5rem 0;
+  gap: 0;
   h4 {
-    font-size: 2.2rem;
-    line-height: 1.8;
+    font-size: 1.8rem;
+    line-height: 1.4;
     color: #000;
-    font-weight: 800;
+    font-weight: 700;
   }
 }
 
@@ -734,19 +799,25 @@ input {
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.65rem;
 }
-.card-title{
+.card-title {
   font-size: 1.8rem;
   color: #000;
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 0;
+  @include x-767-tablet {
+    font-size: 1.4rem;
+  }
 }
-.card-text{
+.card-text {
   font-size: 1.6rem;
   color: #848484;
   display: flex;
   flex-direction: column;
-  small{
+  @include x-767-tablet {
+    font-size: 1.4rem;
+  }
+  small {
     color: green;
     font-weight: 600;
   }
@@ -807,11 +878,14 @@ hr.style-1 {
   justify-content: center;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 2px solid transparent;
+  // border: 2px solid transparent;
   border-radius: 10px;
   text-align: center;
   -webkit-box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  @include x-767-tablet {
+    width: 100%;
+  }
 }
 
 .card-input-element + .card:hover {
@@ -819,16 +893,25 @@ hr.style-1 {
 }
 
 .card-input-element:checked + .card {
-  border: 2px solid #719eca;
-  -webkit-transition: border 0.3s;
-  -o-transition: border 0.3s;
+  border: 2px solid #04a001;
   transition: border 0.3s;
+  background: #182046;
+  .card-body {
+    .card-title {
+      color: #fff;
+    }
+    .card-text {
+      color: #e3e3e3;
+      small {
+        color: #fff;
+      }
+    }
+  }
 }
 
 .card-input-element:checked + .card::after {
   content: "\f058";
-  content: "\f058";
-  color: rgb(24 32 70);
+  color: rgb(4, 160, 1);
   position: absolute;
   right: 5px;
   top: 5px;
@@ -876,28 +959,37 @@ hr.style-1 {
   margin-bottom: 3rem;
 }
 
-.availBoxWrap {
-  margin-top: 1.5rem;
-  span {
-    font-size: 1.8rem;
-    &.TSNum {
-      color: #fbe29a;
-    }
-    &.AvlSNum {
-      color: rgb(0, 161, 0);
-    }
-    &.FNum {
-      color: rgb(198, 228, 0);
-    }
-    &.AFNum {
-      color: rgb(228, 175, 0);
-    }
-    &.NAMsg {
-      color: rgb(228, 0, 0);
+.bgDisabled {
+  background-color: rgb(173, 173, 173);
+}
+
+.bookedText {
+  color: rgb(0, 170, 0);
+}
+
+.tables {
+  width: 100%;
+  .tableRow {
+    height: 4rem;
+    td {
+      &:nth-child(1) {
+        width: 30%;
+        color: #182046;
+        font-weight: 800;
+      }
+      &:nth-child(2) {
+        font-size: 1.8rem;
+        color: #182046;
+        font-weight: 600;
+      }
     }
   }
 }
-
-.bookedText{
-  color: rgb(0, 170, 0);
+.typeTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #000;
+  @include x-767-tablet {
+    font-size: 1.2rem;
+  }
 }

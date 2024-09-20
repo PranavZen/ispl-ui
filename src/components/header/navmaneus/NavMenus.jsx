@@ -188,7 +188,7 @@ function NavMenus() {
                       </span>
                     </Link>{" "}
                   </li>{" "} */}
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     {" "}
                     <Link
                       className={isActive("/registration-camp")}
@@ -198,7 +198,7 @@ function NavMenus() {
                       {" "}
                       Registration Camp{" "}
                     </Link>{" "}
-                  </li>{" "}
+                  </li>{" "} */}
                   <li className="nav-item dropdown">
                     {" "}
                     <Link

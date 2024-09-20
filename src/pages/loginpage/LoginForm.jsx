@@ -67,6 +67,8 @@ function LoginForm() {
         { email, password }
       );
 
+      // console.log("Post Login Data", response);
+
       if (response.status === 200) {
         const token = response.data.data.token;
         localStorage.setItem("apiToken", token);
@@ -78,6 +80,9 @@ function LoginForm() {
 
         let redirectPath = "/dashboard-session-2";
 
+        if (completed_status === 1 && form_city_edit === true) {
+          redirectPath = "/dashboard-golden-page";
+        }
         if (completed_status === 1 && form_city_edit === false) {
           redirectPath = "/dashboard-golden-page";
         }
@@ -95,7 +100,10 @@ function LoginForm() {
         err.response.status === 400 &&
         err.response.data.pay_request_id
       ) {
-        handlePaymentFailure(err.response.data.pay_request_id);
+        // handlePaymentFailure(err.response.data.pay_request_id);
+        alert(
+          "Since you did not complete the payment and registration is now closed, we regret to inform you that you are unable to log in at this time."
+        );
       } else {
         const errorMessage =
           err.response?.data?.error_message ||
@@ -156,6 +164,8 @@ function LoginForm() {
         { otp, email }
       );
 
+      // console.log("Dashboard Data", response);
+
       if (response.data.status) {
         toast.success(response.data.message);
 
@@ -173,10 +183,11 @@ function LoginForm() {
           );
 
           const userData = response.data.users;
+         
           const is_city_updated = response.data.users.is_city_updated;
           const { completed_status, form_city_edit } = response.data;
           const is_email_verify = response.data.users.is_email_verify;
-          const is_mobile_verify = response.data.users.is_mo
+          const is_mobile_verify = response.data.users.is_mo;
 
           if (completed_status === 1 && form_city_edit === true) {
             setShowModal(true);
@@ -201,6 +212,8 @@ function LoginForm() {
           toast.error("Error fetching user data");
           console.error("Fetch user data error:", error);
         }
+        navigate("/dashboard-golden-page");
+        window.location.reload();
       } else {
         toast.error("Failed to verify OTP. Please try again.");
       }
@@ -211,8 +224,11 @@ function LoginForm() {
         err.response.data.message &&
         err.response.data.message.failed
       ) {
-        toast.error(err.response.data.message.failed[0]);
-        handlePaymentFailure(err.response.data.pay_request_id);
+        // toast.error(err.response.data.message.failed[0]);
+        // handlePaymentFailure(err.response.data.pay_request_id);
+        alert(
+          "Since you did not complete the payment and registration is now closed, we regret to inform you that you are unable to log in at this time."
+        );
       } else {
         toast.error("An error occurred. Please try again.");
       }
@@ -221,56 +237,56 @@ function LoginForm() {
     }
   };
 
-  const handlePaymentFailure = async (payRequestId) => {
-    try {
-      const paymentRequestResponse = await axios.post(
-        `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
-      );
+  // const handlePaymentFailure = async (payRequestId) => {
+  //   try {
+  //     const paymentRequestResponse = await axios.post(
+  //       `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
+  //     );
 
-      if (paymentRequestResponse.data.status === "Successful") {
-        const { encrypted_data, access_code } = paymentRequestResponse.data;
+  //     if (paymentRequestResponse.data.status === "Successful") {
+  //       const { encrypted_data, access_code } = paymentRequestResponse.data;
 
-        const ccAvenueForm = document.createElement("form");
-        ccAvenueForm.method = "POST";
-        ccAvenueForm.action =
-          "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
+  //       const ccAvenueForm = document.createElement("form");
+  //       ccAvenueForm.method = "POST";
+  //       ccAvenueForm.action =
+  //         "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction";
 
-        const inputEncRequest = document.createElement("input");
-        inputEncRequest.type = "hidden";
-        inputEncRequest.name = "encRequest";
-        inputEncRequest.value = encrypted_data;
-        ccAvenueForm.appendChild(inputEncRequest);
+  //       const inputEncRequest = document.createElement("input");
+  //       inputEncRequest.type = "hidden";
+  //       inputEncRequest.name = "encRequest";
+  //       inputEncRequest.value = encrypted_data;
+  //       ccAvenueForm.appendChild(inputEncRequest);
 
-        const inputAccessCode = document.createElement("input");
-        inputAccessCode.type = "hidden";
-        inputAccessCode.name = "access_code";
-        inputAccessCode.value = access_code;
-        ccAvenueForm.appendChild(inputAccessCode);
+  //       const inputAccessCode = document.createElement("input");
+  //       inputAccessCode.type = "hidden";
+  //       inputAccessCode.name = "access_code";
+  //       inputAccessCode.value = access_code;
+  //       ccAvenueForm.appendChild(inputAccessCode);
 
-        document.body.appendChild(ccAvenueForm);
-        ccAvenueForm.submit();
+  //       document.body.appendChild(ccAvenueForm);
+  //       ccAvenueForm.submit();
 
-        window.addEventListener("message", async (event) => {
-          if (event.origin !== "https://secure.ccavenue.com") return;
-          const paymentStatus = event.data.status;
+  //       window.addEventListener("message", async (event) => {
+  //         if (event.origin !== "https://secure.ccavenue.com") return;
+  //         const paymentStatus = event.data.status;
 
-          if (paymentStatus === "Successful") {
-            window.location.href = "/login";
-          } else {
-            toast.error("Payment was unsuccessful. Please try again.");
-            // window.location.href = "/payment-page";
-          }
-        });
-      } else {
-        toast.error("Payment request failed. Please try again.");
-        // window.location.href = "/payment-page";
-      }
-    } catch (error) {
-      console.error("Payment request error:", error);
-      toast.error("An error occurred during payment. Please try again.");
-      // window.location.href = "/payment-page";
-    }
-  };
+  //         if (paymentStatus === "Successful") {
+  //           window.location.href = "/login";
+  //         } else {
+  //           toast.error("Payment was unsuccessful. Please try again.");
+  //           // window.location.href = "/payment-page";
+  //         }
+  //       });
+  //     } else {
+  //       toast.error("Payment request failed. Please try again.");
+  //       // window.location.href = "/payment-page";
+  //     }
+  //   } catch (error) {
+  //     console.error("Payment request error:", error);
+  //     toast.error("An error occurred during payment. Please try again.");
+  //     // window.location.href = "/payment-page";
+  //   }
+  // };
 
   const handleLoginWithPassword = (event) => {
     event.preventDefault();
@@ -443,12 +459,12 @@ function LoginForm() {
               />
             </div>
 
-            <p className="btmText">
+            {/* <p className="btmText">
               Do not have an account? &nbsp;
               <Link to="/registration" className="regster-bn">
                 Register Here
               </Link>
-            </p>
+            </p> */}
           </div>
         </div>
       </form>

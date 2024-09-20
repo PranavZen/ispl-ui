@@ -1,26 +1,6 @@
 #bannerSection {
   margin-top: 14rem;
 }
-@media (max-width: 1440px) {
-  #bannerSection {
-    margin-top: 19rem;
-  }
-}
-@media (max-width: 1024px) {
-  #bannerSection {
-    margin-top: 18rem;
-  }
-}
-@media (max-width: 834px) {
-  #bannerSection {
-    margin-top: 18rem;
-  }
-}
-@media (max-width: 767px) {
-  #bannerSection {
-    margin-top: 7rem;
-  }
-}
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide {
   position: relative;
 }

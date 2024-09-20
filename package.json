@@ -2,7 +2,7 @@
   "name": "ispl-t10.com",
   "homepage": "https://ispl-t10.com",
   "proxy": "https://ispl-t10.com",
-  "version": "7.0.1",
+  "version": "11.0.0.0",
   "private": true,
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "formik": "^2.4.6",
+    "qrcode.react": "^4.0.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",

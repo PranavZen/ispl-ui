@@ -76,14 +76,14 @@ function Banner() {
     <>
       <section id="bannerSection">
         <Slider {...settings}>
-          <BannerSlideItem
+          {/* <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner1}
             title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
             buttonName="Register Now"
             altTitle="ISPL=T10"
             completedStatus={completedStatus}
-          />
+          /> */}
           <BannerSlideItem
             tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner2}

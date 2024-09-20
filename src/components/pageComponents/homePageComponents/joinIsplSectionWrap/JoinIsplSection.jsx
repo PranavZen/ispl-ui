@@ -67,7 +67,7 @@ function JoinIsplSection() {
                     <li>#Street2stadium</li>
                   </ul>
                 </div>
-                {completedStatus !== 1 && (
+                {/* {completedStatus !== 1 && (
                   <SqareButton
                     classNameText="sqrBtn"
                     btnName="Register Now"
@@ -76,7 +76,7 @@ function JoinIsplSection() {
                     bordercolor="#fbe29a"
                     btnLinkUrl="/registration"
                   />
-                )}
+                )} */}
               </div>
             </div>
           </div>
