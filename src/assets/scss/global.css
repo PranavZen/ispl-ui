@@ -990,4 +990,13 @@ hr.style-1 {
   .typeTitle {
     font-size: 1.2rem;
   }
+}
+
+.goldenMsg {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.8;
+  width: 55%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
 }/*# sourceMappingURL=global.css.map */

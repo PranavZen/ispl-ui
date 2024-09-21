@@ -168,37 +168,6 @@ function NavMenus() {
                       Trial Dates{" "}
                     </Link>{" "}
                   </li>{" "}
-                  {/* <li className="nav-item lastLink">
-                    {" "}
-                    <Link
-                      className={isActive("")}
-                      to="https://docs.google.com/forms/d/e/1FAIpQLSeAWh0k3WvCmjn0XFo2EerdLb9NQrdRXyhuongEQNZilfP-Rg/viewform"
-                      onClick={closeOffcanvas}
-                      target="_blank"
-                    >
-                      {" "}
-                      KIT Not Received{" "}
-                      <span>
-                        <img
-                          src="../cloudflare-new-post.gif"
-                          alt="new tag"
-                          width={32}
-                          height={12}
-                        />
-                      </span>
-                    </Link>{" "}
-                  </li>{" "} */}
-                  {/* <li className="nav-item">
-                    {" "}
-                    <Link
-                      className={isActive("/registration-camp")}
-                      to="/registration-camp"
-                      onClick={openModal}
-                    >
-                      {" "}
-                      Registration Camp{" "}
-                    </Link>{" "}
-                  </li>{" "} */}
                   <li className="nav-item dropdown">
                     {" "}
                     <Link

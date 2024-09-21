@@ -21,6 +21,9 @@ function GlodenPage() {
   const [selectedSlotEndTime, setSelectedSlotEndTime] = useState(null);
   const [selectedSlotCityName, setSelectedSlotCityName] = useState("");
   const [isSlotAvailable, setIsSlotAvailable] = useState(false);
+  const [isTicketId, setIsTicketId] = useState(false);
+
+  // console.log("isTicketId", isTicketId);
 
   const generateQRCodeData = () => {
     return JSON.stringify(userNameSlot); // Corrected to userNameSlot
@@ -77,6 +80,7 @@ function GlodenPage() {
         setIsplId(isplId);
         setUserNameSlot(userName); // Corrected to setUserNameSlot
         setUserSlotId(userslotId); // Corrected to setUserSlotId
+        setIsTicketId(userData.ticket_id);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -123,7 +127,26 @@ function GlodenPage() {
           <div className="col-md-12 mb-3">
             <div className="text-white">
               <div className="card-body">
-                <TimeSlot />
+                <div className="d-flex justify-content-center mb-5">
+                  {loading ? (
+                    <Skeleton width={800} height={100} />
+                  ) : (
+                    <>
+                      {isTicketId === 0 || isTicketId === 3 ? (
+                        <TimeSlot />
+                      ) : (
+                        <p className="goldenMsg">
+                          Congratulations !!! Here is your Green Ticket... Now
+                          you are eligible to attend the Zone Trials. The
+                          schedule of the Zone final trials is available on the
+                          website. For any information, please feel free to
+                          contact us.
+                        </p>
+                      )}
+                    </>
+                  )}
+                </div>
+
                 <div className="email-content">
                   <div className="text-center">
                     <Link to="/">
@@ -171,91 +194,112 @@ function GlodenPage() {
                     <br />
                   </div>
 
-                  <div className="col-lg-12 golden-ticket-container">
-                    <div className="image-container">
-                      <img
-                        src="https://my.ispl-t10.com/assets/img/golden-ticket.png"
-                        style={{ maxHeight: "430px" }}
-                        className="image-fluid"
-                        alt="Golden Ticket"
-                      />
-                    </div>
-                    <div className="centered-text">
-                      <h1 className="golden-ticket-text">GOLDEN TICKET</h1>
-                      <p className="typeTitle">
-                        {loading ? (
-                          <Skeleton width={150} />
+                  {loading ? (
+                    <Skeleton width={750} height={430} />
+                  ) : (
+                    <div className="col-lg-12 golden-ticket-container">
+                      <div className="image-container">
+                        <img
+                          src={`https://my.ispl-t10.com/assets/img/${
+                            isTicketId === 0 || isTicketId === 3
+                              ? "golden"
+                              : "green"
+                          }-ticket.png`}
+                          style={{ maxHeight: "430px" }}
+                          className="image-fluid"
+                          alt="Golden Ticket "
+                        />
+                      </div>
+                      <div className="centered-text">
+                        <h1 className="golden-ticket-text">
+                          {isTicketId === 0 || isTicketId === 3
+                            ? "GOLDEN"
+                            : "GREEN"}{" "}
+                          TICKET
+                        </h1>
+                        <p className="typeTitle">
+                          {loading ? (
+                            <Skeleton width={150} />
+                          ) : (
+                            `Season ${seasonTypes}`
+                          )}
+                        </p>
+                        <p className="ticket-info playerName">
+                          {loading ? (
+                            <Skeleton width={200} />
+                          ) : (
+                            `MR. ${playerName}`
+                          )}
+                        </p>
+                        <hr
+                          style={{
+                            width: "100%",
+                            border: "1px solid #000",
+                          }}
+                        />
+                        {isTicketId === 0 || isTicketId === 3 ? (
+                          <div className="qrCodeWrap">
+                            {userNameSlot === null ? (
+                              ""
+                            ) : (
+                              <QRCodeSVG
+                                value={generateQRCodeData()}
+                                size={110}
+                                level={"H"}
+                                bgColor="transparent"
+                              />
+                            )}
+                          </div>
                         ) : (
-                          `Season ${seasonTypes}`
+                          " "
                         )}
-                      </p>
-                      <p className="ticket-info playerName">
-                        {loading ? (
-                          <Skeleton width={200} />
+                        <p className="ticket-info playerId">
+                          {loading ? <Skeleton width={150} /> : playerId}{" "}
+                          <span className="city-name-title">
+                            ({loading ? <Skeleton width={150} /> : cityName})
+                          </span>
+                        </p>
+                        {isTicketId === 0 || isTicketId === 3 ? (
+                          <p className="finalTextSlotTicket">
+                            {userSlotId}
+                            <br />
+                            {isSlotAvailable ? (
+                              <>
+                                {new Date(selectedSlotDate).toLocaleDateString(
+                                  "en-US",
+                                  {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  }
+                                )}{" "}
+                                <br />
+                                {new Date(
+                                  `1970-01-01T${selectedSlotStartTime}:00`
+                                ).toLocaleTimeString("en-US", {
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                  hour12: true,
+                                })}{" "}
+                                to{" "}
+                                {new Date(
+                                  `1970-01-01T${selectedSlotEndTime}:00`
+                                ).toLocaleTimeString("en-US", {
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                  hour12: true,
+                                })}
+                              </>
+                            ) : (
+                              <span></span>
+                            )}
+                          </p>
                         ) : (
-                          `MR. ${playerName}`
-                        )}
-                      </p>
-                      <hr
-                        style={{
-                          width: "100%",
-                          border: "1px solid #000",
-                        }}
-                      />
-                      <div className="qrCodeWrap">
-                        {userNameSlot === null ? (
                           ""
-                        ) : (
-                          <QRCodeSVG
-                            value={generateQRCodeData()}
-                            size={110}
-                            level={"H"}
-                            bgColor="transparent"
-                          />
                         )}
                       </div>
-                      <p className="ticket-info playerId">
-                        {loading ? <Skeleton width={150} /> : playerId}{" "}
-                        <span className="city-name-title">
-                          ({loading ? <Skeleton width={150} /> : cityName})
-                        </span>
-                      </p>
-                      <p className="finalTextSlotTicket">
-                        {userSlotId}
-                        <br />
-                        {isSlotAvailable ? (
-                          <>
-                            {new Date(selectedSlotDate).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                              }
-                            )}{" "}
-                            <br />
-                            {new Date(
-                              `1970-01-01T${selectedSlotStartTime}:00`
-                            ).toLocaleTimeString("en-US", {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                              hour12: true,
-                            })}{" "}
-                            to{" "}
-                            {new Date(
-                              `1970-01-01T${selectedSlotEndTime}:00`
-                            ).toLocaleTimeString("en-US", {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                              hour12: true,
-                            })}
-                          </>
-                        ) : (
-                          <span></span>
-                        )}
-                      </p>
                     </div>
-                  </div>
+                  )}
 
                   <div className="email-body mt-5">
                     <br />

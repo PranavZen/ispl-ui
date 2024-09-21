@@ -950,6 +950,10 @@ function TimeSlot() {
                       </strong>{" "}
                       . Please ensure to arrive on time.
                     </h3>
+                    <br/>
+                    <h3 className="preFinalText text-center">
+                      <b>Your golden ticket would be sent via WhatsApp in next 3 working days.</b>
+                    </h3>
                   </div>
                 </div>
               )}
