@@ -72,7 +72,7 @@ function GlodenPage() {
         const cityName = cityNameArray[0];
         setCityName(cityName);
         setLoading(false);
-        setSeasonTypes(userData.season_types);
+        setSeasonTypes(response.data.season);
         setSelectedSlotDate(selectedSlotDate);
         setSelectedSlotStartTime(selectedSlotStartTime);
         setSelectedSlotEndTime(selectedSlotEndTime);
@@ -132,9 +132,7 @@ function GlodenPage() {
                     <Skeleton width={800} height={100} />
                   ) : (
                     <>
-                      {isTicketId === 0 || isTicketId === 3 ? (
-                        <TimeSlot />
-                      ) : (
+                      {isTicketId === 2 ? (
                         <p className="goldenMsg">
                           Congratulations !!! Here is your Green Ticket... Now
                           you are eligible to attend the Zone Trials. The
@@ -142,6 +140,8 @@ function GlodenPage() {
                           website. For any information, please feel free to
                           contact us.
                         </p>
+                      ) : (
+                        <TimeSlot />
                       )}
                     </>
                   )}
@@ -201,9 +201,7 @@ function GlodenPage() {
                       <div className="image-container">
                         <img
                           src={`https://my.ispl-t10.com/assets/img/${
-                            isTicketId === 0 || isTicketId === 3
-                              ? "golden"
-                              : "green"
+                            isTicketId === 2 ? "green" : "golden"
                           }-ticket.png`}
                           style={{ maxHeight: "430px" }}
                           className="image-fluid"
@@ -212,10 +210,7 @@ function GlodenPage() {
                       </div>
                       <div className="centered-text">
                         <h1 className="golden-ticket-text">
-                          {isTicketId === 0 || isTicketId === 3
-                            ? "GOLDEN"
-                            : "GREEN"}{" "}
-                          TICKET
+                          {isTicketId === 2 ? "GREEN" : "GOLDEN"} TICKET
                         </h1>
                         <p className="typeTitle">
                           {loading ? (
@@ -237,7 +232,9 @@ function GlodenPage() {
                             border: "1px solid #000",
                           }}
                         />
-                        {isTicketId === 0 || isTicketId === 3 ? (
+                        {isTicketId === 2 ? (
+                          ""
+                        ) : (
                           <div className="qrCodeWrap">
                             {userNameSlot === null ? (
                               ""
@@ -250,16 +247,17 @@ function GlodenPage() {
                               />
                             )}
                           </div>
-                        ) : (
-                          " "
                         )}
+
                         <p className="ticket-info playerId">
                           {loading ? <Skeleton width={150} /> : playerId}{" "}
                           <span className="city-name-title">
                             ({loading ? <Skeleton width={150} /> : cityName})
                           </span>
                         </p>
-                        {isTicketId === 0 || isTicketId === 3 ? (
+                        {isTicketId === 2 ? (
+                          ""
+                        ) : (
                           <p className="finalTextSlotTicket">
                             {userSlotId}
                             <br />
@@ -294,8 +292,6 @@ function GlodenPage() {
                               <span></span>
                             )}
                           </p>
-                        ) : (
-                          ""
                         )}
                       </div>
                     </div>
