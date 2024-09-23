@@ -9,8 +9,8 @@ const southzone = [
   {
     "Sr No.": 2,
     City: "Tirunelveli",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "02-Oct",
+    To: "02-Oct",
     zone: "South",
   },
   {

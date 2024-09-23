@@ -397,7 +397,8 @@ function LoginForm() {
                           className="regster-bn frgtBtn"
                           onClick={handleSendOTP}
                         >
-                          Login with OTP
+                          { loading ? "Sending OTP" : "  Login with OTP"}
+                        
                         </Link>
                       </p>
                     </div>
