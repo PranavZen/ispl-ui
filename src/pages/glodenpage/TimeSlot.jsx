@@ -28,6 +28,8 @@ function TimeSlot() {
   const [shouldReload, setShouldReload] = useState(false);
   const [isCheckTimeSlot, setIsCheckTimeSlot] = useState(0);
   const [isTimeSlotVeifyOtp, setTimeSlotVeifyOtp] = useState(0);
+  const [isUserDataOuter, setIsUserDataOuter] = useState("");
+  // console.log("isUserDataOuter", isUserDataOuter);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -509,8 +511,10 @@ function TimeSlot() {
         const setvenuNameTopName = data.venue_name;
         const checkSlotConfirm = data.users.is_time_slot_confirmed;
         const userTimeSlotDatas = data.user_slots_master[0];
+        const userOuterData = data;
         const is_check_disclaimer_slot = data.users.is_check_disclaimer_slot;
         const setTimeSlotVeifyOtp_slot = data.users.is_time_slot_otp_confirmed;
+        setIsUserDataOuter(userOuterData);
         setIsCheckTimeSlot(is_check_disclaimer_slot);
         setSavedTimeSlotUser(userTimeSlotDatas);
         setCheckSlot(checkSlotConfirm);
@@ -676,11 +680,7 @@ function TimeSlot() {
                         <option value="">Select Date</option>
                         {Object.keys(timeSlots).map((date) => (
                           <option key={date} value={date}>
-                            {new Date(date).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            })}
+                            {date}
                           </option>
                         ))}
                       </select>
@@ -743,21 +743,7 @@ function TimeSlot() {
                                             {batchKey}
                                           </p>
                                           <p className="card-text">
-                                            {new Date(
-                                              `1970-01-01T${slot.start_time}:00`
-                                            ).toLocaleTimeString("en-US", {
-                                              hour: "2-digit",
-                                              minute: "2-digit",
-                                              hour12: true,
-                                            })}{" "}
-                                            -{" "}
-                                            {new Date(
-                                              `1970-01-01T${slot.end_time}:00`
-                                            ).toLocaleTimeString("en-US", {
-                                              hour: "2-digit",
-                                              minute: "2-digit",
-                                              hour12: true,
-                                            })}
+                                            {slot.start_time} - {slot.end_time}
                                             {/* Display when user_slots_count is 2 */}
                                             <small
                                               className={
@@ -870,6 +856,7 @@ function TimeSlot() {
                             className="form-control"
                             id="otpemail"
                             name="email_otp"
+                            autoComplete
                             value={emailOtp}
                             onChange={(e) => setEmailOtp(e.target.value)}
                           />
@@ -918,41 +905,21 @@ function TimeSlot() {
                     <h3 className="preFinalText">
                       Your time slot are booked in{" "}
                       <strong>{savedTimeSlot?.data?.user?.cities_name}</strong>{" "}
-                      on{" "}
+                      on <strong>{savedTimeSlot?.data?.formatted_date}</strong>.
+                      The slot is scheduled from{" "}
                       <strong>
-                        {new Date(
-                          savedTimeSlot?.data?.user?.venue_date
-                        ).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </strong>
-                      . The slot is scheduled from{" "}
-                      <strong>
-                        {new Date(
-                          `1970-01-01T${savedTimeSlot?.data?.user?.venue_start_time}:00`
-                        ).toLocaleTimeString("en-US", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
+                        {savedTimeSlot?.data?.formatted_start_time}
                       </strong>{" "}
                       to{" "}
-                      <strong>
-                        {new Date(
-                          `1970-01-01T${savedTimeSlot?.data?.user?.venue_end_time}:00`
-                        ).toLocaleTimeString("en-US", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
-                      </strong>{" "}
+                      <strong>{savedTimeSlot?.data?.formatted_end_time}</strong>{" "}
                       . Please ensure to arrive on time.
                     </h3>
-                    <br/>
+                    <br />
                     <h3 className="preFinalText text-center">
-                      <b>Your golden ticket would be sent via WhatsApp in next 3 working days.</b>
+                      <b>
+                        Your golden ticket would be sent via WhatsApp in next 3
+                        working days.
+                      </b>
                     </h3>
                   </div>
                 </div>
@@ -964,37 +931,11 @@ function TimeSlot() {
                       You have successfully booked your trial slot in{" "}
                       <strong>{savedTimeSlotUser.cities_name}</strong> at{" "}
                       <strong>{savedTimeSlotUser.venue_name}</strong> on{" "}
-                      <strong>
-                        {new Date(
-                          savedTimeSlotUser.venue_date
-                        ).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </strong>
-                      . The trial is scheduled to take place from{" "}
-                      <strong>
-                        {new Date(
-                          `1970-01-01T${savedTimeSlotUser.venue_start_time}:00`
-                        ).toLocaleTimeString("en-US", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
-                      </strong>{" "}
-                      to{" "}
-                      <strong>
-                        {new Date(
-                          `1970-01-01T${savedTimeSlotUser.venue_end_time}:00`
-                        ).toLocaleTimeString("en-US", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
-                      </strong>
-                      .{" "}
-                      {savedTimeSlotUser.venue_start_time === "09:00"
+                      <strong>{isUserDataOuter.formatted_date}</strong>. The
+                      trial is scheduled to take place from{" "}
+                      <strong>{isUserDataOuter.formatted_start_time}</strong> to{" "}
+                      <strong>{isUserDataOuter.formatted_end_time}</strong>.{" "}
+                      {isUserDataOuter.formatted_start_time === "09:00"
                         ? "Please note that entry to the venue will be open from 8:00 a.m. and will close at 11:30 a.m. We request that you arrive on time to ensure a smooth and efficient trial process."
                         : "Please note that entry to the venue will be open from 12:30 p.m. and will close at 3:00 p.m. We request that you arrive on time to ensure a smooth and efficient trial process."}
                     </h3>

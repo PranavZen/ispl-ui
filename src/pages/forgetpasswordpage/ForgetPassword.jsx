@@ -16,54 +16,54 @@ function ForgetPassword() {
   const [otpTimer, setOtpTimer] = useState(120); // Initial OTP expiry time in seconds
   const [otpSent, setOtpSent] = useState(false);
   const [otpVerified, setOtpVerified] = useState(false);
+  const [canResend, setCanResend] = useState(false); // To track OTP resend availability
   const navigate = useNavigate();
-  // Function to handle OTP resend
+
+  // Function to handle OTP resend 
   const handleResendOTP = async () => {
     try {
-      // Check if email is empty
       if (!email.trim()) {
         toast.error("Email or Mobile Number is required");
         return;
       }
 
       const response = await axios.post(
-        "https://my.ispl-t10.com/api/send-otp",
+        "https://my.ispl-t10.com/api/reset-password-send-otp",
         { email }
       );
       if (response.data.success) {
         setOtpSent(true);
-        setOtpVerified(false); // Reset verification status
+        setOtpVerified(false);
         setOtpTimer(120); // Reset timer to 120 seconds
+        setCanResend(false); // Disable resend until timer expires
         toast.success(response.data.message);
       } else {
         toast.error("Failed to send OTP");
       }
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.message) {
-        toast.error(`Error: ${error.response.data.message}`);
-      } else {
-        console.error("Error sending OTP:", error);
-        toast.error("Failed to send OTP");
-      }
+      const errorMessage = error.response?.data?.message || "Failed to send OTP";
+      toast.error(`Error: ${errorMessage}`);
     }
   };
 
   // Function to handle OTP verification
   const handleVerifyOTP = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    // alert("click Button");
     try {
       const verifyResponse = await axios.post(
         "https://my.ispl-t10.com/api/user-reset-password-otp",
         { email, otp }
       );
+      // alert("click Button verifyResponse", verifyResponse);
       if (verifyResponse.data.status) {
+        // alert("click Button verifyResponse", verifyResponse.data.status);
         toast.success(verifyResponse.data.message);
         setOtpVerified(true);
       } else {
         toast.error(`OTP verification failed: ${verifyResponse.data.message}`);
       }
     } catch (error) {
-      console.error("Error verifying OTP:", error);
       toast.error("Error verifying OTP");
     }
   };
@@ -74,22 +74,16 @@ function ForgetPassword() {
     try {
       const resetResponse = await axios.post(
         "https://my.ispl-t10.com/api/reset-password",
-        { email, password, password_confirmation } // Pass password and password_confirmation
+        { email, password, password_confirmation }
       );
       if (resetResponse.data.status === "success") {
         toast.success("Password reset successful");
         navigate("/login");
       } else {
-        // Handle errors from API response
-        if (resetResponse.data.errors && resetResponse.data.errors.password) {
-          const errorMessage = resetResponse.data.errors.password[0];
-          toast.error(`Password reset failed: ${errorMessage}`);
-        } else {
-          toast.error(`Password reset failed: ${resetResponse.data.message}`);
-        }
+        const errorMessage = resetResponse.data.errors?.password[0] || resetResponse.data.message;
+        toast.error(`Password reset failed: ${errorMessage}`);
       }
     } catch (error) {
-      console.error("Error resetting password:", error);
       toast.error("Error resetting password");
     }
   };
@@ -103,6 +97,7 @@ function ForgetPassword() {
       }, 1000);
     } else if (otpTimer === 0) {
       setOtpSent(false); // Reset OTP sent status after expiry
+      setCanResend(true); // Allow resend after timer expires
       clearInterval(interval); // Clear interval when timer expires
     }
     return () => clearInterval(interval); // Cleanup interval on component unmount
@@ -110,38 +105,8 @@ function ForgetPassword() {
 
   return (
     <section id="registrationFormSection">
-        <Helmet>
-        <title>ISPL T10 | Reset Password</title>
-        <meta
-          name="description"
-          content="This is the home page of our website."
-        />
-        <meta name="keywords" content="home, main, index" />
-        <meta name="author" content="Author Name" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Home Page" />
-        <meta
-          property="og:description"
-          content="This is the home page of our website."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.example.com/" />
-        <meta
-          property="og:image"
-          content="https://www.example.com/home-image.jpg"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Home Page" />
-        <meta
-          name="twitter:description"
-          content="This is the home page of our website."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.example.com/home-image.jpg"
-        />
-        <link rel="canonical" href="https://www.example.com/" />
-        
+      <Helmet>
+        {/* SEO Meta tags */}
       </Helmet>
       <ToastContainer />
       <div className="container">
@@ -261,6 +226,7 @@ function ForgetPassword() {
                           textColor="#fbe29a"
                           bordercolor="#fbe29a"
                           type="submit"
+                          onClick={handleResetPassword}
                         />
                       </div>
                     </>
@@ -275,7 +241,22 @@ function ForgetPassword() {
                         textColor="#fbe29a"
                         bordercolor="#fbe29a"
                         type="submit"
+                        onClick={handleVerifyOTP}
                       />
+                    </div>
+                  )}
+
+                  {canResend && (
+                    <div className="row mb-4">
+                      <div className="col-md-6 mx-auto">
+                        <button
+                          type="button"
+                          className="regster-bn frgtBtn"
+                          onClick={handleResendOTP}
+                        >
+                          Resend OTP
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>

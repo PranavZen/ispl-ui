@@ -1,6 +1,46 @@
 #bannerSection {
   margin-top: 14rem;
 }
+@media (max-width: 1440px) {
+  #bannerSection {
+    margin-top: 16rem;
+  }
+}
+@media (max-width: 1024px) {
+  #bannerSection {
+    margin-top: 16rem;
+  }
+}
+@media (max-width: 834px) {
+  #bannerSection {
+    margin-top: 16rem;
+  }
+}
+@media (max-width: 767px) {
+  #bannerSection {
+    margin-top: 7rem;
+  }
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="1"] .sliderItme .sliderItmeImg img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="2"] .sliderItme .sliderItmeImg img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="0"] .sliderItme .sliderItmeImg::before {
+  content: none;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="0"] .sliderItme .sliderItmeContent {
+  display: none;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="3"] .sliderItme .sliderItmeImg::before {
+  content: none;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="3"] .sliderItme .sliderItmeContent {
+  display: none;
+}
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide {
   position: relative;
 }
@@ -17,9 +57,12 @@
   z-index: 1;
   background: linear-gradient(90deg, rgb(23, 32, 70) 0%, rgba(23, 32, 70, 0.29) 100%);
 }
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeImg img {
+  width: 100%;
+}
 @media (max-width: 767px) {
   #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeImg {
-    height: 20rem;
+    height: 15rem;
   }
   #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeImg img {
     height: 100%;
@@ -55,7 +98,7 @@
 }
 @media (max-width: 767px) {
   #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent span {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent h4 {
@@ -78,7 +121,7 @@
 }
 @media (max-width: 767px) {
   #bannerSection .slick-slider .slick-list .slick-track .slick-slide .sliderItme .sliderItmeContent h4 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
   }
 }

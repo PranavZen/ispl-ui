@@ -1,4 +1,5 @@
 // export { default as logo } from "../assets/images/logo.webp";
+// export { default as logo } from "../assets/images/logo.webp";
 export { default as logo } from "../assets/images/ISPL-season2-logo.png";
 export { default as fooLeft } from "../assets/images/foo-left.png";
 export { default as img1 } from "../assets/images/Rectangle 100.png";
@@ -19,6 +20,7 @@ export { default as banner1 } from "../assets/images/banner-1.webp";
 export { default as banner2 } from "../assets/images/banner-2.webp";
 export { default as banner3 } from "../assets/images/banner-3.webp";
 export { default as banner4 } from "../assets/images/banner.png";
+export { default as banner5 } from "../assets/images/banner-5.png";
 export { default as team1 } from "../assets/images/cs.webp";
 export { default as team2 } from "../assets/images/kbs.webp";
 export { default as team3 } from "../assets/images/kt.webp";

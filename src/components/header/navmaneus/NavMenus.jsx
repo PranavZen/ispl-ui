@@ -426,7 +426,7 @@ function NavMenus() {
                             />
                           </svg>
                         </span>
-                        Register
+                        Spot Registration
                       </Link>
                       <Link
                         to="/login"
@@ -480,7 +480,7 @@ function NavMenus() {
                   <span>
                     <img src={dashboard} alt="Dashboard" />
                   </span>
-                  Register
+                  Spot Registration
                 </Link>
                 <Link
                   to="/login"

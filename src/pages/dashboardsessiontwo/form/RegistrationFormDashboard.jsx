@@ -15,7 +15,7 @@ function RegistrationFormDashboard() {
     first_name: "",
     middle_name: "",
     surname: "",
-    date_of_birth: "",
+    date_of_birth: "", 
     permanent_address: "",
     current_address: "",
     current_pincode: "",

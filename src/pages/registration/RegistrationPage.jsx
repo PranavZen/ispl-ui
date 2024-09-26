@@ -6,11 +6,11 @@ import "../registration/registration.css";
 
 import { Helmet } from "react-helmet-async";
 import RegistrationForm from "./form/RegistrationForm";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function RegistrationPage() {
   return (
-    <section>
+    <section id="registrationFormSection">
       <Helmet>
         <title>ISPL T10 | Registration</title>
         <meta
@@ -46,9 +46,9 @@ function RegistrationPage() {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-12 mx-auto">
-            {/* <RegistrationForm/>
-            <ToastContainer /> */}
-            <div className="error-page">
+            <RegistrationForm/>
+            <ToastContainer />
+            {/* <div className="error-page">
               <h1>Registration Closed</h1>
               <p>
                 Thank you for your interest. Unfortunately, the registration
@@ -57,7 +57,7 @@ function RegistrationPage() {
                 media.
               </p>
               <Link to="/">Go back to Home</Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

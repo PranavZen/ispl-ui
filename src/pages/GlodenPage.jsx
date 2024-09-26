@@ -23,7 +23,7 @@ function GlodenPage() {
   const [isSlotAvailable, setIsSlotAvailable] = useState(false);
   const [isTicketId, setIsTicketId] = useState(false);
 
-  // console.log("isTicketId", isTicketId);
+  // console.log("selectedSlotStartTime", selectedSlotStartTime);
 
   const generateQRCodeData = () => {
     return JSON.stringify(userNameSlot); // Corrected to userNameSlot
@@ -53,11 +53,11 @@ function GlodenPage() {
         ) {
           const slotMaster = response.data.user_slots_master[0]; // First slot master entry
 
-          selectedSlotDate = slotMaster.venue_date || ""; // Fallback to empty string if undefined
-          selectedSlotStartTime = slotMaster.venue_start_time || "";
-          selectedSlotEndTime = slotMaster.venue_end_time || "";
+          selectedSlotDate = response.data.formatted_date || ""; // Fallback to empty string if undefined
+          selectedSlotStartTime = response.data.formatted_start_time || "";
+          selectedSlotEndTime = response.data.formatted_end_time || "";
           userName = slotMaster.user_name || ""; // Check if user_name exists
-          userslotId = slotMaster.venue_name || ""; // Check if venue_name exists
+          userslotId = response.data.venue_name || ""; // Check if venue_name exists
 
           setIsSlotAvailable(true); // Enable slot-related elements
         } else {
@@ -73,9 +73,9 @@ function GlodenPage() {
         setCityName(cityName);
         setLoading(false);
         setSeasonTypes(response.data.season);
-        setSelectedSlotDate(selectedSlotDate);
-        setSelectedSlotStartTime(selectedSlotStartTime);
-        setSelectedSlotEndTime(selectedSlotEndTime);
+        setSelectedSlotDate(response.data.formatted_date);
+        setSelectedSlotStartTime(response.data.formatted_start_time);
+        setSelectedSlotEndTime(response.data.formatted_end_time);
         setSelectedSlotCityName(selectedSlotCityName);
         setIsplId(isplId);
         setUserNameSlot(userName); // Corrected to setUserNameSlot
@@ -210,7 +210,9 @@ function GlodenPage() {
                       </div>
                       <div className="centered-text">
                         <h1 className="golden-ticket-text">
-                          {isTicketId === 2 ? "GREEN" : "GOLDEN"} TICKET
+                          {isTicketId === 4
+                            ? "Spot Registration Ticket"
+                            : `${isTicketId === 2 ? "GREEN" : "GOLDEN"} TICKET`}
                         </h1>
                         <p className="typeTitle">
                           {loading ? (
@@ -263,34 +265,16 @@ function GlodenPage() {
                             <br />
                             {isSlotAvailable ? (
                               <>
-                                {new Date(selectedSlotDate).toLocaleDateString(
-                                  "en-US",
-                                  {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                  }
-                                )}{" "}
+                                {selectedSlotDate}
                                 <br />
-                                {new Date(
-                                  `1970-01-01T${selectedSlotStartTime}:00`
-                                ).toLocaleTimeString("en-US", {
-                                  hour: "2-digit",
-                                  minute: "2-digit",
-                                  hour12: true,
-                                })}{" "}
-                                to{" "}
-                                {new Date(
-                                  `1970-01-01T${selectedSlotEndTime}:00`
-                                ).toLocaleTimeString("en-US", {
-                                  hour: "2-digit",
-                                  minute: "2-digit",
-                                  hour12: true,
-                                })}
+                                {selectedSlotStartTime} to {selectedSlotEndTime}
                               </>
                             ) : (
                               <span></span>
                             )}
+                            {/* {selectedSlotDate}
+                            <br />
+                            {selectedSlotStartTime} to {selectedSlotEndTime} */}
                           </p>
                         )}
                       </div>

@@ -1,21 +1,63 @@
 @import "../../../../assets/scss/media";
 #bannerSection {
   margin-top: 14rem;
-  // @include xu-desktop{
-  //   margin-top: 19rem;
-  // }
-  // @include d-desktop{
-  //   margin-top: 18rem;
-  // }
-  // @include md-tablet{
-  //   margin-top: 18rem;
-  // }
-  // @include x-767-tablet {
-  //   margin-top: 7rem;
-  // }
+  @include xu-desktop{
+    margin-top: 16rem;
+  }
+  @include d-desktop{
+    margin-top: 16rem;
+  }
+  @include md-tablet{
+    margin-top: 16rem;
+  }
+  @include x-767-tablet {
+    margin-top: 7rem;
+  }
   .slick-slider {
     .slick-list {
       .slick-track {
+        .slick-slide[data-index="1"]{
+          .sliderItme {
+            .sliderItmeImg {
+              img{
+                object-fit: cover;
+              }
+            }
+          }
+        }
+        .slick-slide[data-index="2"]{
+          .sliderItme {
+            .sliderItmeImg {
+              img{
+                object-fit: cover;
+              }
+            }
+          }
+        }
+        .slick-slide[data-index="0"] {
+          .sliderItme {
+            .sliderItmeImg {
+              &::before {
+                content: none;
+              }
+            }
+            .sliderItmeContent {
+              display: none;
+            }
+          }
+        }
+        .slick-slide[data-index="3"] {
+          .sliderItme {
+            .sliderItmeImg {
+              &::before {
+                content: none;
+              }
+            }
+            .sliderItmeContent {
+              display: none;
+            }
+          }
+        }
         .slick-slide {
           position: relative;
           .sliderItme {
@@ -35,8 +77,11 @@
                   rgb(23 32 70 / 29%) 100%
                 );
               }
+              img{
+                width: 100%; 
+              }
               @include x-767-tablet {
-                height: 20rem;
+                height: 15rem;
                 img {
                   height: 100%;
                 }
@@ -65,7 +110,7 @@
                   font-size: 1.4rem;
                 }
                 @include x-767-tablet {
-                  font-size: 1.2rem;
+                  font-size: 1rem;
                 }
               }
               h4 {
@@ -82,7 +127,7 @@
                   font-size: 3rem;
                 }
                 @include x-767-tablet {
-                  font-size: 1.8rem;
+                  font-size: 1.4rem;
                   margin-bottom: 1rem;
                 }
               }

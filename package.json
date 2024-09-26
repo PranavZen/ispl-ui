@@ -2,7 +2,7 @@
   "name": "ispl-t10.com",
   "homepage": "https://ispl-t10.com",
   "proxy": "https://ispl-t10.com",
-  "version": "11.0.5",
+  "version": "12.0.0",
   "private": true,
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
