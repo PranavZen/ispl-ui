@@ -64,6 +64,7 @@ function NavMenus() {
 
   const handleLogout = () => {
     localStorage.removeItem("apiToken");
+    localStorage.removeItem("loginTime");
     setIsLoggedIn(false);
     navigate("/");
     setOffcanvasOpen(false);
@@ -373,6 +374,17 @@ function NavMenus() {
                         </Link>{" "}
                       </li>{" "}
                     </ul>{" "}
+                  </li>{" "}
+                  <li className="nav-item">
+                    {" "}
+                    <Link
+                      className={isActive("/trial-dates")}
+                      to="https://docs.google.com/forms/d/e/1FAIpQLSe5qnkogQeiK3SzANF2AfxZnA2YTko4N7TaNJhpVkSWHU9KhA/viewform"
+                      target="_blank"
+                    >
+                      {" "}
+                      Claim Your Registration{" "}
+                    </Link>{" "}
                   </li>{" "}
                 </ul>
                 <div className="headerBtnsWrap deskMob">

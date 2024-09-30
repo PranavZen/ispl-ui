@@ -1028,9 +1028,6 @@ function RegistrationForm() {
                   </option>
                 ))}
               </select>
-              {/* {errors.trouser_size && (
-                <div className="error">{errors.trouser_size}</div>
-              )} */}
             </div>
             <div className="col-md-3 mb-4">
               <label htmlFor="jersey_sizes" className="form-label text-light">
@@ -1052,9 +1049,6 @@ function RegistrationForm() {
                   </option>
                 ))}
               </select>
-              {/* {errors.jersey_sizes && (
-                <div className="error">{errors.jersey_sizes}</div>
-              )} */}
             </div>
             <div className="col-md-3 mb-4">
               <label htmlFor="shoe_size" className="form-label text-light">

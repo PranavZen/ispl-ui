@@ -67,10 +67,10 @@
   background-color: #263574;
   position: relative;
   @include xu-desktop {
-    padding: 0rem 6rem 0rem 6rem;
+    padding: 0rem 6rem 3rem 6rem;
   }
   @include d-desktop {
-    padding: 0rem 2rem 0rem 2rem;
+    padding: 0rem 2rem 2rem 2rem;
   }
   @include md-tablet {
     padding: 1rem 2rem 0rem 2rem;
@@ -255,17 +255,16 @@
     }
     &.mobDisp {
       display: flex;
-      // @include xu-desktop {
-      //   padding-bottom: 2rem;
-      //   position: absolute;
-      //   bottom: -5px;
-      //   right: 1.5%;
-      // }
-      // @include md-tablet{
-      //   bottom: 35px;
-      //   right: 7rem;
-      //   padding-bottom: 0;
-      // }
+      @include xu-desktop {
+        position: absolute;
+        right: 0;
+        bottom: 10%;
+      }
+      @include md-tablet{
+        bottom: 35px;
+        right: 7rem;
+        padding-bottom: 0;
+      }
       @include md-tablet {
         display: none;
       }

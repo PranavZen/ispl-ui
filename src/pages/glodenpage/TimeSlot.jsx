@@ -29,7 +29,7 @@ function TimeSlot() {
   const [isCheckTimeSlot, setIsCheckTimeSlot] = useState(0);
   const [isTimeSlotVeifyOtp, setTimeSlotVeifyOtp] = useState(0);
   const [isUserDataOuter, setIsUserDataOuter] = useState("");
-  // console.log("isUserDataOuter", isUserDataOuter);
+  // console.log("timeSlots", timeSlots);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
