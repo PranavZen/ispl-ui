@@ -378,7 +378,7 @@ function NavMenus() {
                   <li className="nav-item">
                     {" "}
                     <Link
-                      className={isActive("/trial-dates")}
+                      className={isActive("/")}
                       to="https://docs.google.com/forms/d/e/1FAIpQLSe5qnkogQeiK3SzANF2AfxZnA2YTko4N7TaNJhpVkSWHU9KhA/viewform"
                       target="_blank"
                     >

@@ -2,29 +2,29 @@ const centralzone = [
   {
     "Sr No.": 1,
     City: "Ayodhya",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "15-Oct",
+    To: "15-Oct",
     zone: "Central",
   },
   {
     "Sr No.": 2,
     City: "Raipur",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "14-Oct",
+    To: "14-Oct",
     zone: "Central",
   },
   {
     "Sr No.": 3,
     City: "Patna",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "13-Oct",
+    To: "13-Oct",
     zone: "Central",
   },
   {
     "Sr No.": 4,
     City: "Jaipur",
-    From: "03-Oct",
-    To: "04-Oct",
+    From: "07-Oct",
+    To: "08-Oct",
     zone: "Central",
   },
   {
@@ -37,8 +37,8 @@ const centralzone = [
   {
     "Sr No.": 6,
     City: "Varanasi",
-    From: "03-Oct",
-    To: "03-Oct",
+    From: "14-Oct",
+    To: "14-Oct",
     zone: "Central",
   },
   {

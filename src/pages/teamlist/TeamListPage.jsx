@@ -3,10 +3,11 @@ import "../teamlist/teamspage.css";
 import Tabs from "../../components/pageComponents/homePageComponents/pointTableSectionWrap/Tabs";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Spinner from "../../components/pageComponents/matchPageComponents/spinnercomponent/Spinner";
 
 function TeamListPage() {
   const [teams, setTeams] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTeams() {
       try {
@@ -16,6 +17,7 @@ function TeamListPage() {
         const data = await response.json();
         if (data.status === "success") {
           setTeams(data.data.seasons[0].teams);
+          setLoading(false);
         } else {
           console.error("Failed to fetch teams");
         }
@@ -67,46 +69,52 @@ function TeamListPage() {
             <div label="Season 1">
               <div className="container">
                 <div className="row">
-                  {teams.map((team) => (
-                    <div
-                      className="col-lg-4 col-md-6 col-sm-12"
-                      key={team.team_name}
-                    >
-                      <Link
-                        to={`/team-list/${team.team_name
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")}`}
-                        className="teamCard"
-                      >
+                  {loading ? (
+                    <Spinner />
+                  ) : (
+                    <>
+                      {teams.map((team) => (
                         <div
-                          className="second hero image-alignment"
-                          style={{ background: "#003899" }}
+                          className="col-lg-4 col-md-6 col-sm-12"
+                          key={team.team_name}
                         >
-                          <img
-                            className="hero-profile-img"
-                            src={`https://my.ispl-t10.com/images/team-master/teams/${team.team_logo}`}
-                            alt={team.team_name}
-                          />
-                          <div
-                            className="hero-description-bk"
-                            style={{
-                              backgroundImage:
-                                "linear-gradient(-20deg, #003cf8, #000000)",
-                            }}
-                          ></div>
-                          <div className="hero-logo">
-                            <img
-                              src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
-                              alt="Home Page Header Logo"
-                            />
-                          </div>
-                          <div className="hero-description">
-                            <p>{team.team_name}</p>
-                          </div>
+                          <Link
+                            to={`/team-list/${team.team_name
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
+                            className="teamCard"
+                          >
+                            <div
+                              className="second hero image-alignment"
+                              style={{ background: "#003899" }}
+                            >
+                              <img
+                                className="hero-profile-img"
+                                src={`https://my.ispl-t10.com/images/team-master/teams/${team.team_logo}`}
+                                alt={team.team_name}
+                              />
+                              <div
+                                className="hero-description-bk"
+                                style={{
+                                  backgroundImage:
+                                    "linear-gradient(-20deg, #003cf8, #000000)",
+                                }}
+                              ></div>
+                              <div className="hero-logo">
+                                <img
+                                  src="https://my.ispl-t10.com/assets/img/Home Page Header Logo.png"
+                                  alt="Home Page Header Logo"
+                                />
+                              </div>
+                              <div className="hero-description">
+                                <p>{team.team_name}</p>
+                              </div>
+                            </div>
+                          </Link>
                         </div>
-                      </Link>
-                    </div>
-                  ))}
+                      ))}
+                    </>
+                  )}
                 </div>
               </div>
             </div>

@@ -2,15 +2,15 @@ const westzone = [
   {
     "Sr No.": 1,
     City: "Alibaug",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "12-Oct",
+    To: "12-Oct",
     zone: "West",
   },
   {
     "Sr No.": 2,
     City: "Nashik",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "07-Oct",
+    To: "07-Oct",
     zone: "West",
   },
   {
@@ -23,15 +23,15 @@ const westzone = [
   {
     "Sr No.": 4,
     City: "Palghar",
-    From: "03-Oct",
-    To: "03-Oct",
+    From: "12-Oct",
+    To: "12-Oct",
     zone: "West",
   },
   {
     "Sr No.": 5,
     City: "Raigad",
-    From: "03-Oct",
-    To: "03-Oct",
+    From: "12-Oct",
+    To: "12-Oct",
     zone: "West",
   },
   {

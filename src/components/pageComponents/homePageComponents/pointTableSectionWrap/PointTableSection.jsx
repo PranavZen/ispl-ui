@@ -191,7 +191,7 @@ function PointTableSection() {
 </svg>'
               >
                 <ResultSlider>
-                  {loading ? (
+                  {loading ? ( 
                     <Spinner />
                   ) : (
                     matches.map((match) => (

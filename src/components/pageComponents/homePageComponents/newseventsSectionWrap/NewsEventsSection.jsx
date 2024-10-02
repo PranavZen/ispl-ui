@@ -5,9 +5,11 @@ import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../common/cta/SqareButton";
 import EventsNewsSlider from "./eventnewsSliderLayout/EventsNewsSlider";
 import EventsnNewsCard from "./eventnewscard/EventsnNewsCard";
+import Spinner from "../../matchPageComponents/spinnercomponent/Spinner";
 
 function NewsEventsSection() {
   const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -17,6 +19,7 @@ function NewsEventsSection() {
         );
         if (response.data.status === "success") {
           setNewsData(response.data.data["get-news"]);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -43,17 +46,21 @@ function NewsEventsSection() {
               />
             </div>
             <div className="sliderContainer">
-              <EventsNewsSlider>
-                {newsData.map((newsItem, index) => (
-                  <EventsnNewsCard
-                    key={index}
-                    newsLink="/news/all-news"
-                    newsType="News"
-                    thumbnailUrl={`https://my.ispl-t10.com/news/${newsItem.image_path}`}
-                    newsTitle={newsItem.title}
-                  />
-                ))}
-              </EventsNewsSlider>
+              {loading ? (
+                <Spinner />
+              ) : (
+                <EventsNewsSlider>
+                  {newsData.map((newsItem, index) => (
+                    <EventsnNewsCard
+                      key={index}
+                      newsLink="/news/all-news"
+                      newsType="News"
+                      thumbnailUrl={`https://my.ispl-t10.com/news/${newsItem.image_path}`}
+                      newsTitle={newsItem.title}
+                    />
+                  ))}
+                </EventsNewsSlider>
+              )}
             </div>
           </div>
         </div>

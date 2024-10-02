@@ -2,15 +2,15 @@ const eastzone = [
   {
     "Sr No.": 1,
     City: "Guwahati",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "25-Oct",
+    To: "25-Oct",
     zone: "East",
   },
   {
     "Sr No.": 2,
     City: "Howrah",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "09-Oct",
+    To: "09-Oct",
     zone: "East",
   },
   {

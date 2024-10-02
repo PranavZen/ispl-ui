@@ -11,9 +11,9 @@ function formatDate(dateString) {
 }
 
 function formatTime(timeString) {
-  let [hours, minutes] = timeString.split(':');
+  let [hours, minutes] = timeString.split(":");
   hours = parseInt(hours, 10);
-  const period = hours >= 12 ? 'PM' : 'AM';
+  const period = hours >= 12 ? "PM" : "AM";
 
   if (hours === 0) {
     hours = 12;
@@ -95,7 +95,6 @@ function Match() {
           content="https://www.example.com/home-image.jpg"
         />
         <link rel="canonical" href="https://www.example.com/" />
-        
       </Helmet>
       {loading ? (
         <Spinner />
@@ -121,7 +120,7 @@ function Match() {
           />
         ))
       )}
-      <MatchDetails />
+       <MatchDetails />
     </>
   );
 }

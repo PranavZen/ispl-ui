@@ -5,9 +5,11 @@ import HeighlightsCard from "../../../common/sliderCard/heighlights/HeighlightsC
 import "../magicmovmentsectionwrap/magicmovement.css";
 import SectionTitle from "../../../common/sectiontitletext/SectionTitle";
 import SqareButton from "../../../common/cta/SqareButton";
+import Spinner from "../../matchPageComponents/spinnercomponent/Spinner";
 
 function MagicMovementSection() {
   const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch the video data from the API
@@ -25,9 +27,11 @@ function MagicMovementSection() {
           (video) => video.category_names === "Magic-Moments"
         );
         setVideos(magicMomentVideos);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching video data:", error);
+        setLoading(false);
       });
   }, []);
 
@@ -47,19 +51,23 @@ function MagicMovementSection() {
                 btnLinkUrl="/video/magic-moments"
               />
             </div>
-            <CommonSlider>
-              {videos.map((video, index) => (
-                <div className="col-md-3" key={index}>
-                  <HeighlightsCard
-                    mainTitle={video.title}
-                    backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
-                    date={video.date}
-                    matchLink={video.video_link}
-                    datafancybox="data-fancybox"
-                  />
-                </div>
-              ))}
-            </CommonSlider>
+            {loading ? (
+              <Spinner />
+            ) : (
+              <CommonSlider>
+                {videos.map((video, index) => (
+                  <div className="col-md-3" key={index}>
+                    <HeighlightsCard
+                      mainTitle={video.title}
+                      backgroundImg={`https://my.ispl-t10.com/images/videos/thumbnail/${video.thumbnail}`}
+                      date={video.date}
+                      matchLink={video.video_link}
+                      datafancybox="data-fancybox"
+                    />
+                  </div>
+                ))}
+              </CommonSlider>
+            )}
           </div>
         </div>
       </div>

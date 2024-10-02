@@ -2,22 +2,22 @@ const southzone = [
   {
     "Sr No.": 1,
     City: "Chennai",
-    From: "01-Oct",
-    To: "03-Oct",
+    From: "10-Oct",
+    To: "12-Oct",
     zone: "South",
   },
   {
     "Sr No.": 2,
     City: "Tirunelveli",
-    From: "02-Oct",
-    To: "02-Oct",
+    From: "20-Oct",
+    To: "20-Oct",
     zone: "South",
   },
   {
     "Sr No.": 3,
     City: "Vijayawada",
-    From: "01-Oct",
-    To: "01-Oct",
+    From: "12-Oct",
+    To: "12-Oct",
     zone: "South",
   },
   {
@@ -30,8 +30,8 @@ const southzone = [
   {
     "Sr No.": 5,
     City: "Visakhapatnam",
-    From: "03-Oct",
-    To: "03-Oct",
+    From: "14-Oct",
+    To: "14-Oct",
     zone: "South",
   },
   {
