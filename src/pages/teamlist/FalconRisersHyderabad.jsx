@@ -132,7 +132,7 @@ function FalconRisersHyderabad() {
                       <span>Owner</span> <b>-</b> Irfan Razack / Ram Charan
                     </p>
                     <p>
-                      <span>Coach</span> <b>-</b> Krishna Satpute
+                      <span>Coach</span> <b>-</b> Nilesh Pardesi
                     </p>
                     <p>
                       <span>Venue</span> <b>-</b> Hyderabad

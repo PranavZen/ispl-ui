@@ -33,7 +33,7 @@ function Match() {
       try {
         const response = await axios.get(
           "https://my.ispl-t10.com/api/matches/results"
-        );
+        ); 
         setMatches(response.data.data.result);
         setLoading(false);
       } catch (error) {

@@ -999,4 +999,20 @@ hr.style-1 {
   width: 55%;
   margin: 0 auto;
   margin-bottom: 3rem;
+}
+.goldenMsg.innerMsg {
+  width: 100%;
+  color: #fbe29a;
+}
+
+.image-container {
+  position: relative;
+}
+
+.confiteeWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }/*# sourceMappingURL=global.css.map */

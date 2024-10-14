@@ -3,7 +3,7 @@ import MatchCard from "../../components/pageComponents/matchPageComponents/match
 import TeamPlayers from "../../components/pageComponents/matchPageComponents/matchTeamPlayers/TeamPlayers";
 import axios from "axios";
 import Spinner from "../../components/pageComponents/matchPageComponents/spinnercomponent/Spinner";
-import { useParams } from "react-router-dom"; // Add this import
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 function formatDate(dateString) {
@@ -26,7 +26,7 @@ function formatTime(timeString) {
 }
 
 const TeamDetails = () => {
-  const { id } = useParams(); // Get the id from the URL
+  const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [matches, setMatches] = useState([]);
   const [teamPlayers, setTeamPlayers] = useState(null);
@@ -42,7 +42,7 @@ const TeamDetails = () => {
       } catch (error) {
         console.error("Error fetching matches:", error);
         setLoading(false);
-      }
+      } 
     };
 
     const fetchTeamPlayers = async () => {

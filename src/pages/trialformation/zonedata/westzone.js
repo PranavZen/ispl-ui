@@ -58,8 +58,8 @@ const westzone = [
   {
     "Sr No.": 9,
     City: "Ahmedabad",
-    From: "07-Oct",
-    To: "08-Oct",
+    From: "19-Oct",
+    To: "20-Oct",
     zone: "West",
   },
   {
@@ -86,8 +86,8 @@ const westzone = [
   {
     "Sr No.": 13,
     City: "Thane",
-    From: "10-Oct",
-    To: "10-Oct",
+    From: "17-Oct",
+    To: "17-Oct",
     zone: "West",
   },
   {

@@ -23,8 +23,8 @@ const southzone = [
   {
     "Sr No.": 4,
     City: "Madurai",
-    From: "03-Oct",
-    To: "03-Oct",
+    From: "19-Oct",
+    To: "19-Oct",
     zone: "South",
   },
   {

@@ -61,7 +61,7 @@ const TeamPlayers = () => {
                             alt="Bat"
                             className="img-fluid"
                             effect="blur"
-                          />
+                          /> 
                           <LazyLoadImage
                             src={icon2}
                             alt="Red Ball"

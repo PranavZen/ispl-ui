@@ -785,7 +785,7 @@ input {
   border-radius: 0.3rem;
   margin-bottom: 1.5rem;
   flex-direction: column;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   gap: 0;
   h4 {
     font-size: 1.8rem;
@@ -994,11 +994,25 @@ hr.style-1 {
   }
 }
 
-.goldenMsg{
+.goldenMsg {
   text-align: center;
   font-size: 2rem;
   line-height: 1.8;
   width: 55%;
   margin: 0 auto;
   margin-bottom: 3rem;
+  &.innerMsg {
+    width: 100%;
+    color: #fbe29a;
+  }
+}
+.image-container {
+  position: relative;
+}
+.confiteeWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }

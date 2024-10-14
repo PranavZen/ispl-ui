@@ -10,7 +10,7 @@ function MatchRows() {
     const fetchMatches = async () => {
       try {
         const response = await fetch(
-          "https://my.ispl-t10.com/api/matches/results"
+          "https://my.ispl-t10.com/api/matches/results" 
         );
         const data = await response.json();
         if (data.status === "success") {

@@ -417,9 +417,9 @@ function TimeSlot() {
 
   const handleCloseModal = () => {
     if (shouldReload) {
-      window.location.reload(); // Reload the page if needed
+      window.location.reload();
     }
-    setShowModal(false); // Close the modal
+    setShowModal(false);
   };
 
   // Effect to handle page reload when section 5 is set
@@ -935,7 +935,7 @@ function TimeSlot() {
                       trial is scheduled to take place from{" "}
                       <strong>{isUserDataOuter.formatted_start_time}</strong> to{" "}
                       <strong>{isUserDataOuter.formatted_end_time}</strong>.{" "}
-                      {isUserDataOuter.formatted_start_time === "09:00"
+                      {isUserDataOuter.formatted_start_time === "09:00 AM"
                         ? "Please note that entry to the venue will be open from 8:00 a.m. and will close at 11:30 a.m. We request that you arrive on time to ensure a smooth and efficient trial process."
                         : "Please note that entry to the venue will be open from 12:30 p.m. and will close at 3:00 p.m. We request that you arrive on time to ensure a smooth and efficient trial process."}
                     </h3>

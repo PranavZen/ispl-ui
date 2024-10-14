@@ -133,7 +133,7 @@ function TigersOfKolkata() {
                       &amp; Kareena Kapoor Khan
                     </p>
                     <p>
-                      <span>Coach</span> <b>-</b> Prathamesh Pawar
+                      <span>Coach</span> <b>-</b> Kalyani Ghorpade
                     </p>
                     <p>
                       <span>Venue</span> <b>-</b> Kolkata

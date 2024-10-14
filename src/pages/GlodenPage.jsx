@@ -6,6 +6,11 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import TimeSlot from "./glodenpage/TimeSlot";
 import { QRCodeSVG } from "qrcode.react";
+import Lottie from "react-lottie";
+import animationData from "../components/anime/confitee.json";
+import GreenMessage from "./message/GreenMessage";
+import RejectedMessage from "./message/RejectedMessage";
+import NotAttended from "./message/NotAttended";
 
 function GlodenPage() {
   const [playerName, setPlayerName] = useState("");
@@ -22,8 +27,19 @@ function GlodenPage() {
   const [selectedSlotCityName, setSelectedSlotCityName] = useState("");
   const [isSlotAvailable, setIsSlotAvailable] = useState(false);
   const [isTicketId, setIsTicketId] = useState(false);
+  const [slotTimeFuture, setSlotTimeFuture] = useState(0);
+  const [slotTimePassed, setSlotTimePassed] = useState(0);
+  const [isticketTitle, setIsticketTitle] = useState("");
+  const [isticketDescription, setIsticketDescription] = useState("");
 
-  // console.log("selectedSlotStartTime", selectedSlotStartTime);
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   const generateQRCodeData = () => {
     return JSON.stringify(userNameSlot); // Corrected to userNameSlot
@@ -39,6 +55,11 @@ function GlodenPage() {
       })
       .then((response) => {
         const userData = response.data.user_data;
+        const slot_time_future = response.data.slot_time_future;
+        const slot_time_passed = response.data.slot_time_passed;
+
+        // console.log("slot_time_future", response.data.slot_time_future);
+        // console.log("slot_time_passed", response.data.slot_time_passed);
         const isplId = userData.user_name;
 
         let selectedSlotDate = null;
@@ -65,7 +86,8 @@ function GlodenPage() {
         }
 
         const selectedSlotCityName = response.data.venue_name;
-
+        setSlotTimeFuture(slot_time_future);
+        setSlotTimePassed(slot_time_passed);
         setPlayerName(`${userData.first_name} ${userData.surname}`);
         setPlayerId(userData.user_name);
         const cityNameArray = JSON.parse(userData.cities_states_names);
@@ -81,6 +103,8 @@ function GlodenPage() {
         setUserNameSlot(userName); // Corrected to setUserNameSlot
         setUserSlotId(userslotId); // Corrected to setUserSlotId
         setIsTicketId(userData.ticket_id);
+        setIsticketTitle(response.data.ticket_title);
+        setIsticketDescription(response.data.ticket_description);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -131,18 +155,37 @@ function GlodenPage() {
                   {loading ? (
                     <Skeleton width={800} height={100} />
                   ) : (
+                    // <>
+                    //   {/* {isTicketId === 2 ? "" : <TimeSlot />} */}
+                    //   {isTicketId === 2 &&
+                    //   slotTimeFuture === 0 &&
+                    //   slotTimePassed === 0 &&
+                    //   slotTimeFuture === 1 ? (
+                    //     <p className="goldenMsg"></p>
+                    //   ) : ((isTicketId === 0 ||
+                    //       isTicketId === 1 ||
+                    //       isTicketId === 4) &&
+                    //       isTicketId === 2) ||
+                    //     slotTimePassed === 0 &&
+                    //     (isTicketId === 2 && slotTimeFuture === 1) ? (
+                    //     <TimeSlot />
+                    //   ) : null}
+                    // </>
                     <>
-                      {isTicketId === 2 ? (
-                        <p className="goldenMsg">
-                          Congratulations !!! Here is your Green Ticket... Now
-                          you are eligible to attend the Zone Trials. The
-                          schedule of the Zone final trials is available on the
-                          website. For any information, please feel free to
-                          contact us.
-                        </p>
-                      ) : (
-                        <TimeSlot />
-                      )}
+                      {(() => {
+                        if (
+                          (isTicketId === 0 ||
+                            isTicketId === 1 ||
+                            isTicketId === 4) &&
+                          slotTimePassed === 0
+                        ) {
+                          return <TimeSlot />;
+                        } else if (isTicketId === 2 && slotTimeFuture === 0) {
+                          return <TimeSlot />;
+                        } else {
+                          return null;
+                        }
+                      })()}
                     </>
                   )}
                 </div>
@@ -159,8 +202,23 @@ function GlodenPage() {
                     <h1 className="text-center mt-3">
                       Welcome to Indian Street Premiere League!
                     </h1>
+
                     <br />
                   </div>
+                  <p>
+                    {isTicketId === 2 ? (
+                      <p className="goldenMsg innerMsg">
+                        {" "}
+                        {isticketTitle} {playerName}
+                      </p>
+                    ) : isTicketId === 5 ? (
+                      <p className="goldenMsg innerMsg">{isticketTitle}</p>
+                    ) : isTicketId === 6 ? (
+                      <p className="goldenMsg innerMsg">{isticketTitle}</p>
+                    ) : (
+                      <p className="goldenMsg innerMsg">{isticketTitle}</p>
+                    )}
+                  </p>
                   <br />
                   <div className="email-body">
                     <p>
@@ -171,26 +229,37 @@ function GlodenPage() {
                       ,
                     </p>
                     <br />
-                    <p>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Congratulations on
-                      completing your online registration for the Indian Street
-                      Premiere League! We are thrilled to have you on board and
-                      look forward to an exciting journey together.
-                    </p>
-                    <p>
-                      Here at ISPL, we are dedicated to providing a platform for
-                      street players to showcase their talents and take their
-                      cricketing journey to new heights. Your participation adds
-                      immense value to our league, and we are excited to witness
-                      the skills and passion you bring to the game.
-                    </p>
-                    <p>
-                      As a registered player, you are now part of a dynamic
-                      community that shares a common love for cricket. Get ready
-                      for an unforgettable experience filled with opportunities,
-                      challenges, and camaraderie.
-                    </p>
-                    <p>Here's what to expect next:</p>
+
+                    <>
+                      {isTicketId === 2 ? (
+                        <>
+                          <GreenMessage
+                            playerName={playerName}
+                            isticketDescription={isticketDescription}
+                          />
+                          <p>
+                            Congratulations once again, {playerName}! we await
+                            your brilliance, and we’re counting down the days
+                            until you take the stage!
+                          </p>
+                        </>
+                      ) : isTicketId === 5 ? (
+                        <RejectedMessage
+                          isticketDescription={isticketDescription}
+                        />
+                      ) : isTicketId === 6 ? (
+                        <NotAttended
+                          isticketDescription={isticketDescription}
+                        />
+                      ) : (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: isticketDescription,
+                          }}
+                        ></div>
+                      )}
+                    </>
+
                     <br />
                   </div>
 
@@ -207,6 +276,17 @@ function GlodenPage() {
                           className="image-fluid"
                           alt="Golden Ticket "
                         />
+                        {isTicketId === 2 ? (
+                          <div className="confiteeWrap">
+                            <Lottie
+                              options={defaultOptions}
+                              height={800}
+                              width={800}
+                            />
+                          </div>
+                        ) : (
+                          ""
+                        )}
                       </div>
                       <div className="centered-text">
                         <h1 className="golden-ticket-text">
@@ -234,7 +314,9 @@ function GlodenPage() {
                             border: "1px solid #000",
                           }}
                         />
-                        {isTicketId === 2 ? (
+                        {isTicketId === 2 ||
+                        isTicketId === 5 ||
+                        isTicketId === 6 ? (
                           ""
                         ) : (
                           <div className="qrCodeWrap">
@@ -257,7 +339,9 @@ function GlodenPage() {
                             ({loading ? <Skeleton width={150} /> : cityName})
                           </span>
                         </p>
-                        {isTicketId === 2 ? (
+                        {isTicketId === 2 ||
+                        isTicketId === 5 ||
+                        isTicketId === 6 ? (
                           ""
                         ) : (
                           <p className="finalTextSlotTicket">
@@ -272,9 +356,6 @@ function GlodenPage() {
                             ) : (
                               <span></span>
                             )}
-                            {/* {selectedSlotDate}
-                            <br />
-                            {selectedSlotStartTime} to {selectedSlotEndTime} */}
                           </p>
                         )}
                       </div>
@@ -283,16 +364,7 @@ function GlodenPage() {
 
                   <div className="email-body mt-5">
                     <br />
-                    <p>
-                      Your city trials will begin shortly. Kindly confirm your
-                      trials slot for your selected city. Best of luck for your
-                      trials.
-                    </p>
-                    <p>
-                      Feel free to reach out if you have any questions or need
-                      assistance along the way. Once again, welcome to the
-                      Indian Street Premiere League family!
-                    </p>
+
                     <p>
                       <br />
                       Best regards,

@@ -133,7 +133,7 @@ function MajhiMumbai() {
                       Bachchan
                     </p>
                     <p>
-                      <span>Coach</span> <b>-</b> Yogesh Penkar
+                      <span>Coach</span> <b>-</b> Karunakar Kotian
                     </p>
                     <p>
                       <span>Venue</span> <b>-</b> MUMBAI

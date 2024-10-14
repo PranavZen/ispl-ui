@@ -44,8 +44,8 @@ const centralzone = [
   {
     "Sr No.": 7,
     City: "Allahabad",
-    From: "05-Oct",
-    To: "05-Oct",
+    From: "15-Oct",
+    To: "15-Oct",
     zone: "Central",
   },
   {

@@ -132,7 +132,7 @@ function SrinagarKeVeer() {
                       <span>Owner</span> <b>-</b> Sunit Morarjee / Akshay Kumar
                     </p>
                     <p>
-                      <span>Coach</span> <b>-</b> Omkar Desai
+                      <span>Coach</span> <b>-</b> Umesh Manjrekar / Shantanu Gaichor
                     </p>
                     <p>
                       <span>Venue</span> <b>-</b> Srinagar

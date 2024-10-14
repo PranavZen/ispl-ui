@@ -133,7 +133,7 @@ function BangaloreStrikers() {
                       Roshan
                     </p>
                     <p>
-                      <span>Coach</span> <b>-</b> Ankur Singh
+                      <span>Coach</span> <b>-</b> 
                     </p>
                     <p>
                       <span>Venue</span> <b>-</b> Bangalore

@@ -133,7 +133,7 @@ function ChennaiSingams() {
                       Gupta / Suriya (Saravanan Sivakumar)
                     </p>
                     <p>
-                      <span>Coach</span> <b>-</b> Sumeet Dhekle
+                      <span>Coach</span> <b>-</b> Manoj Vichare
                     </p>
                     <p>
                       <span>Venue</span> <b>-</b> Chennai
