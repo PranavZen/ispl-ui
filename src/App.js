@@ -42,29 +42,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/team-list" element={<TeamListPage />} />
           <Route
-            path="/team-list/chennai-singams"
+            path="/team-list/:team_name"
             element={<ChennaiSingams />}
-          />
-          <Route path="/team-list/majhi-mumbai" element={<MajhiMumbai />} />
-          <Route
-            path="/team-list/tiigers-of-kolkata"
-            element={<TigersOfKolkata />}
-          />
-          <Route
-            path="/team-list/srinagar-ke-veer"
-            element={<SrinagarKeVeer />}
-          />
-          <Route
-            path="/team-list/kvn-bangalore-strikers"
-            element={<BangaloreStrikers />}
-          />
-          <Route
-            path="/GoldenTicketDownload"
-            element={<GoldenTicketDownload />}
-          />
-          <Route
-            path="/team-list/falcon-risers-hyderabad"
-            element={<FalconRisersHyderabad />}
           />
           <Route path="/matches" element={<Match />} />
           <Route path="/matches/match-center/:id" element={<TeamDetails />} />

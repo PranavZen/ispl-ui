@@ -35,10 +35,16 @@
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="0"] .sliderItme .sliderItmeContent {
   display: none;
 }
-#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="3"] .sliderItme .sliderItmeImg::before {
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="1"] .sliderItme .sliderItmeImg::before {
   content: none;
 }
-#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="3"] .sliderItme .sliderItmeContent {
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="1"] .sliderItme .sliderItmeContent {
+  display: none;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="4"] .sliderItme .sliderItmeImg::before {
+  content: none;
+}
+#bannerSection .slick-slider .slick-list .slick-track .slick-slide[data-index="4"] .sliderItme .sliderItmeContent {
   display: none;
 }
 #bannerSection .slick-slider .slick-list .slick-track .slick-slide {

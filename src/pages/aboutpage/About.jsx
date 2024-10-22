@@ -36,7 +36,6 @@ const About = () => {
           content="https://www.example.com/home-image.jpg"
         />
         <link rel="canonical" href="https://www.example.com/" />
-        
       </Helmet>
       <section className="w-100 body-part pt-5 customAboutSectionOne">
         <div className="about-page-main comon-sub-page-main d-inline-block w-100">
@@ -186,10 +185,10 @@ const About = () => {
                       </h5>
                       <div className="profileImgWrap">
                         <img
-                          src="https://my.ispl-t10.com/assets/img/Amol_mentor.jpg"
+                          src="https://my.ispl-t10.com/assets/img/Amol_mentor.png"
                           alt="Mentor-img"
                           loading="lazy"
-                          className="card-img-top rounded-circle card-image img-fluid"
+                          className="img-fluid"
                         />
                       </div>
                       <div className="lateContentWrap">
@@ -252,13 +251,51 @@ const About = () => {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-3 mt-5 mb-2">
-                    <div className="outer-layer rounded-circle">
+                  <div className="col-md-3 mb-5">
+                    <div className="outer-layer abtCir">
                       <img
-                        src="https://my.ispl-t10.com/assets/img/Aashish_mentor.jpg"
+                        src="https://my.ispl-t10.com/assets/img/sachin_tendulkar.png"
                         alt="Mentor-img"
                         loading="lazy"
-                        className="card-img-top rounded-circle card-image"
+                        className="card-img-top card-image"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-9">
+                    <h1
+                      style={{
+                        fontSize: "2.4rem",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      MR. SACHIN TENDULKAR
+                    </h1>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
+                      Sachin Tendulkar, a cricketing legend known as the "God of
+                      Cricket," brings his wealth of experience and passion for
+                      the game to the Indian Street Premier League as a core
+                      committee member. His iconic career, marked by numerous
+                      records and a deep connection to the grassroots of
+                      cricket, resonates with the temperament of the league. His
+                      involvement reflects his belief in our potential to
+                      provide aspiring cricketers a platform to showcase their
+                      talent from playing with tennis balls to the international
+                      stage.
+                    </p>
+                  </div>
+                </div>
+                <div className="row mt-2">
+                  <div className="col-md-3 mb-2">
+                    <div className="outer-layer abtCir">
+                      <img
+                        src="https://my.ispl-t10.com/assets/img/Aashish_mentor.png"
+                        alt="Mentor-img"
+                        loading="lazy"
+                        className="card-img-top card-image"
                       />
                     </div>
                   </div>
@@ -276,83 +313,27 @@ const About = () => {
                       className="my-3 text-light"
                       style={{ textAlign: "justify" }}
                     >
-                      A prominent Indian politician and cricket administrator
-                      affiliated with the Bharatiya Janata Party (BJP),
-                      currently serves as the Treasurer of the Board of Control
-                      for Cricket in India (BCCI). In addition to his role in
-                      cricket administration, Shelar has been a Maharashtra
-                      Legislative Assembly member representing Vandre West since
-                      2014. He is also the President of the Mumbai unit of the
-                      BJP and was elected Vice President of the Mumbai Cricket
-                      Association on June 17, 2015. Shelar is an alumnus of
-                      Parle College, graduating with a Bachelor of Science
-                      (B.Sc.) degree in 1992. He furthered his education by
-                      completing a three-year law degree at G. J. Advani Law
-                      College, University of Mumbai. With a multifaceted
-                      background, Ashish Shelar stands as a dynamic and
-                      influential personality in Indian politics and cricket.
+                      Ashish Shelar, our Core Committee Member is a prominent
+                      Indian politician and cricket administrator who also
+                      serves as the Treasurer of the Board of Control for
+                      Cricket in India (BCCI). His multifaceted background,
+                      which includes roles in politics and cricket
+                      administration, brings a dynamic perspective to the
+                      league. His involvement underscores the league's vision to
+                      unite cricketing talent and elevate the sport to new
+                      heights.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="container">
-                <div className="row mb-3 mt-4">
-                  <div className="col-md-3 mt-5 mb-2"></div>
-                  <div className="col-md-9">
-                    <h1
-                      style={{
-                        fontSize: "3.4rem",
-                        color: "rgb(0 108 255)",
-                        fontWeight: "bold",
-                        paddingBottom: "20px",
-                      }}
-                    >
-                      OUR CHIEF MENTOR
-                    </h1>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-3 mt-3 mb-3">
-                    <div
-                      className="outer-layer rounded-circle"
-                      style={{ marginTop: "-50px" }}
-                    >
-                      <img
-                        src="https://my.ispl-t10.com/assets/img/Ravi_mentor.jpg"
-                        alt="Mentor-img"
-                        loading="lazy"
-                        className="card-img-top rounded-circle card-image"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-9">
-                    <h1
-                      style={{
-                        fontSize: "2.4rem",
-                        color: "#fff",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      MR. RAVI SHASTRI
-                    </h1>
-                    <p
-                      className="my-3 text-light"
-                      style={{ textAlign: "justify" }}
-                    >
-                      Onboarded legendary Mr. Ravi Shastri to our team marks a
-                      significant milestone in our journey. As we embark on this
-                      exciting collaboration, his vast experience, unparalleled
-                      expertise, and charismatic persona will undoubtedly enrich
-                      our endeavors. Together, we look forward to achieving new
-                      heights, leveraging Mr. Shastri's invaluable contributions
-                      for an impactful and successful journey ahead.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="container">
+              <div
+                className="container"
+                style={{
+                  borderBottom: "1px solid rgb(255, 255, 255)",
+                  paddingBottom: "1.5vw",
+                }}
+              >
                 <div className="row mb-3">
                   <div className="col-md-3 mt-5 mb-2"></div>
                   <div className="col-md-9">
@@ -369,16 +350,13 @@ const About = () => {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-3 mt-3 mb-3">
-                    <br />
-                    <br />
-                    <br />
-                    <div className="outer-layer rounded-circle">
+                  <div className="col-md-3 mb-3">
+                    <div className="outer-layer abtCir">
                       <img
-                        src="https://my.ispl-t10.com/assets/img/suraj sawant.jpeg"
+                        src="https://my.ispl-t10.com/assets/img/suraj sawant.png"
                         alt="Mentor-img"
                         loading="lazy"
-                        className="card-img-top rounded-circle card-image"
+                        className="card-img-top card-image"
                       />
                     </div>
                   </div>
@@ -396,31 +374,77 @@ const About = () => {
                       className="my-3 text-light"
                       style={{ textAlign: "justify" }}
                     >
-                      A respected business leader, Suraj Samat has extensive
-                      experience in sports management and administration. He has
-                      been a Trustee of the Mumbai Cricket Association for over
-                      14 years and has been serving as a governing council
-                      member since 2019. He is also an Apex Council Member of
-                      the Mumbai Cricket Association. He recently assumed charge
-                      as the League Commissioner of the India Street Premier
-                      League. He is also CEO and Managing Committee member of
-                      District Sports Club, BKC. A talented table-tennis player,
-                      he has won several interclub league titles and has
-                      represented Maharashtra at the national level. His
-                      experience as a sportsman gives him insights into the
-                      needs and challenges faced by sportspersons. His
-                      understanding of sports has helped him to be more
-                      empathetic in making policies and driving development
-                      initiatives. Suraj believes in fostering an inclusive and
-                      supportive environment that enhances the sports experience
-                      for all stakeholders. His experience as a corporate leader
-                      includes leadership positions in companies such as Patel
-                      Engineering Ltd. He is currently the Managing Director at
-                      the Oscorp Group of Companies and Proctech Solutions Pvt
-                      Ltd. He also has a stake in CCS Sports LLP. He is
-                      committed to make a difference to society and is a trustee
-                      of the Manav Aastha Foundation since 2008, organizing
-                      various community health and welfare programs.
+                      Suraj Samat, the League Commissioner of the Indian Street
+                      Premier League (ISPL), is a respected business leader with
+                      extensive experience in sports management and
+                      administration. As a Trustee of the Mumbai Cricket
+                      Association for over 14 years and an Apex Council Member,
+                      Samat has demonstrated a deep understanding of the needs
+                      and challenges faced by sportspersons. His inclusive and
+                      supportive approach has helped drive development
+                      initiatives and create a more engaging sports experience
+                      for all stakeholders.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="container"
+                style={{
+                  borderBottom: "1px solid rgb(255, 255, 255)",
+                  paddingBottom: "1.5vw",
+                }}
+              >
+                <div className="row mt-5 mb-3">
+                  <div className="col-md-3 mt-5 mb-2"></div>
+                  <div className="col-md-9">
+                    <h1
+                      style={{
+                        fontSize: "3.4rem",
+                        color: "rgb(0 108 255)",
+                        fontWeight: "bold",
+                        paddingBottom: "20px",
+                      }}
+                    >
+                      LEAGUE OPERATIONS
+                    </h1>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-3 mb-3">
+                    <div className="outer-layer abtCir">
+                      <img
+                        src="https://my.ispl-t10.com/assets/img/deepak_chauhan.png"
+                        alt="MR. DIPAK CHAUHAN"
+                        loading="lazy"
+                        className="card-img-top card-image"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-9">
+                    <h1
+                      style={{
+                        fontSize: "2.4rem",
+                        color: "#fff",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      MR. DIPAK CHAUHAN
+                    </h1>
+                    <p
+                      className="my-3 text-light"
+                      style={{ textAlign: "justify" }}
+                    >
+                      Dipak Chauhan, the visionary President of Operations at
+                      ISPL. With a proven track record in executing and managing
+                      multiple leagues in tennis cricket, Dipak has been at the
+                      forefront of promoting talent from the field of tennis
+                      cricket, always focused on elevating the sport and giving
+                      aspiring players a platform to shine. As a dedicated
+                      leader, Dipak is committed to fostering a professional and
+                      inclusive platform for budding cricketers. His hands-on
+                      approach and unwavering focus on operational excellence
+                      have been key to shaping the league’s success.
                     </p>
                   </div>
                 </div>
@@ -449,17 +473,17 @@ const About = () => {
                     </h1>
                   </div>
                 </div>
-                <div className="row">
+                <div className="row pb-5">
                   <div className="col-md-3 mt-5 mb-2">
                     <div
-                      className="outer-layer rounded-circle"
+                      className="outer-layer abtCir"
                       style={{ marginTop: "-50px" }}
                     >
                       <img
-                        src="https://my.ispl-t10.com/assets/img/pravin_amre.png"
+                        src="https://my.ispl-t10.com/assets/img/pravin_amre.jpeg"
                         alt="Mentor-img"
                         loading="lazy"
-                        className="card-img-top rounded-circle card-image"
+                        className="card-img-top card-image"
                       />
                     </div>
                   </div>
@@ -488,17 +512,17 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                <div className="row">
+                <div className="row mt-5">
                   <div className="col-md-3 mt-5 mb-2">
                     <div
-                      className="outer-layer rounded-circle"
+                      className="outer-layer abtCir"
                       style={{ marginTop: "-50px" }}
                     >
                       <img
-                        src="https://my.ispl-t10.com/assets/img/jatin_paranjape.png"
+                        src="https://my.ispl-t10.com/assets/img/jatin_paranjape.jpeg"
                         alt="Mentor-img"
                         loading="lazy"
-                        className="card-img-top rounded-circle card-image"
+                        className="card-img-top card-image"
                       />
                     </div>
                   </div>

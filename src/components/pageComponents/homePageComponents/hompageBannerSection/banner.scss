@@ -46,7 +46,19 @@
             }
           }
         }
-        .slick-slide[data-index="3"] {
+        .slick-slide[data-index="1"] {
+          .sliderItme {
+            .sliderItmeImg {
+              &::before {
+                content: none;
+              }
+            }
+            .sliderItmeContent {
+              display: none;
+            }
+          }
+        }
+        .slick-slide[data-index="4"] {
           .sliderItme {
             .sliderItmeImg {
               &::before {

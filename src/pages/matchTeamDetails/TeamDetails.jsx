@@ -112,7 +112,7 @@ const TeamDetails = () => {
         
       </Helmet>
       {loading ? (
-        <Spinner />
+         <div className="spinnerHight"><Spinner /></div>
       ) : !match ? (
         <p>No match found</p>
       ) : (

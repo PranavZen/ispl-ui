@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../hompageBannerSection/banner.css";
 import BannerSlideItem from "./BannerSlideItem";
-import { banner1, banner2, banner3, banner5 } from "../../../../assets/imagePath";
+import { banner1, banner2, banner3, banner5, banner6 } from "../../../../assets/imagePath";
 import axios from "axios";
 
 function Banner() {
@@ -52,7 +52,7 @@ function Banner() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2500,
     responsive: [
       {
@@ -76,6 +76,14 @@ function Banner() {
     <>
       <section id="bannerSection">
         <Slider {...settings}>
+        <BannerSlideItem
+            // tagline="“AB CHALTE HAI STREET TO STADIUM”"
+            bannerImg={banner6}
+            // title="ISPL is Committed to Bridging the gap between street cricket and stadium glory !"
+            // buttonName="Register Now"
+            altTitle="ISPL=T10"
+            // completedStatus={completedStatus}
+          />
           <BannerSlideItem
             // tagline="“AB CHALTE HAI STREET TO STADIUM”"
             bannerImg={banner5}

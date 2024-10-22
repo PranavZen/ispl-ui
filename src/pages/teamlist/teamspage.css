@@ -16,7 +16,7 @@
   }
 }
 .teamPage .about-page-main {
-  padding: 8rem 0 4rem;
+  padding: 8rem 0 0rem;
 }
 @media (max-width: 767px) {
   .teamPage .about-page-main {
@@ -269,7 +269,7 @@
 }
 
 .custom-about {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .team-logos img {
@@ -297,7 +297,7 @@
   display: flex;
 }
 .bat-icon.allRoundBox img:nth-child(1) {
-  height: 2rem;
+  height: 3rem;
   width: 3rem;
 }
 

@@ -357,9 +357,19 @@
   }
 }
 .lateBoxWr .profileImgWrap {
-  height: 28rem;
-  width: 28rem;
+  overflow: hidden;
+  height: 23rem;
+  width: 23rem;
   margin: 0 auto;
+  background: #2d427e;
+  border-radius: 100%;
+}
+.lateBoxWr .profileImgWrap img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 0rem;
 }
 .lateBoxWr .lateContentWrap p {
   text-align: center;

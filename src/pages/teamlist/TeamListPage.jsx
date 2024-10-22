@@ -12,17 +12,23 @@ function TeamListPage() {
     async function fetchTeams() {
       try {
         const response = await fetch(
-          "https://my.ispl-t10.com/api/team/team-list"
+          "https://my.ispl-t10.com/api/team/team-list-mobile"
         );
         const data = await response.json();
-        if (data.status === "success") {
-          setTeams(data.data.seasons[0].teams);
-          setLoading(false);
+
+        // Check if the data structure is as expected and update teams state
+        if (data.status === "success" && Array.isArray(data.data.teams_data)) {
+          setTeams(data.data.teams_data); // Access the correct teams data
         } else {
-          console.error("Failed to fetch teams");
+          console.error(
+            "Failed to fetch teams, unexpected data structure:",
+            data
+          );
         }
       } catch (error) {
         console.error("Error fetching teams:", error);
+      } finally {
+        setLoading(false); // Set loading to false regardless of fetch success
       }
     }
 

@@ -38,7 +38,6 @@ function IsplPage() {
           content="https://www.example.com/home-image.jpg"
         />
         <link rel="canonical" href="https://www.example.com/" />
-        
       </Helmet>
       <div className="news-sectiondiv d-inline-block w-100">
         <div className="container">
@@ -49,11 +48,65 @@ function IsplPage() {
             </h1>
           </div>
           <div className="row justify-content-center">
-            <div className="col-md-3 ">
-              <div className="card-body text-center"></div>
-              <div className="outer-layer rounded-circle text-center">
+            <div className="col-md-6 col-lg-3 col-12 pb-5 ">
+              <div className="outer-layer isplRad">
                 <img
-                  src="https://my.ispl-t10.com/assets/img/Aashish_mentor.jpg"
+                  src="https://my.ispl-t10.com/assets/img/sachin_tendulkar.png"
+                  alt="Mentor-img"
+                  className="card-img-top rounded-circle-7 card-image "
+                />
+              </div>
+              <div className="card-body text-center">
+                <h5
+                  className="card-title"
+                  style={{
+                    marginBottom: "0.2vw",
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  MR. SACHIN TENDULKAR
+                </h5>
+                <h5
+                  id="mentor-ID "
+                  style={{ color: "#fff", fontWeight: "bold" }}
+                >
+                  CORE COMMITEE MEMBER
+                </h5>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-3 col-12 pb-5 ">
+              <div className="outer-layer isplRad">
+                <img
+                  src="https://my.ispl-t10.com/assets/img/Amol_mentor.png"
+                  alt="Mentor-img"
+                  className="card-img-top rounded-circle-7 card-image "
+                />
+              </div>
+              <div className="card-body text-center">
+                <h5
+                  className="card-title"
+                  style={{
+                    marginBottom: "0.2vw",
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Late Mr. AMOL KALE
+                </h5>
+                <h5
+                  id="mentor-ID "
+                  style={{ color: "#fff", fontWeight: "bold" }}
+                >
+                  CORE COMMITEE MEMBER
+                </h5>
+              </div>
+            </div>
+
+            <div className="col-md-6 col-lg-3 col-12 pb-5 ">
+              <div className="outer-layer isplRad">
+                <img
+                  src="https://my.ispl-t10.com/assets/img/Aashish_mentor.png"
                   alt="Mentor-img"
                   className="card-img-top rounded-circle-7 card-image "
                 />
@@ -77,40 +130,10 @@ function IsplPage() {
                 </h5>
               </div>
             </div>
-            
-            <div className="col-md-3 ">
-              <div className="card-body text-center"></div>
-              <div className="outer-layer rounded-circle text-center">
+            <div className="col-md-6 col-lg-3 col-12 pb-5 ">
+              <div className="outer-layer isplRad">
                 <img
-                  src="https://my.ispl-t10.com/assets/img/Ravi_mentor.jpg"
-                  alt="Mentor-img"
-                  className="card-img-top rounded-circle-7 card-image "
-                />
-              </div>
-              <div className="card-body text-center">
-                <h5
-                  className="card-title"
-                  style={{
-                    marginBottom: "0.2vw",
-                    color: "#fff",
-                    fontWeight: "bold",
-                  }}
-                >
-                  MR. RAVI SHASTRI
-                </h5>
-                <h5
-                  id="mentor-ID"
-                  style={{ color: "#fff", fontWeight: "bold" }}
-                >
-                  FORMER HEAD COACH INDIA
-                </h5>
-              </div>
-            </div>
-            <div className="col-md-3 ">
-              <div className="card-body text-center"></div>/
-              <div className="outer-layer rounded-circle text-center">
-                <img
-                  src="https://my.ispl-t10.com/assets/img/suraj sawant.jpeg"
+                  src="https://my.ispl-t10.com/assets/img/suraj sawant.png"
                   alt="Mentor-img"
                   className="card-img-top rounded-circle-7 card-image "
                 />
@@ -136,6 +159,43 @@ function IsplPage() {
             </div>
           </div>
         </div>
+        <div className="container">
+          <div className="mindle-heading text-center">
+            <h1>
+              {" "}
+              LEAGUE <span> OPERATIONS </span>{" "}
+            </h1>
+          </div>
+          <div className="row justify-content-center gap-5">
+            <div className="col-md-3 ">
+              <div className="outer-layer isplRad">
+                <img
+                  src="https://my.ispl-t10.com/assets/img/deepak_chauhan.png"
+                  alt="MR. DIPAK CHAUHAN"
+                  className="card-img-top rounded-circle-7 card-image "
+                />
+              </div>
+              <div className="card-body text-center">
+                <h5
+                  className="card-title"
+                  style={{
+                    marginBottom: "0.2vw",
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  MR. DIPAK CHAUHAN
+                </h5>
+                <h5
+                  id="mentor-ID"
+                  style={{ color: "#fff", fontWeight: "bold" }}
+                >
+                  LEAGUE PRESIDENT
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="top-list-turnament">
@@ -153,7 +213,7 @@ function IsplPage() {
 
       <div
         className="news-sectiondiv d-inline-block w-100"
-        style={{ padding: "40px 0 20px 0" }}
+        style={{ padding: "40px 0px 80px" }}
       >
         <div className="container">
           <div className="mindle-heading text-center">
