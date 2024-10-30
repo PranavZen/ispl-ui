@@ -342,7 +342,7 @@ function RegistrationForm() {
 
       const paymentRequestResponse = await axios.post(
         `https://my.ispl-t10.com/api/payment-request/${payRequestId}`
-      );
+      ); 
 
       if (paymentRequestResponse.data.status === "Successful") {
         const { encrypted_data, access_code } = paymentRequestResponse.data;

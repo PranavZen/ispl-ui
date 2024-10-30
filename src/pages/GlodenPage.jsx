@@ -14,11 +14,13 @@ import NotAttended from "./message/NotAttended";
 
 function GlodenPage() {
   const [playerName, setPlayerName] = useState("");
+  const [playerRole, setPlayerRole] = useState("");
   const [isplId, setIsplId] = useState("");
   const [userNameSlot, setUserNameSlot] = useState(""); // Corrected naming
   const [userSlotId, setUserSlotId] = useState(""); // Corrected naming
   const [playerId, setPlayerId] = useState("");
   const [cityName, setCityName] = useState("");
+  const [zoneName, setZoneName] = useState("");
   const [seasonTypes, setSeasonTypes] = useState("");
   const [loading, setLoading] = useState(true);
   const [selectedSlotDate, setSelectedSlotDate] = useState(null);
@@ -89,10 +91,12 @@ function GlodenPage() {
         setSlotTimeFuture(slot_time_future);
         setSlotTimePassed(slot_time_passed);
         setPlayerName(`${userData.first_name} ${userData.surname}`);
+        setPlayerRole(response.data.player_role);
         setPlayerId(userData.user_name);
         const cityNameArray = JSON.parse(userData.cities_states_names);
         const cityName = cityNameArray[0];
         setCityName(cityName);
+        setZoneName(response.data.users.zone_name);
         setLoading(false);
         setSeasonTypes(response.data.season);
         setSelectedSlotDate(response.data.formatted_date);
@@ -155,22 +159,6 @@ function GlodenPage() {
                   {loading ? (
                     <Skeleton width={800} height={100} />
                   ) : (
-                    // <>
-                    //   {/* {isTicketId === 2 ? "" : <TimeSlot />} */}
-                    //   {isTicketId === 2 &&
-                    //   slotTimeFuture === 0 &&
-                    //   slotTimePassed === 0 &&
-                    //   slotTimeFuture === 1 ? (
-                    //     <p className="goldenMsg"></p>
-                    //   ) : ((isTicketId === 0 ||
-                    //       isTicketId === 1 ||
-                    //       isTicketId === 4) &&
-                    //       isTicketId === 2) ||
-                    //     slotTimePassed === 0 &&
-                    //     (isTicketId === 2 && slotTimeFuture === 1) ? (
-                    //     <TimeSlot />
-                    //   ) : null}
-                    // </>
                     <>
                       {(() => {
                         if (
@@ -305,7 +293,9 @@ function GlodenPage() {
                           {loading ? (
                             <Skeleton width={200} />
                           ) : (
-                            `MR. ${playerName}`
+                            `MR. ${playerName} ${
+                              isTicketId === 2 ? `(${playerRole})` : ""
+                            }`
                           )}
                         </p>
                         <hr
@@ -314,9 +304,7 @@ function GlodenPage() {
                             border: "1px solid #000",
                           }}
                         />
-                        {isTicketId === 2 ||
-                        isTicketId === 5 ||
-                        isTicketId === 6 ? (
+                        {isTicketId === 5 || isTicketId === 6 ? (
                           ""
                         ) : (
                           <div className="qrCodeWrap">
@@ -336,12 +324,10 @@ function GlodenPage() {
                         <p className="ticket-info playerId">
                           {loading ? <Skeleton width={150} /> : playerId}{" "}
                           <span className="city-name-title">
-                            ({loading ? <Skeleton width={150} /> : cityName})
+                            ({loading ? <Skeleton width={150} /> : isTicketId === 2 ? `${zoneName} Zone` :cityName})
                           </span>
                         </p>
-                        {isTicketId === 2 ||
-                        isTicketId === 5 ||
-                        isTicketId === 6 ? (
+                        {isTicketId === 5 || isTicketId === 6 ? (
                           ""
                         ) : (
                           <p className="finalTextSlotTicket">

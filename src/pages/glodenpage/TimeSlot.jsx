@@ -19,6 +19,8 @@ function TimeSlot() {
   const [mobileOtp, setMobileOtp] = useState("");
   const [emailOtp, setEmailOtp] = useState("");
   const [cityId, setCityId] = useState("");
+  const [zoneName, setZoneName] = useState("");
+  const [ticketId, setticketId] = useState("");
   const [venuNameTop, setvenuNameTop] = useState("");
   const [savedTimeSlot, setSavedTimeSlot] = useState("");
   const [savedTimeSlotUser, setSavedTimeSlotUser] = useState("");
@@ -522,6 +524,8 @@ function TimeSlot() {
         setvenuNameTop(setvenuNameTopName);
         setEmail(data.users.email);
         setMobileNumber(data.users.mobile_number);
+        setZoneName(data.users.zone_name);
+        setticketId(data.users.ticket_id);
         if (is_check_disclaimer_slot === 1) {
           setCurrentSection(2);
         } else {
@@ -609,13 +613,15 @@ function TimeSlot() {
               {currentSection === 1 && (
                 <div className="contentWrap">
                   <p className="mainPara">
-                    To secure your city trials, please book your slot
-                    exclusively through the official website at{" "}
+                    To secure your{" "}
+                    {ticketId === 2 ? "zone trials" : "city trials"}, please
+                    book your slot exclusively through the official website at{" "}
                     <Link to="https://ispl-t10.com/" target="_blank">
                       www.ispl-t10.com
                     </Link>
-                    . City trial slots will open one hour before the selected
-                    time and close two hours before the trial begins.
+                    . {ticketId === 2 ? "zone trials" : "city trials"} slots
+                    will open one hour before the selected time and close two
+                    hours before the trial begins.
                   </p>
                   <p className="mainPara">
                     Booking confirmations will be sent via OTP to your
@@ -665,6 +671,7 @@ function TimeSlot() {
                     <div className="col-lg-6 col-md-12 col-12 mx-auto">
                       <div className="cityBox">
                         <h4>City : {cityId}</h4>
+                        {ticketId === 2 ? <h4>Zone : {zoneName}</h4> : ""}
                         <h4>Venue Name : {venuNameTop}</h4>
                       </div>
                       <label htmlFor="venue_id" className="form-label">
@@ -904,7 +911,11 @@ function TimeSlot() {
                   <div className="col-lg-12 col-md-12 col-12 mx-auto">
                     <h3 className="preFinalText">
                       Your time slot are booked in{" "}
-                      <strong>{savedTimeSlot?.data?.user?.cities_name}</strong>{" "}
+                      <strong>
+                        {ticketId === 2
+                          ? `${zoneName} Zone`
+                          : savedTimeSlot?.data?.user?.cities_name}
+                      </strong>{" "}
                       on <strong>{savedTimeSlot?.data?.formatted_date}</strong>.
                       The slot is scheduled from{" "}
                       <strong>
@@ -929,8 +940,13 @@ function TimeSlot() {
                   <div className="col-lg-12 col-md-12 col-12 mx-auto">
                     <h3 className="finalText">
                       You have successfully booked your trial slot in{" "}
-                      <strong>{savedTimeSlotUser.cities_name}</strong> at{" "}
-                      <strong>{savedTimeSlotUser.venue_name}</strong> on{" "}
+                      {/* <strong>{savedTimeSlotUser.cities_name}</strong>{" "} */}
+                      <strong>
+                        {ticketId === 2
+                          ? `${zoneName} Zone`
+                          : savedTimeSlotUser.cities_name}
+                      </strong>{" "}
+                      at <strong>{venuNameTop}</strong> on{" "}
                       <strong>{isUserDataOuter.formatted_date}</strong>. The
                       trial is scheduled to take place from{" "}
                       <strong>{isUserDataOuter.formatted_start_time}</strong> to{" "}
